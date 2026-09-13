@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>장애이해교육 교직원 연수 자료 (2026 개정)</title>
+<style>
+  :root {
+    --ink: #1a1a2e; --accent: #1a56db; --soft: #f3f6fb; --line: #d8dee8;
+    --warn-bg: #fff8e6; --warn-line: #e6c34a; --note-bg: #fffbe0; --note-line: #e8d24a;
+    --red: #c0392b; --green: #1e8449;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0 auto; padding: 24px 20px 96px; max-width: 720px; color: var(--ink);
+    font-family: "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif; line-height: 1.7; background: #fff; }
+  h1 { font-size: 1.7em; margin: 0 0 8px; }
+  h2 { font-size: 1.3em; margin: 48px 0 12px; padding-top: 8px; border-top: 2px solid var(--line); }
+  h3 { font-size: 1.1em; margin: 28px 0 8px; color: #10306e; }
+  h4 { font-size: 1em; margin: 20px 0 6px; }
+  a { color: var(--accent); }
+  code { background: #eef1f6; padding: 1px 5px; border-radius: 4px; font-size: .92em; }
+  .subtitle { color: #667; margin: 0 0 24px; }
+  nav#toc { background: var(--soft); border: 1px solid var(--line); border-radius: 10px; padding: 16px 20px; margin: 24px 0 40px; }
+  nav#toc strong { display: block; margin-bottom: 8px; }
+  nav#toc ol { margin: 0; padding-left: 22px; }
+  nav#toc ol ol { padding-left: 18px; font-size: .93em; }
+  nav#toc li { margin: 4px 0; }
+  nav#toc a { text-decoration: none; }
+  nav#toc a:hover { text-decoration: underline; }
+  .fab-wrap { position: fixed; right: 16px; bottom: 16px; display: flex; flex-direction: column; gap: 8px; z-index: 100; }
+  .fab { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%;
+    background: var(--accent); color: #fff; font-size: 20px; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,.25); }
+  .to-toc { display: block; text-align: right; font-size: .9em; margin: 16px 0 0; }
+  figure { margin: 20px 0; }
+  figcaption { font-size: .88em; color: #667; margin-top: 6px; text-align: center; }
+  .table-wrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+  th, td { border: 1px solid var(--line); padding: 8px 12px; text-align: left; vertical-align: top; }
+  th { background: var(--soft); }
+  table.kv th { width: 30%; white-space: nowrap; }
+  table.kv td ul { margin: 0; padding-left: 18px; }
+  .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 20px 0; }
+  .flow .step { background: var(--soft); border: 1.5px solid var(--accent); border-radius: 8px; padding: 8px 14px; font-size: .95em; }
+  .flow .step.now { background: var(--accent); color: #fff; }
+  .flow .arrow { color: var(--accent); font-weight: bold; }
+  a.term { color: var(--accent); text-decoration: none; border-bottom: 2px dotted var(--accent); position: relative; cursor: help; }
+  a.term:hover::after { content: attr(data-tip); position: absolute; left: 50%; bottom: 130%; transform: translateX(-50%);
+    background: var(--ink); color: #fff; font-size: .85em; line-height: 1.4; padding: 6px 10px; border-radius: 6px;
+    white-space: normal; width: max-content; max-width: 240px; z-index: 50; pointer-events: none; }
+  dl.glossary dt { font-weight: bold; margin-top: 16px; }
+  dl.glossary dd { margin: 4px 0 0 0; padding-left: 12px; border-left: 3px solid var(--line); }
+  #confirm { background: var(--warn-bg); border: 1.5px solid var(--warn-line); border-radius: 10px; padding: 4px 20px 16px; }
+  #confirm pre { background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 14px; overflow-x: auto; font-size: .9em; line-height: 1.5; }
+  details.sup { background: #fff3a6; border-left: 4px solid #e0b800; border-radius: 6px; padding: 8px 14px; margin: 12px 0 18px; }
+  details.sup summary { cursor: pointer; list-style: none; line-height: 1.6; }
+  details.sup summary::-webkit-details-marker { display: none; }
+  details.sup summary::after { content: "▸ 더 보기"; color: #7a6200; font-size: .85em; margin-left: 8px; white-space: nowrap; }
+  details.sup[open] summary::after { content: "▾ 접기"; }
+  details.sup .sup-q { font-size: .85em; color: #7a6200; margin: 8px 0 4px; }
+  details.sup .sup-body { border-top: 1px dashed #e0b800; margin-top: 6px; padding-top: 6px; }
+  blockquote { margin: 16px 0; padding: 10px 16px; background: var(--soft); border-left: 4px solid var(--accent); border-radius: 0 8px 8px 0; }
+  blockquote .who { display: block; font-size: .85em; color: #667; margin-top: 4px; }
+  .pri { display: inline-block; font-size: .8em; padding: 0 8px; border-radius: 10px; background: var(--accent); color: #fff; margin-left: 6px; vertical-align: middle; }
+  .pri.p1 { background: var(--red); }
+  .note { background: var(--note-bg); border: 1.5px solid var(--note-line); border-radius: 8px; padding: 10px 14px; margin: 14px 0; }
+  .note strong:first-child { display: block; margin-bottom: 4px; }
+  .frame { border: 1.5px solid var(--line); border-radius: 10px; padding: 12px 16px; margin: 14px 0; }
+  .frame h3 { margin-top: 4px; }
+  .frame h4 { margin-top: 8px; }
+  .frame h4:first-child { margin-top: 0; }
+  .frame table { margin: 10px 0; }
+  .label { font-size: .8em; color: #fff; background: #556; padding: 1px 8px; border-radius: 10px; white-space: nowrap; }
+  .boxes { display: flex; flex-wrap: wrap; gap: 12px; margin: 20px 0; }
+  .box { flex: 1 1 200px; border: 1.5px solid var(--accent); border-radius: 10px; padding: 12px 16px; background: var(--soft); }
+  .box h4 { margin: 0 0 8px; font-size: 1em; }
+  .box ul { margin: 0; padding-left: 18px; font-size: .95em; }
+  .box.bad { border-color: var(--red); background: #fdf3f2; }
+  .box.good { border-color: var(--green); background: #f0faf3; }
+  ul.check { list-style: none; padding-left: 0; }
+  ul.check li { padding-left: 28px; position: relative; margin: 6px 0; }
+  ul.check li::before { content: "☐"; position: absolute; left: 4px; color: var(--accent); }
+  .types { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 10px; }
+  .types a { font-size: .88em; background: var(--soft); border: 1px solid var(--line); border-radius: 12px; padding: 1px 10px; text-decoration: none; }
+  .abc th { text-align: center; }
+  .abc th.a { background: #e8f0fe; } .abc th.b { background: #fdecea; } .abc th.c { background: #eaf7ee; }
+  .func { font-size: .95em; margin: 6px 0; }
+  /* 연습 양식 */
+  .sheet { border: 2px solid var(--ink); border-radius: 6px; padding: 12px 14px; margin: 18px 0; }
+  .sheet .line { border-bottom: 1px solid #999; height: 30px; margin: 6px 0; }
+  .sheet table td { height: 110px; }
+  .sheet .tick { margin: 6px 0; }
+  .sheet .tick span { margin-right: 14px; white-space: nowrap; }
+  @media print {
+    .fab-wrap { display: none; }
+    body { padding-bottom: 24px; max-width: none; }
+    a { color: #1a3a8a; }
+    figure, table, .flow, .boxes, #confirm pre, blockquote, .frame, .note, .sheet { break-inside: avoid; }
+    h2 { break-after: avoid; }
+    .sheet { break-before: page; }
+    .sheet.first { break-before: auto; }
+    a.term:hover::after { display: none; }
+    details.sup summary::after { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<h1 id="top">장애이해교육 교직원 연수 자료 (2026 개정)</h1>
+<p class="subtitle">2022년 자료(장애 유형표 · 문제행동 원칙 · ABC 정리)를 <em>특수아동교육 4판</em>과 <em>도전행동</em> 관점으로 고쳐 쓴 판. 영상은 공감과 도입을 맡고, 이 문서는 찾아보기와 연습을 맡는다. (작성일 2026-09-09)</p>
+
+<nav id="toc">
+  <strong>차례</strong>
+  <ol>
+    <li><a href="#ch0">0. 큰 그림 한 장 — 이 문서를 쓰는 법</a></li>
+    <li><a href="#ch1">1. 자주 묻는 상황 — 상황으로 들어가기</a>
+      <ol>
+        <li><a href="#s1">S1 교실을 나간다</a> · <a href="#s2">S2 소리를 지른다</a> · <a href="#s3">S3 과제를 거부한다</a></li>
+        <li><a href="#s4">S4 자리에서 일어나 돌아다닌다</a> · <a href="#s5">S5 친구를 밀거나 물건을 던진다</a></li>
+        <li><a href="#s6">S6 말이 없고 위축돼 있다</a> · <a href="#s7">S7 같은 말을 되풀이한다</a> · <a href="#s8">S8 소리·촉감에 예민하다</a></li>
+        <li><a href="#s9">S9 지시를 못 알아듣는다</a> · <a href="#s10">S10 몸이 불편해 활동에서 빠진다</a></li>
+      </ol></li>
+    <li><a href="#ch2">2. 장애 유형별 표 — 유형으로 들어가기</a>
+      <ol>
+        <li><a href="#t0">2.0 한눈에 보기</a></li>
+        <li><a href="#t1">지적장애</a> · <a href="#t2">시각장애</a> · <a href="#t3">청각장애</a> · <a href="#t4">지체장애</a> · <a href="#t5">학습장애</a></li>
+        <li><a href="#t6">정서·행동장애</a> · <a href="#t7">의사소통장애</a> · <a href="#t8">자폐성장애</a> · <a href="#t9">건강장애</a> · <a href="#t10">발달지체</a> · <a href="#t11">중복장애</a></li>
+      </ol></li>
+    <li><a href="#ch3">3. 도전행동을 보는 눈 — 원칙</a></li>
+    <li><a href="#ch4">4. ABC 한 장 정리 — 선행사건·행동·결과·기능</a></li>
+    <li><a href="#ch5">5. ABC 연습 양식 (인쇄용)</a></li>
+    <li><a href="#ch6">6. 2022 → 2026 무엇이 바뀌었나</a></li>
+    <li><a href="#confirm">확인 완료 (2026-09-09)</a></li>
+    <li><a href="#glossary">용어집</a></li>
+  </ol>
+</nav>
+
+<!-- ===================== 0 ===================== -->
+<h2 id="ch0">0. 큰 그림 한 장 — 이 문서를 쓰는 법</h2>
+<p>연수는 두 조각이다. <strong>영상</strong>(17분, 스케치형)은 "왜 함께 배우는가"를 마음으로 느끼게 하는 도입이고,
+<strong>이 문서</strong>는 교실에서 막혔을 때 펼쳐 보는 참고서이자 연습장이다. 문서에는 입구가 둘 있다.</p>
+
+<figure>
+  <svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:inherit">
+    <rect x="10" y="10" width="660" height="60" rx="10" fill="#f3f6fb" stroke="#1a56db" stroke-width="1.5"/>
+    <text x="340" y="36" text-anchor="middle" font-size="15" font-weight="bold" fill="#10306e">영상 = 공감 · 도입</text>
+    <text x="340" y="58" text-anchor="middle" font-size="12" fill="#556">"저 아이도 우리 반이다" — 마음이 먼저</text>
+    <path d="M340 70 L340 100" stroke="#1a56db" stroke-width="2" marker-end="url(#ar)"/>
+    <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#1a56db"/></marker></defs>
+    <rect x="10" y="100" width="660" height="190" rx="10" fill="#fff" stroke="#1a56db" stroke-width="1.5"/>
+    <text x="340" y="125" text-anchor="middle" font-size="15" font-weight="bold" fill="#10306e">문서 = 레퍼런스 · 연습</text>
+    <rect x="30" y="140" width="290" height="60" rx="8" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+    <text x="175" y="164" text-anchor="middle" font-size="13" font-weight="bold" fill="#c0392b">입구 1 · 상황으로 (1장)</text>
+    <text x="175" y="185" text-anchor="middle" font-size="11.5" fill="#556">"교실을 나가요" → ABC 예 + 관련 유형</text>
+    <rect x="360" y="140" width="290" height="60" rx="8" fill="#e8f0fe" stroke="#1a56db" stroke-width="1.5"/>
+    <text x="505" y="164" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a56db">입구 2 · 유형으로 (2장)</text>
+    <text x="505" y="185" text-anchor="middle" font-size="11.5" fill="#556">"자폐성장애 학생이 왔어요" → 특성·지침</text>
+    <path d="M175 200 L175 225 M505 200 L505 225" stroke="#556" stroke-width="1.5" marker-end="url(#ar2)"/>
+    <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#556"/></marker></defs>
+    <rect x="30" y="232" width="620" height="44" rx="8" fill="#eaf7ee" stroke="#1e8449" stroke-width="1.5"/>
+    <text x="340" y="259" text-anchor="middle" font-size="13" fill="#1e8449" font-weight="bold">공통 바탕: 원칙(3장) → ABC(4장) → 연습 양식(5장)</text>
+  </svg>
+  <figcaption>그림 1. 영상과 문서의 역할, 문서의 두 입구</figcaption>
+</figure>
+
+<div class="note"><strong>2022년 자료와 다른 점 세 가지</strong>
+① 참고 도서를 <em>특수아동교육 4판</em>(이소현·박은혜)에 맞추고 쪽수 표시는 없앴다.
+② "문제행동" 대신 <a class="term" href="#g-challenging" data-tip="행동을 아이 안의 결함이 아니라, 환경과 기술에 던져진 과제로 보는 말">도전행동</a>이라는 말을 쓰고, 행동의 <a class="term" href="#g-function" data-tip="그 행동으로 아이가 얻는 것: 관심·회피·획득·감각">기능</a>을 먼저 묻는다.
+③ 유형표에 더해 "상황으로 들어가는 입구"(<a href="#ch1">1장</a>)와 인쇄용 연습 양식(<a href="#ch5">5장</a>)을 넣었다. 전체 변경 목록은 <a href="#ch6">6장</a>.</div>
+
+<div class="note"><strong>사례에 대하여</strong> 이 문서의 상황과 ABC 예는 모두 <strong>가공된 예시</strong>다. 실제 학생·학급·학교를 가리키지 않는다. 연습 양식에 실제 학생을 적을 때는 이름 대신 이니셜을 쓰고, 문서를 공유할 때는 그 부분을 제외한다.</div>
+
+<a class="to-toc" href="#toc">↑ 차례로</a>
+
+<!-- ===================== 1 ===================== -->
+<h2 id="ch1">1. 자주 묻는 상황 — 상황으로 들어가기 <span class="pri p1">우선순위 1</span></h2>
+<p>담임·교과 선생님이 실제로 묻는 말로 입구를 만들었다. 각 상황마다 <strong>먼저 볼 유형</strong> → <strong>ABC 예</strong>(가공) → <strong>짐작되는 기능</strong> → <strong>할 일</strong>(선행사건 · 행동 · 결과 세 갈래) 순서로 같은 틀을 반복한다. ABC가 처음이면 <a href="#ch4">4장</a>을 먼저 읽어도 좋다.</p>
+
+<figure>
+  <div class="flow">
+    <span class="step">상황을 고른다</span><span class="arrow">→</span>
+    <span class="step">ABC로 적어 본다</span><span class="arrow">→</span>
+    <span class="step now">기능을 짐작한다</span><span class="arrow">→</span>
+    <span class="step">A(앞)·C(뒤)를 바꾼다</span><span class="arrow">→</span>
+    <span class="step">대체행동을 가르친다</span>
+  </div>
+  <figcaption>그림 2. 모든 상황에 공통인 다섯 걸음</figcaption>
+</figure>
+
+<div class="frame" id="s1">
+<h3>S1 "수업 중에 교실을 나가요"</h3>
+<div class="types">먼저 볼 유형: <a href="#t8">자폐성장애</a> <a href="#t6">정서·행동장애</a> <a href="#t1">지적장애</a></div>
+<div class="table-wrap"><table class="abc"><thead><tr><th class="a">A 선행사건</th><th class="b">B 행동</th><th class="c">C 결과</th></tr></thead>
+<tbody><tr><td>국어 시간, 받아쓰기 시작 신호</td><td>문을 열고 복도로 나간다</td><td>교사가 따라 나가 데려온다. 받아쓰기는 하지 않게 된다</td></tr></tbody></table></div>
+<p class="func"><strong>짐작되는 기능:</strong> 어려운 과제 <em>회피</em> + 교사의 관심. 나가면 두 가지를 다 얻는다.</p>
+<ul>
+  <li><span class="label">A</span> 받아쓰기를 예고하고(일과표), 분량을 절반으로 줄이거나 "3개만" 같은 <a class="term" href="#g-highlow" data-tip="아이가 잘 따를 만한 작은 요구를 먼저 해서 성공을 쌓는 것">높은 반응요구</a>부터 시작한다. 선택권을 준다(연필/색연필, 순서).</li>
+  <li><span class="label">B</span> 나가는 대신 쓸 <a class="term" href="#g-replacement" data-tip="같은 기능을 채우되 해가 없는 행동. 도전행동을 대신하도록 가르친다">대체행동</a>을 가르친다: "쉬고 싶어요" 카드를 내면 교실 뒤 쉼 자리에서 2분.</li>
+  <li><span class="label">C</span> 나가도 과제가 사라지지 않게 한다(돌아오면 줄인 분량이라도 한다). 자리에 남아 있는 짧은 시간을 바로 <a class="term" href="#g-reinforce" data-tip="행동 뒤에 좋은 것을 주어 그 행동이 다시 일어날 확률을 높이는 것">강화</a>한다.</li>
+  <li><strong>안전:</strong> 나간 학생을 누가 어떻게 따라가는지 학년·특수학급과 미리 정해 둔다. 뒤쫓기가 관심 강화가 되지 않게 말을 줄이고 조용히 데려온다.</li>
+</ul>
+</div>
+
+<div class="frame" id="s2">
+<h3>S2 "갑자기 소리를 질러요 / 목소리가 너무 커요"</h3>
+<div class="types">먼저 볼 유형: <a href="#t8">자폐성장애</a> <a href="#t7">의사소통장애</a> <a href="#t3">청각장애</a> <a href="#t1">지적장애</a></div>
+<div class="table-wrap"><table class="abc"><thead><tr><th class="a">A 선행사건</th><th class="b">B 행동</th><th class="c">C 결과</th></tr></thead>
+<tbody><tr><td>급식실, 식판 소리와 웅성거림</td><td>귀를 막고 "아—" 하고 소리 지른다</td><td>보조 선생님이 데리고 복도로 나간다</td></tr></tbody></table></div>
+<p class="func"><strong>짐작되는 기능:</strong> 감각 자극 <em>회피</em>(소음). 소리를 질러야 조용한 곳으로 갈 수 있다는 것을 배웠다.</p>
+<ul>
+  <li><span class="label">A</span> 소음이 적은 시간에 먼저 들어가거나 구석 자리, 귀마개·헤드셋. 큰 소리가 날 활동은 미리 알린다.</li>
+  <li><span class="label">B</span> 지르기 전에 쓸 대체행동: "시끄러워요" 그림카드, 손을 드는 신호. 청각장애 학생이 목소리가 큰 것은 자기 목소리가 안 들려서다. 혼낼 일이 아니라 크기를 눈으로 보여 주는 일(목소리 자 그림)이다.</li>
+  <li><span class="label">C</span> 카드를 내면 즉시 나가게 해 준다(대체행동이 더 빨리 통해야 한다). 소리를 지른 뒤에도 나가게 되면 지르기가 계속 강화된다.</li>
+</ul>
+</div>
+
+<div class="frame" id="s3">
+<h3>S3 "과제를 안 해요, 책을 덮고 엎드려요"</h3>
+<div class="types">먼저 볼 유형: <a href="#t5">학습장애</a> <a href="#t1">지적장애</a> <a href="#t6">정서·행동장애</a> <a href="#t9">건강장애</a></div>
+<div class="table-wrap"><table class="abc"><thead><tr><th class="a">A 선행사건</th><th class="b">B 행동</th><th class="c">C 결과</th></tr></thead>
+<tbody><tr><td>"수학 익힘책 세 쪽 다 풀어라"</td><td>책을 덮고 엎드린다</td><td>교사가 재촉하고 꾸짖는다. 결국 풀지 않고 시간이 끝난다</td></tr></tbody></table></div>
+<p class="func"><strong>짐작되는 기능:</strong> 실패가 예상되는 과제 <em>회피</em>. 오래 실패한 아이는 <a class="term" href="#g-helpless" data-tip="해 봐야 안 된다는 경험이 쌓여 시도 자체를 포기하는 상태">학습된 무기력</a>에 있을 수 있다.</p>
+<ul>
+  <li><span class="label">A</span> <a class="term" href="#g-task-analysis" data-tip="큰 과제를 아이가 할 수 있는 작은 단계로 쪼개는 것">과제분석</a>: 세 쪽이 아니라 "이 줄 두 문제". 읽기가 문제면 문제를 읽어 준다(수학 능력과 읽기 능력은 다르다). 아이 수준에 맞는 문제로 바꾼다.</li>
+  <li><span class="label">B</span> 목표를 "다 푼다"가 아니라 "연필을 들고 첫 문제를 시작한다"로 잡는다(<a class="term" href="#g-shaping" data-tip="목표 행동에 조금씩 가까워지는 행동을 차례로 강화해 만들어 가는 것">행동 형성</a>).</li>
+  <li><span class="label">C</span> 시작한 순간, 한 문제 푼 순간에 강화한다. 결과가 아니라 과정을 칭찬한다. 엎드려 있어도 과제가 없어지지 않게 하되, 강요보다는 줄인 과제로 다시 시작한다.</li>
+</ul>
+</div>
+
+<div class="frame" id="s4">
+<h3>S4 "자리에서 일어나 돌아다녀요"</h3>
+<div class="types">먼저 볼 유형: <a href="#t6">정서·행동장애 (ADHD)</a> <a href="#t8">자폐성장애</a> <a href="#t1">지적장애</a></div>
+<div class="table-wrap"><table class="abc"><thead><tr><th class="a">A 선행사건</th><th class="b">B 행동</th><th class="c">C 결과</th></tr></thead>
+<tbody><tr><td>설명이 20분째 이어짐</td><td>일어나 창가로 걸어간다</td><td>친구들이 웃고, 교사가 이름을 부른다</td></tr></tbody></table></div>
+<p class="func"><strong>짐작되는 기능:</strong> 움직임(<em>감각</em>) 요구 + 또래·교사 <em>관심</em>. <a class="term" href="#g-setting" data-tip="행동 바로 앞의 신호가 아니라, 그 행동이 일어나기 쉽게 만드는 배경 조건(피로·긴 설명·소음 등)">배경사건</a>은 긴 설명이다.</p>
+<ul>
+  <li><span class="label">A</span> 설명을 10분 단위로 끊고 움직이는 활동을 끼운다. 프린트 나눠 주기, 칠판 지우기 같은 "일어나도 되는 역할"을 준다. 앉아서 만질 수 있는 도구(고무 밴드)를 허용한다.</li>
+  <li><span class="label">B</span> "일어나고 싶으면 손을 들고 뒤에서 1분 서 있기"를 가르친다.</li>
+  <li><span class="label">C</span> 앉아 있는 짧은 시간(처음엔 3분)을 강화한다. 돌아다닐 때는 관심을 최소로(이름 부르기 대신 어깨를 가볍게 두드려 자리 가리키기).</li>
+</ul>
+</div>
+
+<div class="frame" id="s5">
+<h3>S5 "친구를 밀거나 물건을 던져요"</h3>
+<div class="types">먼저 볼 유형: <a href="#t6">정서·행동장애</a> <a href="#t8">자폐성장애</a> <a href="#t7">의사소통장애</a> <a href="#t1">지적장애</a></div>
+<div class="table-wrap"><table class="abc"><thead><tr><th class="a">A 선행사건</th><th class="b">B 행동</th><th class="c">C 결과</th></tr></thead>
+<tbody><tr><td>친구가 쓰던 블록을 가져감</td><td>친구를 민다</td><td>친구가 블록을 돌려준다</td></tr></tbody></table></div>
+<p class="func"><strong>짐작되는 기능:</strong> 물건 <em>획득</em>. "빌려줘"라는 말이 없거나 통하지 않아 미는 것이 가장 빠른 말이 되었다.</p>
+<ul>
+  <li><span class="label">A</span> 개인 블록 상자, 순서표, 빌리는 규칙을 눈에 보이게. 갈등이 잦은 짝은 자리를 조정한다.</li>
+  <li><span class="label">B</span> "빌려줘" 말이나 카드, 교사 부르기를 가르치고 연습한다(예행연습). 말이 어려운 학생은 <a class="term" href="#g-aac" data-tip="말 대신 또는 말과 함께 쓰는 그림·기기·몸짓 등의 의사소통 방법">AAC</a>를 쓴다.</li>
+  <li><span class="label">C</span> 밀어서는 블록을 얻지 못하게 하고, 카드로 말하면 곧바로 얻게 한다. 다치는 일은 먼저 분리하고 나중에 가르친다. <strong>안전 절차</strong>(누가 어느 학생을 맡나)를 학급과 특수학급이 정해 둔다.</li>
+</ul>
+</div>
+
+<div class="frame" id="s6">
+<h3>S6 "말이 없고 늘 위축돼 있어요"</h3>
+<div class="types">먼저 볼 유형: <a href="#t6">정서·행동장애 (불안·우울)</a> <a href="#t7">의사소통장애</a> <a href="#t3">청각장애</a></div>
+<div class="table-wrap"><table class="abc"><thead><tr><th class="a">A 선행사건</th><th class="b">B 행동</th><th class="c">C 결과</th></tr></thead>
+<tbody><tr><td>발표 순서에 이름이 불림</td><td>고개를 숙이고 아무 말 없이 있음</td><td>교사가 "다음에 하자" 하고 넘어감</td></tr></tbody></table></div>
+<p class="func"><strong>짐작되는 기능:</strong> 불안 <em>회피</em>. 침묵이 통하면 다음번엔 더 굳는다. 카즈딘이 말한 <a class="term" href="#g-covert" data-tip="밖으로 드러나는 행동(공격·소리)이 아니라 안으로 향하는 행동(우울·위축·소심)">내현적 행동</a>이라 눈에 띄지 않아 가장 놓치기 쉽다.</p>
+<ul>
+  <li><span class="label">A</span> 발표 방식을 여러 가지로: 고개 끄덕이기, 카드 고르기, 짝에게만 말하기, 미리 써 오기. 전체 앞 발표는 마지막 단계다.</li>
+  <li><span class="label">B</span> 아주 작은 참여(카드 들기)부터 목표로 잡는다. 강요하지 않는다.</li>
+  <li><span class="label">C</span> 작은 참여를 조용히 강화한다(공개 칭찬은 오히려 불안). 위축이 오래가고 잠·식사·등교에도 변화가 있으면 상담·특수학급과 연결한다.</li>
+</ul>
+</div>
+
+<div class="frame" id="s7">
+<h3>S7 "물으면 같은 말을 되풀이해요"</h3>
+<div class="types">먼저 볼 유형: <a href="#t8">자폐성장애</a> <a href="#t7">의사소통장애</a></div>
+<div class="table-wrap"><table class="abc"><thead><tr><th class="a">A 선행사건</th><th class="b">B 행동</th><th class="c">C 결과</th></tr></thead>
+<tbody><tr><td>"이름이 뭐니?"</td><td>"이름이 뭐니?"라고 따라 말함</td><td>교사가 당황해 다시 묻고, 대화가 끊김</td></tr></tbody></table></div>
+<p class="func"><strong>짐작되는 기능:</strong> <a class="term" href="#g-echolalia" data-tip="들은 말을 그대로 되풀이하는 것. 아무 뜻 없는 게 아니라 대답·요청·확인의 기능이 있는 경우가 많다">반향어</a>는 대개 <em>의사소통 시도</em>다. 답하는 법을 몰라 들은 말을 그대로 돌려준 것이다.</p>
+<ul>
+  <li><span class="label">A</span> 답이 들어 있는 질문으로 바꾼다: "이름은 ○○" 하고 답을 먼저 들려준 뒤 "이름은?" 처럼 짧게 묻는다. 그림·글자 같은 시각 지원을 함께 쓴다.</li>
+  <li><span class="label">B</span> 따라 말하기를 막지 않는다. 따라 말한 뒤에 답 모델("이름은 ○○이에요")을 붙여 주고 그 말을 따라 하게 한다.</li>
+  <li><span class="label">C</span> 답에 가까운 말이 나오면 곧바로 반응해 준다. 반향어 자체를 교정하려 들면 말하기 자체가 줄어든다.</li>
+</ul>
+</div>
+
+<div class="frame" id="s8">
+<h3>S8 "소리·촉감에 유난히 예민해요"</h3>
+<div class="types">먼저 볼 유형: <a href="#t8">자폐성장애</a> <a href="#t6">정서·행동장애</a></div>
+<div class="table-wrap"><table class="abc"><thead><tr><th class="a">A 선행사건</th><th class="b">B 행동</th><th class="c">C 결과</th></tr></thead>
+<tbody><tr><td>체육관 호루라기 소리</td><td>귀를 막고 주저앉음</td><td>그날 활동에서 빠짐</td></tr></tbody></table></div>
+<p class="func"><strong>짐작되는 기능:</strong> 감각 <em>회피</em>. 자폐성장애 진단 기준에는 감각 반응의 특이성이 들어 있다(<a href="#t8">2장 자폐성장애</a>). 예민함은 "버릇"이 아니다.</p>
+<ul>
+  <li><span class="label">A</span> 예고("호루라기 세 번 불 거야"), 귀마개, 호루라기 대신 손 신호. 옷 라벨·풀·모래 같은 촉감도 미리 살핀다.</li>
+  <li><span class="label">B</span> "잠깐 나갔다 올게요" 신호를 가르친다.</li>
+  <li><span class="label">C</span> 활동에서 통째로 빼지 않는다. 부분 참여(심판 보조, 점수 기록)라도 하게 한다. <a href="#t9">건강장애</a> 지침 "교육 활동에서 제외하지 말기"와 같은 원칙이다.</li>
+</ul>
+</div>
+
+<div class="frame" id="s9">
+<h3>S9 "지시를 못 알아듣고 멍하니 있어요"</h3>
+<div class="types">먼저 볼 유형: <a href="#t1">지적장애</a> <a href="#t3">청각장애</a> <a href="#t7">의사소통장애</a> <a href="#t5">학습장애</a> <a href="#t10">발달지체</a></div>
+<div class="table-wrap"><table class="abc"><thead><tr><th class="a">A 선행사건</th><th class="b">B 행동</th><th class="c">C 결과</th></tr></thead>
+<tbody><tr><td>"책 펴고, 12쪽 문제 풀고, 다 하면 앞에 내라" 한 번에 세 가지</td><td>아무것도 하지 않고 앉아 있음</td><td>"왜 안 하니" 꾸중</td></tr></tbody></table></div>
+<p class="func"><strong>짐작되는 기능:</strong> 기능 문제가 아니라 <em>기술·이해의 문제</em>일 가능성이 크다. 못 알아들은 것을 안 하는 것으로 오해하기 쉽다.</p>
+<ul>
+  <li><span class="label">A</span> 한 번에 하나씩, 짧게. 말과 함께 칠판에 순서를 쓰거나 그림으로 붙인다. 앞자리, 얼굴이 보이는 자리. "무엇을 하는 거지?" 하고 확인 질문을 한다.</li>
+  <li><span class="label">B</span> 못 알아들었을 때 쓸 신호("다시요" 카드)를 가르친다.</li>
+  <li><span class="label">C</span> 꾸중 대신 다시 알려 준다. 반복되면 청력 검사(들리는지)와 언어 이해 평가를 특수학급과 상의한다. 지적장애 학생은 <a class="term" href="#g-generalization" data-tip="배운 것을 다른 장소·사람·상황에서도 쓰는 것. 지적장애 학생에게 특히 어렵다">일반화</a>가 어려워 "저번에 했잖아"가 통하지 않는다.</li>
+</ul>
+</div>
+
+<div class="frame" id="s10">
+<h3>S10 "몸이 불편해서 활동에 잘 못 끼어요"</h3>
+<div class="types">먼저 볼 유형: <a href="#t4">지체장애</a> <a href="#t9">건강장애</a> <a href="#t2">시각장애</a></div>
+<p>여기는 행동의 문제가 아니라 <strong>환경의 문제</strong>다. ABC 대신 "무엇을 바꾸면 참여할 수 있나"를 묻는다.</p>
+<div class="boxes">
+  <div class="box bad"><h4>흔한 대응</h4><ul><li>"위험하니까 오늘은 쉬어라"</li><li>보조 인력이 대신 다 해 준다</li><li>친구들이 도와주는 역할만 맡는다</li></ul></div>
+  <div class="box good"><h4>바꾸면</h4><ul><li>규칙을 바꿔 같은 활동을 한다(공을 굴려서, 앉아서)</li><li>스스로 할 수 있는 부분은 시간이 걸려도 스스로</li><li>보조기구·자세·동선을 먼저 손본다</li></ul></div>
+</div>
+<ul>
+  <li>지체장애: 책상 높이·의자·학습 자세, 이동 동선과 화장실, 필기 대신 컴퓨터, <a href="#g-aac">AAC</a>.</li>
+  <li>건강장애: 결석·치료로 빠진 학습은 병원학교·원격수업으로 잇고, 돌아왔을 때 "못 따라온다"는 무기력이 생기지 않게 한다.</li>
+  <li>시각장애: 말로 설명(칠판을 읽어 주기), 확대 자료, 촉각 자료, 자리와 조명.</li>
+</ul>
+</div>
+
+<a class="to-toc" href="#toc">↑ 차례로</a>
+
+<!-- ===================== 2 ===================== -->
+<h2 id="ch2">2. 장애 유형별 표 — 유형으로 들어가기 <span class="pri">우선순위 2</span></h2>
+<p><em>장애인 등에 대한 특수교육법</em>의 유형(10가지 + 중복장애)을 축으로 하고, 유형마다 같은 틀(법 이름 → 흔한 진단 → 어려움 → 판별 기준 → 통합교육 지침 → 관련 상황)을 반복한다. 4판 참고는 그 유형의 장(章) 제목만 적는다. 판이 바뀌어도 장 제목은 남기 때문이다.</p>
+
+<h3 id="t0">2.0 한눈에 보기</h3>
+<div class="table-wrap">
+<table id="tbl-overview">
+<thead><tr><th>유형</th><th>핵심 어려움</th><th>교실에서 첫 번째로 할 일</th></tr></thead>
+<tbody>
+<tr><td><a href="#t1">지적장애</a></td><td>기억·일반화·적응행동</td><td>생활연령에 맞게, 기능적으로, 반복해서</td></tr>
+<tr><td><a href="#t2">시각장애</a></td><td>개념 형성·이동</td><td>말로 설명, 자리·조명, 확대 자료</td></tr>
+<tr><td><a href="#t3">청각장애</a></td><td>말·언어 발달</td><td>얼굴이 보이는 자리, 시각 자료, 보조기기 점검</td></tr>
+<tr><td><a href="#t4">지체장애</a></td><td>자세·이동·손 사용</td><td>자세와 동선 먼저, 참여 방법 수정</td></tr>
+<tr><td><a href="#t5">학습장애</a></td><td>읽기·쓰기·수학 특정 영역</td><td>직접 교수, 학습 전략, 작은 단계</td></tr>
+<tr><td><a href="#t6">정서·행동장애</a></td><td>외현·내현 행동, 관계</td><td>행동의 기능 파악, 사회성 기술 교수</td></tr>
+<tr><td><a href="#t7">의사소통장애</a></td><td>말·언어 표현과 이해</td><td>끝까지 듣기, 좋은 모델, AAC</td></tr>
+<tr><td><a href="#t8">자폐성장애</a></td><td>사회적 소통·반복·감각</td><td>구조화·예고·시각 지원</td></tr>
+<tr><td><a href="#t9">건강장애</a></td><td>결석·체력·무기력</td><td>제외하지 않기, 학습 공백 잇기</td></tr>
+<tr><td><a href="#t10">발달지체</a></td><td>9세 미만 전반적 지연</td><td>조기 개입, 표찰 대신 지원</td></tr>
+<tr><td><a href="#t11">중복장애</a></td><td>둘 이상 유형이 겹침</td><td>주된 어려움부터, 유형별 지침을 합쳐서</td></tr>
+</tbody></table>
+</div>
+<p><a href="#tbl-overview">위 표</a>는 첫 만남용이다. 자세한 내용은 아래 유형별 카드로.</p>
+
+<h3 id="t1">2.1 지적장애</h3>
+<table class="kv">
+<tr><th>법 이름</th><td>특수교육법: 지적장애 · 복지법: 지적장애 · <a class="term" href="#g-dsm" data-tip="미국정신의학회 진단 편람 5판 개정판(2022). 정신·발달 장애 진단 기준의 국제 기준">DSM-5-TR</a>: 지적발달장애</td></tr>
+<tr><th>흔한 진단</th><td>다운증후군, 페닐케톤뇨증(PKU) 등 유전·대사, 출생 전후 뇌손상, 환경 요인(원인 불명이 가장 많다)</td></tr>
+<tr><th>어려움</th><td><ul><li>단기기억, 배운 것의 <a href="#g-generalization">일반화</a></li><li>조음(발음), 사회적 기술, 운동기능</li><li>실패 경험이 쌓이면 시도 자체를 피함</li></ul></td></tr>
+<tr><th>판별 기준</th><td>① 지능 평균보다 <a class="term" href="#g-sd" data-tip="평균에서 얼마나 떨어져 있는지 재는 단위. -2SD는 하위 약 2%">2 표준편차</a> 이하(대략 70 이하) ② 적응행동도 -2SD 이하 ③ 발달기 동안 나타남 (3판의 "18세 이전"과 같은 뜻)</td></tr>
+<tr><th>통합교육 지침</th><td><ul><li>생활연령에 맞는 교육 — 5학년이면 5학년답게 대한다. 어리게 대하지 않는다</li><li>학습준비기술(주의집중, 자조)과 <a class="term" href="#g-functional" data-tip="일상에서 바로 쓰는 읽기·셈하기(간판·시계·돈)">기능적 학업기술</a></li><li><a class="term" href="#g-community" data-tip="실제 지역사회 장소(마트·버스)에서 직접 가르치는 방법">지역사회 중심교수</a>, 또래와의 상호작용 기회</li><li>한 번에 하나, 여러 장면에서 반복</li></ul></td></tr>
+<tr><th>4판 참고</th><td>「지적장애」 장</td></tr>
+<tr><th>관련 상황</th><td><a href="#s1">S1</a> <a href="#s3">S3</a> <a href="#s5">S5</a> <a href="#s9">S9</a></td></tr>
+</table>
+
+<h3 id="t2">2.2 시각장애</h3>
+<table class="kv">
+<tr><th>법 이름</th><td>특수교육법: 시각장애 · 복지법: 시각장애</td></tr>
+<tr><th>흔한 진단</th><td>저시력, 맹(실명)</td></tr>
+<tr><th>어려움</th><td><ul><li>보고 배우는 개념(색·거리·표정) 형성</li><li>사회성(눈맞춤·표정 읽기), 이동과 운동</li></ul></td></tr>
+<tr><th>판별 기준</th><td>의학적 검사 — 교정 후 시력·시야, 남아 있는 시력(잔존시력)을 얼마나 쓸 수 있는가</td></tr>
+<tr><th>통합교육 지침</th><td><ul><li>학습 환경 조성: 자리(앞·창 반대), 조명, 눈부심</li><li>교수방법 수정: 칠판·영상을 말로 읽어 주기, 촉각 자료, 실물</li><li>시각보조기구: 확대경, 확대독서기, 화면 읽기 프로그램, 점자</li></ul></td></tr>
+<tr><th>4판 참고</th><td>「시각장애」 장</td></tr>
+<tr><th>관련 상황</th><td><a href="#s10">S10</a></td></tr>
+</table>
+
+<h3 id="t3">2.3 청각장애</h3>
+<table class="kv">
+<tr><th>법 이름</th><td>특수교육법: 청각장애 · 복지법: 청각장애</td></tr>
+<tr><th>흔한 진단</th><td>난청, 농. 보청기·<a class="term" href="#g-cochlear" data-tip="달팽이관에 전극을 심어 소리를 전기 신호로 전달하는 수술. 어릴수록 효과가 크다">인공와우</a> 사용 학생이 늘었다</td></tr>
+<tr><th>어려움</th><td><ul><li>말과 언어 발달(어휘·문장), 그에 따른 읽기</li><li>사회정서 — 대화에서 빠지는 경험</li><li>농인의 문화: 수어는 열등한 말이 아니라 하나의 언어</li></ul></td></tr>
+<tr><th>판별 기준</th><td>의학적 검사(청력 검사). 농은 대개 90dB 이상</td></tr>
+<tr><th>통합교육 지침</th><td><ul><li>보조기구 점검: 보청기·인공와우 배터리, 교사용 무선 마이크(FM 시스템)</li><li>수어통역·문자통역, 자막</li><li>학습 환경: 앞자리, 교사 입이 보이게(뒤돌아 말하지 않기), 시각 자료, 소음 줄이기</li></ul></td></tr>
+<tr><th>4판 참고</th><td>「청각장애」 장</td></tr>
+<tr><th>관련 상황</th><td><a href="#s2">S2</a> <a href="#s6">S6</a> <a href="#s9">S9</a></td></tr>
+</table>
+
+<h3 id="t4">2.4 지체장애</h3>
+<table class="kv">
+<tr><th>법 이름</th><td>특수교육법: 지체장애 · 복지법: 지체장애, 뇌병변장애</td></tr>
+<tr><th>흔한 진단</th><td>신경계: 뇌성마비, <a class="term" href="#g-epilepsy" data-tip="예전 이름 '간질'. 2009년 뇌전증으로 바뀜. 발작 시 대응법을 미리 정해 둔다">뇌전증</a>(경련장애) · 근골격계: 근위축증 · 선천성: 이분척추 등</td></tr>
+<tr><th>어려움</th><td><ul><li>신체 운동: 자세, 이동, 손 사용, 말하기(뇌성마비)</li><li>지능·학업은 장애 자체와 별개 — 결석·경험 부족 같은 후천적 요인이 더 크다</li></ul></td></tr>
+<tr><th>판별 기준</th><td>의학적 검사</td></tr>
+<tr><th>통합교육 지침</th><td><ul><li>교수 환경 수정: 학습 자세(책상·의자 높이)가 집중력을 좌우한다</li><li>보조기구, 컴퓨터 공학(필기 대신 타이핑), <a href="#g-aac">AAC</a></li><li>이동성: 동선, 화장실, 이동 시간 여유</li><li>발작이 있는 학생은 대응 절차를 학급 전체가 안다</li></ul></td></tr>
+<tr><th>4판 참고</th><td>「지체장애」 장</td></tr>
+<tr><th>관련 상황</th><td><a href="#s10">S10</a></td></tr>
+</table>
+
+<h3 id="t5">2.5 학습장애</h3>
+<table class="kv">
+<tr><th>법 이름</th><td>특수교육법: 학습장애 · 복지법: 해당 없음</td></tr>
+<tr><th>흔한 진단</th><td>읽기장애(난독), 쓰기장애, 수학장애. ADHD는 별도 유형이 아니며 <a href="#t6">정서·행동장애</a> 쪽에서 다룬다(약 복용에 대한 가정의 고민이 함께 온다)</td></tr>
+<tr><th>어려움</th><td><ul><li>특정 영역의 학업성취(다른 영역은 평균일 수 있다)</li><li>주의집중·과잉행동, 지각, 인지·기억</li><li>사회정서, 동기와 귀인("나는 원래 못해")</li></ul></td></tr>
+<tr><th>판별 기준</th><td>능력-성취 불일치 모형에서 <a class="term" href="#g-rti" data-tip="중재반응모형. 좋은 수업을 먼저 주고, 그래도 반응이 없으면 더 집중적인 중재로 올리며 판별하는 방식">RTI</a>(중재반응모형)로 무게가 옮겨 감 — "실패할 때까지 기다리기"를 줄이려는 것</td></tr>
+<tr><th>통합교육 지침</th><td><ul><li><a class="term" href="#g-direct" data-tip="목표를 명확히, 시범→함께→혼자 순서로 짧고 분명하게 가르치는 방법">직접 교수</a>, 인지 훈련, 학습 전략 교수(메모·요약·자기점검)</li><li>읽기·쓰기·수학 기술을 영역별로 나눠 향상</li><li>읽기 어려움이 수학 성적을 깎지 않게 문제 읽어 주기</li></ul></td></tr>
+<tr><th>4판 참고</th><td>「학습장애」 장</td></tr>
+<tr><th>관련 상황</th><td><a href="#s3">S3</a> <a href="#s9">S9</a></td></tr>
+</table>
+
+<h3 id="t6">2.6 정서·행동장애</h3>
+<table class="kv">
+<tr><th>법 이름</th><td>특수교육법: 정서·행동장애 · 복지법: 정신장애</td></tr>
+<tr><th>흔한 진단</th><td>불안장애, 품행장애, <a class="term" href="#g-schizo" data-tip="예전 이름 '정신분열증'. 2011년 조현병으로 바뀜">조현병</a>, 뚜렛증후군, 우울장애·양극성장애(조울증), ADHD</td></tr>
+<tr><th>어려움</th><td><ul><li>사회정서: 관계 맺기, 감정 조절</li><li>행동: 드러나는 <a class="term" href="#g-overt" data-tip="밖으로 드러나는 행동: 공격, 큰 소리, 과잉행동">외현적 행동</a>(공격·소리)과 드러나지 않는 <a href="#g-covert">내현적 행동</a>(우울·위축) — 후자를 놓치기 쉽다</li></ul></td></tr>
+<tr><th>판별 기준</th><td><a href="#g-dsm">DSM-5-TR</a> 기준 진단 + 학업·관계에 오래 영향</td></tr>
+<tr><th>통합교육 지침</th><td><ul><li>행동문제 지도: 벌보다 <a class="term" href="#g-pbs" data-tip="긍정적 행동지원. 행동의 기능을 알아내고 환경을 바꾸고 대체행동을 가르치는 학교 전체 접근">긍정적 행동지원</a> — <a href="#ch3">3장</a>·<a href="#ch4">4장</a></li><li>사회성 기술 교수(차례 기다리기, 거절하기)를 수업처럼 가르친다</li><li>주의집중 증진, 조직력 증진(책상·가방·시간표), 반응 정확도 증진(빠르게보다 정확하게)</li></ul></td></tr>
+<tr><th>4판 참고</th><td>「정서 및 행동장애」 장</td></tr>
+<tr><th>관련 상황</th><td><a href="#s1">S1</a> <a href="#s3">S3</a> <a href="#s4">S4</a> <a href="#s5">S5</a> <a href="#s6">S6</a> <a href="#s8">S8</a></td></tr>
+</table>
+
+<h3 id="t7">2.7 의사소통장애</h3>
+<table class="kv">
+<tr><th>법 이름</th><td>특수교육법: 의사소통장애 · 복지법: 언어장애</td></tr>
+<tr><th>흔한 진단</th><td>말장애(조음·음성·유창성=말더듬), 언어장애(이해·표현)</td></tr>
+<tr><th>어려움</th><td><ul><li>말: 소리 내기, 발성, 말의 흐름</li><li>언어: 말·문자·상징을 이해하고 쓰기</li><li>사회정서: 놀림, 말하기 회피</li></ul></td></tr>
+<tr><th>판별 기준</th><td>말소리·발성·흐름·음성의 손상 / 말·문자·기타 상징체계의 이해·활용 손상</td></tr>
+<tr><th>통합교육 지침</th><td><ul><li>의사소통을 잘하는 모델 제공(교사가 천천히, 분명하게)</li><li>수용적인 환경: 끝까지 듣기, 대신 말해 주지 않기, 고쳐 주기보다 바르게 되풀이해 주기</li><li>언어기술 교수, <a href="#g-aac">AAC</a></li></ul></td></tr>
+<tr><th>4판 참고</th><td>「의사소통장애」 장</td></tr>
+<tr><th>관련 상황</th><td><a href="#s2">S2</a> <a href="#s5">S5</a> <a href="#s6">S6</a> <a href="#s7">S7</a> <a href="#s9">S9</a></td></tr>
+</table>
+
+<h3 id="t8">2.8 자폐성장애</h3>
+<table class="kv">
+<tr><th>법 이름</th><td>특수교육법: 자폐성장애 · 복지법: 자폐성장애 · DSM-5-TR: 자폐스펙트럼장애</td></tr>
+<tr><th>흔한 진단</th><td>자폐스펙트럼장애(지적장애를 동반하기도, 아니기도)</td></tr>
+<tr><th>어려움</th><td><ul><li>사회적 상호작용과 의사소통(비구어 포함)</li><li><a href="#g-echolalia">반향어</a> — 기능이 있다</li><li>반복 행동, 변화에 대한 불안, 감각 반응(예민·둔감)</li><li>지능·학업은 매우 다양</li></ul></td></tr>
+<tr><th>판별 기준</th><td><a href="#g-dsm">DSM-5-TR</a> 두 영역: ① 사회적 의사소통·상호작용의 지속적 결함 ② 제한적·반복적 행동·관심·활동(감각 반응 포함). 초기 발달기에 나타남. (2022 자료의 세 영역은 이전 판 기준)</td></tr>
+<tr><th>통합교육 지침</th><td><ul><li>구조화: 일과표, 자리, 순서를 눈에 보이게. 변화는 미리 예고</li><li>다양한 시각 지원(그림 카드, 글자, 타이머)</li><li>조기 발견·조기 개입, 배운 기술의 일반화(장소·사람 바꿔 연습)</li><li>감각 요구를 버릇으로 보지 않기</li></ul></td></tr>
+<tr><th>4판 참고</th><td>「자폐 범주성 장애」 장</td></tr>
+<tr><th>관련 상황</th><td><a href="#s1">S1</a> <a href="#s2">S2</a> <a href="#s4">S4</a> <a href="#s5">S5</a> <a href="#s7">S7</a> <a href="#s8">S8</a></td></tr>
+</table>
+
+<h3 id="t9">2.9 건강장애</h3>
+<table class="kv">
+<tr><th>법 이름</th><td>특수교육법: 건강장애 · 복지법: 심장·신장·호흡기·간·안면·장루요루·뇌전증 장애</td></tr>
+<tr><th>흔한 진단</th><td>소아암·백혈병, 신장·심장 질환, 소아당뇨 등. (미국은 ADHD를 "기타 건강장애"에 넣는다)</td></tr>
+<tr><th>어려움</th><td><ul><li>학업: 입원·치료로 결석, 체력</li><li><a href="#g-helpless">학습된 무기력</a></li><li>신체 운동, 일상생활</li></ul></td></tr>
+<tr><th>판별 기준</th><td>의학적 검사. 3개월 이상 장기 치료로 학교생활·학업에 어려움</td></tr>
+<tr><th>통합교육 지침</th><td><ul><li>보조기구 활용, 가능한 한 스스로 하도록</li><li>교육 활동에서 제외하지 말기 — 체험학습·체육도 참여 방법을 바꿔서</li><li>병원학교·원격수업으로 학습 공백 잇기, 복귀 시 또래 관계 다시 잇기</li></ul></td></tr>
+<tr><th>4판 참고</th><td>「건강장애」 장</td></tr>
+<tr><th>관련 상황</th><td><a href="#s3">S3</a> <a href="#s10">S10</a></td></tr>
+</table>
+
+<h3 id="t10">2.10 발달지체</h3>
+<table class="kv">
+<tr><th>법 이름</th><td>특수교육법: 발달지체 · 복지법: 해당 없음</td></tr>
+<tr><th>흔한 진단</th><td>유형을 정하지 않는다 — 어린 나이에 <a class="term" href="#g-label" data-tip="진단명이 붙는 순간 기대와 대우가 낮아지는 위험">표찰</a>을 붙이는 위험 때문</td></tr>
+<tr><th>어려움</th><td><ul><li>지능·인지, 행동, 의사소통 등 전반적 발달 지연</li></ul></td></tr>
+<tr><th>판별 기준</th><td>9세 미만, 발달이 또래보다 뚜렷이 늦어 특수교육이 필요하다고 판단될 때</td></tr>
+<tr><th>통합교육 지침</th><td><ul><li>조기 발견, 조기 교육</li><li>다양한 지원 — 유형이 없으니 지원을 좁히지 않는다</li><li>9세 이후 재평가로 유형이 정해질 수 있다</li></ul></td></tr>
+<tr><th>4판 참고</th><td>「발달지체」 장 (4판은 유아기 조기교육을 함께 다룬다)</td></tr>
+<tr><th>관련 상황</th><td><a href="#s9">S9</a></td></tr>
+</table>
+
+<h3 id="t11">2.11 중복장애 (두 가지 이상)</h3>
+<table class="kv">
+<tr><th>법 이름</th><td>특수교육법 시행령 개정(2022)으로 "두 가지 이상의 장애가 있는 경우"가 유형에 더해졌다</td></tr>
+<tr><th>흔한 조합</th><td>지적장애+지체장애, 지적장애+자폐성장애, 청각장애+시각장애(농맹) 등</td></tr>
+<tr><th>통합교육 지침</th><td><ul><li>지금 가장 큰 어려움이 무엇인지부터(참여를 막는 것이 자세인가, 소통인가)</li><li>해당 유형의 지침을 합치되, 상충하면 특수학급과 우선순위를 정한다</li></ul></td></tr>
+</table>
+
+<div class="note"><strong>유형표를 쓸 때 주의</strong> 진단명은 입구일 뿐이다. 같은 자폐성장애라도 학생마다 다르고, 같은 학생도 시간·장소에 따라 다르다. 표는 "이 학생이 왜 그럴까"의 가설을 세우는 데 쓰고, 답은 <a href="#ch4">ABC</a>로 그 학생에게서 찾는다.</div>
+
+<a class="to-toc" href="#toc">↑ 차례로</a>
+
+<!-- ===================== 3 ===================== -->
+<h2 id="ch3">3. 도전행동을 보는 눈 — 원칙 <span class="pri">우선순위 2</span></h2>
+
+<h3 id="ch3-1">3.1 말부터 바꾸기: 문제행동 → 도전행동</h3>
+<div class="boxes">
+  <div class="box bad"><h4>"문제행동"이라고 보면</h4><ul><li>문제가 아이 안에 있다</li><li>목표는 없애기</li><li>수단은 꾸중과 벌</li><li>안 없어지면 "아이가 문제"</li></ul></div>
+  <div class="box good"><h4>"도전행동"이라고 보면</h4><ul><li>행동이 환경과 나의 기술에 과제를 던진다</li><li>목표는 기능을 채우는 다른 길 만들기</li><li>수단은 앞(A)과 뒤(C)를 바꾸고 대체행동 가르치기</li><li>안 바뀌면 "가설이 틀렸다" — 다시 관찰</li></ul></div>
+</div>
+
+<h3 id="ch3-2">3.2 행동의 네 가지 기능</h3>
+<p>도전행동은 대개 아래 넷 중 하나 이상을 얻고 있다. 어떤 것인지 알아야 "같은 것을 다른 방법으로 얻게" 할 수 있다. 상황별 예는 <a href="#ch1">1장</a>.</p>
+<figure>
+  <svg viewBox="0 0 680 230" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:inherit">
+    <rect x="240" y="85" width="200" height="60" rx="30" fill="#1a56db"/>
+    <text x="340" y="112" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">이 행동으로</text>
+    <text x="340" y="132" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">아이는 무엇을 얻나?</text>
+    <g font-size="12.5" fill="#1a1a2e">
+      <rect x="20" y="15" width="180" height="60" rx="8" fill="#e8f0fe" stroke="#1a56db"/>
+      <text x="110" y="38" text-anchor="middle" font-weight="bold">① 관심</text><text x="110" y="58" text-anchor="middle" fill="#556">교사·친구가 나를 본다</text>
+      <rect x="480" y="15" width="180" height="60" rx="8" fill="#e8f0fe" stroke="#1a56db"/>
+      <text x="570" y="38" text-anchor="middle" font-weight="bold">② 회피</text><text x="570" y="58" text-anchor="middle" fill="#556">어려운 과제·불안·소음에서 벗어남</text>
+      <rect x="20" y="155" width="180" height="60" rx="8" fill="#e8f0fe" stroke="#1a56db"/>
+      <text x="110" y="178" text-anchor="middle" font-weight="bold">③ 획득</text><text x="110" y="198" text-anchor="middle" fill="#556">물건·활동을 손에 넣음</text>
+      <rect x="480" y="155" width="180" height="60" rx="8" fill="#e8f0fe" stroke="#1a56db"/>
+      <text x="570" y="178" text-anchor="middle" font-weight="bold">④ 감각</text><text x="570" y="198" text-anchor="middle" fill="#556">움직임·자극 자체가 좋음</text>
+    </g>
+    <g stroke="#1a56db" stroke-width="1.5" fill="none">
+      <path d="M200 60 L245 95"/><path d="M480 60 L435 95"/><path d="M200 170 L245 135"/><path d="M480 170 L435 135"/>
+    </g>
+  </svg>
+  <figcaption>그림 3. 행동의 네 가지 기능 — 같은 "소리 지르기"도 기능은 다를 수 있다</figcaption>
+</figure>
+
+<h3 id="ch3-3">3.3 카즈딘의 원칙 — 교실용으로 고쳐 씀</h3>
+<blockquote>"문제행동을 다루는 방법에 앞서, 동등한 인격체로 대하자."
+<span class="who">— 2022 연수자료, 원칙 0 (카즈딘 교육에서 정리)</span></blockquote>
+<ol>
+  <li><strong>아이의 문제일 수도, 느끼는 사람의 문제일 수도 있다.</strong> 같은 큰 목소리를 어떤 교사는 못 견디고 어떤 교사는 괜찮다. 내 반응 정도를 먼저 안다(<a href="#ch3-4">3.4</a>).</li>
+  <li><strong>기질을 이해한다.</strong> 고쳐야 할 행동과 타고난 결이 다른 것을 구분한다.</li>
+  <li><strong>내 교육 태도를 계속 점검한다.</strong> 어쩌면 내 행동이 A(선행사건)일 수 있다.</li>
+  <li><strong>어떤 행동은 즉시, 어떤 행동은 오래 걸린다.</strong> 완전히 없애지 못해도 자신과 남에게 해가 되지 않을 만큼 줄이는 것이 현명한 목표일 때가 있다.</li>
+  <li><strong>여러 행동이 있으면 목록을 만들어 가장 급한 하나부터.</strong> 동시에 다 잡으면 아이는 늘 혼나기만 한다.</li>
+  <li><strong>같은 방법이 학습·운동·사회성·의사소통 지도에도 통한다.</strong> ABC는 "문제아 다루기"가 아니라 가르치는 기술이다.</li>
+  <li><strong>(도전행동 관점 추가) 행동을 없애기 전에 기능을 묻는다.</strong> 기능을 채울 다른 길 없이 없애기만 하면 다른 행동이 그 자리를 채운다.</li>
+</ol>
+
+<h3 id="ch3-4">3.4 나의 반응 정도 — 자기 점검</h3>
+<p>2022 자료의 "나의 행동문제는?" 항목을 점검표로 바꿨다. 연수 자리에서 각자 표시해 본다.</p>
+<ul class="check">
+  <li>큰 소리에 지나치게 민감하다</li>
+  <li>아이와 노는 시간이 솔직히 힘들다</li>
+  <li>여럿이 있을 때 말을 안 하는 아이를 보면 견디기 어렵다</li>
+  <li>남의 말을 끊고 내 말을 한다 / 실없는 농담으로 상대를 불편하게 한 적이 있다</li>
+  <li>30분 이상 한자리에 앉아 있기가 힘들다</li>
+  <li>내 목소리가 크고 시끄럽다는 말을 들은 적이 있다</li>
+  <li>나의 행동문제 하나: ____________________</li>
+</ul>
+<p>표시한 항목이 있는 교사에게 그 행동은 아이 것이든 어른 것이든 더 크게 보인다. 그 자체는 잘못이 아니다. 알고 있으면 반응을 고를 수 있다.</p>
+
+<h3 id="ch3-5">3.5 학급 환경 만들기 (카즈딘 5장 "가정생활의 배경"을 교실로)</h3>
+<p>원래는 성공적인 양육 환경의 여덟 가지다. 교실로 옮기면 <a href="#g-setting">배경사건</a>을 좋게 만드는 목록이 된다.</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>카즈딘 (가정)</th><th>교실에서</th></tr></thead>
+<tbody>
+<tr><td>아이와 양질의 의사소통</td><td>하루 한 번 그 아이와 수업 외 대화 1분</td></tr>
+<tr><td>긍정적 가족 유대</td><td>학급 안에 그 아이의 자리·역할이 있다</td></tr>
+<tr><td>긍정적 사회 행동 장려</td><td>잘한 행동을 본 즉시 말로 짚는다(하루 5:1 — 긍정 다섯, 지적 하나)</td></tr>
+<tr><td>당신의 융통성</td><td>규칙은 같되 방법은 아이마다 다를 수 있다</td></tr>
+<tr><td>모니터링</td><td>언제·어디서 도전행동이 잦은지 적어 둔다(<a href="#ch5">5장 양식</a>)</td></tr>
+<tr><td>부정적 사회·정신 환경 최소화</td><td>놀림·따돌림을 초기에 끊는다</td></tr>
+<tr><td>부정적 생물학적 환경 최소화</td><td>수면·식사·약 복용 상태를 가정과 공유</td></tr>
+<tr><td>당신 자신을 돌보라</td><td>혼자 버티지 않는다 — 특수학급·상담·학년과 나눈다</td></tr>
+</tbody></table>
+</div>
+
+<a class="to-toc" href="#toc">↑ 차례로</a>
+
+<!-- ===================== 4 ===================== -->
+<h2 id="ch4">4. ABC 한 장 정리 — 선행사건·행동·결과·기능 <span class="pri p1">우선순위 1</span></h2>
+<p>어떤 행동(B)을 바꾸려면 그 앞(A)과 뒤(C)를 다뤄야 한다. 행동 자체만 붙들고 "하지 마"라고 하는 것은 가운데만 만지는 셈이다.</p>
+
+<figure>
+  <svg viewBox="0 0 680 210" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:inherit">
+    <defs><marker id="ar3" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#1a56db"/></marker></defs>
+    <rect x="10" y="40" width="190" height="90" rx="10" fill="#e8f0fe" stroke="#1a56db" stroke-width="1.5"/>
+    <text x="105" y="68" text-anchor="middle" font-size="16" font-weight="bold" fill="#1a56db">A 선행사건</text>
+    <text x="105" y="92" text-anchor="middle" font-size="12" fill="#334">행동 앞에 일어난 것</text>
+    <text x="105" y="112" text-anchor="middle" font-size="12" fill="#334">촉구 · 배경사건 · 요구 · 선택권</text>
+    <rect x="245" y="40" width="190" height="90" rx="10" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+    <text x="340" y="68" text-anchor="middle" font-size="16" font-weight="bold" fill="#c0392b">B 행동</text>
+    <text x="340" y="92" text-anchor="middle" font-size="12" fill="#334">눈으로 볼 수 있는 것만</text>
+    <text x="340" y="112" text-anchor="middle" font-size="12" fill="#334">목표 · 긍정적 반대 행동</text>
+    <rect x="480" y="40" width="190" height="90" rx="10" fill="#eaf7ee" stroke="#1e8449" stroke-width="1.5"/>
+    <text x="575" y="68" text-anchor="middle" font-size="16" font-weight="bold" fill="#1e8449">C 결과</text>
+    <text x="575" y="92" text-anchor="middle" font-size="12" fill="#334">행동 바로 뒤에 따라온 것</text>
+    <text x="575" y="112" text-anchor="middle" font-size="12" fill="#334">강화 · 처벌 · 반응하지 않기</text>
+    <path d="M200 85 L240 85" stroke="#1a56db" stroke-width="2" marker-end="url(#ar3)"/>
+    <path d="M435 85 L475 85" stroke="#1a56db" stroke-width="2" marker-end="url(#ar3)"/>
+    <path d="M575 130 Q575 180 340 180 Q105 180 105 135" stroke="#556" stroke-width="1.5" fill="none" stroke-dasharray="5 4" marker-end="url(#ar3)"/>
+    <text x="340" y="172" text-anchor="middle" font-size="12" fill="#556">C가 좋으면 다음에 같은 A에서 B가 다시 나온다 (기능)</text>
+  </svg>
+  <figcaption>그림 4. ABC — 결과가 행동을 키우거나 줄인다</figcaption>
+</figure>
+
+<div class="frame">
+<h4>A · 선행사건 — 바람직한 행동이 나올 상황 만들기 <span class="label">카즈딘 1장</span></h4>
+<ul>
+  <li><a class="term" href="#g-prompt" data-tip="특정 행동을 하도록 직접 이끄는 신호. 말·몸짓·손 잡아 주기">촉구</a>: 행동을 직접 이끄는 신호(말·신체). 그리고 <a class="term" href="#g-fading" data-tip="촉구를 조금씩 줄여 나가 결국 혼자 하게 만드는 방법">용암법</a>: 촉구를 서서히 빼기 — 처음엔 손을 잡고, 다음엔 가리키고, 다음엔 눈짓만.</li>
+  <li><a href="#g-setting">배경사건</a>: 직접 지시 없이 행동을 준비시키는 조건(피로, 긴 설명, 소음, 아침에 있었던 일).</li>
+  <li><a href="#g-highlow">높은 반응요구</a>(잘 따를 요구)를 먼저 몇 번 → 낮은 반응요구(잘 안 따를 요구)로. 성공의 탄력을 만든다.</li>
+  <li>선택권을 준다(무엇을 할지가 아니라 어떻게·어떤 순서로).</li>
+  <li>말투("~해 주렴"), 신체적 거리(가까이 가서 조용히), 타이밍(흥분한 직후는 피한다).</li>
+</ul>
+</div>
+
+<div class="frame">
+<h4>B · 행동 — 긍정적 반대 행동을 구체적으로 정하기 <span class="label">카즈딘 2장</span></h4>
+<ul>
+  <li>목표 설정: 내가 원하는 행동을 <em>볼 수 있게</em> 쓴다. "얌전히"가 아니라 "자리에 앉아 책을 편다".</li>
+  <li><a class="term" href="#g-opposite" data-tip="없애고 싶은 행동과 동시에 할 수 없는, 바람직한 행동. 서 있기의 반대는 앉아 있기">긍정적 반대 행동</a>을 찾는다: 없앨 행동 대신 채울 행동.</li>
+  <li><a href="#g-task-analysis">과제분석</a>: 긴 행동을 단계로 나눈다(티볼, 읽기, 손 씻기).</li>
+  <li>원하는 행동을 얻는 세 가지: <a href="#g-shaping">행동 형성</a>(조금씩 가까이), 예행연습(평온할 때 미리 해 보기), 시동 걸기(첫 동작만 함께).</li>
+  <li>흔한 실패 두 가지: 너무 급하다(아이는 시간이 필요하다) · 결과에만 보상한다(과정을 보상해야 한다).</li>
+</ul>
+</div>
+
+<div class="frame">
+<h4>C · 결과 (보상) — 바람직한 행동을 긍정적으로 강화하기 <span class="label">카즈딘 3장</span></h4>
+<ul>
+  <li>줄이고 싶은 행동이 있을 때도 도구는 <a href="#g-reinforce">강화</a>다: ① 긍정적 반대 행동을 강화 ② 반대 행동이 아니라도 다른 바람직한 행동을 강화 ③ 문제 행동이 <em>적게</em> 일어난 시간을 강화.</li>
+  <li>강화물이 실제로 통하려면: 행동 <em>직후</em>에, 처음엔 <em>매번</em>, 무엇 때문에 받는지 <em>말로</em> 붙여서, 아이가 정말 원하는 것으로(교사가 아니라 아이가 고른다).</li>
+</ul>
+</div>
+
+<div class="frame">
+<h4>C · 처벌과 반응하지 않기 — 바람직하지 않은 행동 줄이기 <span class="label">카즈딘 4장</span></h4>
+<ul>
+  <li>처벌을 강조하지 않는 이유: 효과가 짧다 · 왜 벌받는지보다 벌 자체만 남는다 · 관계를 해친다 · 회피와 공격을 부른다 · 무엇을 <em>해야 하는지</em>는 가르치지 못한다.</li>
+  <li>처벌의 세 종류: 아이에게 제시하는 것 / 아이에게서 빼앗는 것(<a class="term" href="#g-timeout" data-tip="강화를 받을 수 있는 상황에서 잠시 떼어 놓는 것. 짧게, 미리 정한 대로, 돌아오면 바로 강화">타임아웃</a>) / 아이에게 요구하는 것(치우기 등).</li>
+  <li>처벌로 효과를 보려면: 짧고, 즉시, 일관되게, 그리고 <strong>반드시 강화 프로그램과 함께</strong>. 처벌은 강화의 부수 요소이지 주 도구가 아니다.</li>
+  <li><a class="term" href="#g-extinction" data-tip="행동이 더 이상 강화를 받지 못해 점차 줄어드는 것. 처음엔 오히려 커지는 '폭발'이 온다">소멸</a>(반응하지 않기): 점진적 감소 → 처음엔 <em>폭발</em>(더 심해짐) → 일시적 회복 → 부작용 가능. 폭발 단계에서 포기하면 더 센 행동을 강화한 셈이 된다.</li>
+</ul>
+</div>
+
+<div class="note"><strong>2022 자료의 두 사례, 지금 말로</strong>
+① "물건을 입에 넣고 빠는 행동이 잦다 → 수업 전에 자리를 치우게 한다"는 <em>선행사건 중재</em>(입에 넣을 것을 없앰)다. 기능이 감각이라면 씹어도 되는 도구를 주는 <em>대체행동</em>이 더해져야 오래 간다.
+② "1학년 학생이 늘 교실을 나간다"는 선행사건과 결과 중재를 함께 쓰는 예다 — <a href="#s1">S1</a>에 풀어 두었다.</div>
+
+<a class="to-toc" href="#toc">↑ 차례로</a>
+
+<!-- ===================== 5 ===================== -->
+<h2 id="ch5">5. ABC 연습 양식 (인쇄용) <span class="pri">우선순위 2</span></h2>
+<p>연수 자리에서 한 장, 교실에서 한 주. 먼저 채운 예를 보고 빈 양식을 쓴다. 인쇄하면 양식마다 한 쪽씩 나온다. 실제 학생은 <strong>이니셜</strong>로만 적는다.</p>
+
+<div class="sheet first" id="sheet-ex">
+<p><strong>채운 예 (가공)</strong> · 학생: ㄱ (3학년) · 날짜/시간: 화 10:20 · 장소: 교실, 수학</p>
+<div class="table-wrap"><table class="abc"><thead><tr><th class="a">A 선행사건</th><th class="b">B 행동</th><th class="c">C 결과</th></tr></thead>
+<tbody><tr><td style="height:auto">두 자리 덧셈 학습지 배부. 짝은 이미 풀기 시작</td><td style="height:auto">학습지를 구겨 바닥에 던짐</td><td style="height:auto">교사가 새 학습지 주며 "다시" — 아이는 엎드림. 시간 끝</td></tr></tbody></table></div>
+<p class="tick">짐작되는 기능: <span>☐ 관심</span><span>☑ 회피</span><span>☐ 획득</span><span>☐ 감각</span></p>
+<p><strong>다음에 바꿀 것 (A):</strong> 학습지를 두 문제만 보이게 접어서 줌. 첫 문제는 함께 시작.<br>
+<strong>다음에 바꿀 것 (C):</strong> 첫 문제 풀면 바로 "됐다" + 스티커. 던져도 학습지는 없어지지 않음(줄인 것으로 계속).<br>
+<strong>가르칠 대체행동:</strong> "어려워요" 카드 들기 → 즉시 도와줌.</p>
+</div>
+
+<div class="sheet" id="sheet-1">
+<p><strong>연습 1</strong> · 학생(이니셜): ______ · 날짜/시간: ____________ · 장소/과목: ____________</p>
+<div class="table-wrap"><table class="abc"><thead><tr><th class="a">A 선행사건<br><small>바로 앞에 무슨 일이?</small></th><th class="b">B 행동<br><small>눈에 보인 것만</small></th><th class="c">C 결과<br><small>바로 뒤에 무슨 일이?</small></th></tr></thead>
+<tbody><tr><td></td><td></td><td></td></tr></tbody></table></div>
+<p class="tick">짐작되는 기능: <span>☐ 관심</span><span>☐ 회피</span><span>☐ 획득</span><span>☐ 감각</span><span>☐ 모르겠음(더 관찰)</span></p>
+<p>다음에 바꿀 것 (A):</p><div class="line"></div>
+<p>다음에 바꿀 것 (C):</p><div class="line"></div>
+<p>가르칠 대체행동:</p><div class="line"></div>
+</div>
+
+<div class="sheet" id="sheet-2">
+<p><strong>연습 2</strong> · 학생(이니셜): ______ · 날짜/시간: ____________ · 장소/과목: ____________</p>
+<div class="table-wrap"><table class="abc"><thead><tr><th class="a">A 선행사건</th><th class="b">B 행동</th><th class="c">C 결과</th></tr></thead>
+<tbody><tr><td></td><td></td><td></td></tr></tbody></table></div>
+<p class="tick">짐작되는 기능: <span>☐ 관심</span><span>☐ 회피</span><span>☐ 획득</span><span>☐ 감각</span><span>☐ 모르겠음(더 관찰)</span></p>
+<p>다음에 바꿀 것 (A):</p><div class="line"></div>
+<p>다음에 바꿀 것 (C):</p><div class="line"></div>
+<p>가르칠 대체행동:</p><div class="line"></div>
+</div>
+
+<div class="sheet" id="sheet-3">
+<p><strong>연습 3</strong> · 학생(이니셜): ______ · 날짜/시간: ____________ · 장소/과목: ____________</p>
+<div class="table-wrap"><table class="abc"><thead><tr><th class="a">A 선행사건</th><th class="b">B 행동</th><th class="c">C 결과</th></tr></thead>
+<tbody><tr><td></td><td></td><td></td></tr></tbody></table></div>
+<p class="tick">짐작되는 기능: <span>☐ 관심</span><span>☐ 회피</span><span>☐ 획득</span><span>☐ 감각</span><span>☐ 모르겠음(더 관찰)</span></p>
+<p>다음에 바꿀 것 (A):</p><div class="line"></div>
+<p>다음에 바꿀 것 (C):</p><div class="line"></div>
+<p>가르칠 대체행동:</p><div class="line"></div>
+</div>
+
+<div class="note"><strong>양식을 쓸 때</strong> 같은 행동을 3~5번 적으면 A와 C에 패턴이 보인다. 한 번의 기록으로 기능을 단정하지 않는다. 패턴이 안 보이면 특수학급과 함께 <a class="term" href="#g-fba" data-tip="기능 평가. 관찰·면담·기록으로 행동의 기능을 체계적으로 알아내는 절차">기능 평가</a>를 한다.</div>
+
+<a class="to-toc" href="#toc">↑ 차례로</a>
+
+<!-- ===================== 6 ===================== -->
+<h2 id="ch6">6. 2022 → 2026 무엇이 바뀌었나 <span class="pri">참고</span></h2>
+<div class="table-wrap">
+<table id="tbl-diff">
+<thead><tr><th>항목</th><th>2022 자료</th><th>2026 개정</th></tr></thead>
+<tbody>
+<tr><td>참고 도서</td><td>특수아동교육 3판</td><td>특수아동교육 4판 + 도전행동·긍정적 행동지원 관점</td></tr>
+<tr><td>책 참조 방식</td><td>쪽수(p.98 등)</td><td>쪽수 없앰. 장 제목만 (사용자 결정 2026-09-09)</td></tr>
+<tr><td>행동을 부르는 말</td><td>문제행동</td><td>도전행동 + 행동의 네 기능</td></tr>
+<tr><td>문서의 축</td><td>유형표 하나</td><td>유형표 + 상황별 입구(<a href="#ch1">1장</a>)</td></tr>
+<tr><td>연습 양식</td><td>빈 표 한 장</td><td>채운 예 + 인쇄용 3장, 기능·대체행동 칸</td></tr>
+<tr><td>자폐성장애 기준</td><td>세 영역(이전 DSM)</td><td>DSM-5-TR 두 영역, 감각 반응 포함</td></tr>
+<tr><td>지적장애 발생 시기</td><td>18세 이전</td><td>발달기 동안</td></tr>
+<tr><td>진단명</td><td>정신분열증, 간질, 소아마비</td><td>조현병, 뇌전증(소아마비는 뺌)</td></tr>
+<tr><td>학습장애 판별</td><td>불일치 + RTI 병기</td><td>RTI로 무게 이동을 명시</td></tr>
+<tr><td>유형 수</td><td>10</td><td>10 + 중복장애(시행령 개정)</td></tr>
+<tr><td>카즈딘 5장 (가정생활)</td><td>양육 환경 8가지 그대로</td><td>학급 환경 8가지로 옮겨 씀 (<a href="#ch3-5">3.5</a>)</td></tr>
+<tr><td>사례 2개</td><td>한 줄씩</td><td>ABC와 기능으로 풀어서 (<a href="#ch4">4장 메모</a>, <a href="#s1">S1</a>)</td></tr>
+<tr><td>용어</td><td>본문에 그대로</td><td>툴팁 + 용어집</td></tr>
+</tbody></table>
+</div>
+<p>연수 자료 원본(2022, PDF)은 <code>research/장애이해교육/</code>에 있다. 이 문서는 그 원본을 대체하지 않고 겹쳐 쓰는 판이다.</p>
+
+<a class="to-toc" href="#toc">↑ 차례로</a>
+
+<!-- ===================== 확인 필요 ===================== -->
+<h2 id="confirm">확인 완료 (2026-09-09)</h2>
+<div id="confirm-box">
+<p>아래 네 가지는 2026-09-09 채팅에서 답을 받아 확정했다. 기록용으로 남긴다.</p>
+<pre>[
+  {
+    "번호": 1,
+    "질문": "이정표에 '도전행동 자료'로 내용을 갱신한다고 했는데 research/에 그 자료가 없습니다. 지금 문서는 일반적인 긍정적 행동지원(기능 4가지·대체행동) 지식으로 채웠습니다. 어떻게 할까요?",
+    "선택지": ["지금 내용으로 충분", "특정 책·자료가 있으니 경로를 줄 테니 그걸로 다시 맞춘다", "국립특수교육원 긍정적 행동지원 자료를 찾아 반영"],
+    "내 답": "지금 내용으로 충분"
+  },
+  {
+    "번호": 2,
+    "질문": "4판 참고를 장(章) 제목만으로 적었습니다. 장 제목은 제가 책을 직접 보지 않고 유형명으로 적은 것이라 실제 4판 목차와 다를 수 있습니다.",
+    "선택지": ["책 목차를 확인해 줄 테니 맞춘다", "유형명이면 충분하니 그대로", "4판 참고 줄 자체를 뺀다"],
+    "내 답": "유형명이면 충분하니 그대로"
+  },
+  {
+    "번호": 3,
+    "질문": "상황별 입구를 10개(S1~S10)로 만들었습니다. 현장에서 더 자주 묻는 상황이 있나요?",
+    "선택지": ["10개면 충분", "추가할 상황이 있다(적어 주세요)", "줄이고 싶다"],
+    "내 답": "10개면 충분"
+  },
+  {
+    "번호": 4,
+    "질문": "카즈딘 5장 '가정생활의 배경'(양육 환경 8가지)을 교실 환경으로 바꿔 썼습니다(3.5). 교직원 문서이니 이렇게 두어도 될까요?",
+    "선택지": ["교실 환경으로 바꾼 것이 좋다", "원래 양육 항목도 함께 남긴다(학부모 상담용)", "이 절은 뺀다"],
+    "내 답": "교실 환경으로 바꾼 것이 좋다"
+  }
+]</pre>
+</div>
+<a class="to-toc" href="#toc">↑ 차례로</a>
+
+<!-- ===================== 용어집 ===================== -->
+<h2 id="glossary">용어집</h2>
+<dl class="glossary">
+  <dt id="g-challenging">도전행동</dt><dd>예전의 "문제행동". 행동을 아이 안의 결함이 아니라 환경과 어른의 기술에 던져진 과제로 보는 말. 같은 행동을 부르되 대응의 방향이 달라진다.</dd>
+  <dt id="g-function">행동의 기능</dt><dd>그 행동으로 아이가 얻는 것. 관심·회피·획득·감각 네 가지로 나눈다. 기능을 알아야 같은 것을 다른 방법으로 얻게 할 수 있다.</dd>
+  <dt id="g-replacement">대체행동</dt><dd>도전행동과 같은 기능을 채우되 해가 없는 행동(예: 소리 지르기 대신 카드 들기). 도전행동보다 쉽고 빨리 통해야 자리 잡는다.</dd>
+  <dt id="g-pbs">긍정적 행동지원 (PBS)</dt><dd>벌 대신 행동의 기능을 알아내고, 환경(A)과 결과(C)를 바꾸고, 대체행동을 가르치는 접근. 학급·학교 전체 차원으로도 운영한다.</dd>
+  <dt id="g-fba">기능 평가 (FBA)</dt><dd>관찰·면담·ABC 기록으로 행동의 기능을 체계적으로 알아내는 절차. 연습 양식(<a href="#ch5">5장</a>)은 그 첫 단계다.</dd>
+  <dt id="g-prompt">촉구</dt><dd>특정 행동을 하도록 직접 이끄는 신호. 말("연필 들어"), 몸짓(가리키기), 신체(손을 잡아 주기).</dd>
+  <dt id="g-fading">용암법</dt><dd>촉구를 조금씩 줄여 나가 결국 혼자 하게 만드는 방법. 신체 촉구 → 몸짓 → 말 → 없음.</dd>
+  <dt id="g-setting">배경사건</dt><dd>행동 바로 앞의 신호가 아니라 그 행동이 일어나기 쉽게 만드는 배경 조건. 피로, 배고픔, 긴 설명, 소음, 아침에 집에서 있었던 일.</dd>
+  <dt id="g-highlow">높은 반응요구 / 낮은 반응요구</dt><dd>아이가 잘 따를 만한 요구 / 잘 따르지 않을 만한 요구. 높은 것을 몇 번 먼저 해 성공을 쌓은 뒤 낮은 것을 낸다.</dd>
+  <dt id="g-opposite">긍정적 반대 행동</dt><dd>없애고 싶은 행동과 동시에 할 수 없는 바람직한 행동. "돌아다니기"의 반대는 "자리에 앉아 있기".</dd>
+  <dt id="g-task-analysis">과제분석</dt><dd>큰 과제를 아이가 할 수 있는 작은 단계로 쪼개는 것. 어디서 막히는지가 보인다.</dd>
+  <dt id="g-shaping">행동 형성</dt><dd>목표 행동에 조금씩 가까워지는 행동을 차례로 강화해 만들어 가는 것. 처음엔 연필 들기, 다음엔 한 문제, 다음엔 한 줄.</dd>
+  <dt id="g-reinforce">강화</dt><dd>행동 뒤에 좋은 것을 주어(또는 싫은 것을 없애 주어) 그 행동이 다시 일어날 확률을 높이는 것. 즉시·처음엔 매번·말로 붙여서.</dd>
+  <dt id="g-extinction">소멸 (반응하지 않기)</dt><dd>행동이 더 이상 강화를 받지 못해 점차 줄어드는 것. 처음엔 오히려 커지는 "폭발"이 오고, 얼마 뒤 잠깐 되살아나기도 한다.</dd>
+  <dt id="g-timeout">타임아웃</dt><dd>강화를 받을 수 있는 상황에서 잠시 떼어 놓는 것. 짧게, 미리 정한 대로, 돌아오면 바로 강화. 복도에 오래 세워 두는 것은 타임아웃이 아니다.</dd>
+  <dt id="g-overt">외현적 행동</dt><dd>밖으로 드러나는 행동. 공격, 큰 소리, 과잉행동. 눈에 띄어 대응이 빠르다.</dd>
+  <dt id="g-covert">내현적 행동</dt><dd>안으로 향하는 행동. 우울, 위축, 소심. 눈에 띄지 않아 놓치기 쉽다.</dd>
+  <dt id="g-helpless">학습된 무기력</dt><dd>해 봐야 안 된다는 경험이 쌓여 시도 자체를 포기하는 상태. 건강장애·학습장애 학생에게 흔하다.</dd>
+  <dt id="g-generalization">일반화</dt><dd>배운 것을 다른 장소·사람·상황에서도 쓰는 것. 지적장애·자폐성장애 학생은 이것이 어려워 여러 장면에서 반복해 가르친다.</dd>
+  <dt id="g-functional">기능적 학업기술</dt><dd>일상에서 바로 쓰는 읽기·셈하기. 간판 읽기, 시계 보기, 돈 계산.</dd>
+  <dt id="g-community">지역사회 중심교수</dt><dd>실제 지역사회 장소(마트, 버스, 우체국)에서 직접 가르치는 방법. 교실에서 배운 것이 밖에서 안 되는 문제를 줄인다.</dd>
+  <dt id="g-direct">직접 교수</dt><dd>목표를 명확히 하고 시범 → 함께 → 혼자 순서로 짧고 분명하게 가르치는 방법. 학습장애에 효과가 검증됐다.</dd>
+  <dt id="g-rti">RTI (중재반응모형)</dt><dd>좋은 수업을 모두에게 먼저 주고, 반응이 없는 학생에게 더 집중적인 중재를 단계적으로 올리며 학습장애를 판별하는 방식. "실패할 때까지 기다리기"를 줄인다.</dd>
+  <dt id="g-aac">AAC (보완대체 의사소통)</dt><dd>말 대신 또는 말과 함께 쓰는 의사소통 방법. 그림 카드, 글자판, 음성 출력 기기, 몸짓.</dd>
+  <dt id="g-dsm">DSM-5-TR</dt><dd>미국정신의학회 진단 편람 5판 개정판(2022). 자폐스펙트럼장애·ADHD·지적발달장애 등의 진단 기준.</dd>
+  <dt id="g-sd">표준편차 (SD)</dt><dd>평균에서 얼마나 떨어져 있는지 재는 단위. 지능검사에서 -2SD(약 70)는 하위 약 2%.</dd>
+  <dt id="g-cochlear">인공와우</dt><dd>달팽이관에 전극을 심어 소리를 전기 신호로 전달하는 수술과 기기. 어릴수록 효과가 크고, 수술 뒤에도 듣기 훈련이 필요하다.</dd>
+  <dt id="g-epilepsy">뇌전증</dt><dd>예전 이름 "간질". 2009년 이름이 바뀌었다. 발작 시 대응(눕히기, 시간 재기, 입에 아무것도 넣지 않기)을 미리 정해 둔다.</dd>
+  <dt id="g-schizo">조현병</dt><dd>예전 이름 "정신분열증". 2011년 이름이 바뀌었다.</dd>
+  <dt id="g-echolalia">반향어</dt><dd>들은 말을 그대로 되풀이하는 것. 아무 뜻 없는 게 아니라 대답·요청·확인의 기능이 있는 경우가 많다.</dd>
+  <dt id="g-label">표찰 (라벨링)</dt><dd>진단명이 붙는 순간 주위의 기대와 대우가 낮아지는 위험. 발달지체 유형이 있는 이유.</dd>
+</dl>
+<a class="to-toc" href="#toc">↑ 차례로</a>
+
+<div class="fab-wrap">
+  <a class="fab" href="#toc" title="차례로 가기">☰</a>
+  <a class="fab" href="#top" title="맨 위로">↑</a>
+</div>
+
+</body>
+</html>
