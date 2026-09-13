@@ -1,0 +1,85 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>겹받침 읽기 — 측정판과 지도 4단계</title><style>
+:root{color-scheme:light;--ink:#1a1a2e;--accent:#1a56db;--soft:#f3f6fb;--line:#d8dee8;--dark:#5b6478;--warn-bg:#fff8e6;--warn-line:#e6c34a;--red:#c0392b;--green:#1e8449;--gray:#667}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#eef1f6;color:var(--ink);font-family:"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;font-size:20px;line-height:1.7;word-break:keep-all;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{background:#fff;max-width:840px;margin:18px auto;padding:32px 40px 40px;border-radius:14px;box-shadow:0 1px 6px rgba(0,0,0,.08);page-break-after:always;min-height:1100px}
+.page:last-child{page-break-after:auto}
+.formno{font-size:14px;color:var(--gray);letter-spacing:.04em}
+h1{font-size:34px;line-height:1.25;margin:6px 0 4px}
+h1 em{font-style:normal;color:var(--accent)}
+.sub{color:var(--gray);font-size:18px;margin:0 0 18px}
+h2{font-size:26px;margin:0 0 6px;padding-top:10px;border-top:2px solid var(--line)}
+h2 .n{display:inline-block;min-width:36px;height:36px;line-height:32px;text-align:center;border:2.5px solid var(--accent);color:var(--accent);border-radius:50%;font-size:19px;margin-right:10px;vertical-align:3px}
+.lead{color:var(--gray);font-size:18px;margin:4px 0 16px}
+.summary{background:var(--soft);border:1.5px solid var(--line);border-radius:12px;padding:14px 18px;margin:8px 0 12px;font-size:20px}
+.summary b.t{display:block;color:var(--accent);font-size:15px;letter-spacing:.06em;margin-bottom:4px}
+.warn{background:var(--warn-bg);border:1.5px solid var(--warn-line);border-radius:10px;color:#7a5a00;padding:10px 14px;margin:10px 0;font-weight:700;font-size:19px}
+.method{border:2.5px solid var(--accent);border-radius:14px;padding:18px 22px 12px;margin:16px 0 18px;font-size:24px;line-height:1.55}
+.method .mt{display:block;color:var(--accent);font-weight:800;font-size:24px;margin-bottom:10px}
+.method ol{list-style:none;margin:0;padding:0;counter-reset:s}
+.method li{counter-increment:s;position:relative;padding-left:48px;margin:0 0 10px}
+.method li::before{content:counter(s);position:absolute;left:0;top:5px;width:34px;height:34px;border:2.5px solid var(--accent);color:var(--accent);border-radius:50%;font-size:17px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.method b{font-weight:900}
+.say{color:var(--accent);font-weight:800}
+.ref{background:#fafbfd;border-left:4px solid var(--line);border-radius:0 8px 8px 0;padding:8px 14px;margin:14px 0 0;font-size:15px;color:#4a5060;line-height:1.55}
+.ref b{color:var(--ink)}
+.meta{font-size:17px;color:var(--gray);margin:0 0 12px}
+.meta .line{display:inline-block;border-bottom:2px solid var(--dark);min-width:70px}
+.box{border:2px solid var(--dark);border-radius:8px;padding:10px 14px;margin:10px 0}
+table{border-collapse:collapse;width:100%;margin:10px 0}
+td,th{border:2px solid var(--dark);padding:10px 8px;text-align:center;vertical-align:middle}
+th{background:var(--soft);font-size:15px;color:var(--gray);font-weight:700}
+.grid td{font-size:46px;font-weight:800;height:100px;width:25%}
+.grid td small{display:block;font-size:15px;font-weight:400;color:var(--gray);margin-top:2px}
+.words td.w{font-size:42px;font-weight:800;width:32%;height:88px}
+.words td.mk{font-size:24px;width:18%;letter-spacing:.3em;color:var(--dark)}
+.mk{font-size:24px;letter-spacing:.3em;color:var(--dark)}
+.seq td{font-size:30px;height:76px;width:10%}
+.cell{width:52px;height:48px}
+.tag{display:inline-block;border:2px solid var(--accent);color:var(--accent);border-radius:20px;padding:0 12px;font-weight:700;margin-right:8px;font-size:16px}
+.banner{background:var(--soft);border:2.5px solid var(--accent);border-radius:12px;padding:10px 16px;font-size:25px;font-weight:800;color:var(--accent);margin:0 0 12px}
+.banner.measure{background:#fdf3f2;border-color:var(--red);color:var(--red)}
+.mini{border:2px solid var(--line);background:var(--soft);border-radius:10px;padding:10px 16px;margin:6px 0 14px;font-size:21px}
+.mini b{font-weight:900}
+.card{display:inline-block;width:30%;margin:1%;border:3px dashed var(--dark);border-radius:10px;padding:18px 6px;text-align:center;vertical-align:top}
+.card .g{font-size:96px;line-height:1.05;font-weight:800}
+.card .h{font-size:17px;border-top:1px solid var(--line);margin-top:8px;padding-top:4px;color:var(--gray)}
+.record{border-top:2px solid var(--line);margin-top:18px;padding-top:10px;font-size:18px;color:var(--gray)}
+.record b{color:var(--ink)}
+.clocks{display:flex;flex-wrap:wrap;gap:14px}
+.clock{width:31%;border:2px solid var(--dark);border-radius:10px;padding:10px;text-align:center}
+.clock svg{width:100%;max-width:190px;height:auto}
+.ans{font-size:21px;margin-top:6px}
+.blank{display:inline-block;border-bottom:2.5px solid var(--dark);min-width:52px}
+.bundle{display:inline-block;border:2.5px solid var(--dark);border-radius:6px;width:130px;height:48px;vertical-align:middle;margin:0 6px;position:relative}
+.bundle span{position:absolute;left:0;right:0;top:9px;text-align:center;font-size:16px}
+.dot{display:inline-block;width:16px;height:16px;border:2.5px solid var(--dark);border-radius:50%;margin:2px}
+.wk td{text-align:left;vertical-align:top;font-size:18.5px;line-height:1.6;padding:12px 14px;border-color:var(--line)}
+.wk th.s{font-size:34px;font-weight:800;width:64px;color:var(--accent);background:var(--soft);border-color:var(--line)}
+.bx{display:inline-block;width:19px;height:19px;border:2.5px solid var(--dark);border-radius:4px;vertical-align:-3px;margin:0 2px}
+.cam{border:2px solid var(--green);color:var(--green);border-radius:20px;padding:0 8px;font-size:14px;white-space:nowrap;font-weight:700}
+.foot{background:var(--soft);border:1.5px solid var(--line);border-radius:12px;padding:12px 16px;margin-top:14px;font-size:17px}
+@page{size:A4 portrait;margin:10mm 11mm}
+@media print{
+ body{background:#fff;font-size:17px;line-height:1.5}
+ .page{margin:0;border-radius:0;box-shadow:none;max-width:none;padding:0;min-height:auto;break-after:page}
+ .page:last-child{break-after:auto}
+ table,.method,.summary,.clocks,.mgrid,.card{break-inside:avoid}
+ h1{font-size:27px;margin:2px 0} .sub{font-size:15px;margin-bottom:8px} h2{font-size:21px;padding-top:6px} .lead{font-size:15px;margin:2px 0 8px}
+ .summary{font-size:16px;padding:8px 12px;margin:6px 0 8px} .warn{font-size:15px;padding:6px 10px}
+ .method{font-size:19px;padding:10px 14px 6px;margin:8px 0 10px} .method .mt{font-size:19px;margin-bottom:6px} .method li{margin-bottom:5px;padding-left:40px} .method li::before{width:28px;height:28px;font-size:14px;top:3px}
+ .ref{font-size:12.5px;padding:5px 10px;margin-top:8px} .meta{font-size:14px;margin-bottom:6px} .record{font-size:14px;margin-top:8px;padding-top:6px}
+ td,th{padding:5px 6px} th{font-size:12px}
+ .grid td{font-size:38px;height:78px} .grid td small{font-size:12px}
+ .words td.w{font-size:34px;height:66px} .words td.mk,.mk{font-size:19px}
+ .seq td{font-size:26px;height:60px} .cell{height:38px}
+ .banner{font-size:20px;padding:6px 12px;margin-bottom:8px} .mini{font-size:17px;padding:6px 12px;margin:4px 0 8px}
+ .card{padding:12px 6px} .card .g{font-size:84px}
+ .clocks{gap:10px} .clock{padding:6px} .clock svg{max-width:150px} .ans{font-size:17px}
+ .bundle{height:40px;width:110px} .bundle span{font-size:13px;top:7px} .dot{width:13px;height:13px}
+ .wk td{font-size:15.5px;padding:8px 10px;line-height:1.45} .wk th.s{font-size:28px} .foot{font-size:14px;padding:8px 12px}
+ table{font-size:13.5px} td,th{padding:4px 5px} .box{font-size:14px;padding:6px 10px}
+ .mgrid{gap:6px 8px} .mc{min-height:118px;padding:4px 6px 6px} .mv{font-size:27px;width:86px;margin-top:18px} .mv .ans{height:32px} .key td{font-size:14px;padding:3px}
+}
+</style></head><body><div class="page"><div class="formno">학습지 · 읽기 (겹받침)</div><h1>겹받침 읽기<em></em></h1><p class="sub">2면 측정(먼저) + 3~6면 지도 4단계 · 한 장에 8낱말 · 측정 장이 교사면 바로 뒤</p><div class="summary"><b class="t">쓰는 법</b><b>2면 측정을 먼저</b> 하고, 그다음 3·4면(1~2단계)을 가르칩니다. ㄹ 소리가 필요 없는 받침부터.<br><b>준비물</b>: 이 문서 6장 인쇄 · 연필. 순서: 교사면 → 측정 → 지도.</div><div class="warn">⚠️ 1면은 교사만 봅니다(정답표). 2면 측정의 '정답' 열은 접어서 사용.</div><div class="method"><span class="mt">방법 — 오늘 순서</span><ol><li><b>2면 측정 먼저.</b> 8개, 도와주지 않기, 틀려도 <span class="say">"다음!"</span> ✕는 들리는 대로. </li><li><b>3면 1단계</b>: 받침 두 개 가리고 <span class="say">"아"</span> → <span class="say">"하나만 소리 나. 여긴 ㄴ."</span> → <span class="say">"안 — 따 → 안따"</span> → 혼자 2번.</li><li><b>4면 2단계</b>: <span class="say">"여긴 ㄱ이 남아. ㄹ은 쉬어."</span> → <span class="say">"익 — 따 → 익따"</span>.</li><li>첫날은 여기까지. 5·6면은 다음 시간에.</li></ol></div><h2><span class="n">표</span>교사용 정답표 — 표준 발음(제10·11항)</h2><table style="font-size:20px"><tr><th>받침</th><th>남는 소리</th><th style="text-align:left">보기 → 표준 발음</th></tr><tr><td class="say" style="font-size:26px">ㄵ</td><td>앞 <b>ㄴ</b></td><td style="text-align:left">앉다 [안따] · 얹다 [언따]</td></tr><tr><td class="say" style="font-size:26px">ㄻ</td><td>뒤 <b>ㅁ</b></td><td style="text-align:left">삶다 [삼따] · 젊다 [점따] · 굶다 [굼따]</td></tr><tr><td class="say" style="font-size:26px">ㄺ</td><td>뒤 <b>ㄱ</b> (ㄹ 아님!)</td><td style="text-align:left">밝다 [<b>박</b>따] · 읽다 [<b>익</b>따] · 굵다 [국따] · 맑다 [막따] · 늙다 [늑따] · 긁다 [극따]</td></tr><tr><td class="say" style="font-size:26px">ㄼ</td><td>앞 <b>ㄹ</b></td><td style="text-align:left">넓다 [널따] · 짧다 [짤따] · 엷다 [열따] · 떫다 [떨따] · 얇다 [얄따] · 여덟 [여덜] (예외 밟다 [밥따] — 안 다룸)</td></tr><tr><td class="say" style="font-size:26px">모음 앞</td><td>뒤 받침이 <b>이사</b></td><td style="text-align:left">밝은 [발근] · 읽은 [일근] · 읽어 [일거] · 넓은 [널븐] · 짧은 [짤븐] · 삶은 [살믄] · 앉아 [안자] · 앉은 [안즌]</td></tr></table><div class="ref"><b>주의</b> — ㄺ은 ㄹ이 아니라 ㄱ이 남습니다(밝다·읽다). 아이가 ㄹ로 읽어 왔다면 4면(2단계)에서 바로잡아 주세요. · 3단계(ㄼ)는 ㄹ 소리가 필요하므로 먼저 30초 "달 · 말 · 물" 따라 말하기(혀끝 위로). · 문장은 낱말이 되면. '평가·테스트' 낱말 금지. 남 앞 낭독 배정 없음.</div></div><div class="page"><div class="banner measure">【측정용】 2면 — 도와주지 않습니다 · 지도 전에 먼저!</div><div class="method"><span class="mt">방법 — 1~2분</span><ol><li>힌트·교정 없이, 틀려도 <span class="say">"다음!"</span>만.</li><li>쉬운 것부터 어려운 것 순서. ✕는 <b>들리는 대로</b>(널다/넙다/넌다).</li><li>정답 열은 접어서.</li></ol></div><p class="meta">날짜 <span class="line"></span>월 <span class="line"></span>일 (한 번만!) &nbsp; 컨디션: 좋아요 □ 보통 □ 피곤해요 □ &nbsp; 조건: <b>지도 전</b> □ · 1:1 □</p><table><tr><th style="width:7%">#</th><th style="width:24%">낱말</th><th style="width:16%">○ ✕</th><th>들리는 대로</th><th style="width:15%">교사만: 정답</th></tr><tr><td>1</td><td class="say" style="font-size:36px">앉다</td><td class="mk">○ ✕</td><td></td><td style="font-size:16px;color:var(--soft)">안따</td></tr><tr><td>2</td><td class="say" style="font-size:36px">삶다</td><td class="mk">○ ✕</td><td></td><td style="font-size:16px;color:var(--soft)">삼따</td></tr><tr><td>3</td><td class="say" style="font-size:36px">읽다</td><td class="mk">○ ✕</td><td></td><td style="font-size:16px;color:var(--soft)">익따</td></tr><tr><td>4</td><td class="say" style="font-size:36px">밝다</td><td class="mk">○ ✕</td><td></td><td style="font-size:16px;color:var(--soft)">박따</td></tr><tr><td>5</td><td class="say" style="font-size:36px">앉은</td><td class="mk">○ ✕</td><td></td><td style="font-size:16px;color:var(--soft)">안즌</td></tr><tr><td>6</td><td class="say" style="font-size:36px">읽은</td><td class="mk">○ ✕</td><td></td><td style="font-size:16px;color:var(--soft)">일근</td></tr><tr><td>7</td><td class="say" style="font-size:36px">넓다</td><td class="mk">○ ✕</td><td></td><td style="font-size:16px;color:var(--soft)">널따</td></tr><tr><td>8</td><td class="say" style="font-size:36px">짧다</td><td class="mk">○ ✕</td><td></td><td style="font-size:16px;color:var(--soft)">짤따</td></tr><tr><th colspan="2">계</th><th colspan="3" style="text-align:left;font-size:18px;color:var(--ink)">&nbsp; /8 &nbsp;</th></tr></table><div class="record">목표 예시: 낱말 20개 중 16개. 이 8개가 안정되면 20개판으로 넓힙니다. 같은 8개를 매주 순서만 바꿔 반복.</div></div><div class="page"><div class="banner">【지도용】 3면 — 선생님과 함께</div><h2><span class="n">3</span>1단계 — 하나만 소리 (ㄵ · ㄻ)</h2><div class="mini"><span class="say">"받침 둘 중 하나만 소리 나."</span> 앉다는 ㄴ, 삶다는 ㅁ. 가리고 → 남는 소리 → 붙여서 → 혼자 2번.</div><p class="meta">날짜 <span class="line"></span>월 <span class="line"></span>일 (한 번만!) &nbsp; 컨디션: 좋아요 □ 보통 □ 피곤해요 □ </p><table class="words"><tr><td class="w">앉다</td><td class="mk">○ △ ✕</td><td class="w">얹다</td><td class="mk">○ △ ✕</td></tr><tr><td class="w">앉고</td><td class="mk">○ △ ✕</td><td class="w">앉지</td><td class="mk">○ △ ✕</td></tr><tr><td class="w">삶다</td><td class="mk">○ △ ✕</td><td class="w">삶고</td><td class="mk">○ △ ✕</td></tr><tr><td class="w">젊다</td><td class="mk">○ △ ✕</td><td class="w">굶다</td><td class="mk">○ △ ✕</td></tr></table><div class="record">교사 기록: ○ <b>___/8</b> · 오독은 들리는 대로 낱말 옆에 · 막히면 "받침 가리고 → 하나씩"</div></div><div class="page"><div class="banner">【지도용】 4면 — 선생님과 함께</div><h2><span class="n">4</span>2단계 — 뒤 ㄱ이 남아요 (ㄺ)</h2><div class="mini"><span class="say">"여긴 ㄱ이 남아. ㄹ은 쉬어."</span></div><p class="meta">날짜 <span class="line"></span>월 <span class="line"></span>일 (한 번만!) &nbsp; 컨디션: 좋아요 □ 보통 □ 피곤해요 □ </p><table class="words"><tr><td class="w">읽다</td><td class="mk">○ △ ✕</td><td class="w">밝다</td><td class="mk">○ △ ✕</td></tr><tr><td class="w">굵다</td><td class="mk">○ △ ✕</td><td class="w">맑다</td><td class="mk">○ △ ✕</td></tr><tr><td class="w">늙다</td><td class="mk">○ △ ✕</td><td class="w">긁다</td><td class="mk">○ △ ✕</td></tr><tr><td class="w">읽고</td><td class="mk">○ △ ✕</td><td class="w">밝지</td><td class="mk">○ △ ✕</td></tr></table><div class="record">교사 기록: ○ <b>___/8</b> · 오독은 들리는 대로 낱말 옆에 · 막히면 "받침 가리고 → 하나씩"</div></div><div class="page"><div class="banner">【지도용】 5면 — 선생님과 함께</div><h2><span class="n">5</span>3단계 — 앞 ㄹ이 남아요 (ㄼ)</h2><div class="mini">먼저 30초: <span class="say">"달 · 말 · 물"</span> 혀끝 위로. 그다음 <span class="say">"여긴 ㄹ이 남아."</span> ㄴ으로 나오면 <span class="say">"혀끝 올려서, 널."</span></div><p class="meta">날짜 <span class="line"></span>월 <span class="line"></span>일 (한 번만!) &nbsp; 컨디션: 좋아요 □ 보통 □ 피곤해요 □ </p><table class="words"><tr><td class="w">넓다</td><td class="mk">○ △ ✕</td><td class="w">짧다</td><td class="mk">○ △ ✕</td></tr><tr><td class="w">엷다</td><td class="mk">○ △ ✕</td><td class="w">떫다</td><td class="mk">○ △ ✕</td></tr><tr><td class="w">얇다</td><td class="mk">○ △ ✕</td><td class="w">여덟</td><td class="mk">○ △ ✕</td></tr><tr><td class="w">넓고</td><td class="mk">○ △ ✕</td><td class="w">짧지</td><td class="mk">○ △ ✕</td></tr></table><div class="record">교사 기록: ○ <b>___/8</b> · 오독은 들리는 대로 낱말 옆에 · 막히면 "받침 가리고 → 하나씩"</div></div><div class="page"><div class="banner">【지도용】 6면 — 선생님과 함께</div><h2><span class="n">6</span>4단계 — 모음이 오면 이사</h2><div class="mini"><span class="say">"뒤에 모음이 오면 뒤 받침이 옆집으로 이사해."</span> 손가락으로 받침을 옆 칸으로 밀어 보여 주기.</div><p class="meta">날짜 <span class="line"></span>월 <span class="line"></span>일 (한 번만!) &nbsp; 컨디션: 좋아요 □ 보통 □ 피곤해요 □ </p><table class="words"><tr><td class="w">앉아</td><td class="mk">○ △ ✕</td><td class="w">앉은</td><td class="mk">○ △ ✕</td></tr><tr><td class="w">삶은</td><td class="mk">○ △ ✕</td><td class="w">읽은</td><td class="mk">○ △ ✕</td></tr><tr><td class="w">읽어</td><td class="mk">○ △ ✕</td><td class="w">밝은</td><td class="mk">○ △ ✕</td></tr><tr><td class="w">넓은</td><td class="mk">○ △ ✕</td><td class="w">짧은</td><td class="mk">○ △ ✕</td></tr></table><h2><span class="n">+</span>문장 속에서 — 밑줄 낱말만 읽어도 됩니다</h2><table class="words"><tr><td style="font-size:26px;text-align:left" colspan="3">달이 <u>밝다</u>.</td><td class="mk">○ △ ✕</td></tr><tr><td style="font-size:26px;text-align:left" colspan="3">의자에 <u>앉아</u> 책을 <u>읽는다</u>.</td><td class="mk">○ △ ✕</td></tr><tr><td style="font-size:26px;text-align:left" colspan="3"><u>넓은</u> 운동장, <u>짧은</u> 줄넘기.</td><td class="mk">○ △ ✕</td></tr></table><div class="record">교사 기록: ○ <b>___/8</b> · 오독은 들리는 대로 낱말 옆에 · 막히면 "받침 가리고 → 하나씩"</div></div></body></html>
