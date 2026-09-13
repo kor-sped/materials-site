@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MAK 나눔터</title>
-<meta name="description" content="특수교사가 만든 수업·연수 자료를 무료로 나눕니다.">
+<meta name="description" content="함께 사용하고 만들어봐요!">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='14' r='10' fill='%23c8703f'/%3E%3Ccircle cx='50' cy='32' r='10' fill='%23efe6d6'/%3E%3Ccircle cx='32' cy='50' r='10' fill='%239db08a'/%3E%3Ccircle cx='14' cy='32' r='10' fill='%23c6d8b0'/%3E%3C/svg%3E">
 <style>
   :root { --ink:#2a2a26; --bg:#faf6ef; --card:#fff; --line:#e6ded0; --dark:#232320;
@@ -29,6 +29,11 @@
   .hero .dots span { display:inline-block; width:14px; height:14px; border-radius:50%; margin:0 3px 18px; }
 
   section { padding:36px 0; }
+  section.cat { padding:20px 0 8px; }
+  .pills { display:flex; flex-wrap:wrap; gap:8px; padding-bottom:8px; }
+  .pill { text-decoration:none; color:var(--ink); background:#fff; border:1px solid var(--line); border-radius:20px; padding:6px 14px; font-size:.92em; }
+  .pill:hover { border-color:var(--terra); color:var(--terra); }
+  .pill small { color:var(--muted); margin-left:2px; }
   section h2 { font-size:1.25em; margin:0 0 18px; padding-left:12px; border-left:5px solid var(--terra); }
   .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px; }
   .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 18px 14px;
@@ -74,12 +79,14 @@
 <main id="top">
   <div class="hero wrap">
     <div class="dots"><span style="background:#c8703f"></span><span style="background:#ea9a6c"></span><span style="background:#efe6d6;border:1px solid #ddd"></span><span style="background:#9db08a"></span><span style="background:#c6d8b0"></span></div>
-    <h1>특수교사가 만든 수업·연수 자료를 무료로 나눕니다.</h1>
-    <p>계정 없이 링크만 누르면 열립니다. 써 보고 의견을 보내 주시면 고쳐서 다시 올립니다.</p>
+    <h1>함께 사용하고 만들어봐요!</h1>
+    <p>특수교사가 클로드와 만든 수업·연수 자료. 계정 없이 열고, 의견을 보내면 고쳐서 다시 올립니다.</p>
   </div>
 
-  <section id="materials" class="wrap">
-    <h2>자료</h2>
+  <div id="materials" class="wrap pills"><a class="pill" href="#cat-0">장애이해교육 <small>1</small></a><a class="pill" href="#cat-1">수학 <small>1</small></a><a class="pill" href="#cat-2">과학 <small>2</small></a></div>
+
+  <section id="cat-0" class="wrap cat">
+    <h2>장애이해교육</h2>
     <div class="grid">
     <article class="card">
       <span class="topic">장애이해교육</span>
@@ -89,6 +96,24 @@
       <p class="actions"><a class="btn primary" href="자료/장애이해교육/장애이해교육-교직원-연수자료-2026-v1.html">열기</a> <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdfFJVO-g9MBT9VFdlszQaTtEtjSbNbA8QiWCkhxSPRhQrlTg/viewform?entry.1977596085=%EC%9E%A5%EC%95%A0%EC%9D%B4%ED%95%B4%EA%B5%90%EC%9C%A1%20%EA%B5%90%EC%A7%81%EC%9B%90%20%EC%97%B0%EC%88%98%EC%9E%90%EB%A3%8C%20%282026%20%EA%B0%9C%EC%A0%95%29" target="_blank" rel="noopener">의견 보내기</a></p>
       
     </article>
+    </div>
+  </section>
+  <section id="cat-1" class="wrap cat">
+    <h2>수학</h2>
+    <div class="grid">
+    <article class="card">
+      <span class="topic">시계 읽기</span>
+      <h3>시계 읽기 연습판</h3>
+      <p>바늘을 돌려 보고 소리로 답을 듣는 연습판. 파일 하나에 소리까지 들어 있어 인터넷 없이도 열린다(약 5MB).</p>
+      <p class="tags">인터랙션(HTML) · 초등 특수학급·저학년 · 5.3MB · v1</p>
+      <p class="actions"><a class="btn primary" href="자료/시계/시계-읽기-연습판-v1.html">열기</a> <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdfFJVO-g9MBT9VFdlszQaTtEtjSbNbA8QiWCkhxSPRhQrlTg/viewform?entry.1977596085=%EC%8B%9C%EA%B3%84%20%EC%9D%BD%EA%B8%B0%20%EC%97%B0%EC%8A%B5%ED%8C%90" target="_blank" rel="noopener">의견 보내기</a></p>
+      
+    </article>
+    </div>
+  </section>
+  <section id="cat-2" class="wrap cat">
+    <h2>과학</h2>
+    <div class="grid">
     <article class="card">
       <span class="topic">계절의 변화</span>
       <h3>계절은 왜 바뀔까? — 쉽게 읽는 설명</h3>
@@ -103,14 +128,6 @@
       <p>지구와 태양을 3D로 돌려 보며 계절별 남중고도가 왜 달라지는지 눈으로 확인한다. 파일 하나에 3D 엔진까지 들어 있어 인터넷 없이 열린다(1.8MB). 휴대폰보다 큰 화면에서 보기 좋다.</p>
       <p class="tags">인터랙션(3D, HTML) · 초등 고학년·교사 시연용 · 1.8MB · v1</p>
       <p class="actions"><a class="btn primary" href="자료/계절/계절-남중고도-3D-v1.html">열기</a> <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdfFJVO-g9MBT9VFdlszQaTtEtjSbNbA8QiWCkhxSPRhQrlTg/viewform?entry.1977596085=%EB%82%A8%EC%A4%91%EA%B3%A0%EB%8F%84%203D%20%E2%80%94%20%EC%B9%B4%EB%A9%94%EB%9D%BC%EB%A5%BC%20%EB%8F%8C%EB%A0%A4%20%EB%B3%B4%EB%8A%94%20%EC%A7%80%EA%B5%AC%EC%99%80%20%ED%83%9C%EC%96%91" target="_blank" rel="noopener">의견 보내기</a></p>
-      
-    </article>
-    <article class="card">
-      <span class="topic">시계 읽기</span>
-      <h3>시계 읽기 연습판</h3>
-      <p>바늘을 돌려 보고 소리로 답을 듣는 연습판. 파일 하나에 소리까지 들어 있어 인터넷 없이도 열린다(약 5MB).</p>
-      <p class="tags">인터랙션(HTML) · 초등 특수학급·저학년 · 5.3MB · v1</p>
-      <p class="actions"><a class="btn primary" href="자료/시계/시계-읽기-연습판-v1.html">열기</a> <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdfFJVO-g9MBT9VFdlszQaTtEtjSbNbA8QiWCkhxSPRhQrlTg/viewform?entry.1977596085=%EC%8B%9C%EA%B3%84%20%EC%9D%BD%EA%B8%B0%20%EC%97%B0%EC%8A%B5%ED%8C%90" target="_blank" rel="noopener">의견 보내기</a></p>
       
     </article>
     </div>
