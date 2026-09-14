@@ -1,0 +1,114 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>시계 무한 연습판</title>
+<style>
+:root{--accent:#1a56db;--soft:#f3f6fb;--line:#d8dee8;--dark:#5b6478;--red:#c1121f;--green:#1a7f37}
+body{margin:0;background:#eef1f6;color:#111;font-family:"Apple SD Gothic Neo","Noto Sans KR",sans-serif;font-size:22px;line-height:1.5}
+.wrap{max-width:900px;margin:0 auto;padding:12px 16px}
+h1{font-size:24px;margin:0 0 6px}
+.kids{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 8px}
+.kids button{font-size:22px;padding:8px 18px;border:2.5px solid var(--dark);background:#fff;color:var(--dark);border-radius:12px;cursor:pointer;font-weight:800}
+.kids button.on{background:var(--dark);color:#fff}
+.modes{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 12px}
+.modes button{font-size:19px;padding:7px 14px;border:2px solid var(--accent);background:#fff;color:var(--accent);border-radius:20px;cursor:pointer;font-weight:700}
+.modes button.on{background:var(--accent);color:#fff}
+.stage{background:#fff;border-radius:16px;box-shadow:0 1px 6px rgba(0,0,0,.08);padding:14px;text-align:center}
+svg{width:min(70vw,460px);height:auto}
+.ans{font-size:56px;font-weight:900;min-height:80px;margin:6px 0;color:var(--accent)}
+.ans .m{color:#111} .ans .zero{color:#c9cfd8;font-weight:400;font-size:34px}
+.hint{font-size:21px;color:var(--dark);min-height:34px}
+.btns{display:flex;gap:12px;justify-content:center;margin:8px 0 4px;flex-wrap:wrap}
+.btns button{font-size:26px;padding:12px 26px;border-radius:14px;border:0;cursor:pointer;font-weight:800}
+#new{background:var(--accent);color:#fff} #show{background:#fff;border:3px solid var(--accent);color:var(--accent)}
+.judge{display:none;gap:18px;justify-content:center;margin:8px 0 2px;flex-wrap:wrap}
+.judge.show{display:flex}
+.judge button{font-size:28px;padding:12px 28px;border-radius:14px;border:3px solid var(--line);background:#fff;cursor:pointer;font-weight:900}
+.judge button.o{border-color:var(--green);color:var(--green)} .judge button.x{border-color:var(--red);color:var(--red)}
+.band{display:grid;grid-template-columns:repeat(12,1fr);gap:4px;margin:12px 0 0}
+.band div{border:1.5px solid var(--line);border-radius:8px;padding:3px 0;font-size:17px;text-align:center}
+.band div b{display:block;font-size:19px;color:var(--accent)}
+.band div.on{background:#fff3c4;border-color:#e0a800}
+.rec{background:#fff;border-radius:14px;padding:10px 14px;margin-top:12px;font-size:18px;color:var(--dark)}
+.rec b{color:#111} .rec .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.rec button{font-size:16px;padding:6px 12px;border-radius:10px;border:1.5px solid var(--line);background:#fff;cursor:pointer}
+.foot{font-size:15px;color:var(--dark);margin-top:8px}
+</style></head><body><div class="wrap">
+<h1>시계 무한 연습판 — 짧은 바늘은 시, 긴 바늘은 곱하기 5</h1>
+<div class="kids" id="kids"></div>
+<div class="modes">
+<button data-m="1">① 정각·5·10분</button><button data-m="2">② 15~30분</button><button data-m="3">③ 35~55분</button><button data-m="4" class="on">④ 아무 시각 — 60분 골고루</button>
+</div>
+<div class="stage">
+<svg viewBox="0 0 200 200" id="clk"></svg>
+<div class="hint" id="hint">시계를 보고 말해요. "○시 ○분입니다."</div>
+<div class="ans" id="ans">&nbsp;</div>
+<div class="btns"><button id="new">새 시계</button><button id="show">정답 보기</button></div>
+<div class="judge" id="judge">
+  <button class="o" data-v="1">○ 맞았어요</button><button class="x" data-v="0">✕ 다시</button>
+</div>
+<div class="band" id="band"></div>
+</div>
+<div class="rec"><div class="row"><b id="tally" style="font-size:26px">별을 모아요 ⭐</b><span id="msg" style="font-size:24px;font-weight:800;color:var(--accent)"></span></div>
+<div id="stars" style="font-size:30px;letter-spacing:2px;margin-top:4px;min-height:40px"></div></div>
+<div class="foot">시 12개는 12번에 한 번씩, 분은 단계별로 한 바퀴 다 나온 뒤 다시 섞여요. 0분 정답은 흐리게(읽지 않아요). 스페이스 = 정답/새 시계. 점수는 저장하지 않아요 — 아이를 바꾸거나 새로 열면 0부터.</div>
+</div>
+<script>
+const KIDS=["아이 1","아이 2","아이 3","아이 4","아이 5","아이 6"];
+let kid=null, mode=4, cur={h:9,m:5}, shown=false;
+let hourDeck=[], minDeck=[];
+const $=id=>document.getElementById(id);
+const svg=$('clk'), ans=$('ans'), hint=$('hint'), band=$('band'), judge=$('judge');
+for(let i=1;i<=12;i++){const d=document.createElement('div');d.innerHTML=i+'<b>'+(i*5%60===0?'0(60)':i*5)+'</b>';band.appendChild(d);}
+KIDS.forEach(k=>{const b=document.createElement('button');b.textContent=k;b.onclick=()=>{kid=(kid===k)?null:k;[...$('kids').children].forEach(x=>x.classList.toggle('on',x.textContent===kid));resetScore();};$('kids').appendChild(b);});
+const hideBtn=document.createElement('button'); hideBtn.textContent='이름 없애기'; hideBtn.style.cssText='border-style:dashed;font-weight:400;font-size:17px;color:var(--dark)';
+hideBtn.onclick=()=>{ if(!confirm('아이 단추를 모두 없앨까요? (새로 열면 다시 나와요)')) return; kid=null; [...$('kids').querySelectorAll('button')].forEach(x=>{ if(x!==hideBtn) x.remove(); }); hideBtn.remove(); resetScore(); };
+$('kids').appendChild(hideBtn);
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function minSet(){ if(mode===1)return[0,5,10]; if(mode===2)return[15,20,25,30]; if(mode===3)return[35,40,45,50,55]; return Array.from({length:60},(_,i)=>i);}
+function pick(){
+  if(!hourDeck.length)hourDeck=shuffle(Array.from({length:12},(_,i)=>i+1));
+  if(!minDeck.length)minDeck=shuffle(minSet());
+  cur={h:hourDeck.pop(),m:minDeck.pop()}; shown=false; draw(false);
+  ans.innerHTML='&nbsp;'; hint.textContent='시계를 보고 말해요. "○시 ○분입니다."';
+  [...band.children].forEach(d=>d.classList.remove('on')); judge.classList.remove('show');
+}
+function draw(highlight){
+  const {h,m}=cur; const ha=(h%12)*30+m*0.5, ma=m*6;
+  let s='<circle cx="100" cy="100" r="94" fill="#fff" stroke="#111" stroke-width="4"/>';
+  for(let i=0;i<60;i++){const a=i*6*Math.PI/180,big=i%5===0,r1=big?80:86;s+=`<line x1="${100+r1*Math.sin(a)}" y1="${100-r1*Math.cos(a)}" x2="${100+90*Math.sin(a)}" y2="${100-90*Math.cos(a)}" stroke="#111" stroke-width="${big?3:1.5}"/>`;}
+  for(let i=1;i<=12;i++){const a=i*30*Math.PI/180;s+=`<text x="${100+68*Math.sin(a)}" y="${100-68*Math.cos(a)+7}" text-anchor="middle" font-size="20" font-weight="800" font-family="sans-serif">${i}</text>`;}
+  s+=`<line x1="100" y1="100" x2="${100+46*Math.sin(ha*Math.PI/180)}" y2="${100-46*Math.cos(ha*Math.PI/180)}" stroke="${highlight?'#1a56db':'#111'}" stroke-width="9" stroke-linecap="round"/>`;
+  s+=`<line x1="100" y1="100" x2="${100+74*Math.sin(ma*Math.PI/180)}" y2="${100-74*Math.cos(ma*Math.PI/180)}" stroke="#111" stroke-width="4.5" stroke-linecap="round"/>`;
+  s+='<circle cx="100" cy="100" r="5" fill="#111"/>'; svg.innerHTML=s;
+}
+function show(){
+  const {h,m}=cur; shown=true; draw(true);
+  ans.innerHTML = m===0 ? `<span class="h">${h}시</span><span class="zero">(0분)</span>입니다` : `<span class="h">${h}시</span> <span class="m">${m}분</span>입니다`;
+  const base=Math.floor(m/5), rest=m%5, n=base===0?12:base;
+  let t= m>=35?`짧은 바늘이 ${h}와 ${h%12+1} 사이 → 작은 수 ${h}시. `:`짧은 바늘 → ${h}시. `;
+  if(m===0) t+='긴 바늘 12 → 정각. "○시"라고만 말해요.';
+  else t+= rest===0?`긴 바늘 ${n} → ${n}×5 = ${m}분`:`긴 바늘 ${n} 지나 ${rest}칸 → ${base*5}${Array.from({length:rest},(_,i)=>', '+(base*5+i+1)).join('')} → ${m}분`;
+  hint.textContent=t; [...band.children].forEach((d,i)=>d.classList.toggle('on', i+1===n));
+  judge.classList.add('show');
+}
+// ── 게임 점수 (저장 안 함)
+let score={n:0,ok:0,last:[]};
+function resetScore(){score={n:0,ok:0,last:[]};renderTally();}
+judge.querySelectorAll('button').forEach(b=>b.onclick=()=>{
+  const v=+b.dataset.v; score.n++; if(v)score.ok++; score.last.push(v); if(score.last.length>5)score.last.shift();
+  renderTally(); setTimeout(pick,400);
+});
+function renderTally(){
+  const who=kid?kid+' ':'';
+  $('tally').textContent = score.n? `${who}맞은 것 ${score.ok} / ${score.n}` : `${who}별을 모아요 ⭐`;
+  $('stars').textContent = '⭐'.repeat(Math.min(score.ok,20)) + (score.ok>20?` +${score.ok-20}`:'');
+  let m='';
+  if(score.last.length>=3){const r=score.last.filter(x=>x).length/score.last.length;
+    m = r>=0.8?'잘하고 있어요! 🎉' : r>=0.5?'좋아요, 조금만 더!' : '조금 더 연습하세요 💪';}
+  $('msg').textContent=m;
+}
+document.querySelectorAll('.modes button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.modes button').forEach(x=>x.classList.remove('on'));b.classList.add('on');mode=+b.dataset.m;minDeck=[];pick();});
+$('new').onclick=pick; $('show').onclick=show;
+document.addEventListener('keydown',e=>{if(e.key===' '){e.preventDefault();shown?pick():show();}});
+pick();
+</script><!-- mak-home --><a href="../../" style="position:fixed;left:12px;bottom:12px;z-index:2147483000;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:22px;background:#232320;color:#efe6d6;font:14px/1 'Apple SD Gothic Neo','Noto Sans KR',sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.35);opacity:.92" title="나눔터 첫 화면으로">⌂ 나눔터</a><style>@media print{a[href="../../"]{display:none!important}}</style>
+</body></html>
