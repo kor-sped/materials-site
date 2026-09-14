@@ -1,0 +1,116 @@
+<meta charset="utf-8">
+<title>나눗셈 배수표 전략</title>
+<style>
+  @page { size: A4; margin: 13mm; }
+  * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; color: #000; margin: 0; }
+  .sheet { page-break-after: always; padding: 15px 24px; min-height: 96vh; display: flex; flex-direction: column; }
+  .pagehead { border-bottom: 3.5px solid #000; padding-bottom: 5px; margin-bottom: 6px; display: flex; justify-content: space-between; align-items: baseline; }
+  .pagehead h1 { font-size: 20px; margin: 0; }
+  .pagehead .no { font-size: 13.5px; font-weight: 700; }
+  .about { border: 2.5px solid #000; border-radius: 12px; padding: 8px 13px; margin: 6px 0 8px; font-size: 14.5px; line-height: 1.55; }
+  .meta { font-size: 13px; margin: 2px 0 8px; }
+  .meta b { border: 1.5px solid #000; border-radius: 8px; padding: 1px 8px; margin-right: 4px; }
+  .rule { border: 3.5px solid #000; border-radius: 12px; padding: 10px 14px; margin: 10px 0; font-size: 16.5px; line-height: 1.7; }
+  .mtable { border-collapse: collapse; margin: 6px 0; }
+  .mtable td, .mtable th { border: 2px solid #000; padding: 4px 12px; font-size: 16px; text-align: center; }
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 18px; margin: 6px 0; }
+  .q { border: 1.8px solid #000; border-radius: 10px; padding: 8px 10px; }
+  .q .prob { font-size: 22px; font-weight: 800; }
+  .q .mul { font-size: 14px; margin-top: 4px; }
+  .q .mul span { display: inline-block; border-bottom: 1.8px solid #000; min-width: 34px; text-align: center; margin: 0 3px; }
+  .q .ans { font-size: 15px; margin-top: 8px; }
+  .q .ans u { display: inline-block; border-bottom: 1.8px solid #000; min-width: 40px; height: 18px; }
+  p, li { font-size: 15.5px; line-height: 1.65; }
+  .teacher { margin-top: auto; border-top: 1.8px dashed #555; padding-top: 5px; font-size: 12px; }
+  .noprint { border: 1px dashed #b90; padding: 8px 12px; font-size: 13px; margin: 10px; }
+  @media print { .noprint { display: none; } }
+</style>
+
+<div class="noprint">나눗셈 지원 세트 — 4장: ①배수표 전략 개념 ②1회차(배수표 반 채워짐) ③2회차(배수표 스스로) ④3회차(배수표 선택 사용 + 검산).
+"두 자리×한 자리 암산이 안 될 때가 있어 힘들다"는 아이를 위해 — 암산을 표 만들기로 대체(지도 원칙: 암산을 조건으로 걸지 않음).</div>
+
+<!-- ═══ ① 개념 ═══ -->
+<div class="sheet">
+  <div class="pagehead"><h1>나눗셈의 비밀 무기 — 배수표</h1><div class="no">① 전략 · 선생님과 함께</div></div>
+  <div class="about"><b>이 장은</b> — 몫을 어림할 때 머릿속 곱셈 대신 <b>배수표를 먼저 적어 놓고 고르는</b> 전략을 배웁니다.
+  암산이 빨라야 잘하는 게 아니라, <b>정확한 사람이 잘하는 것</b> — 표를 쓰는 건 수학자들도 쓰는 정식 방법입니다.</div>
+
+  <div class="rule"><b>3단계 — 적고, 고르고, 빼기</b><br>
+  ① 나누는 수의 <b>배수표</b>를 적는다 (×1~×5면 충분)<br>
+  ② 나누어지는 수를 <b>넘지 않는 가장 큰 것</b>을 고른다 → 그게 몫!<br>
+  ③ 빼서 나머지를 구한다. (나머지는 나누는 수보다 항상 작아야 함)</div>
+
+  <p><b>예: 64 ÷ 19</b></p>
+  <table class="mtable">
+    <tr><th>19×1</th><th>19×2</th><th>19×3</th><th>19×4</th></tr>
+    <tr><td>19</td><td>38</td><td><b>57</b> ←64를 안 넘는 가장 큰 수!</td><td>76 (넘음 ✕)</td></tr>
+  </table>
+  <p>→ 몫은 <b>3</b>, 나머지는 64−57=<b>7</b>. &nbsp;검산: 19×3+7=64 ✓</p>
+
+  <div class="rule"><b>더 빠른 어림 팁</b> — 19는 <b>20에 가깝다!</b> "20이 64에 몇 번? 3번" → 3부터 확인하면 표를 다 안 채워도 됩니다.
+  배수표를 채울 때도 곱셈이 아니라 <b>더하기로</b>: 19, +19=38, +19=57… (덧셈은 이미 완벽하니까!)</div>
+  <div class="teacher">교사 메모 — "표를 쓰는 건 실력 부족이 아니라 전략"임을 명시적으로. 정확·꼼꼼한 아이에게 속도를 요구하지 않기(지도 원칙).</div>
+</div>
+
+<!-- ═══ ② 1회차 ═══ -->
+<div class="sheet">
+  <div class="pagehead"><h1>배수표로 나눗셈</h1><div class="no">② 1회차 · 10문항 (배수표 반 채워짐)</div></div>
+  <div class="meta"><b>이름</b> ____ <b>날짜</b> __/__ <b>컨디션</b> 좋아요 □ 보통 □ 피곤해요 □</div>
+  <div class="about">배수표의 빈칸을 <b>더해가며</b> 채우고 → 넘지 않는 가장 큰 수 고르고 → 빼기!</div>
+  <div class="grid">
+    <div class="q"><span class="prob">① 64÷19</span><div class="mul">배수표: 19 · 38 · <span></span> · <span></span></div><div class="ans">몫 <u></u> 나머지 <u></u></div></div>
+    <div class="q"><span class="prob">② 75÷23</span><div class="mul">배수표: 23 · <span></span> · <span></span> · <span></span></div><div class="ans">몫 <u></u> 나머지 <u></u></div></div>
+    <div class="q"><span class="prob">③ 89÷17</span><div class="mul">배수표: 17 · 34 · <span></span> · <span></span> · <span></span></div><div class="ans">몫 <u></u> 나머지 <u></u></div></div>
+    <div class="q"><span class="prob">④ 70÷16</span><div class="mul">배수표: 16 · <span></span> · <span></span> · <span></span></div><div class="ans">몫 <u></u> 나머지 <u></u></div></div>
+    <div class="q"><span class="prob">⑤ 95÷28</span><div class="mul">배수표: 28 · <span></span> · <span></span></div><div class="ans">몫 <u></u> 나머지 <u></u></div></div>
+    <div class="q"><span class="prob">⑥ 84÷13</span><div class="mul">배수표: 13 · 26 · <span></span> · <span></span> · <span></span> · <span></span></div><div class="ans">몫 <u></u> 나머지 <u></u></div></div>
+    <div class="q"><span class="prob">⑦ 66÷14</span><div class="mul">배수표: 14 · <span></span> · <span></span> · <span></span></div><div class="ans">몫 <u></u> 나머지 <u></u></div></div>
+    <div class="q"><span class="prob">⑧ 92÷31</span><div class="mul">배수표: 31 · <span></span> · <span></span></div><div class="ans">몫 <u></u> 나머지 <u></u></div></div>
+    <div class="q"><span class="prob">⑨ 58÷12</span><div class="mul">배수표: 12 · <span></span> · <span></span> · <span></span> · <span></span></div><div class="ans">몫 <u></u> 나머지 <u></u></div></div>
+    <div class="q"><span class="prob">⑩ 80÷24</span><div class="mul">배수표: 24 · <span></span> · <span></span></div><div class="ans">몫 <u></u> 나머지 <u></u></div></div>
+  </div>
+  <div class="teacher"><b>교사 기록</b> — 정답 __/10 · 배수표를 덧셈으로 채움 □ 곱셈으로 채움 □ · 나머지≥제수 오류 __회 · "힘들다" 호소 없이 완주 □</div>
+</div>
+
+<!-- ═══ ③ 2회차 ═══ -->
+<div class="sheet">
+  <div class="pagehead"><h1>배수표로 나눗셈</h1><div class="no">③ 2회차 · 10문항 (배수표 스스로)</div></div>
+  <div class="meta"><b>이름</b> ____ <b>날짜</b> __/__ <b>컨디션</b> 좋아요 □ 보통 □ 피곤해요 □</div>
+  <div class="about">이번엔 배수표 첫 칸도 스스로! 어림 팁(몇십에 가깝다)을 먼저 써 보고, 표는 확인용으로.</div>
+  <div class="grid">
+    <div class="q"><span class="prob">① 85÷19</span><div class="mul">배수표: <span></span> · <span></span> · <span></span> · <span></span></div><div class="ans">몫 <u></u> 나머지 <u></u></div></div>
+    <div class="q"><span class="prob">② 97÷26</span><div class="mul">배수표: <span></span> · <span></span> · <span></span></div><div class="ans">몫 <u></u> 나머지 <u></u></div></div>
+    <div class="q"><span class="prob">③ 74÷17</span><div class="mul">배수표: <span></span> · <span></span> · <span></span> · <span></span></div><div class="ans">몫 <u></u> 나머지 <u></u></div></div>
+    <div class="q"><span class="prob">④ 68÷15</span><div class="mul">배수표: <span></span> · <span></span> · <span></span> · <span></span></div><div class="ans">몫 <u></u> 나머지 <u></u></div></div>
+    <div class="q"><span class="prob">⑤ 90÷21</span><div class="mul">배수표: <span></span> · <span></span> · <span></span> · <span></span></div><div class="ans">몫 <u></u> 나머지 <u></u></div></div>
+    <div class="q"><span class="prob">⑥ 77÷12</span><div class="mul">배수표: <span></span> · <span></span> · <span></span> · <span></span> · <span></span> · <span></span></div><div class="ans">몫 <u></u> 나머지 <u></u></div></div>
+    <div class="q"><span class="prob">⑦ 83÷27</span><div class="mul">배수표: <span></span> · <span></span> · <span></span></div><div class="ans">몫 <u></u> 나머지 <u></u></div></div>
+    <div class="q"><span class="prob">⑧ 59÷13</span><div class="mul">배수표: <span></span> · <span></span> · <span></span> · <span></span></div><div class="ans">몫 <u></u> 나머지 <u></u></div></div>
+    <div class="q"><span class="prob">⑨ 94÷32</span><div class="mul">배수표: <span></span> · <span></span></div><div class="ans">몫 <u></u> 나머지 <u></u></div></div>
+    <div class="q"><span class="prob">⑩ 71÷22</span><div class="mul">배수표: <span></span> · <span></span> · <span></span></div><div class="ans">몫 <u></u> 나머지 <u></u></div></div>
+  </div>
+  <div class="teacher"><b>교사 기록</b> — 정답 __/10 · 어림 팁 사용 __회 · 배수표 자력 작성 □ · 특이: __________</div>
+</div>
+
+<!-- ═══ ④ 3회차 ═══ -->
+<div class="sheet">
+  <div class="pagehead"><h1>배수표는 필요할 때만 + 검산</h1><div class="no">④ 3회차 · 10문항</div></div>
+  <div class="meta"><b>이름</b> ____ <b>날짜</b> __/__ <b>컨디션</b> 좋아요 □ 보통 □ 피곤해요 □</div>
+  <div class="about">이번엔 배수표 칸이 없어요 — <b>필요하면 여백에 스스로</b> 적으세요(적는 건 언제나 좋은 전략!).
+  ⑨⑩은 검산까지: <b>나누는 수×몫+나머지 = 원래 수</b>가 되는지 확인.</div>
+  <div class="grid">
+    <div class="q"><span class="prob">① 88÷19</span><div class="ans" style="margin-top:26px">몫 <u></u> 나머지 <u></u></div></div>
+    <div class="q"><span class="prob">② 76÷14</span><div class="ans" style="margin-top:26px">몫 <u></u> 나머지 <u></u></div></div>
+    <div class="q"><span class="prob">③ 99÷23</span><div class="ans" style="margin-top:26px">몫 <u></u> 나머지 <u></u></div></div>
+    <div class="q"><span class="prob">④ 65÷12</span><div class="ans" style="margin-top:26px">몫 <u></u> 나머지 <u></u></div></div>
+    <div class="q"><span class="prob">⑤ 93÷28</span><div class="ans" style="margin-top:26px">몫 <u></u> 나머지 <u></u></div></div>
+    <div class="q"><span class="prob">⑥ 82÷16</span><div class="ans" style="margin-top:26px">몫 <u></u> 나머지 <u></u></div></div>
+    <div class="q"><span class="prob">⑦ 69÷22</span><div class="ans" style="margin-top:26px">몫 <u></u> 나머지 <u></u></div></div>
+    <div class="q"><span class="prob">⑧ 79÷18</span><div class="ans" style="margin-top:26px">몫 <u></u> 나머지 <u></u></div></div>
+    <div class="q"><span class="prob">⑨ 96÷35</span><div class="ans" style="margin-top:8px">몫 <u></u> 나머지 <u></u><br>검산: ___×___+___=___</div></div>
+    <div class="q"><span class="prob">⑩ 87÷25</span><div class="ans" style="margin-top:8px">몫 <u></u> 나머지 <u></u><br>검산: ___×___+___=___</div></div>
+  </div>
+  <div class="teacher"><b>교사 기록</b> — 정답 __/10 · 여백 배수표 사용 __문항 · 검산 자력 __/2 &nbsp;※10중 8 × 2회 연속 → 나눗셈을 정식 목표로 승격 논의</div>
+</div>
+<!-- mak-home --><a href="../../" style="position:fixed;left:12px;bottom:12px;z-index:2147483000;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:22px;background:#232320;color:#efe6d6;font:14px/1 'Apple SD Gothic Neo','Noto Sans KR',sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.35);opacity:.92" title="나눔터 첫 화면으로">⌂ 나눔터</a><style>@media print{a[href="../../"]{display:none!important}}</style>

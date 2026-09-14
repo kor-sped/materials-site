@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>요약의 사다리 — 학생용</title>
+<style>
+  :root{
+    --ink:#16323D;
+    --ink2:#4A6272;
+    --ink3:#8799A5;
+    --rule:#C6D5DD;
+    --rule2:#E3ECF0;
+    --blue:#1F5D8C;
+    --blue-tint:#E4EFF6;
+    --amber:#BF860F;
+    --amber-tint:#FAF0D9;
+    --red:#A8322A;
+    --red-tint:#F7E4E1;
+    --green:#2F6B4F;
+    --green-tint:#E4F0E9;
+    --tint:#EFF4F7;
+    --fs:11pt;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:#DFE8ED;
+    color:var(--ink);
+    font-family:'Gothic A1','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+    font-size:var(--fs);
+    font-weight:400;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    padding:0 10px 60px;
+  }
+  b,strong{font-weight:700;}
+
+  /* ---------- 조작 단추 (인쇄되지 않아요) ---------- */
+  .bar{
+    position:sticky;top:0;z-index:50;
+    background:rgba(223,232,237,.95);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--rule);
+    display:flex;gap:6px;align-items:center;justify-content:center;
+    padding:8px 10px;margin:0 -10px 20px;flex-wrap:wrap;
+  }
+  .bar button{
+    font-family:inherit;font-size:10pt;font-weight:500;
+    color:var(--ink);background:#fff;
+    border:1px solid var(--rule);border-radius:2px;
+    padding:5px 13px;cursor:pointer;
+  }
+  .bar button:hover{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .bar button:focus-visible{outline:2px solid var(--blue);outline-offset:2px;}
+  .bar button.on{background:var(--blue);color:#fff;border-color:var(--blue);}
+  .bar .tag{font-size:8.5pt;letter-spacing:.14em;font-weight:800;color:var(--ink3);}
+  .bar .sep{width:1px;height:20px;background:var(--rule);margin:0 4px;}
+
+  /* ---------- 지면 ---------- */
+  .page{
+    background:#fff;
+    width:210mm;max-width:100%;
+    margin:0 auto 18px;
+    padding:14mm 15mm 12mm;
+    border:1px solid var(--rule);
+    box-shadow:0 2px 12px rgba(22,50,61,.10);
+  }
+
+  /* ---------- 머리 ---------- */
+  .head{border-bottom:2.5px solid var(--ink);padding-bottom:8px;margin-bottom:14px;}
+  .head .eyebrow{font-size:8.5pt;letter-spacing:.16em;font-weight:800;color:var(--blue);}
+  .head h1{
+    font-family:'Gowun Batang',serif;font-weight:700;
+    font-size:22pt;line-height:1.22;letter-spacing:-.02em;margin:4px 0 4px;
+  }
+  .head .lede{font-size:10.5pt;color:var(--ink2);font-weight:300;}
+
+  .phead{
+    display:flex;align-items:baseline;gap:10px;
+    border-bottom:2px solid var(--ink);padding-bottom:7px;margin-bottom:6px;
+  }
+  .phead .n{
+    font-family:'IBM Plex Mono',monospace;font-size:9pt;font-weight:600;
+    letter-spacing:.1em;color:#fff;background:var(--blue);
+    padding:2px 7px;flex:none;
+  }
+  .phead h2{
+    font-family:'Gowun Batang',serif;font-weight:700;
+    font-size:16pt;letter-spacing:-.01em;line-height:1.3;
+  }
+  .sub{font-size:10pt;color:var(--ink2);font-weight:300;margin-bottom:14px;}
+  .sub b{color:var(--ink);font-weight:700;}
+  h3.mini{
+    font-family:'Gowun Batang',serif;font-size:12.5pt;font-weight:700;
+    margin:16px 0 5px;
+  }
+  p.body{font-size:10.5pt;line-height:1.7;margin-bottom:8px;}
+  em.mark{
+    font-style:normal;font-weight:700;
+    background:var(--amber-tint);
+    box-shadow:0 -0.35em 0 0 #fff inset;
+    padding:0 2px;
+  }
+
+  /* ---------- 순서 띠 ---------- */
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0 8px;}
+  .flow .f{border-top:2.5px solid var(--blue);padding:6px 0 0;}
+  .flow .f .n{
+    font-family:'IBM Plex Mono',monospace;font-size:9pt;font-weight:600;color:var(--blue);
+  }
+  .flow .f b{display:block;font-family:'Gowun Batang',serif;font-size:12pt;font-weight:700;}
+  .flow .f span{display:block;font-size:9pt;color:var(--ink2);line-height:1.5;}
+
+  /* ---------- 강조 상자 ---------- */
+  .box{
+    background:var(--tint);border-left:3px solid var(--blue);
+    padding:10px 14px;margin:10px 0;font-size:10pt;line-height:1.65;
+  }
+  .box b{color:var(--blue);}
+  .box.amber{background:var(--amber-tint);border-left-color:var(--amber);}
+  .box.amber b{color:var(--amber);}
+  .box.red{background:var(--red-tint);border-left-color:var(--red);}
+  .box.red b{color:var(--red);}
+  .box.green{background:var(--green-tint);border-left-color:var(--green);}
+  .box.green b{color:var(--green);}
+  .box .h{
+    display:block;font-size:8.5pt;letter-spacing:.12em;font-weight:800;
+    margin-bottom:3px;
+  }
+
+  /* ---------- 단계 블록 ---------- */
+  .stage{border-top:1px solid var(--rule);padding:9px 0;}
+  .stage .sh{
+    display:flex;align-items:baseline;gap:8px;margin-bottom:4px;
+  }
+  .stage .sh .no{
+    font-family:'IBM Plex Mono',monospace;font-size:9pt;font-weight:600;
+    color:#fff;background:var(--blue);padding:1px 6px;flex:none;
+  }
+  .stage .sh b{font-family:'Gowun Batang',serif;font-size:12.5pt;font-weight:700;}
+  .stage .g{font-size:9.5pt;color:var(--ink2);margin-bottom:5px;line-height:1.6;}
+
+  /* ---------- 문장 줄 ---------- */
+  .ln{display:grid;grid-template-columns:17mm 1fr;gap:0 7px;margin-bottom:4px;}
+  .ln .t{font-size:8.5pt;font-weight:800;letter-spacing:.04em;color:var(--ink3);padding-top:2px;}
+  .ln .v{font-size:10pt;line-height:1.6;}
+  .ln.mine .t{color:var(--amber);}
+  .ln.mine .v{
+    font-family:'Gowun Batang',serif;font-size:11.5pt;font-weight:700;
+    background:var(--amber-tint);padding:2px 7px;display:inline-block;
+  }
+  .numlist span{display:block;font-size:10pt;line-height:1.6;}
+  .numlist span .i{font-family:'IBM Plex Mono',monospace;color:var(--ink3);margin-right:5px;}
+  .keys{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0;}
+  .key{
+    font-size:9.5pt;font-weight:700;color:var(--blue);
+    background:var(--blue-tint);padding:2px 9px;
+  }
+  s{color:var(--ink3);text-decoration-color:var(--red);text-decoration-thickness:1.5px;}
+  .why{
+    font-size:9pt;color:var(--ink2);margin-top:4px;
+    border-left:2px solid var(--rule);padding-left:8px;line-height:1.6;
+  }
+  .why b{color:var(--blue);}
+
+  /* ---------- 표 ---------- */
+  table{width:100%;border-collapse:collapse;margin:8px 0 6px;font-size:9.5pt;}
+  th{
+    text-align:left;font-size:8.5pt;letter-spacing:.08em;font-weight:800;
+    color:var(--ink2);border-bottom:2px solid var(--ink);
+    padding:4px 7px 4px 0;vertical-align:bottom;
+  }
+  th.star{color:var(--blue);}
+  td{border-bottom:1px solid var(--rule2);padding:6px 7px 6px 0;vertical-align:top;line-height:1.55;}
+  td.lead{white-space:nowrap;color:var(--blue);font-weight:700;font-size:9pt;}
+  tr.sum td{background:var(--amber-tint);font-weight:700;}
+  tr.now td{background:var(--amber-tint);}
+
+  /* ---------- 두 칸 ---------- */
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:0 16px;}
+  .two.gap{gap:0 20px;}
+
+  /* ---------- 미끄러지는 곳 ---------- */
+  .slips{border-top:1px solid var(--rule);}
+  .slip{
+    display:grid;grid-template-columns:9mm 1fr;gap:0 7px;
+    border-bottom:1px solid var(--rule2);padding:9px 0;
+  }
+  .slip .i{
+    font-family:'IBM Plex Mono',monospace;font-size:12pt;font-weight:600;color:var(--red);
+  }
+  .slip h4{font-family:'Gowun Batang',serif;font-size:11.5pt;font-weight:700;margin-bottom:2px;}
+  .slip p{font-size:9.5pt;line-height:1.6;margin-bottom:3px;}
+  .slip .fix{
+    display:block;font-size:9.5pt;color:var(--green);
+    border-left:2px solid var(--green);padding-left:8px;line-height:1.6;font-weight:500;
+  }
+
+  /* ---------- 체크 ---------- */
+  .checks ul{list-style:none;}
+  .checks li{
+    font-size:10pt;line-height:1.5;padding:5px 0 5px 20px;
+    position:relative;border-bottom:1px dotted var(--rule);
+  }
+  .checks li::before{
+    content:"";position:absolute;left:0;top:7px;
+    width:3.6mm;height:3.6mm;border:1.5px solid var(--blue);
+  }
+
+  /* ---------- 노트 칸 ---------- */
+  .cell{border:1.5px solid var(--ink);padding:10px 13px;margin-top:8px;}
+  .cell .row{
+    display:grid;grid-template-columns:19mm 1fr;gap:0 8px;
+    padding:5px 0;border-bottom:1px dotted var(--rule);
+  }
+  .cell .row:last-child{border-bottom:none;}
+  .cell .row .k{font-size:9.5pt;font-weight:800;color:var(--blue);}
+  .cell .row .v{font-size:9.5pt;line-height:1.55;}
+  .cell .cap{
+    font-size:8.5pt;letter-spacing:.1em;font-weight:800;color:var(--ink3);
+    margin-bottom:4px;
+  }
+
+  /* ---------- 꼬리 ---------- */
+  .foot{
+    margin-top:16px;border-top:2px solid var(--ink);padding-top:7px;
+    display:flex;justify-content:space-between;gap:14px;
+    font-size:8.5pt;color:var(--ink2);
+  }
+  .foot b{color:var(--ink);}
+  .sign{
+    margin-top:12px;border-top:1px solid var(--rule);padding-top:9px;
+    font-family:'Gowun Batang',serif;font-size:11.5pt;font-weight:700;
+    color:var(--blue);line-height:1.6;
+  }
+
+  /* ---------- 작은 화면 ---------- */
+  @media (max-width:760px){
+    .page{padding:9mm 7mm;}
+    .head h1{font-size:19pt;}
+    .two,.flow{grid-template-columns:1fr;}
+    .flow{gap:4px;}
+  }
+
+  /* ---------- 인쇄 ---------- */
+  @media print{
+    @page{size:A4;margin:12mm;}
+    html,body{background:#fff;padding:0;margin:0;font-size:11pt;line-height:1.6;}
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .bar,.noprint{display:none !important;}
+    .page{
+      width:auto;max-width:none;margin:0;padding:0;
+      border:none;box-shadow:none;
+      break-after:page;page-break-after:always;
+    }
+    .page:last-of-type{break-after:auto;page-break-after:auto;}
+    .stage,.slip,.box,.cell,.flow,table,tr,.two{break-inside:avoid;page-break-inside:avoid;}
+    .phead,.head,h3.mini,.sub{break-after:avoid;page-break-after:avoid;}
+    .foot{break-before:avoid;page-break-before:avoid;}
+  }
+
+  /* ---------- 사다리 ---------- */
+  .ladder{border-top:1px solid var(--rule);}
+  .rung{
+    display:grid;grid-template-columns:15mm 33mm 1fr;gap:0 9px;
+    border-bottom:1px solid var(--rule2);
+    padding:6px 0;align-items:start;position:relative;
+  }
+  .rail{position:relative;height:100%;min-height:13mm;}
+  .rail::before{
+    content:"";position:absolute;left:6.2mm;top:-6px;bottom:-6px;
+    width:2px;background:var(--rule);
+  }
+  .rung:first-child .rail::before{top:6mm;}
+  .rung:last-child .rail::before{bottom:auto;height:6mm;}
+  .rail .num{
+    position:relative;width:11.4mm;height:11.4mm;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'IBM Plex Mono',monospace;font-size:14pt;font-weight:600;
+    color:var(--blue);background:#fff;border:2px solid var(--blue);
+  }
+  .rung.now .rail .num{color:#fff;background:var(--blue);}
+  .rung.later .rail .num{color:var(--ink3);border-color:var(--rule);}
+
+  .what b{
+    display:block;font-family:'Gowun Batang',serif;
+    font-size:13pt;font-weight:700;line-height:1.3;
+  }
+  .what .verb{
+    display:inline-block;margin-top:3px;
+    font-size:9pt;font-weight:700;letter-spacing:.03em;
+    color:var(--blue);background:var(--blue-tint);padding:1px 6px;
+  }
+  .rung.later .what .verb{color:var(--ink2);background:var(--tint);}
+  .what .when{display:block;font-size:8.5pt;color:var(--ink3);margin-top:3px;font-weight:500;}
+  .what .here{
+    display:inline-block;margin-top:4px;
+    font-size:8.5pt;font-weight:800;letter-spacing:.04em;
+    color:#fff;background:var(--amber);padding:1px 7px;
+  }
+
+  .note{font-size:9.5pt;line-height:1.5;color:var(--ink);}
+  .note .k{color:var(--blue);font-weight:700;}
+  .note .ex{
+    display:block;margin-top:3px;font-size:9pt;color:var(--ink2);
+    border-left:2px solid var(--amber);padding-left:8px;
+  }
+  .bars{margin-top:5px;}
+  .barline{display:flex;align-items:center;gap:7px;margin-bottom:2px;}
+  .barline .lab{
+    font-size:8pt;letter-spacing:.06em;color:var(--ink3);
+    width:11mm;flex:none;text-align:right;font-weight:700;
+  }
+  .barline .fill{height:6px;background:var(--rule);}
+  .barline.mine .fill{background:var(--amber);min-width:2px;}
+  .barline .ratio{
+    font-family:'IBM Plex Mono',monospace;font-size:8pt;color:var(--ink3);font-weight:500;
+  }
+
+  /* ---------- 예시 ---------- */
+  .demo{border-top:1px solid var(--rule);}
+  .dstep{
+    border-bottom:1px solid var(--rule2);padding:9px 0;
+    display:grid;grid-template-columns:20mm 1fr;gap:0 9px;
+  }
+  .dstep .badge2 .no{
+    font-family:'IBM Plex Mono',monospace;font-size:13pt;font-weight:600;
+    color:var(--blue);line-height:1.2;
+  }
+  .dstep .badge2 .vb{display:block;font-size:9pt;font-weight:700;color:var(--ink2);}
+  .src{font-size:9.5pt;line-height:1.55;}
+  .src span{display:block;}
+  .src .i{font-family:'IBM Plex Mono',monospace;color:var(--ink3);margin-right:4px;}
+
+  /* ---------- 여덟 가지 ---------- */
+  .tools{display:grid;grid-template-columns:1fr 1fr;gap:0 16px;}
+  .tool{border-top:1px solid var(--rule2);padding:9px 0;}
+  .tool .n{
+    font-family:'IBM Plex Mono',monospace;font-size:9pt;font-weight:600;
+    letter-spacing:.08em;color:var(--blue);
+  }
+  .tool b{
+    display:block;font-family:'Gowun Batang',serif;
+    font-size:12pt;font-weight:700;margin:0 0 3px;
+  }
+  .tool p{font-size:9.5pt;color:var(--ink);line-height:1.55;}
+  .tool .try{
+    display:block;margin-top:4px;font-size:9pt;color:var(--ink2);
+    background:var(--tint);padding:4px 8px;line-height:1.5;
+  }
+  .tool .try em{font-style:normal;font-weight:700;color:var(--blue);}
+
+  /* ---------- 한눈에 띠 ---------- */
+  .strip{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin:10px 0 4px;
+  }
+  .strip .s{border-top:2.5px solid var(--blue);padding:5px 0 0;}
+  .strip .s .n{font-family:'IBM Plex Mono',monospace;font-size:8.5pt;font-weight:600;color:var(--blue);}
+  .strip .s b{display:block;font-family:'Gowun Batang',serif;font-size:11.5pt;font-weight:700;}
+  .strip .s span{display:block;font-size:8.5pt;color:var(--ink2);line-height:1.45;}
+  .strip .s.later{border-top-color:var(--rule);}
+  .strip .s.later .n{color:var(--ink3);}
+
+  @media (max-width:760px){
+    .rung{grid-template-columns:13mm 1fr;}
+    .rung .note{grid-column:1/-1;padding-top:5px;}
+    .dstep{grid-template-columns:1fr;}
+    .dstep .badge2{margin-bottom:4px;}
+    .tools{grid-template-columns:1fr;}
+    .strip{grid-template-columns:1fr 1fr;}
+  }
+
+  /* ---------- 인쇄 ---------- */
+  @media print{
+    @page{size:A4;margin:12mm;}
+    html,body{font-size:11pt;line-height:1.55;}
+    .page{
+      width:auto;max-width:none;margin:0;padding:0;
+      border:none;box-shadow:none;
+      break-after:page;page-break-after:always;
+    }
+    .page:last-of-type{break-after:auto;page-break-after:auto;}
+    .rung,.dstep,.tool,.box,.cell,.strip,table,tr,.two{
+      break-inside:avoid;page-break-inside:avoid;
+    }
+    .phead,.sub,.head{break-after:avoid;page-break-after:avoid;}
+    .foot{break-before:avoid;page-break-before:avoid;}
+  }
+
+</style>
+</head>
+<body>
+<div class="bar">
+  <span class="tag">보기</span>
+  <button onclick="fs(1)">글자 크게</button>
+  <button onclick="fs(-1)">글자 작게</button>
+  <div class="sep"></div>
+  <button onclick="window.print()">인쇄하기</button>
+  <span class="tag">A4 5장</span>
+</div>
+
+<!-- ══════════ 1쪽 · 사다리 ══════════ -->
+<div class="page">
+
+  <div class="head">
+    <div class="eyebrow">요약 연습</div>
+    <h1>요약의 사다리</h1>
+    <p class="lede">한 문장에서 책 한 권까지. / 다섯 칸을 한 칸씩 올라가요.</p>
+  </div>
+
+  <div class="phead"><span class="n">1</span><h2>다섯 칸은 이렇게 생겼어요</h2></div>
+  <div class="sub">위로 갈수록 짧아지는 게 아니에요. <b>하는 일이 달라져요.</b> 노란 막대가 내 분량이에요.</div>
+
+  <div class="ladder">
+
+    <div class="rung">
+      <div class="rail"><div class="num">1</div></div>
+      <div class="what">
+        <b>한 문장</b>
+        <span class="verb">갈아 끼우기</span>
+        <span class="when">지금까지 해 온 것</span>
+      </div>
+      <div class="note">
+        문장 하나를 다른 말로 바꿔요. 길이는 그대로예요.
+        버릴 것이 없으니 <span class="k">요약이 아니에요.</span>
+        <div class="bars">
+          <div class="barline"><span class="lab">원문</span><span class="fill" style="width:70%"></span></div>
+          <div class="barline mine"><span class="lab">내 말</span><span class="fill" style="width:68%"></span><span class="ratio">1 : 1</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rung now">
+      <div class="rail"><div class="num">2</div></div>
+      <div class="what">
+        <b>3~5문장</b>
+        <span class="verb">지우기</span>
+        <span class="here">지금 여기</span>
+      </div>
+      <div class="note">
+        없어도 되는 문장을 지워요. 남은 것만 이어요.
+        다섯 문장이면 <span class="k">한두 문장</span>으로 나와요.
+        <span class="ex">이런 말이 나오면 잘하는 거예요. "이건 예시니까 빼도 돼."</span>
+        <div class="bars">
+          <div class="barline"><span class="lab">원문</span><span class="fill" style="width:100%"></span></div>
+          <div class="barline mine"><span class="lab">내 말</span><span class="fill" style="width:33%"></span><span class="ratio">1/3</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rung later">
+      <div class="rail"><div class="num">3</div></div>
+      <div class="what">
+        <b>2~3문단</b>
+        <span class="verb">묶기</span>
+        <span class="when">겨울에</span>
+      </div>
+      <div class="note">
+        문단마다 한 줄로 줄여요. 그 줄들을 다시 한 줄로 묶어요.
+        여기서부터 <span class="k">원문에 없던 말</span>을 써야 해요.
+        <div class="bars">
+          <div class="barline"><span class="lab">원문</span><span class="fill" style="width:100%"></span></div>
+          <div class="barline mine"><span class="lab">내 말</span><span class="fill" style="width:18%"></span><span class="ratio">1/5</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rung later">
+      <div class="rail"><div class="num">4</div></div>
+      <div class="what">
+        <b>한 장(章)</b>
+        <span class="verb">뼈대 찾기</span>
+        <span class="when">다음 학년에</span>
+      </div>
+      <div class="note">
+        줄이는 게 아니라 <span class="k">모양을 찾는 것</span>이에요.
+        <div class="bars">
+          <div class="barline"><span class="lab">원문</span><span class="fill" style="width:100%"></span></div>
+          <div class="barline mine"><span class="lab">내 말</span><span class="fill" style="width:6%"></span><span class="ratio">1/30</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rung later">
+      <div class="rail"><div class="num">5</div></div>
+      <div class="what">
+        <b>책 한 권</b>
+        <span class="verb">다시 짓기</span>
+        <span class="when">학년 끝에 한 번</span>
+      </div>
+      <div class="note">
+        원문 문장은 하나도 안 남아요.
+        <span class="k">주장 한 문장 + 근거 셋</span>으로 다시 지어요.
+        <div class="bars">
+          <div class="barline"><span class="lab">원문</span><span class="fill" style="width:100%"></span></div>
+          <div class="barline mine"><span class="lab">내 말</span><span class="fill" style="width:2.5%"></span><span class="ratio">1/200</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="box amber">
+    <b>이번 학기는 2칸까지예요.</b> 3칸은 겨울에, 4칸은 다음 학년에.
+    칸을 건너뛰면 긴 글 앞에서 첫 문단만 베끼게 돼요.
+  </div>
+
+  <div class="foot">
+    <div>기준은 하나예요 — <b>낱말을 옮겼나, 뜻을 옮겼나.</b></div>
+    <div style="white-space:nowrap;text-align:right;">1 / 5</div>
+  </div>
+</div>
+
+<!-- ══════════ 2쪽 · 예시 1~3칸 ══════════ -->
+<div class="page">
+
+  <div class="phead"><span class="n">2</span><h2>같은 이야기로 올라가 봐요 · 1~3칸</h2></div>
+  <div class="sub">글감은 <b>꿀벌</b> 하나예요. 칸이 올라갈 때 무엇이 달라지는지만 봐요.
+    <span style="color:var(--ink3)">(연습하려고 짧게 만든 글이에요)</span></div>
+
+  <div class="demo">
+
+    <div class="dstep">
+      <div class="badge2"><span class="no">1</span><span class="vb">갈아 끼우기</span></div>
+      <div>
+        <div class="ln"><span class="t">원문</span><span class="v">꿀벌은 꽃을 옮겨 다니며 꽃가루를 나른다.</span></div>
+        <div class="ln mine"><span class="t">내 말</span><span class="v">꿀벌이 이 꽃 저 꽃 다니면서 꽃가루를 옮긴다.</span></div>
+        <div class="why">길이가 거의 같아요. 버린 것이 없어요. <b>그래서 요약이 아니에요.</b></div>
+      </div>
+    </div>
+
+    <div class="dstep">
+      <div class="badge2"><span class="no">2</span><span class="vb">지우기</span></div>
+      <div>
+        <div class="ln"><span class="t">원문</span><span class="src">
+          <span><span class="i">1</span>꿀벌은 꽃에서 꿀을 모은다.</span>
+          <span><span class="i">2</span>꿀을 모으는 동안 몸에 꽃가루가 묻는다.</span>
+          <span><span class="i">3</span>다음 꽃으로 가면 꽃가루도 같이 간다.</span>
+          <span><span class="i">4</span>그래서 꽃이 열매를 맺는다.</span>
+          <span><span class="i">5</span>사과나무도 꿀벌의 도움을 받는다.</span>
+        </span></div>
+        <div class="ln mine"><span class="t">내 말</span><span class="v">꿀벌이 꿀을 모으다가 꽃가루를 옮긴다. 그래서 꽃이 열매를 맺는다.</span></div>
+        <div class="why"><b>지운 곳 —</b> 5번은 예시라서 뺐어요.
+          2번과 3번은 과정이라 "옮긴다" 한 마디에 넣었어요. 다섯 문장이 두 문장이 되었어요.</div>
+      </div>
+    </div>
+
+    <div class="dstep">
+      <div class="badge2"><span class="no">3</span><span class="vb">묶기</span></div>
+      <div>
+        <div class="ln"><span class="t">문단 제목</span><span class="v">
+          ① 꿀 모으는 벌 &nbsp;·&nbsp; ② 열매 맺게 함 &nbsp;·&nbsp; ③ 줄어드는 벌</span></div>
+        <div class="ln mine"><span class="t">내 말</span><span class="v">꿀벌이 우리 먹을거리를 만드는데, 그 꿀벌이 줄고 있다.</span></div>
+        <div class="why"><b>새로 생긴 일 —</b> "먹을거리"는 원문에 없는 말이에요.
+          사과와 딸기와 오이를 하나로 묶은 말이에요. 지우기만 해서는 여기까지 못 와요.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="box">
+    1칸과 2칸은 <b>지우면</b> 돼요. / 3칸부터는 <b>내 말을 만들어야</b> 해요. /
+    여기가 사다리에서 제일 높은 계단이에요.
+  </div>
+
+  <div class="foot">
+    <div>다음 쪽에서 4칸과 5칸을 봐요.</div>
+    <div style="white-space:nowrap;text-align:right;">2 / 5</div>
+  </div>
+</div>
+
+<!-- ══════════ 3쪽 · 예시 4~5칸 ══════════ -->
+<div class="page">
+
+  <div class="phead"><span class="n">3</span><h2>같은 이야기로 올라가 봐요 · 4~5칸</h2></div>
+  <div class="sub">여기는 <b>맛만 봐요.</b> 지금 할 수 있어야 하는 건 아니에요.
+    이런 것이 위에 있다는 것만 알아 둬요.</div>
+
+  <div class="demo">
+
+    <div class="dstep">
+      <div class="badge2"><span class="no">4</span><span class="vb">뼈대 찾기</span></div>
+      <div>
+        <div class="ln"><span class="t">묻는 것</span><span class="v">꿀벌이 사라지면 어떻게 될까?</span></div>
+        <div class="ln"><span class="t">답</span><span class="v">우리가 먹는 것이 줄어든다.</span></div>
+        <div class="ln mine"><span class="t">근거 셋</span><span class="v">열매를 맺게 한다 / 대신할 것이 없다 / 이미 줄고 있다</span></div>
+        <div class="why">줄거리를 순서대로 늘어놓으면 요약이 아니에요.
+          <b>질문과 답의 모양</b>이 보여야 해요.</div>
+      </div>
+    </div>
+
+    <div class="dstep">
+      <div class="badge2"><span class="no">5</span><span class="vb">다시 짓기</span></div>
+      <div>
+        <div class="ln mine"><span class="t">주장</span><span class="v">작은 벌레 하나가 사람의 밥상을 떠받친다.</span></div>
+        <div class="ln"><span class="t">근거 셋</span><span class="v">꽃이 열매가 되려면 벌이 있어야 한다 / 벌이 줄고 있다 / 사람이 줄어들게 만들었다</span></div>
+        <div class="why">원문 문장이 하나도 안 남았어요. 남은 것은 <b>뜻의 뼈대</b>뿐이에요.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="phead" style="margin-top:20px;"><span class="n">4</span><h2>다섯 칸 한눈에</h2></div>
+  <div class="sub">칸 이름은 못 외워도 괜찮아요. <b>하는 일</b>만 기억해요.</div>
+
+  <div class="strip">
+    <div class="s"><span class="n">1칸</span><b>갈아 끼우기</b><span>말만 바꿔요</span></div>
+    <div class="s"><span class="n">2칸</span><b>지우기</b><span>빼도 되는 걸 지워요</span></div>
+    <div class="s later"><span class="n">3칸</span><b>묶기</b><span>새 말로 묶어요</span></div>
+    <div class="s later"><span class="n">4칸</span><b>뼈대 찾기</b><span>질문과 답을 찾아요</span></div>
+    <div class="s later"><span class="n">5칸</span><b>다시 짓기</b><span>주장과 근거로 지어요</span></div>
+  </div>
+
+  <div class="box green">
+    <span class="h">왜 이걸 배울까요</span>
+    통역은 낱말을 옮기는 일이 아니에요. <b>뜻을 옮기는 일</b>이에요.
+    그래서 요약을 먼저 배워요.
+  </div>
+
+  <div class="foot">
+    <div>지금은 2칸이면 충분해요.</div>
+    <div style="white-space:nowrap;text-align:right;">3 / 5</div>
+  </div>
+</div>
+
+<!-- ══════════ 4쪽 · 여덟 가지 방법 ══════════ -->
+<div class="page">
+
+  <div class="phead"><span class="n">5</span><h2>막힐 때 쓰는 여덟 가지 방법</h2></div>
+  <div class="sub">"요약해 봐"는 어려운 말이에요. 무엇을 하라는 말인지 알기 힘들어요.
+    대신 <b>아래에서 하나를 골라서 해요.</b> 요약은 그 결과로 나와요.</div>
+
+  <div class="tools">
+
+    <div class="tool">
+      <div class="n">01</div><b>30초 → 15초 → 5초</b>
+      <p>같은 이야기를 세 번 말해요. 시간만 줄여요.
+        짧게 쓰라는 말보다 짧게 말하라는 말이 쉬워요.</p>
+      <span class="try"><em>해 보기</em> 짝에게 30초. 바로 다시 15초. 마지막 5초.
+        5초에 남은 말이 핵심이에요.</span>
+    </div>
+
+    <div class="tool">
+      <div class="n">02</div><b>제목 붙이기</b>
+      <p>문단마다 제목을 붙여요. 제목 짓기가 곧 요약이에요.
+        가장 쉬운 시작이에요.</p>
+      <span class="try"><em>규칙</em> 다섯 글자를 넘기지 마요. 넘으면 제목이 아니라 문장이에요.</span>
+    </div>
+
+    <div class="tool">
+      <div class="n">03</div><b>지우개 먼저</b>
+      <p>"중요한 것 고르기"는 어려워요.
+        "지워도 되는 것 고르기"는 쉬워요. 남은 것이 요약이에요.</p>
+      <span class="try"><em>해 보기</em> 연필로 지울 곳에 줄을 그어요. 예시 문장부터 그어 봐요.</span>
+    </div>
+
+    <div class="tool">
+      <div class="n">04</div><b>세 칸 질문</b>
+      <p>종이에 칸 셋을 그리고 채워요.
+        칸이 있으면 무엇을 찾을지 알게 돼요.</p>
+      <span class="try"><em>이야기 글</em> 누가 / 뭘 했는데 / 그래서?<br>
+        <em>설명하는 글</em> 무엇이 / 어떻게 / 왜?</span>
+    </div>
+
+    <div class="tool">
+      <div class="n">05</div><b>손가락 다섯</b>
+      <p>문단 하나에 손가락 하나를 펴요.
+        다 읽고 하나씩 접으면서 말해요.</p>
+      <span class="try"><em>알게 되는 것</em> 접을 말이 없는 문단이 나와요. 그 문단은 빼도 되는 문단이에요.</span>
+    </div>
+
+    <div class="tool">
+      <div class="n">06</div><b>짝이 받아 적기</b>
+      <p>내가 말하고 짝이 그대로 적어요.
+        말은 되는데 쓰려면 막히는 날에 써요.</p>
+      <span class="try"><em>다음에 할 일</em> 짝이 적어 준 것을 소리 내어 읽어요. 그리고 한 번 더 줄여요.</span>
+    </div>
+
+    <div class="tool">
+      <div class="n">07</div><b>종이에 자리 잡기</b>
+      <p>뜻 덩어리를 자리로 나눠요. 까닭은 왼쪽, 결과는 오른쪽.
+        문장이 아니라 그림으로 남아요.</p>
+      <span class="try"><em>수어와 같아요</em> 수어도 공간에 자리를 잡아 말해요. 같은 원리예요.</span>
+    </div>
+
+    <div class="tool">
+      <div class="n">08</div><b>받는 사람 정하기</b>
+      <p>누구한테 전할지 먼저 정해요.
+        받는 사람이 바뀌면 요약도 바뀌어요.</p>
+      <span class="try"><em>골라 봐요</em> 1학년 동생에게? 결석한 친구에게? 선생님에게?
+        통역도 이 질문에서 시작해요.</span>
+    </div>
+
+  </div>
+
+  <div class="box">
+    여덟 개를 다 외우지 않아도 돼요. /
+    <b>오늘 하나만 골라서 써 봐요.</b> / 다음 주에 다른 것을 골라요.
+  </div>
+
+  <div class="foot">
+    <div>말하기가 먼저, 쓰기가 나중이에요. <b>입은 뜻으로 먼저 나와요.</b></div>
+    <div style="white-space:nowrap;text-align:right;">4 / 5</div>
+  </div>
+</div>
+
+<!-- ══════════ 5쪽 · 스스로 확인 ══════════ -->
+<div class="page">
+
+  <div class="phead"><span class="n">6</span><h2>내가 나에게 별을 줘요</h2></div>
+  <div class="sub">선생님이 점수를 매기지 않아요. 내가 쓴 것을 보고 <b>내가 별을 골라요.</b>
+    ★ 하나여도 괜찮아요. 어디쯤인지 알면 돼요.</div>
+
+  <table>
+    <tr>
+      <th style="width:22mm">칸</th>
+      <th class="star" style="width:27%">★</th>
+      <th class="star" style="width:27%">★★</th>
+      <th class="star">★★★</th>
+    </tr>
+    <tr><td class="lead">1칸<br>한 문장</td><td>낱말 몇 개만 바뀌었어요</td><td>문장 짜임이 바뀌었어요</td><td>원문 안 보고 썼는데 뜻이 같아요</td></tr>
+    <tr class="now"><td class="lead">2칸<br>3~5문장</td><td>앞부분만 옮겨 적었어요</td><td>핵심어가 다 들어갔어요</td><td>짧아졌는데 뜻이 살아 있어요</td></tr>
+    <tr><td class="lead">3칸<br>2~3문단</td><td>문단 하나만 남았어요</td><td>문단마다 한 줄씩 있어요</td><td>원문에 없는 말로 묶었어요</td></tr>
+    <tr><td class="lead">4칸<br>한 장</td><td>줄거리를 순서대로 늘어놓았어요</td><td>소제목을 새로 붙였어요</td><td>질문과 답의 모양이 보여요</td></tr>
+    <tr><td class="lead">5칸<br>책 한 권</td><td>뒤표지에 있는 말이에요</td><td>주장 한 문장이 있어요</td><td>근거 셋을 내 말로 대요</td></tr>
+  </table>
+
+  <div style="font-size:9pt;color:var(--ink3);margin-bottom:12px;">
+    노란 줄이 이번 학기에 보는 줄이에요.
+  </div>
+
+  <div class="phead"><span class="n">7</span><h2>쓰고 나서 스스로 확인해요</h2></div>
+  <div class="sub">여섯 개 중에 셋만 되어도 좋아요. 하나씩 늘리면 돼요.</div>
+
+  <div class="two checks">
+    <ul>
+      <li>누구한테 전할지 먼저 정했어요</li>
+      <li>원문을 가리고 <b>말부터</b> 했어요</li>
+      <li>원문을 안 보고 썼어요</li>
+    </ul>
+    <ul>
+      <li>원문보다 확실히 짧아요</li>
+      <li>원문 문장을 그대로 옮긴 곳이 없어요</li>
+      <li>내가 쓴 것만 읽어도 뜻이 통해요</li>
+    </ul>
+  </div>
+
+  <div class="phead" style="margin-top:18px;"><span class="n">8</span><h2>노트 한 칸은 이렇게</h2></div>
+  <div class="sub">세 줄만 써요. 칸을 많이 채우는 게 목표가 아니에요.
+    <b>한 칸을 다른 방법으로 두 번 쓰는 것</b>이 더 좋아요.</div>
+
+  <div class="cell">
+    <div class="row"><span class="k">원문 ▸</span><span class="v">교과서 문장 그대로</span></div>
+    <div class="row"><span class="k">내 말 ▸</span><span class="v">원문 가리고 쓴 문장</span></div>
+    <div class="row"><span class="k">방법 ▸</span><span class="v">쓴 방법 하나 (예: 지우개 먼저)</span></div>
+  </div>
+
+  <div class="foot">
+    <div>조지 스웨인 『How to Study』 </div>
+    <div style="white-space:nowrap;text-align:right;">5 / 5</div>
+  </div>
+</div>
+
+<script>
+  var size = 11;
+  function fs(d){
+    size = Math.min(15, Math.max(9, size + d));
+    document.documentElement.style.setProperty('--fs', size + 'pt');
+  }
+</script>
+<!-- mak-home --><a href="../../" style="position:fixed;left:12px;bottom:12px;z-index:2147483000;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:22px;background:#232320;color:#efe6d6;font:14px/1 'Apple SD Gothic Neo','Noto Sans KR',sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.35);opacity:.92" title="나눔터 첫 화면으로">⌂ 나눔터</a><style>@media print{a[href="../../"]{display:none!important}}</style>
+</body>
+</html>

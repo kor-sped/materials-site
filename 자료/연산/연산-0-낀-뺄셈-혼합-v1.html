@@ -1,0 +1,148 @@
+<meta charset="utf-8">
+<title>0 낀 뺄셈·혼합 세트</title>
+<style>
+  @page { size: A4; margin: 13mm; }
+  * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; color: #000; margin: 0; }
+  .sheet { page-break-after: always; padding: 15px 24px; min-height: 96vh; display: flex; flex-direction: column; }
+  .pagehead { border-bottom: 3.5px solid #000; padding-bottom: 5px; margin-bottom: 6px; display: flex; justify-content: space-between; align-items: baseline; }
+  .pagehead h1 { font-size: 20px; margin: 0; }
+  .pagehead .no { font-size: 13.5px; font-weight: 700; }
+  .about { border: 2.5px solid #000; border-radius: 12px; padding: 8px 13px; margin: 6px 0 8px; font-size: 14.5px; line-height: 1.55; }
+  .meta { font-size: 13px; margin: 2px 0 8px; }
+  .meta b { border: 1.5px solid #000; border-radius: 8px; padding: 1px 8px; margin-right: 4px; }
+  .check { border: 3.5px solid #000; border-radius: 14px; padding: 12px 16px; margin: 12px 0; }
+  .check .item { font-size: 21px; font-weight: 800; margin: 10px 0; }
+  .check .item small { font-size: 14px; font-weight: 400; color: #333; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px 16px; margin: 6px 0; }
+  .q { border: 1.8px solid #000; border-radius: 10px; padding: 8px; min-height: 118px; }
+  .q .prob { font-size: 21px; font-weight: 800; }
+  .q .work { display: block; margin-top: 6px; border-top: 1px dashed #999; height: 74px;
+    background: repeating-linear-gradient(to right, transparent 0 24px, #eee 24px 25px); }
+  .sc { border: 2.5px solid #000; border-radius: 10px; padding: 6px 12px; margin-top: 8px; font-size: 14px; }
+  .teacher { margin-top: auto; border-top: 1.8px dashed #555; padding-top: 5px; font-size: 12px; }
+  p, li { font-size: 15.5px; line-height: 1.6; }
+  .noprint { border: 1px dashed #b90; padding: 8px 12px; font-size: 13px; margin: 10px; }
+  @media print { .noprint { display: none; } }
+</style>
+
+<div class="noprint">절차 관리 세트 — 5장: ①자기 점검 카드 ②③ 0 낀 뺄셈 1·2회차(12문항, 가로식→세로 옮겨쓰기 겸용)
+④⑤ 덧뺄 혼합 1·2회차(16문항, 부호 ○ 먼저). 자주 나오는 오류 4유형(밑에서 빼기·연산 전환·자리 맞춤·0 처리)을 직접 겨냥.</div>
+
+<!-- ═══ ① 자기 점검 카드 ═══ -->
+<div class="sheet">
+  <div class="pagehead"><h1>계산 전 네 가지 — 자기 점검 카드</h1><div class="no">① 오려서 책상에 · 코팅 추천</div></div>
+  <div class="about"><b>이 장은</b> — 자주 나오는 오류 4유형을 스스로 잡는 체크리스트입니다. 계산력은 이미 충분하므로
+  (세 자리 덧뺄셈 다수 정답), <b>절차만 잡으면 됩니다.</b> 매 문제 시작 전에 손가락으로 짚으며 확인.</div>
+  <div class="check">
+    <div class="item">ⓐ 더하기야, 빼기야? — <u>부호에 ○</u> <br><small>(930−7을 더해서 937이 됐던 날을 기억!)</small></div>
+    <div class="item">ⓑ 오른쪽 끝을 맞춰 쓴다 <br><small>(46+528에서 46이 왼쪽으로 가면 460이 되어버림)</small></div>
+    <div class="item">ⓒ 빼기는 <u>무조건 위에서 아래로</u> — 못 빼면 옆에서 빌리기 <br><small>(밑이 크다고 뒤집어 빼지 않기: 754−286)</small></div>
+    <div class="item">ⓓ 0을 만나면? — 옆으로 가서 빌려온다 <br><small>(300−174, 306−9 — 0은 빌려주는 것도 옆에서 받아온다)</small></div>
+  </div>
+  <p>다 풀면 마지막에 한 번 더: <b>"옆에 다시 써서 확인"(자기 점검)</b>.</p>
+  <div class="teacher">교사 메모 — 처음 1~2회기는 교사가 ⓐ~ⓓ를 소리 내 짚어주고, 이후 카드만 두고 스스로. '평가' 낱말 금지.</div>
+</div>
+
+<!-- ═══ ② 0 낀 뺄셈 1회차 ═══ -->
+<div class="sheet">
+  <div class="pagehead"><h1>0이 낀 뺄셈</h1><div class="no">② 1회차 · 12문항</div></div>
+  <div class="meta"><b>이름</b> ____ <b>날짜</b> __/__ <b>컨디션</b> 좋아요 □ 보통 □ 피곤해요 □ · 시작 전 ⓐⓑⓒⓓ 카드 확인!</div>
+  <div class="about">가로식을 <b>세로로 옮겨</b> 쓰고 계산합니다 (오른쪽 끝 맞추기!). 0을 만나면 — 옆에서 빌려오기.</div>
+  <div class="grid">
+    <div class="q"><span class="prob">① 300−174</span><span class="work"></span></div>
+    <div class="q"><span class="prob">② 306−9</span><span class="work"></span></div>
+    <div class="q"><span class="prob">③ 500−236</span><span class="work"></span></div>
+    <div class="q"><span class="prob">④ 403−158</span><span class="work"></span></div>
+    <div class="q"><span class="prob">⑤ 700−325</span><span class="work"></span></div>
+    <div class="q"><span class="prob">⑥ 806−417</span><span class="work"></span></div>
+    <div class="q"><span class="prob">⑦ 604−286</span><span class="work"></span></div>
+    <div class="q"><span class="prob">⑧ 900−555</span><span class="work"></span></div>
+    <div class="q"><span class="prob">⑨ 502−67</span><span class="work"></span></div>
+    <div class="q"><span class="prob">⑩ 605−471</span><span class="work"></span></div>
+    <div class="q"><span class="prob">⑪ 680−468</span><span class="work"></span></div>
+    <div class="q"><span class="prob">⑫ 602−443</span><span class="work"></span></div>
+  </div>
+  <div class="sc">✔ 자기 점검 — 헷갈린 문제 번호: ______ 옆에 다시 써서 확인했나요? 예 □ 아니오 □</div>
+  <div class="teacher"><b>교사 기록</b> — 정답 __/12 · 밑에서 빼기 재출현 __회 · 자리 맞춤 오류 __회 · 0 빌림 오류 __회 · 카드 스스로 확인 □</div>
+</div>
+
+<!-- ═══ ③ 0 낀 뺄셈 2회차 ═══ -->
+<div class="sheet">
+  <div class="pagehead"><h1>0이 낀 뺄셈</h1><div class="no">③ 2회차 · 12문항</div></div>
+  <div class="meta"><b>이름</b> ____ <b>날짜</b> __/__ <b>컨디션</b> 좋아요 □ 보통 □ 피곤해요 □ · 시작 전 ⓐⓑⓒⓓ 카드 확인!</div>
+  <div class="about">1회차와 같은 약속. 오른쪽 끝 맞추기 — 0은 옆에서 빌려오기.</div>
+  <div class="grid">
+    <div class="q"><span class="prob">① 400−182</span><span class="work"></span></div>
+    <div class="q"><span class="prob">② 507−9</span><span class="work"></span></div>
+    <div class="q"><span class="prob">③ 600−347</span><span class="work"></span></div>
+    <div class="q"><span class="prob">④ 802−156</span><span class="work"></span></div>
+    <div class="q"><span class="prob">⑤ 703−228</span><span class="work"></span></div>
+    <div class="q"><span class="prob">⑥ 305−167</span><span class="work"></span></div>
+    <div class="q"><span class="prob">⑦ 900−444</span><span class="work"></span></div>
+    <div class="q"><span class="prob">⑧ 706−358</span><span class="work"></span></div>
+    <div class="q"><span class="prob">⑨ 504−78</span><span class="work"></span></div>
+    <div class="q"><span class="prob">⑩ 803−629</span><span class="work"></span></div>
+    <div class="q"><span class="prob">⑪ 601−92</span><span class="work"></span></div>
+    <div class="q"><span class="prob">⑫ 405−236</span><span class="work"></span></div>
+  </div>
+  <div class="sc">✔ 자기 점검 — 헷갈린 문제 번호: ______ 옆에 다시 써서 확인했나요? 예 □ 아니오 □</div>
+  <div class="teacher"><b>교사 기록</b> — 정답 __/12 · 밑에서 빼기 __회 · 자리 맞춤 __회 · 0 빌림 __회 &nbsp;※12중 10 × 2회 연속 → 혼합으로</div>
+</div>
+
+<!-- ═══ ④ 혼합 1회차 ═══ -->
+<div class="sheet">
+  <div class="pagehead"><h1>더하기? 빼기? — 부호 먼저!</h1><div class="no">④ 혼합 1회차 · 16문항</div></div>
+  <div class="meta"><b>이름</b> ____ <b>날짜</b> __/__ <b>컨디션</b> 좋아요 □ 보통 □ 피곤해요 □</div>
+  <div class="about">규칙 — 문제마다 <b>부호(+/−)에 ○부터</b> 치고 시작! (연산이 섞여 있어서 ⓐ 확인이 진짜 시험대)</div>
+  <div class="grid" style="grid-template-columns: repeat(4, 1fr);">
+    <div class="q" style="min-height:104px"><span class="prob">① 264+352</span><span class="work" style="height:62px"></span></div>
+    <div class="q" style="min-height:104px"><span class="prob">② 618−204</span><span class="work" style="height:62px"></span></div>
+    <div class="q" style="min-height:104px"><span class="prob">③ 197+8</span><span class="work" style="height:62px"></span></div>
+    <div class="q" style="min-height:104px"><span class="prob">④ 930−7</span><span class="work" style="height:62px"></span></div>
+    <div class="q" style="min-height:104px"><span class="prob">⑤ 46+528</span><span class="work" style="height:62px"></span></div>
+    <div class="q" style="min-height:104px"><span class="prob">⑥ 754−286</span><span class="work" style="height:62px"></span></div>
+    <div class="q" style="min-height:104px"><span class="prob">⑦ 417+283</span><span class="work" style="height:62px"></span></div>
+    <div class="q" style="min-height:104px"><span class="prob">⑧ 500−123</span><span class="work" style="height:62px"></span></div>
+    <div class="q" style="min-height:104px"><span class="prob">⑨ 68+425</span><span class="work" style="height:62px"></span></div>
+    <div class="q" style="min-height:104px"><span class="prob">⑩ 806−347</span><span class="work" style="height:62px"></span></div>
+    <div class="q" style="min-height:104px"><span class="prob">⑪ 259+341</span><span class="work" style="height:62px"></span></div>
+    <div class="q" style="min-height:104px"><span class="prob">⑫ 700−258</span><span class="work" style="height:62px"></span></div>
+    <div class="q" style="min-height:104px"><span class="prob">⑬ 84+619</span><span class="work" style="height:62px"></span></div>
+    <div class="q" style="min-height:104px"><span class="prob">⑭ 903−456</span><span class="work" style="height:62px"></span></div>
+    <div class="q" style="min-height:104px"><span class="prob">⑮ 372+228</span><span class="work" style="height:62px"></span></div>
+    <div class="q" style="min-height:104px"><span class="prob">⑯ 640−72</span><span class="work" style="height:62px"></span></div>
+  </div>
+  <div class="sc">✔ 자기 점검 — 부호 ○를 몇 개나 스스로 쳤나요? ____/16</div>
+  <div class="teacher"><b>교사 기록</b> — 덧셈 __/8 · 뺄셈 __/8 · <b>연산 전환 오류 __회</b> · 자리 맞춤 __회 · 밑에서 빼기 __회
+  ※④⑤⑥은 자주 틀리는 유형 — 재검 겸용</div>
+</div>
+
+<!-- ═══ ⑤ 혼합 2회차 ═══ -->
+<div class="sheet">
+  <div class="pagehead"><h1>더하기? 빼기? — 부호 먼저!</h1><div class="no">⑤ 혼합 2회차 · 16문항</div></div>
+  <div class="meta"><b>이름</b> ____ <b>날짜</b> __/__ <b>컨디션</b> 좋아요 □ 보통 □ 피곤해요 □</div>
+  <div class="about">1회차와 같은 규칙 — 부호 ○ 먼저!</div>
+  <div class="grid" style="grid-template-columns: repeat(4, 1fr);">
+    <div class="q" style="min-height:104px"><span class="prob">① 158+643</span><span class="work" style="height:62px"></span></div>
+    <div class="q" style="min-height:104px"><span class="prob">② 720−9</span><span class="work" style="height:62px"></span></div>
+    <div class="q" style="min-height:104px"><span class="prob">③ 57+486</span><span class="work" style="height:62px"></span></div>
+    <div class="q" style="min-height:104px"><span class="prob">④ 811−345</span><span class="work" style="height:62px"></span></div>
+    <div class="q" style="min-height:104px"><span class="prob">⑤ 306+94</span><span class="work" style="height:62px"></span></div>
+    <div class="q" style="min-height:104px"><span class="prob">⑥ 542−163</span><span class="work" style="height:62px"></span></div>
+    <div class="q" style="min-height:104px"><span class="prob">⑦ 275+325</span><span class="work" style="height:62px"></span></div>
+    <div class="q" style="min-height:104px"><span class="prob">⑧ 900−271</span><span class="work" style="height:62px"></span></div>
+    <div class="q" style="min-height:104px"><span class="prob">⑨ 66+537</span><span class="work" style="height:62px"></span></div>
+    <div class="q" style="min-height:104px"><span class="prob">⑩ 604−98</span><span class="work" style="height:62px"></span></div>
+    <div class="q" style="min-height:104px"><span class="prob">⑪ 438+162</span><span class="work" style="height:62px"></span></div>
+    <div class="q" style="min-height:104px"><span class="prob">⑫ 850−467</span><span class="work" style="height:62px"></span></div>
+    <div class="q" style="min-height:104px"><span class="prob">⑬ 93+708</span><span class="work" style="height:62px"></span></div>
+    <div class="q" style="min-height:104px"><span class="prob">⑭ 502−234</span><span class="work" style="height:62px"></span></div>
+    <div class="q" style="min-height:104px"><span class="prob">⑮ 361+439</span><span class="work" style="height:62px"></span></div>
+    <div class="q" style="min-height:104px"><span class="prob">⑯ 706−158</span><span class="work" style="height:62px"></span></div>
+  </div>
+  <div class="sc">✔ 자기 점검 — 부호 ○ 스스로: ____/16 · 다 풀고 옆에 다시 써서 확인한 문제: ____개</div>
+  <div class="teacher"><b>교사 기록</b> — 덧셈 __/8 · 뺄셈 __/8 · 연산 전환 __회 · 자리 맞춤 __회 · 밑에서 빼기 __회
+  ※16중 13 × 2회 연속이면 절차 관리 목표(자기 점검) 판정선 논의</div>
+</div>
+<!-- mak-home --><a href="../../" style="position:fixed;left:12px;bottom:12px;z-index:2147483000;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:22px;background:#232320;color:#efe6d6;font:14px/1 'Apple SD Gothic Neo','Noto Sans KR',sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.35);opacity:.92" title="나눔터 첫 화면으로">⌂ 나눔터</a><style>@media print{a[href="../../"]{display:none!important}}</style>

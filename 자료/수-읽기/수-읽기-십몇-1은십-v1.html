@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>십몇 — 1은 십!</title>
+<style>
+  * { print-color-adjust: exact; -webkit-print-color-adjust: exact; box-sizing: border-box; }
+  html, body { background: #fff; }
+  body { font-family: "Apple SD Gothic Neo", sans-serif; margin: 0; padding: 24px; color: #000; color-scheme: light; }
+  .page { max-width: 720px; margin: 0 auto; }
+  .morning { border: 2px solid #000; padding: 10px 14px; font-size: 14px; margin-bottom: 14px; }
+  h1 { font-size: 26px; margin: 4px 0 2px; }
+  .sub { font-size: 14px; margin-bottom: 10px; }
+  .meta { border: 1.5px solid #000; padding: 8px 12px; font-size: 15px; margin-bottom: 12px; }
+  .chk-s { display: inline-block; width: 18px; height: 18px; border: 2px solid #000; vertical-align: middle; margin-right: 6px; }
+  .rulebox { border: 4px solid #000; padding: 14px 16px; margin: 14px 0; text-align: center; }
+  .rulebox .big { font-size: 30px; font-weight: 800; }
+  .rulebox .ex { font-size: 22px; margin-top: 10px; }
+  .pair { display: flex; gap: 14px; margin: 14px 0; }
+  .pcard { flex: 1; border: 3px solid #000; padding: 10px; text-align: center; }
+  .pcard .num { font-size: 44px; font-weight: 800; }
+  .pcard .read { font-size: 20px; font-weight: 700; margin-top: 4px; }
+  .pcard .why { font-size: 13px; margin-top: 2px; }
+  .sect { font-size: 18px; font-weight: 700; margin: 16px 0 6px; }
+  table.items { width: 100%; border-collapse: collapse; }
+  table.items td { border-bottom: 2px solid #000; padding: 12px 8px 6px; font-size: 32px; font-weight: 800; width: 25%; vertical-align: bottom; }
+  table.items td .num { font-size: 14px; font-weight: 400; margin-right: 6px; }
+  table.items td .score { display: block; font-size: 13px; font-weight: 400; letter-spacing: 2px; margin-top: 4px; }
+  .memo { border-top: 2px dashed #000; margin-top: 18px; padding-top: 8px; font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="morning">
+    <b>쓰는 법</b> — 수 읽기에서 <b>십몇</b>(13을 "33"으로 읽는 것)만 잡는 5분 자료.
+    몇십(30·50)은 이미 되니 다루지 않아요.<br>
+    <b>준비물:</b> 이 장 1장 인쇄뿐. 다른 측정과 시간을 나눠서.
+  </div>
+
+  <h1>십몇 — 1은 십!</h1>
+  <div class="sub">① 개념(선생님과 함께) → ② 말로 읽기 연습. '평가' 낱말 금지, 1:1 조용한 시간, 지시문은 읽어 줍니다.</div>
+  <div class="meta">날짜 ___월 ___일 (한 번만!) &nbsp; 컨디션: 좋아요 <span class="chk-s"></span> 보통 <span class="chk-s"></span> 피곤해요 <span class="chk-s"></span></div>
+
+  <div class="rulebox">
+    <div class="big">앞이 1이면 → 그냥 "십!" 하고 뒤 숫자</div>
+    <div class="ex">1 3 &nbsp;→&nbsp; "십" + "삼" = <b>십삼</b> &nbsp;&nbsp;(1은 이름을 안 불러요 — "일삼" ✗, "삼십" ✗)</div>
+  </div>
+
+  <div class="pair">
+    <div class="pcard"><div class="num">13</div><div class="read">십삼</div><div class="why">묶음 1개 → "십"</div></div>
+    <div class="pcard"><div class="num">15</div><div class="read">십오</div><div class="why">묶음 1개 → "십"</div></div>
+    <div class="pcard"><div class="num">30</div><div class="read">삼십</div><div class="why">앞이 3이니까 "삼" 먼저 (이건 이미 잘해요!)</div></div>
+  </div>
+
+  <div class="sect">① 손가락으로 짚으며 함께 두 번: 13 십삼 · 15 십오 · 12 십이 · 14 십사</div>
+
+  <div class="sect">② 혼자 읽어 봐요 — 왼쪽부터! (교사 ○△✕, 오독은 들리는 대로)</div>
+  <table class="items">
+    <tr>
+      <td><span class="num">1</span>13<span class="score">○ △ ✕ ____</span></td>
+      <td><span class="num">2</span>15<span class="score">○ △ ✕ ____</span></td>
+      <td><span class="num">3</span>12<span class="score">○ △ ✕ ____</span></td>
+      <td><span class="num">4</span>17<span class="score">○ △ ✕ ____</span></td>
+    </tr>
+    <tr>
+      <td><span class="num">5</span>14<span class="score">○ △ ✕ ____</span></td>
+      <td><span class="num">6</span>19<span class="score">○ △ ✕ ____</span></td>
+      <td><span class="num">7</span>16<span class="score">○ △ ✕ ____</span></td>
+      <td><span class="num">8</span>11<span class="score">○ △ ✕ ____</span></td>
+    </tr>
+    <tr>
+      <td><span class="num">9</span>18<span class="score">○ △ ✕ ____</span></td>
+      <td><span class="num">10</span>10<span class="score">○ △ ✕ ____</span></td>
+      <td colspan="2" style="font-size:15px; font-weight:400;">막히면: "앞이 1이지? 그럼 뭐부터?" 만 말해 주고 △</td>
+    </tr>
+  </table>
+
+  <div class="sect">③ 섞어서 4개 — 진짜 아는지 보기</div>
+  <table class="items">
+    <tr>
+      <td><span class="num">11</span>30<span class="score">○ △ ✕ ____</span></td>
+      <td><span class="num">12</span>13<span class="score">○ △ ✕ ____</span></td>
+      <td><span class="num">13</span>50<span class="score">○ △ ✕ ____</span></td>
+      <td><span class="num">14</span>15<span class="score">○ △ ✕ ____</span></td>
+    </tr>
+  </table>
+
+  <div class="memo">
+    교사 메모 — 몇십(30·50)은 되는데 십몇만 "33", "55"로 읽는 아이용.
+    이 장은 그 한 칸만 겨냥. ③에서 30과 13을 연달아 맞히면 규칙 분화 성공 신호.
+    회기 5분, 며칠 반복 가능(날짜만 새로). 10은 "십" 단독 — 어려우면 마지막에.
+    교사 기록: ② 정답 __/10 · ③ 정답 __/4 · "십□ 틀" 재출현 __회
+  </div>
+</div>
+<!-- mak-home --><a href="../../" style="position:fixed;left:12px;bottom:12px;z-index:2147483000;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:22px;background:#232320;color:#efe6d6;font:14px/1 'Apple SD Gothic Neo','Noto Sans KR',sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.35);opacity:.92" title="나눔터 첫 화면으로">⌂ 나눔터</a><style>@media print{a[href="../../"]{display:none!important}}</style>
+</body>
+</html>
