@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>내 말로! 앱 소개</title>
+<style>
+  :root {
+    --ink: #1a1a2e; --accent: #1a56db; --soft: #f3f6fb; --line: #d8dee8;
+    --warn-bg: #fff8e6; --warn-line: #e6c34a; --good: #1f7a4d; --good-bg: #eaf6ef;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0 auto; padding: 24px 20px 96px; max-width: 720px; color: var(--ink);
+    font-family: "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+    line-height: 1.7; background: #fff;
+  }
+  h1 { font-size: 1.7em; margin: 0 0 8px; }
+  h2 { font-size: 1.3em; margin: 48px 0 12px; padding-top: 8px; border-top: 2px solid var(--line); }
+  h3 { font-size: 1.1em; margin: 28px 0 8px; }
+  a { color: var(--accent); }
+  .subtitle { color: #667; margin: 0 0 24px; }
+  .memo { font-size: .85em; color: #889; border: 1px dashed var(--line); border-radius: 8px; padding: 8px 12px; margin-bottom: 20px; }
+  nav#toc { background: var(--soft); border: 1px solid var(--line); border-radius: 10px; padding: 16px 20px; margin: 24px 0 40px; }
+  nav#toc strong { display: block; margin-bottom: 8px; }
+  nav#toc ol { margin: 0; padding-left: 22px; }
+  nav#toc li { margin: 4px 0; }
+  nav#toc a { text-decoration: none; }
+  nav#toc a:hover { text-decoration: underline; }
+  .fab-wrap { position: fixed; right: 16px; bottom: 16px; display: flex; flex-direction: column; gap: 8px; z-index: 100; }
+  .fab { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%;
+    background: var(--accent); color: #fff; font-size: 20px; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,.25); }
+  .to-toc { display: block; text-align: right; font-size: .9em; margin: 16px 0 0; }
+  figure { margin: 20px 0; }
+  figcaption { font-size: .88em; color: #667; margin-top: 6px; text-align: center; }
+  .table-wrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+  th, td { border: 1px solid var(--line); padding: 8px 12px; text-align: left; }
+  th { background: var(--soft); }
+  .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 20px 0; }
+  .flow .step { background: var(--soft); border: 1.5px solid var(--accent); border-radius: 8px; padding: 8px 14px; font-size: .95em; }
+  .flow .step.you { background: var(--good-bg); border-color: var(--good); }
+  .flow .arrow { color: var(--accent); font-weight: bold; }
+  .note { background: var(--good-bg); border-left: 3px solid var(--good); border-radius: 0 8px 8px 0; padding: 10px 16px; margin: 14px 0; font-size: .95em; }
+  .caution { background: var(--warn-bg); border-left: 3px solid var(--warn-line); border-radius: 0 8px 8px 0; padding: 10px 16px; margin: 14px 0; font-size: .95em; }
+  a.term { color: var(--accent); text-decoration: none; border-bottom: 2px dotted var(--accent); position: relative; cursor: help; }
+  a.term:hover::after {
+    content: attr(data-tip); position: absolute; left: 50%; bottom: 130%; transform: translateX(-50%);
+    background: var(--ink); color: #fff; font-size: .85em; line-height: 1.4; padding: 6px 10px;
+    border-radius: 6px; white-space: normal; width: max-content; max-width: 240px; z-index: 50; pointer-events: none;
+  }
+  dl.glossary dt { font-weight: bold; margin-top: 16px; }
+  dl.glossary dd { margin: 4px 0 0 0; padding-left: 12px; border-left: 3px solid var(--line); }
+  #confirm-box { background: var(--warn-bg); border: 1.5px solid var(--warn-line); border-radius: 10px; padding: 4px 20px 16px; }
+  #confirm-box pre { background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 14px; overflow-x: auto; font-size: .9em; line-height: 1.5; }
+  ul.checklist { list-style: none; padding-left: 0; }
+  ul.checklist li { margin: 6px 0; }
+  ul.checklist input { transform: scale(1.3); margin-right: 8px; }
+  .badge-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
+  .badge { background: var(--soft); border: 1.5px solid var(--line); border-radius: 999px; padding: 4px 14px; font-size: .9em; }
+  @media print {
+    .fab-wrap, .memo, #confirm, #confirm-box, .to-toc { display: none; }
+    body { padding-bottom: 24px; max-width: none; }
+    a { color: #1a3a8a; }
+    figure, table, .flow, .note, .caution { break-inside: avoid; }
+    h2 { break-after: avoid; }
+    a.term:hover::after { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<h1 id="top">「내 말로!」 — 덮고, 기억으로, 내 문장</h1>
+<p class="subtitle">교과서 문장을 자기 말로 바꿔 쓰는 연습 앱을 소개합니다. 특수학급 수업에서 태어나 앱스토어까지 간 이야기, 그리고 함께해 주실 수 있는 방법. (2026-09-14)</p>
+
+<div class="table-wrap">
+<table id="entry">
+  <thead><tr><th>이럴 땐</th><th>여기</th></tr></thead>
+  <tbody>
+    <tr><td>어떤 앱인지 궁금하다</td><td><a href="#ch1">1장 어떤 앱인가</a></td></tr>
+    <tr><td>아이폰이라 바로 써 보고 싶다</td><td><a href="#ch2">2장 아이폰 설치</a></td></tr>
+    <tr><td>안드로이드 폰이다</td><td><a href="#ch3">3장 안드로이드 참여 방법</a></td></tr>
+    <tr><td>수업에 어떻게 쓰는지 궁금하다</td><td><a href="#ch4">4장 수업 활용</a></td></tr>
+    <tr><td>앞으로 계획이 궁금하다</td><td><a href="#ch5">5장 지금은 여기까지, 다음은 웹</a></td></tr>
+    <tr><td>문의·의견을 보내고 싶다</td><td><a href="#checklist">돌아가서 할 일</a> 아래 연락처</td></tr>
+  </tbody>
+</table>
+</div>
+
+<nav id="toc">
+  <strong>차례</strong>
+  <ol>
+    <li><a href="#ch1">1. 어떤 앱인가</a></li>
+    <li><a href="#ch2">2. 아이폰 — 지금 바로 설치</a></li>
+    <li><a href="#ch3">3. 안드로이드 — 테스터로 참여하는 법</a></li>
+    <li><a href="#ch4">4. 수업 활용</a></li>
+    <li><a href="#ch5">5. 지금은 여기까지, 다음은 웹</a></li>
+    <li><a href="#checklist">돌아가서 할 일</a></li>
+    <li><a href="#glossary">용어집</a></li>
+  </ol>
+</nav>
+
+<h2 id="ch1">1. 어떤 앱인가</h2>
+<p>
+  교과서를 읽고 밑줄을 긋거나 그대로 옮겨 적으면 이해한 것 같지만, 기억에는 잘
+  남지 않습니다. 반대로 <b>원문을 덮고, 기억에 의지해, 자기 말로 다시 써 보면</b>
+  이해 못 한 부분이 드러나고 내용이 오래 남습니다 — 백지 복습법·배움공책과 같은
+  뿌리의, 널리 확인된 공부 원리입니다. 「내 말로!」는 이 원리를 문장 한두 개
+  크기의 세 단계 연습으로 만든 앱입니다.
+</p>
+<figure>
+  <div class="flow">
+    <span class="step">① 교과서 문장을<br>그대로 적기</span><span class="arrow">→</span>
+    <span class="step">② 덮기 🙈<br>(화면이 실제로 가려요)</span><span class="arrow">→</span>
+    <span class="step">③ 기억으로<br>내 말로 쓰기</span><span class="arrow">→</span>
+    <span class="step">④ 판정 🌟🌱🔁<br>+ 기록 저장</span>
+  </div>
+  <figcaption>그림 1. 연습 한 번의 흐름 — 핵심은 ②번, "보면서 쓰면 뇌가 그냥 베낀다".</figcaption>
+</figure>
+<p>
+  배우기 탭에는 바꿔 쓰는 방법 5가지와 좋은 예·나쁜 예, 6학년 2학기 교과서에서
+  뽑은 연습 문장 50개(바꿔 쓸 문장 / 그대로 인용할 문장 구별 연습 포함)가
+  들어 있고, 기록 탭에서는 연습 기록을 모아 보호자·교사에게 보낼 수 있습니다.
+</p>
+<div class="badge-row">
+  <span class="badge">무료</span>
+  <span class="badge">광고 없음</span>
+  <span class="badge">로그인 없음</span>
+  <span class="badge">개인정보 수집 없음 (기록은 기기 안에만)</span>
+</div>
+
+<a class="to-toc" href="#toc">↑ 차례로</a>
+
+<h2 id="ch2">2. 아이폰 — 지금 바로 설치</h2>
+<p>아이폰(아이패드)은 이미 정식 출시되어 있어 바로 받을 수 있습니다.</p>
+<figure>
+  <div class="flow">
+    <span class="step you">App Store 열기</span><span class="arrow">→</span>
+    <span class="step you">"내 말로" 검색</span><span class="arrow">→</span>
+    <span class="step you">받기 → 열기</span><span class="arrow">→</span>
+    <span class="step">첫 화면에서<br>"배우기"부터!</span>
+  </div>
+  <figcaption>그림 2. 아이폰 설치 — 1분이면 됩니다. 처음이면 배우기 탭부터 권해요.</figcaption>
+</figure>
+
+<a class="to-toc" href="#toc">↑ 차례로</a>
+
+<h2 id="ch3">3. 안드로이드 — 테스터로 참여하는 법</h2>
+<p>
+  안드로이드는 지금 <a class="term" href="#g-tester" data-tip="정식 공개 전에 초대받은 사람만 설치해 써 보는 단계. 구글 정책상 등록된 계정만 설치할 수 있어요">비공개 테스트</a>
+  단계입니다. 초대받은 분만 설치할 수 있어서, 참여 절차가 한 단계 있어요:
+</p>
+<figure>
+  <div class="flow">
+    <span class="step you">① 구글 이메일 주소를<br>아래 연락처로 보내기</span><span class="arrow">→</span>
+    <span class="step">② 제가 테스터로<br>등록해 드려요</span><span class="arrow">→</span>
+    <span class="step">③ 그 메일로<br>참여 링크가 가요</span><span class="arrow">→</span>
+    <span class="step you">④ 링크 열고<br>"테스터 되기" 수락</span><span class="arrow">→</span>
+    <span class="step you">⑤ Google Play에서<br>다운로드</span>
+  </div>
+  <figcaption>그림 3. 안드로이드 참여 5단계 — 초록 칸이 선생님(참여자)이 하실 일입니다.</figcaption>
+</figure>
+<div class="caution">
+  ⚠️ 두 가지만 확인해 주세요: ① 보내 주시는 주소는 <b>휴대폰의 Play 스토어에
+  로그인된 구글 계정</b>이어야 합니다(다른 계정이면 다운로드가 안 돼요).
+  ② 자녀 보호(패밀리 링크)로 관리되는 계정은 참여가 막힐 수 있어 <b>성인 계정</b>을 권합니다.
+</div>
+<p>
+  참여해 주시면 그 자체가 큰 도움이 됩니다 — 구글 정책상 테스터 12명이 2주간
+  유지되어야 정식 출시를 신청할 수 있거든요. 써 보시고 한 줄 의견을 주시면 더 감사하고요.
+</p>
+
+<a class="to-toc" href="#toc">↑ 차례로</a>
+
+<h2 id="ch4">4. 수업 활용</h2>
+<div class="table-wrap">
+<table id="tbl-use">
+  <thead><tr><th>이런 장면에서</th><th>이렇게 씁니다</th></tr></thead>
+  <tbody>
+    <tr><td>국어·사회·과학 정리 활동</td><td>오늘 배운 핵심 문장 하나를 앱에 적고 → 덮고 → 내 말로. 5분이면 한 바퀴</td></tr>
+    <tr><td>내용 이해 확인</td><td>바꿔 쓴 문장을 보면 어디를 이해 못 했는지가 드러납니다 (판정이 힌트를 줘요)</td></tr>
+    <tr><td>가정 연계</td><td>기록 탭에서 최근 연습을 묶어 보호자에게 전송 (별명으로, 이름 없이)</td></tr>
+    <tr><td>배움공책과 함께</td><td>앱에서 바꿔 쓴 문장을 배움공책에 옮겨 적으면 하루 정리가 됩니다</td></tr>
+  </tbody>
+</table>
+</div>
+<div class="note">
+  💚 저희 반에서는 <b>수어 통역 연습</b>과 함께 씁니다 — 통역도
+  바꿔 쓰기도 결국 "낱말이 아니라 뜻을 옮기는" 같은 근육이라서요.
+</div>
+
+<a class="to-toc" href="#toc">↑ 차례로</a>
+
+<h2 id="ch5">5. 지금은 여기까지, 다음은 웹</h2>
+<p>
+  지금 버전의 판정은 <a class="term" href="#g-rule" data-tip="원문과 얼마나 다른지·핵심 낱말이 들어갔는지를 규칙으로 계산하는 방식. 빠르지만 뜻을 깊이 읽지는 못해요">규칙 판정</a>입니다
+  — 겹친 어절과 핵심 낱말을 계산해 🌟🌱🔁를 매기죠. 여기까지가 앱으로 만든 1단계고,
+  다음 단계를 준비하고 있습니다:
+</p>
+<figure>
+  <div class="flow">
+    <span class="step"><b>지금 · 앱</b><br>규칙 판정 (🌟🌱🔁)<br>오프라인 · 수집 없음</span><span class="arrow">→</span>
+    <span class="step"><b>다음 · 웹 (준비 중)</b><br>AI가 문장을 읽고<br>"이렇게 써 볼까?" 하고 도와주는 피드백</span>
+  </div>
+  <figcaption>그림 4. 로드맵 — 다음 버전은 앱이 아니라 웹으로 만들 계획입니다 (시기 미정).</figcaption>
+</figure>
+<p>
+  AI 피드백에는 서버가 필요해서, 다음 버전은 설치 없이 쓰는 <b>웹 형태</b>로 만들
+  계획입니다. 그때도 원칙은 같습니다 — 아이를 채점하는 도구가 아니라,
+  "잘한 점 먼저, 힌트는 하나씩" 격려하는 보조교사가 되도록요.
+</p>
+
+<a class="to-toc" href="#toc">↑ 차례로</a>
+
+<h2 id="checklist">돌아가서 할 일</h2>
+<ul class="checklist">
+  <li><label><input type="checkbox"> 아이폰이면: App Store에서 "내 말로" 설치해 보기 (<a href="#ch2">2장</a>)</label></li>
+  <li><label><input type="checkbox"> 안드로이드면: 구글 이메일을 아래 연락처로 보내기 (<a href="#ch3">3장</a>)</label></li>
+  <li><label><input type="checkbox"> 교과서 문장 하나로 직접 한 바퀴 연습해 보기</label></li>
+  <li><label><input type="checkbox"> 우리 반에 맞는 활용 장면 하나 골라 보기 (<a href="#ch4">4장</a>)</label></li>
+  <li><label><input type="checkbox"> 써 본 소감·아이디어 한 줄 보내 주기</label></li>
+</ul>
+<p><b>연락처</b>: sonjit4@gmail.com (안드로이드 테스터 신청과 의견 모두 이 주소로)</p>
+
+<a class="to-toc" href="#toc">↑ 차례로</a>
+
+<h2 id="glossary">용어집</h2>
+<dl class="glossary">
+  <dt id="g-tester">비공개 테스트 (테스터)</dt>
+  <dd>앱을 정식 공개하기 전에, 초대받은 사람만 설치해 써 보는 구글 플레이의 단계.
+  등록된 구글 계정으로만 설치할 수 있어서 이메일 등록 절차가 필요하다.</dd>
+  <dt id="g-rule">규칙 판정</dt>
+  <dd>원문과 겹친 어절 비율, 핵심 낱말 포함 여부 등을 계산해 등급(🌟🌱🔁)을 매기는
+  방식. 인터넷 없이 즉시 동작하지만, 문장의 뜻을 깊이 읽지는 못한다 — 그래서
+  다음 버전에서 AI 피드백을 준비 중.</dd>
+  <dt id="g-record">기록 내보내기</dt>
+  <dd>아이의 연습 기록 묶음을 보호자·교사에게 보내는 기능. 이름 대신 별명을 쓰고,
+  휴대폰의 기본 공유(메시지 등)로 전달되며, 앱은 아무 데이터도 서버로 모으지 않는다.</dd>
+  <dt id="g-web">웹 형태</dt>
+  <dd>설치 없이 인터넷 주소로 접속해 쓰는 방식. AI처럼 서버가 필요한 기능을 붙이기
+  쉽고, 업데이트가 즉시 반영된다. 다음 버전의 그릇으로 준비 중(시기 미정).</dd>
+</dl>
+<a class="to-toc" href="#toc">↑ 차례로</a>
+
+<div class="fab-wrap">
+  <a class="fab" href="#toc" title="차례로 가기">☰</a>
+  <a class="fab" href="#top" title="맨 위로">↑</a>
+</div>
+
+<!-- mak-home --><a href="../../" style="position:fixed;left:12px;bottom:12px;z-index:2147483000;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:22px;background:#232320;color:#efe6d6;font:14px/1 'Apple SD Gothic Neo','Noto Sans KR',sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.35);opacity:.92" title="나눔터 첫 화면으로">⌂ 나눔터</a><style>@media print{a[href="../../"]{display:none!important}}</style>
+</body>
+</html>
