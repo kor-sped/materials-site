@@ -19,7 +19,8 @@
   header { background:var(--dark); color:var(--cream); position:sticky; top:0; z-index:10; }
   header .wrap { display:flex; align-items:center; justify-content:space-between; gap:16px; min-height:64px; }
   header img { height:44px; width:auto; display:block; }
-  nav a { color:var(--cream); text-decoration:none; margin-left:18px; font-size:.95em; opacity:.9; }
+  nav { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:4px 0; }
+  nav a { color:var(--cream); text-decoration:none; margin-left:18px; font-size:.95em; opacity:.9; white-space:nowrap; }
   nav a:hover { opacity:1; border-bottom:2px solid var(--orange); }
   nav a.hl { color:var(--orange); }
   @media (max-width:640px) { nav a { margin-left:12px; font-size:.85em; } header img { height:36px; } }
