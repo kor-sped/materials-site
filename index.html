@@ -23,7 +23,17 @@
   nav a { color:var(--cream); text-decoration:none; margin-left:18px; font-size:.95em; opacity:.9; white-space:nowrap; }
   nav a:hover { opacity:1; border-bottom:2px solid var(--orange); }
   nav a.hl { color:var(--orange); }
-  @media (max-width:640px) { nav a { margin-left:12px; font-size:.85em; } header img { height:36px; } }
+  .menu-btn { display:none; background:transparent; color:var(--cream); border:1px solid rgba(239,230,214,.45); border-radius:9px; padding:7px 12px; font:inherit; font-size:.95em; cursor:pointer; }
+  @media (max-width:720px) {
+    header img { height:36px; }
+    .menu-btn { display:inline-block; }
+    nav { display:none; position:absolute; left:0; right:0; top:100%; background:var(--dark); border-top:1px solid rgba(239,230,214,.15);
+           flex-direction:column; padding:6px 0 10px; box-shadow:0 8px 16px rgba(0,0,0,.35); }
+    nav.open { display:flex; }
+    nav a { margin:0; padding:11px 22px; font-size:1.02em; border-bottom:1px solid rgba(239,230,214,.08); }
+    header { position:sticky; }
+    header .wrap { position:relative; }
+  }
 
   .hero { padding:56px 0 40px; text-align:center; }
   .hero h1 { font-size:clamp(1.5em,3.5vw,2.2em); margin:0 0 10px; }
@@ -71,7 +81,8 @@
 <header>
   <div class="wrap">
     <a href="#top"><img src="assets/logo-full.png" alt="MAK 나눔터"></a>
-    <nav><a href="#cat-0">국어</a><a href="#cat-1">수학</a><a href="#cat-2">과학</a><a href="#cat-3">일상생활</a><a href="#cat-4">행동수정 지원</a><a href="#cat-5">학급운영 지원</a><a href="#cat-6">앱·웹</a><a href="#cat-7">장애이해교육</a><a href="#ask">의견·요구</a><a href="요구하는-법.html" class="hl">요구하는 법</a></nav>
+    <button class="menu-btn" id="menuBtn" aria-label="메뉴 열기" aria-expanded="false" aria-controls="menu">☰ 메뉴</button>
+    <nav id="menu"><a href="#cat-0">국어</a><a href="#cat-1">수학</a><a href="#cat-2">과학</a><a href="#cat-3">일상생활</a><a href="#cat-4">행동수정 지원</a><a href="#cat-5">학급운영 지원</a><a href="#cat-6">앱·웹</a><a href="#cat-7">장애이해교육</a><a href="#ask">의견·요구</a><a href="요구하는-법.html" class="hl">요구하는 법</a></nav>
   </div>
 </header>
 
@@ -295,6 +306,17 @@
   </section>
 
 </main>
+
+<script>
+(function(){
+  var b=document.getElementById('menuBtn'), n=document.getElementById('menu');
+  if(!b||!n) return;
+  function set(o){ n.classList.toggle('open',o); b.setAttribute('aria-expanded',o?'true':'false'); b.textContent=o?'✕ 닫기':'☰ 메뉴'; }
+  b.addEventListener('click',function(e){ e.stopPropagation(); set(!n.classList.contains('open')); });
+  n.addEventListener('click',function(e){ if(e.target.tagName==='A') set(false); });
+  document.addEventListener('click',function(e){ if(n.classList.contains('open') && !n.contains(e.target)) set(false); });
+})();
+</script>
 
 <footer>
   <img src="assets/logo-full.png" alt="MAK 나눔터">
