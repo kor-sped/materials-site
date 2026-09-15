@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="양식" content="MAK 학습지 새 양식 2026-09-16">
+<title>나눗셈 배수표 전략</title>
+<style>
+  :root{--ink:#16323D;--ink2:#4A6272;--ink3:#8799A5;--rule:#C6D5DD;--rule2:#E3ECF0;--blue:#1F5D8C;--blue-tint:#E4EFF6;--amber:#BF860F;--amber-tint:#FAF0D9;--tint:#EFF4F7;--red:#B5432F;--red-tint:#FBEAE6;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#DFE8ED;color:var(--ink);font-family:'Gothic A1','Apple SD Gothic Neo','Malgun Gothic',sans-serif;font-size:13pt;line-height:1.6;-webkit-font-smoothing:antialiased;padding:0 10px 60px;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .bar{position:sticky;top:0;z-index:50;background:rgba(223,232,237,.95);border-bottom:1px solid var(--rule);display:flex;gap:6px;align-items:center;justify-content:center;padding:8px 10px;margin:0 -10px 20px;flex-wrap:wrap;}
+  .bar button{font-family:inherit;font-size:10pt;font-weight:500;color:var(--ink);background:#fff;border:1px solid var(--rule);border-radius:2px;padding:5px 13px;cursor:pointer;}
+  .bar button:hover{background:var(--ink);color:#fff;}
+  .bar .tag{font-size:8.5pt;letter-spacing:.14em;font-weight:800;color:var(--ink3);}
+  .page{background:#fff;width:210mm;max-width:100%;margin:0 auto 18px;padding:14mm 15mm 12mm;border:1px solid var(--rule);box-shadow:0 2px 12px rgba(22,50,61,.10);min-height:297mm;display:flex;flex-direction:column;}
+  .head{border-bottom:2.5px solid var(--ink);padding-bottom:8px;margin-bottom:14px;}
+  .head .eyebrow{font-size:9pt;letter-spacing:.16em;font-weight:800;color:var(--blue);}
+  .head h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:26pt;line-height:1.22;letter-spacing:-.02em;margin:4px 0 4px;}
+  .head .lede{font-size:11pt;color:var(--ink2);}
+  .phead{display:flex;align-items:baseline;gap:10px;border-bottom:2px solid var(--ink);padding-bottom:5px;margin:12px 0 8px;}
+  .phead .n{font-family:'IBM Plex Mono',monospace;font-size:10pt;font-weight:700;letter-spacing:.1em;color:#fff;background:var(--blue);padding:2px 8px;flex:none;}
+  .phead.m .n{background:var(--red);}
+  .phead h2{font-family:'Gowun Batang',serif;font-weight:700;font-size:17pt;letter-spacing:-.01em;}
+  .phead small{font-size:9.5pt;color:var(--ink3);font-weight:500;}
+  .rule{background:var(--tint);border-left:4px solid var(--blue);padding:10px 16px;margin:6px 0 10px;}
+  .rule.c{text-align:center;}
+  .rule .big{font-family:'Gowun Batang',serif;font-size:19pt;font-weight:700;line-height:1.4;}
+  .rule .big .one{font-size:30pt;color:var(--blue);vertical-align:-3px;}
+  .rule .ex{font-size:14pt;margin-top:6px;color:var(--ink2);}
+  .rule b{color:var(--blue);}
+  .say{color:var(--blue);font-weight:800;}
+  .note{background:var(--amber-tint);border-left:4px solid var(--amber);padding:8px 14px;margin:6px 0 10px;font-size:11pt;line-height:1.6;}
+  .note b:first-child{color:var(--amber);}
+  .warn{background:var(--red-tint);border-left:4px solid var(--red);padding:8px 14px;margin:6px 0 10px;font-size:11pt;font-weight:700;color:#7a2d20;}
+  .steps{list-style:none;counter-reset:s;margin:4px 0 8px;}
+  .steps li{counter-increment:s;position:relative;padding-left:34px;margin:0 0 6px;font-size:12pt;line-height:1.55;}
+  .steps li::before{content:counter(s);position:absolute;left:0;top:3px;width:24px;height:24px;border:2px solid var(--blue);color:var(--blue);border-radius:50%;font-size:10pt;font-weight:800;display:flex;align-items:center;justify-content:center;}
+  .meta{font-size:10.5pt;color:var(--ink2);margin:2px 0 8px;display:flex;flex-wrap:wrap;gap:4px 18px;}
+  .meta .line{display:inline-block;border-bottom:1.5px solid var(--ink);min-width:60px;}
+  .cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:10px 0 4px;}
+  .card{border:1.5px solid var(--rule);padding:10px 8px 12px;text-align:center;}
+  .card .num{font-family:'Gowun Batang',serif;font-size:44pt;font-weight:700;line-height:1;letter-spacing:.02em;}
+  .card .num .one{color:var(--blue);font-size:54pt;}
+  .card .read{font-size:20pt;font-weight:800;margin-top:6px;}
+  .card .read b{background:var(--amber-tint);padding:0 6px;}
+  .items{display:grid;grid-template-columns:repeat(4,1fr);gap:0 10px;}
+  .items.c1{grid-template-columns:1fr;}
+  .items.c2{grid-template-columns:repeat(2,1fr);gap:0 24px;}
+  .items.c3{grid-template-columns:repeat(3,1fr);gap:0 14px;}
+  .items.c5{grid-template-columns:repeat(5,1fr);gap:0 8px;}
+  .item{border-bottom:1.5px solid var(--rule);padding:8px 4px 8px;}
+  .item .no{font-family:'IBM Plex Mono',monospace;font-size:10pt;color:var(--ink3);display:block;}
+  .item .num{font-family:'Gowun Batang',serif;font-size:44pt;font-weight:700;line-height:1.05;display:block;letter-spacing:.02em;}
+  .item .num.s{font-size:24pt;white-space:nowrap;letter-spacing:0;}
+  .item .num .one{color:var(--blue);}
+  .item .mk{display:block;font-size:20pt;letter-spacing:.18em;color:var(--ink2);margin-top:2px;white-space:nowrap;}
+  .item .mk.x{letter-spacing:.3em;}
+  .item .hint{display:block;font-size:10pt;color:var(--ink3);}
+  .item .sub2{display:block;font-size:12pt;color:var(--ink2);}
+  .item .work{display:block;margin-top:6px;border-top:1px dashed var(--rule);height:64px;background:repeating-linear-gradient(to right,transparent 0 22px,var(--rule2) 22px 23px);}
+  .item .ans{display:block;font-size:11pt;margin-top:6px;color:var(--ink2);}
+  .item .ans u{display:inline-block;border-bottom:1.5px solid var(--ink);min-width:38px;height:16px;text-decoration:none;}
+  .item .mul{display:block;font-size:10.5pt;margin-top:4px;color:var(--ink2);}
+  .item .mul span{display:inline-block;border-bottom:1.5px solid var(--ink);min-width:30px;text-align:center;margin:0 2px;}
+  .item .sent{font-size:20pt;font-weight:700;line-height:1.4;display:block;}
+  .item .sent u{text-decoration-color:var(--blue);text-decoration-thickness:2.5px;text-underline-offset:4px;}
+  .tbl{width:100%;border-collapse:collapse;margin:6px 0 10px;font-size:11.5pt;}
+  .tbl th,.tbl td{border:1.5px solid var(--rule);padding:6px 8px;text-align:center;vertical-align:middle;}
+  .tbl th{background:var(--tint);font-size:10pt;font-weight:800;color:var(--ink2);letter-spacing:.04em;}
+  .tbl td.l{text-align:left;}
+  .tbl td.w{font-family:'Gowun Batang',serif;font-size:26pt;font-weight:700;}
+  .tbl td.j{font-family:'Gowun Batang',serif;font-size:20pt;font-weight:700;color:var(--blue);}
+  .tbl td.mk{font-size:15pt;letter-spacing:.25em;color:var(--ink2);white-space:nowrap;}
+  .tbl td.faint{color:#DCE5EA;font-size:9pt;}
+  .tbl td.cell{height:34px;}
+  .tbl td.flash{font-family:'Gowun Batang',serif;font-size:18pt;font-weight:700;}
+  .bigcards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:10px;}
+  .bigcard{border:2.5px dashed var(--ink3);border-radius:6px;height:290px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+  .bigcard .l{font-family:'Gowun Batang',serif;font-size:140px;font-weight:700;line-height:1;}
+  .bigcard .hint{font-size:11pt;margin-top:8px;color:var(--ink2);}
+  .cut{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+  .cut div{border:2.5px dashed var(--ink3);border-radius:6px;padding:16px 6px;text-align:center;}
+  .cut .g{font-family:'Gowun Batang',serif;font-size:84pt;line-height:1.05;font-weight:700;}
+  .cut .h{font-size:11pt;border-top:1px solid var(--rule);margin-top:8px;padding-top:4px;color:var(--ink2);}
+  .clocks{display:grid;grid-template-columns:repeat(3,1fr);gap:10px 14px;}
+  .clock{border:1.5px solid var(--rule);padding:8px;text-align:center;}
+  .clock svg{width:100%;max-width:150px;height:auto;}
+  .clock .ans{font-size:15pt;margin-top:4px;}
+  .clock .blank{display:inline-block;border-bottom:1.5px solid var(--ink);min-width:56px;height:22px;}
+  .nc{display:grid;grid-template-columns:1fr;gap:8px;}
+  .nc>div{border:1.5px solid var(--rule);padding:6px 14px;display:flex;align-items:center;gap:16px;}
+  .nc .d{font-family:'Gowun Batang',serif;font-size:40pt;font-weight:700;min-width:64px;text-align:center;color:var(--blue);}
+  .nc .k{font-size:24pt;font-weight:800;min-width:110px;}
+  .nc .dots{font-size:16pt;letter-spacing:3px;min-width:150px;color:var(--ink2);}
+  .nc .t{font-size:13pt;color:var(--ink2);} .nc .t b{color:var(--ink);}
+  .check{border:2.5px solid var(--ink);padding:10px 16px;margin:10px 0;}
+  .check .it{font-size:15pt;font-weight:800;margin:8px 0;}
+  .check .it small{font-size:10.5pt;font-weight:400;color:var(--ink2);display:block;}
+  .sc{border:1.5px solid var(--rule);background:var(--tint);padding:6px 12px;margin-top:8px;font-size:10.5pt;}
+  .foot{margin-top:auto;border-top:1px solid var(--rule);padding-top:8px;font-size:10pt;color:var(--ink3);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+  .foot b{color:var(--ink2);}
+  @media print{body{background:#fff;padding:0}.bar{display:none}.page{border:none;box-shadow:none;margin:0;width:auto;min-height:auto;padding:0;break-after:page;height:auto}.page:last-child{break-after:auto}
+    .item{padding:5px 4px}.item .num{font-size:40pt}.item .num.s{font-size:22pt}.item .mk{font-size:18pt}.card .num{font-size:40pt}.card .num .one{font-size:48pt}.card .read{font-size:18pt}.rule .big{font-size:18pt}.rule .big .one{font-size:28pt}.head h1{font-size:23pt}.bigcard{height:250px}.bigcard .l{font-size:120px}.cut .g{font-size:72pt}
+    @page{size:A4;margin:11mm 13mm}}
+</style>
+</head>
+<body>
+<div class="bar"><span class="tag">나눗셈 배수표</span><button onclick="document.body.style.fontSize=(parseFloat(getComputedStyle(document.body).fontSize)*1.1)+'px'">글자 크게</button><button onclick="document.body.style.fontSize=(parseFloat(getComputedStyle(document.body).fontSize)/1.1)+'px'">글자 작게</button><button onclick="window.print()">인쇄하기</button><span class="tag">A4 4장</span></div>
+<div class="page"><div class="head"><div class="eyebrow">연산 · 나눗셈</div><h1>나눗셈의 비밀 무기 — 배수표</h1><div class="lede">4장: ① 배수표 전략 개념 ② 1회차(배수표 반 채워짐) ③ 2회차(배수표 스스로) ④ 3회차(배수표 선택 사용 + 검산)</div></div><div class="note"><b>이 장은</b> — 몫을 어림할 때 머릿속 곱셈 대신 <b>배수표를 먼저 적어 놓고 고르는</b> 전략을 배웁니다. 암산이 빨라야 잘하는 게 아니라, <b>정확한 사람이 잘하는 것</b> — 표를 쓰는 건 수학자들도 쓰는 정식 방법입니다. "두 자리×한 자리 암산이 안 될 때가 있어 힘들다"는 아이를 위해(암산을 조건으로 걸지 않음).</div><div class="phead"><span class="n">1</span><h2>전략 · 선생님과 함께</h2></div><div class="rule"><div class="big" style="font-size:15pt">3단계 — 적고, 고르고, 빼기</div><div class="ex">① 나누는 수의 <b>배수표</b>를 적는다 (×1~×5면 충분)<br>② 나누어지는 수를 <b>넘지 않는 가장 큰 것</b>을 고른다 → 그게 몫!<br>③ 빼서 나머지를 구한다. (나머지는 나누는 수보다 항상 작아야 함)</div></div><div class="note"><b>예: 64 ÷ 19</b></div><table class="tbl" style="width:auto"><tr><th>19×1</th><th>19×2</th><th>19×3</th><th>19×4</th></tr><tr><td>19</td><td>38</td><td><b>57</b> ←64를 안 넘는 가장 큰 수!</td><td>76 (넘음 ✕)</td></tr></table><p style="font-size:12pt;margin:4px 0 10px">→ 몫은 <b>3</b>, 나머지는 64−57=<b>7</b>. &nbsp;검산: 19×3+7=64 ✓</p><div class="rule"><div class="big" style="font-size:14pt">더 빠른 어림 팁</div><div class="ex">19는 <b>20에 가깝다!</b> "20이 64에 몇 번? 3번" → 3부터 확인하면 표를 다 안 채워도 됩니다. 배수표를 채울 때도 곱셈이 아니라 <b>더하기로</b>: 19, +19=38, +19=57… (덧셈은 이미 완벽하니까!)</div></div><div class="foot"><span>교사 메모 — "표를 쓰는 건 실력 부족이 아니라 전략"임을 명시적으로. 정확·꼼꼼한 아이에게 속도를 요구하지 않기(지도 원칙).</span><span>1/4</span></div></div><div class="page"><div class="phead"><span class="n">2</span><h2>배수표로 나눗셈</h2><small>1회차 · 10문항 (배수표 반 채워짐)</small></div><div class="meta"><span>날짜 <span class="line"></span>월 <span class="line"></span>일</span><span>컨디션: 좋아요 □ 보통 □ 피곤해요 □</span><span><b>이름</b> ______</span></div><div class="note"><b>규칙</b> — 배수표의 빈칸을 <b>더해가며</b> 채우고 → 넘지 않는 가장 큰 수 고르고 → 빼기!</div><div class="items c2"><div class="item"><span class="num s">① 64÷19</span><span class="mul">배수표: 19 · 38 · <span></span> · <span></span></span><span class="ans">몫 <u></u> 나머지 <u></u></span></div><div class="item"><span class="num s">② 75÷23</span><span class="mul">배수표: 23 · <span></span> · <span></span> · <span></span></span><span class="ans">몫 <u></u> 나머지 <u></u></span></div><div class="item"><span class="num s">③ 89÷17</span><span class="mul">배수표: 17 · 34 · <span></span> · <span></span> · <span></span></span><span class="ans">몫 <u></u> 나머지 <u></u></span></div><div class="item"><span class="num s">④ 70÷16</span><span class="mul">배수표: 16 · <span></span> · <span></span> · <span></span></span><span class="ans">몫 <u></u> 나머지 <u></u></span></div><div class="item"><span class="num s">⑤ 95÷28</span><span class="mul">배수표: 28 · <span></span> · <span></span></span><span class="ans">몫 <u></u> 나머지 <u></u></span></div><div class="item"><span class="num s">⑥ 84÷13</span><span class="mul">배수표: 13 · 26 · <span></span> · <span></span> · <span></span> · <span></span></span><span class="ans">몫 <u></u> 나머지 <u></u></span></div><div class="item"><span class="num s">⑦ 66÷14</span><span class="mul">배수표: 14 · <span></span> · <span></span> · <span></span></span><span class="ans">몫 <u></u> 나머지 <u></u></span></div><div class="item"><span class="num s">⑧ 92÷31</span><span class="mul">배수표: 31 · <span></span> · <span></span></span><span class="ans">몫 <u></u> 나머지 <u></u></span></div><div class="item"><span class="num s">⑨ 58÷12</span><span class="mul">배수표: 12 · <span></span> · <span></span> · <span></span> · <span></span></span><span class="ans">몫 <u></u> 나머지 <u></u></span></div><div class="item"><span class="num s">⑩ 80÷24</span><span class="mul">배수표: 24 · <span></span> · <span></span></span><span class="ans">몫 <u></u> 나머지 <u></u></span></div></div><div class="foot"><span><b>교사 기록</b> — 정답 __/10 · 배수표를 덧셈으로 채움 □ 곱셈으로 채움 □ · 나머지≥제수 오류 __회 · "힘들다" 호소 없이 완주 □</span><span>2/4</span></div></div><div class="page"><div class="phead"><span class="n">3</span><h2>배수표로 나눗셈</h2><small>2회차 · 10문항 (배수표 스스로)</small></div><div class="meta"><span>날짜 <span class="line"></span>월 <span class="line"></span>일</span><span>컨디션: 좋아요 □ 보통 □ 피곤해요 □</span><span><b>이름</b> ______</span></div><div class="note"><b>규칙</b> — 이번엔 배수표 첫 칸도 스스로! 어림 팁(몇십에 가깝다)을 먼저 써 보고, 표는 확인용으로.</div><div class="items c2"><div class="item"><span class="num s">① 85÷19</span><span class="mul">배수표: <span></span> · <span></span> · <span></span> · <span></span></span><span class="ans">몫 <u></u> 나머지 <u></u></span></div><div class="item"><span class="num s">② 97÷26</span><span class="mul">배수표: <span></span> · <span></span> · <span></span></span><span class="ans">몫 <u></u> 나머지 <u></u></span></div><div class="item"><span class="num s">③ 74÷17</span><span class="mul">배수표: <span></span> · <span></span> · <span></span> · <span></span></span><span class="ans">몫 <u></u> 나머지 <u></u></span></div><div class="item"><span class="num s">④ 68÷15</span><span class="mul">배수표: <span></span> · <span></span> · <span></span> · <span></span></span><span class="ans">몫 <u></u> 나머지 <u></u></span></div><div class="item"><span class="num s">⑤ 90÷21</span><span class="mul">배수표: <span></span> · <span></span> · <span></span> · <span></span></span><span class="ans">몫 <u></u> 나머지 <u></u></span></div><div class="item"><span class="num s">⑥ 77÷12</span><span class="mul">배수표: <span></span> · <span></span> · <span></span> · <span></span> · <span></span> · <span></span></span><span class="ans">몫 <u></u> 나머지 <u></u></span></div><div class="item"><span class="num s">⑦ 83÷27</span><span class="mul">배수표: <span></span> · <span></span> · <span></span></span><span class="ans">몫 <u></u> 나머지 <u></u></span></div><div class="item"><span class="num s">⑧ 59÷13</span><span class="mul">배수표: <span></span> · <span></span> · <span></span> · <span></span></span><span class="ans">몫 <u></u> 나머지 <u></u></span></div><div class="item"><span class="num s">⑨ 94÷32</span><span class="mul">배수표: <span></span> · <span></span></span><span class="ans">몫 <u></u> 나머지 <u></u></span></div><div class="item"><span class="num s">⑩ 71÷22</span><span class="mul">배수표: <span></span> · <span></span> · <span></span></span><span class="ans">몫 <u></u> 나머지 <u></u></span></div></div><div class="foot"><span><b>교사 기록</b> — 정답 __/10 · 어림 팁 사용 __회 · 배수표 자력 작성 □ · 특이: __________</span><span>3/4</span></div></div><div class="page"><div class="phead"><span class="n">4</span><h2>배수표는 필요할 때만 + 검산</h2><small>3회차 · 10문항</small></div><div class="meta"><span>날짜 <span class="line"></span>월 <span class="line"></span>일</span><span>컨디션: 좋아요 □ 보통 □ 피곤해요 □</span><span><b>이름</b> ______</span></div><div class="note"><b>규칙</b> — 이번엔 배수표 칸이 없어요 — <b>필요하면 여백에 스스로</b> 적으세요(적는 건 언제나 좋은 전략!). ⑨⑩은 검산까지: <b>나누는 수×몫+나머지 = 원래 수</b>가 되는지 확인.</div><div class="items c2"><div class="item"><span class="num s">① 88÷19</span><span class="ans">몫 <u></u> 나머지 <u></u></span></div><div class="item"><span class="num s">② 76÷14</span><span class="ans">몫 <u></u> 나머지 <u></u></span></div><div class="item"><span class="num s">③ 99÷23</span><span class="ans">몫 <u></u> 나머지 <u></u></span></div><div class="item"><span class="num s">④ 65÷12</span><span class="ans">몫 <u></u> 나머지 <u></u></span></div><div class="item"><span class="num s">⑤ 93÷28</span><span class="ans">몫 <u></u> 나머지 <u></u></span></div><div class="item"><span class="num s">⑥ 82÷16</span><span class="ans">몫 <u></u> 나머지 <u></u></span></div><div class="item"><span class="num s">⑦ 69÷22</span><span class="ans">몫 <u></u> 나머지 <u></u></span></div><div class="item"><span class="num s">⑧ 79÷18</span><span class="ans">몫 <u></u> 나머지 <u></u></span></div><div class="item"><span class="num s">⑨ 96÷35</span><span class="ans">몫 <u></u> 나머지 <u></u><br>검산: ___×___+___=___</span></div><div class="item"><span class="num s">⑩ 87÷25</span><span class="ans">몫 <u></u> 나머지 <u></u><br>검산: ___×___+___=___</span></div></div><div class="foot"><span><b>교사 기록</b> — 정답 __/10 · 여백 배수표 사용 __문항 · 검산 자력 __/2 ※10중 8 × 2회 연속 → 나눗셈을 정식 목표로 승격 논의</span><span>4/4</span></div></div>
+<!-- mak-home --><a href="../../" style="position:fixed;left:12px;bottom:12px;z-index:2147483000;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:22px;background:#232320;color:#efe6d6;font:14px/1 'Apple SD Gothic Neo','Noto Sans KR',sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.35);opacity:.92" title="나눔터 첫 화면으로">⌂ 나눔터</a><style>@media print{a[href="../../"]{display:none!important}}</style>
+</body>
+</html>
