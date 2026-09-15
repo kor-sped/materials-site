@@ -25,7 +25,7 @@
   main { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:6px 8px 70px; gap:6px; overflow:hidden; }
   .hint, .legend { display:none !important; }
   .number { display:flex; gap:0; align-items:flex-start; justify-content:center; font-size:200px; }
-  .digit { position:relative; padding:0 0 .14em; font-size:inherit; margin:0 var(--gap); font-weight:800; line-height:1; letter-spacing:0;
+  .digit { position:relative; padding:0 .015em .14em; font-size:inherit; margin:0 var(--gap); font-variant-numeric:tabular-nums; font-feature-settings:"tnum" 1; text-align:center; min-width:.6em; font-weight:800; line-height:1; letter-spacing:0;
            cursor:pointer; user-select:none; -webkit-user-select:none; transition:color .12s, transform .12s; touch-action:manipulation; color:var(--ink); }
   .digit .tag { display:none; }
   .digit .pv { position:absolute; left:50%; transform:translateX(-50%); bottom:.01em; font-size:.17em; font-weight:700; line-height:1.2; white-space:nowrap; opacity:0; transition:opacity .15s; }
@@ -136,7 +136,7 @@
     state.active = i;
     Array.prototype.forEach.call(numberEl.children, function(el, k){ el.classList.toggle("active", k===i); if (k===i) el.classList.add("done"); });
     var pv = numberEl.children[i].querySelector(".pv");
-    pv.textContent = d === 0 ? "없음" : placeValue(d, place).toLocaleString("ko-KR");
+    pv.textContent = d === 0 ? "없음" : placeValue(d, place);
     if (d === 0){
       valueEl.className = "value none"; vnum.textContent = "0"; vread.textContent = place + "의 자리 — 없음";
       if (!dup) speak(place + "의 자리는 없어요");
@@ -149,9 +149,9 @@
   }
   function showSum(){
     var parts = [], total = 0;
-    state.digits.forEach(function(d,i){ if (d>0){ parts.push('<span class="p" data-place="'+state.places[i]+'">'+placeValue(d,state.places[i]).toLocaleString("ko-KR")+'</span>'); total += placeValue(d,state.places[i]); } });
+    state.digits.forEach(function(d,i){ if (d>0){ parts.push('<span class="p" data-place="'+state.places[i]+'">'+placeValue(d,state.places[i])+'</span>'); total += placeValue(d,state.places[i]); } });
     var full = readNumber(state.digits, state.places);
-    sumEl.innerHTML = parts.join('<span>+</span>') + '<span>=</span><span class="total">' + total.toLocaleString("ko-KR") + '</span><span class="full">' + full + '</span>';
+    sumEl.innerHTML = parts.join('<span>+</span>') + '<span>=</span><span class="total">' + total + '</span><span class="full">' + full + '</span>';
     hint.textContent = document.body.classList.contains("detail") ? "다 짚었어요! 전체를 읽어 볼까요? → " + full : "다 짚었어요!";
   }
   if ("speechSynthesis" in window) { try { window.speechSynthesis.getVoices(); window.speechSynthesis.onvoiceschanged = function(){ window.speechSynthesis.getVoices(); }; } catch(e){} }
