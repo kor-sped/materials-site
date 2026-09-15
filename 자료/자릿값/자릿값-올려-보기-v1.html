@@ -15,7 +15,7 @@
   header .grp { display:flex; align-items:center; gap:6px; }
   header label { font-size:.9em; color:var(--muted); }
   button, input { font:inherit; }
-  button { border:1.5px solid #c8703f; background:#fff; color:#c8703f; border-radius:9px; padding:7px 14px; cursor:pointer; font-size:.95em; }
+  button { white-space:nowrap; border:1.5px solid #c8703f; background:#fff; color:#c8703f; border-radius:9px; padding:7px 14px; cursor:pointer; font-size:.95em; }
   button.primary { background:#c8703f; color:#fff; }
   button.on { background:#8fa376; border-color:#8fa376; color:#fff; }
   input[type=text] { width:9em; padding:7px 10px; border:1.5px solid var(--line); border-radius:9px; font-size:1.05em; letter-spacing:.08em; text-align:center; }
@@ -23,11 +23,12 @@
   main { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:10px 8px 80px; gap:10px; }
   .hint, .legend { display:none !important; }
   .number { display:flex; gap:0; align-items:flex-start; max-width:100vw; justify-content:center; }
-  .number.n5 .digit { font-size:clamp(80px,min(18vw,34vh),360px); }
-  .digit { position:relative; padding:0 clamp(2px,.4vw,10px) clamp(40px,8vw,120px); font-size:clamp(96px,min(36vw,34vh),440px); font-weight:800; line-height:1; letter-spacing:0;
+  .number.n5 .digit { font-size:clamp(80px,min(30vw,56vh),700px); }
+  .number.n3 .digit { font-size:clamp(96px,min(48vw,56vh),700px); }
+  .digit { position:relative; padding:0 clamp(2px,.4vw,10px) clamp(40px,min(9vw,14vh),170px); font-size:clamp(96px,min(38vw,56vh),700px); font-weight:800; line-height:1; letter-spacing:0;
            cursor:pointer; user-select:none; -webkit-user-select:none; transition:color .12s, transform .12s; touch-action:manipulation; color:var(--ink); }
   .digit .tag { display:none; }
-  .digit .pv { position:absolute; left:50%; transform:translateX(-50%); bottom:0; font-size:clamp(18px,5vw,64px); font-weight:700; line-height:1.2; white-space:nowrap; opacity:0; transition:opacity .15s; }
+  .digit .pv { position:absolute; left:50%; transform:translateX(-50%); bottom:0; font-size:clamp(18px,min(6vw,9vh),110px); font-weight:700; line-height:1.2; white-space:nowrap; opacity:0; transition:opacity .15s; }
   .digit.active { transform:translateY(-4px); }
   .digit.active .pv { opacity:1; }
   .digit[data-place="만"].active, .digit[data-place="만"] .pv { color:var(--c만); }
@@ -109,7 +110,7 @@
   function setNumber(digits){
     state.digits = digits; state.places = PLACES.slice(PLACES.length - digits.length);
     state.visited = digits.map(function(){return false;}); state.active = -1;
-    numberEl.innerHTML = ""; numberEl.classList.toggle("n5", digits.length >= 5);
+    numberEl.innerHTML = ""; numberEl.classList.toggle("n5", digits.length >= 5); numberEl.classList.toggle("n3", digits.length <= 3);
     digits.forEach(function(d,i){
       var el = document.createElement("div");
       el.className = "digit" + (d===0 ? " zero" : ""); el.dataset.place = state.places[i]; el.dataset.i = i;
