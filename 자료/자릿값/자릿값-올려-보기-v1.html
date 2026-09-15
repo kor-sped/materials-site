@@ -25,7 +25,7 @@
   main { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:6px 8px 70px; gap:6px; overflow:hidden; }
   .hint, .legend { display:none !important; }
   .number { display:flex; gap:0; align-items:flex-start; justify-content:center; font-size:200px; }
-  .digit { position:relative; padding:0 .015em .14em; font-size:inherit; margin:0 var(--gap); font-variant-numeric:tabular-nums; font-feature-settings:"tnum" 1; text-align:center; min-width:.6em; font-weight:800; line-height:1; letter-spacing:0;
+  .digit { position:relative; padding:0 .015em .14em; font-size:inherit; margin:0 var(--gap); font-variant-numeric:tabular-nums; font-feature-settings:"tnum" 1; text-align:center; min-width:.6em; -webkit-text-stroke:.018em var(--bg); paint-order:stroke fill; font-weight:800; line-height:1; letter-spacing:0;
            cursor:pointer; user-select:none; -webkit-user-select:none; transition:color .12s, transform .12s; touch-action:manipulation; color:var(--ink); }
   .digit .tag { display:none; }
   .digit .pv { position:absolute; left:50%; transform:translateX(-50%); bottom:.01em; font-size:.17em; font-weight:700; line-height:1.2; white-space:nowrap; opacity:0; transition:opacity .15s; }
@@ -75,7 +75,7 @@
   <div class="sum" id="sum"></div>
   <div class="legend"><span><i style="background:var(--c만)"></i>만</span><span><i style="background:var(--c천)"></i>천</span><span><i style="background:var(--c백)"></i>백</span><span><i style="background:var(--c십)"></i>십</span><span><i style="background:var(--c일)"></i>일</span></div>
 </main>
-<footer>크기 1~5 · 간격은 −12(붙임)~30(벌림) · 키보드: + − 크기, [ ] 간격, ← → 자리 옮기기, 스페이스 새 숫자 · "읽기·식 보기"를 켜면 한글 읽기와 더하기 식</footer>
+<footer>크기 1~5 · 간격은 −6(붙임)~30(벌림) · 키보드: + − 크기, [ ] 간격, ← → 자리 옮기기, 스페이스 새 숫자 · "읽기·식 보기"를 켜면 한글 읽기와 더하기 식</footer>
 
 <script>
 (function(){
@@ -178,7 +178,7 @@
   function applyLook(){
     var lv = parseInt($("sizeR").value,10), gp = parseInt($("gapR").value,10);
     if (!(lv >= 1 && lv <= 5)) { lv = 3; $("sizeR").value = 3; }
-    if (!(gp >= -12 && gp <= 30)) { gp = 0; $("gapR").value = 0; }
+    if (!(gp >= -6 && gp <= 30)) { gp = Math.min(30, Math.max(-6, isNaN(gp) ? 0 : gp)); $("gapR").value = gp; }
     document.documentElement.style.setProperty("--gap", (gp/100) + "em");
     Array.prototype.forEach.call(document.querySelectorAll("#sizeSeg button"), function(b){ b.classList.toggle("on", parseInt(b.dataset.v,10)===lv); });
     $("gapV").textContent = gp;
@@ -187,7 +187,7 @@
   }
   try { var saved = JSON.parse(localStorage.getItem("pv-look")||"null"); if (saved){ $("sizeR").value = saved.s; $("gapR").value = saved.g; } } catch(e){}
   Array.prototype.forEach.call(document.querySelectorAll("#sizeSeg button"), function(b){ b.addEventListener("click", function(){ $("sizeR").value = this.dataset.v; applyLook(); }); });
-  $("gapMinus").addEventListener("click", function(){ $("gapR").value = Math.max(-12, parseInt($("gapR").value,10)-2); applyLook(); });
+  $("gapMinus").addEventListener("click", function(){ $("gapR").value = Math.max(-6, parseInt($("gapR").value,10)-2); applyLook(); });
   $("gapPlus").addEventListener("click", function(){ $("gapR").value = Math.min(30, parseInt($("gapR").value,10)+2); applyLook(); });
   $("lookReset").addEventListener("click", function(){ $("sizeR").value = 3; $("gapR").value = 0; applyLook(); });
   applyLook();
@@ -212,7 +212,7 @@
     else if (e.key === "+" || e.key === "=") { $("sizeR").value = Math.min(5, parseInt($("sizeR").value,10)+1); applyLook(); }
     else if (e.key === "-") { $("sizeR").value = Math.max(1, parseInt($("sizeR").value,10)-1); applyLook(); }
     else if (e.key === "]") { $("gapR").value = Math.min(30, parseInt($("gapR").value,10)+2); applyLook(); }
-    else if (e.key === "[") { $("gapR").value = Math.max(-12, parseInt($("gapR").value,10)-2); applyLook(); }
+    else if (e.key === "[") { $("gapR").value = Math.max(-6, parseInt($("gapR").value,10)-2); applyLook(); }
   });
   newNumber();
 })();
