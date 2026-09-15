@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>자릿값 올려 보기 — 숫자에 마우스를 올리면 자릿값이 보여요</title>
 <style>
   :root { --bg:#faf6ef; --ink:#2a2a26; --line:#e6ded0; --muted:#7a7468;
@@ -113,7 +113,8 @@
       el.className = "digit" + (d===0 ? " zero" : ""); el.dataset.place = state.places[i]; el.dataset.i = i;
       el.innerHTML = '<span class="tag">' + state.places[i] + '의 자리</span>' + d;
       el.addEventListener("mouseenter", function(){ if (!isTouch) show(i); });
-      el.addEventListener("click", function(e){ e.preventDefault(); show(i, true); });
+      el.addEventListener("pointerdown", function(e){ if (e.pointerType !== "mouse") { isTouch = true; show(i, true); } });
+      el.addEventListener("click", function(e){ e.preventDefault(); if (!isTouch) show(i, true); });
       numberEl.appendChild(el);
     });
     valueEl.className = "value idle"; vnum.textContent = "?"; vread.innerHTML = "&nbsp;"; sumEl.innerHTML = "";
@@ -143,6 +144,9 @@
     sumEl.innerHTML = parts.join('<span>+</span>') + '<span>=</span><span class="total">' + total.toLocaleString("ko-KR") + '</span><span class="full">' + full + '</span>';
     hint.textContent = "다 짚었어요! 전체를 읽어 볼까요? → " + full;
   }
+  if ("speechSynthesis" in window) { try { window.speechSynthesis.getVoices(); window.speechSynthesis.onvoiceschanged = function(){ window.speechSynthesis.getVoices(); }; } catch(e){} }
+  var warmed = false;
+  document.addEventListener("pointerdown", function(){ if (warmed || !("speechSynthesis" in window)) return; warmed = true; try { var u = new SpeechSynthesisUtterance(" "); u.lang = "ko-KR"; u.volume = 0; window.speechSynthesis.speak(u); } catch(e){} }, {once:true, passive:true});
   function speak(text){
     if (!state.sound || !("speechSynthesis" in window)) return;
     try { window.speechSynthesis.cancel(); var u = new SpeechSynthesisUtterance(text); u.lang = "ko-KR"; u.rate = 0.9; window.speechSynthesis.speak(u); } catch(e){}
