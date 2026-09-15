@@ -39,7 +39,7 @@
   .value .num { font-size:clamp(48px,11vw,130px); font-weight:800; line-height:1.05; }
   .value .read { font-size:clamp(22px,4.5vw,44px); font-weight:600; }
   .value.none .num, .value.none .read { color:#b9b4aa; }
-  .value.idle .num { color:#d5cfc3; }
+  .value.idle .num { color:#b9b4aa; }
   .sum { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:6px 10px; font-size:clamp(18px,3.6vw,34px); font-weight:700; min-height:1.6em; }
   .sum span.p { padding:2px 10px; border-radius:10px; background:#fff; border:2px solid var(--line); }
   .sum span.p[data-place="만"] { color:var(--c만); border-color:var(--c만); } .sum span.p[data-place="천"] { color:var(--c천); border-color:var(--c천); }
@@ -113,8 +113,8 @@
       el.className = "digit" + (d===0 ? " zero" : ""); el.dataset.place = state.places[i]; el.dataset.i = i;
       el.innerHTML = '<span class="tag">' + state.places[i] + '의 자리</span>' + d;
       el.addEventListener("mouseenter", function(){ if (!isTouch) show(i); });
-      el.addEventListener("pointerdown", function(e){ if (e.pointerType !== "mouse") { isTouch = true; show(i, true); } });
-      el.addEventListener("click", function(e){ e.preventDefault(); if (!isTouch) show(i, true); });
+      el.addEventListener("touchstart", function(){ isTouch = true; show(i, true); }, {passive:true});
+      el.addEventListener("click", function(e){ e.preventDefault(); show(i, true); });
       numberEl.appendChild(el);
     });
     valueEl.className = "value idle"; vnum.textContent = "?"; vread.innerHTML = "&nbsp;"; sumEl.innerHTML = "";
@@ -123,16 +123,18 @@
   var isTouch = false;
   window.addEventListener("touchstart", function(){ isTouch = true; }, {passive:true, once:true});
 
+  var lastSpoken = { i:-1, t:0 };
   function show(i, speakAgain){
     var d = state.digits[i], place = state.places[i];
+    var dup = (lastSpoken.i === i && Date.now() - lastSpoken.t < 600); lastSpoken = { i:i, t:Date.now() };
     state.active = i;
     Array.prototype.forEach.call(numberEl.children, function(el, k){ el.classList.toggle("active", k===i); });
     if (d === 0){
       valueEl.className = "value none"; vnum.textContent = "0"; vread.textContent = place + "의 자리 — 없음";
-      speak(place + "의 자리는 없어요");
+      if (!dup) speak(place + "의 자리는 없어요");
     } else {
       valueEl.className = "value"; vnum.textContent = placeValue(d, place).toLocaleString("ko-KR"); vread.textContent = readPlace(d, place);
-      speak(readPlace(d, place));
+      if (!dup) speak(readPlace(d, place));
     }
     state.visited[i] = true;
     if (state.visited.every(Boolean)) showSum();
