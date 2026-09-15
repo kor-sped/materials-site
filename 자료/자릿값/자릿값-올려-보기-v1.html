@@ -22,7 +22,7 @@
   .seg { display:inline-flex; } .seg button { border-radius:0; padding:6px 11px; margin-left:-1.5px; } .seg button:first-child { border-radius:9px 0 0 9px; } .seg button:last-child { border-radius:0 9px 9px 0; } .seg button.on { background:#c8703f; color:#fff; }
   .grp .val { font-size:.85em; color:var(--muted); min-width:2.2em; text-align:center; }
   select { font:inherit; padding:6px 8px; border-radius:9px; border:1.5px solid var(--line); background:#fff; }
-  main { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:10px 8px 80px; gap:10px; }
+  main { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:6px 8px 70px; gap:6px; overflow:hidden; }
   .hint, .legend { display:none !important; }
   .number { display:flex; gap:0; align-items:flex-start; justify-content:center; transform-origin:center top; transform:scale(var(--fit,1)); }
   .number.n5 .digit { font-size:calc(clamp(80px,min(30vw,56vh),700px) * var(--scale)); }
@@ -66,7 +66,7 @@
   <div class="grp"><button class="primary" id="newBtn">새 숫자</button></div>
   <div class="grp"><input type="text" id="typed" inputmode="numeric" pattern="[0-9]*" maxlength="5" placeholder="직접 입력"><button id="setBtn">보기</button></div>
   <div class="grp"><label>크기</label><span class="seg" id="sizeSeg"><button data-v="1">1</button><button data-v="2">2</button><button data-v="3">3</button><button data-v="4">4</button><button data-v="5">5</button></span><input type="hidden" id="sizeR" value="3"></div>
-  <div class="grp"><label>간격</label><button id="gapMinus" title="숫자를 붙여요">◀ 좁게</button><span class="val" id="gapV">0</span><button id="gapPlus" title="숫자를 벌려요">넓게 ▶</button><input type="hidden" id="gapR" value="0"></div>
+  <div class="grp"><label>간격</label><button id="gapMinus" title="숫자를 붙여요">◀ 좁게</button><span class="val" id="gapV">0</span><button id="gapPlus" title="숫자를 벌려요">넓게 ▶</button><input type="hidden" id="gapR" value="0"><button id="lookReset" title="크기 3, 간격 0으로">↺</button></div>
   <div class="grp"><button id="zeroBtn" title="0이 든 숫자를 자주 내요">0 섞기</button><button id="soundBtn" class="on">🔊 소리</button><button id="detailBtn" title="한글 읽기와 더하기 식을 아래에 보여 줘요">읽기·식 보기</button><button id="resetBtn">처음부터</button></div>
 </header>
 
@@ -168,13 +168,19 @@
   var SCALES = {1:0.6, 2:0.8, 3:1, 4:1.2, 5:1.4};
   function fitWidth(){
     document.documentElement.style.setProperty("--fit", 1);
-    var w = numberEl.getBoundingClientRect().width, avail = window.innerWidth - 24;
-    if (w > avail) document.documentElement.style.setProperty("--fit", (avail / w).toFixed(3));
+    var r = numberEl.getBoundingClientRect();
+    var availW = window.innerWidth - 24;
+    var head = document.querySelector("header").getBoundingClientRect().height;
+    var availH = window.innerHeight - head - 70;
+    var f = Math.min(1, availW / Math.max(1, r.width), availH / Math.max(1, r.height));
+    if (f < 1) document.documentElement.style.setProperty("--fit", f.toFixed(3));
   }
   window.addEventListener("resize", fitWidth);
   function applyLook(){
     var lv = parseInt($("sizeR").value,10), gp = parseInt($("gapR").value,10);
-    document.documentElement.style.setProperty("--scale", SCALES[lv]);
+    if (!(lv >= 1 && lv <= 5)) { lv = 3; $("sizeR").value = 3; }
+    if (!(gp >= -12 && gp <= 30)) { gp = 0; $("gapR").value = 0; }
+    document.documentElement.style.setProperty("--scale", SCALES[lv] || 1);
     document.documentElement.style.setProperty("--gap", (gp/100) + "em");
     Array.prototype.forEach.call(document.querySelectorAll("#sizeSeg button"), function(b){ b.classList.toggle("on", parseInt(b.dataset.v,10)===lv); });
     $("gapV").textContent = gp;
@@ -185,6 +191,7 @@
   Array.prototype.forEach.call(document.querySelectorAll("#sizeSeg button"), function(b){ b.addEventListener("click", function(){ $("sizeR").value = this.dataset.v; applyLook(); }); });
   $("gapMinus").addEventListener("click", function(){ $("gapR").value = Math.max(-12, parseInt($("gapR").value,10)-2); applyLook(); });
   $("gapPlus").addEventListener("click", function(){ $("gapR").value = Math.min(30, parseInt($("gapR").value,10)+2); applyLook(); });
+  $("lookReset").addEventListener("click", function(){ $("sizeR").value = 3; $("gapR").value = 0; applyLook(); });
   applyLook();
   $("newBtn").addEventListener("click", newNumber);
   $("digits").addEventListener("change", newNumber);
