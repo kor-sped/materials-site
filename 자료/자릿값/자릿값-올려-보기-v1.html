@@ -27,7 +27,6 @@
            cursor:pointer; user-select:none; -webkit-user-select:none; transition:color .12s, transform .12s; touch-action:manipulation; color:var(--ink); }
   .digit .tag { display:none; }
   .digit .pv { position:absolute; left:50%; transform:translateX(-50%); bottom:0; font-size:clamp(14px,3.2vw,34px); font-weight:700; line-height:1.2; white-space:nowrap; opacity:0; transition:opacity .15s; }
-  .digit.done .pv { opacity:.45; }
   .digit.active { transform:translateY(-4px); }
   .digit.active .pv { opacity:1; }
   .digit[data-place="만"].active, .digit[data-place="만"] .pv { color:var(--c만); }
@@ -36,6 +35,8 @@
   .digit[data-place="십"].active, .digit[data-place="십"] .pv { color:var(--c십); }
   .digit[data-place="일"].active, .digit[data-place="일"] .pv { color:var(--c일); }
   .digit.zero { color:#b9b4aa; } .digit.zero .pv { color:#b9b4aa; }
+  .value, .sum { display:none; }
+  body.detail .value { display:flex; } body.detail .sum { display:flex; }
   .value { min-height:clamp(40px,7vw,70px); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; }
   .value .num { display:none; }
   .value .read { font-size:clamp(24px,5vw,48px); font-weight:700; }
@@ -61,7 +62,7 @@
     <select id="digits"><option value="2">2자리</option><option value="3">3자리</option><option value="4" selected>4자리</option><option value="5">5자리</option></select></div>
   <div class="grp"><button class="primary" id="newBtn">새 숫자</button></div>
   <div class="grp"><input type="text" id="typed" inputmode="numeric" pattern="[0-9]*" maxlength="5" placeholder="직접 입력"><button id="setBtn">보기</button></div>
-  <div class="grp"><button id="zeroBtn" title="0이 든 숫자를 자주 내요">0 섞기</button><button id="soundBtn" class="on">🔊 소리</button><button id="resetBtn">처음부터</button></div>
+  <div class="grp"><button id="zeroBtn" title="0이 든 숫자를 자주 내요">0 섞기</button><button id="soundBtn" class="on">🔊 소리</button><button id="detailBtn" title="한글 읽기와 더하기 식을 아래에 보여 줘요">읽기·식 보기</button><button id="resetBtn">처음부터</button></div>
 </header>
 
 <main>
@@ -71,7 +72,7 @@
   <div class="sum" id="sum"></div>
   <div class="legend"><span><i style="background:var(--c만)"></i>만</span><span><i style="background:var(--c천)"></i>천</span><span><i style="background:var(--c백)"></i>백</span><span><i style="background:var(--c십)"></i>십</span><span><i style="background:var(--c일)"></i>일</span></div>
 </main>
-<footer>자리를 모두 짚으면 아래에 더하기 식과 전체 읽기가 나와요 · ← → 키로 옮기고 Enter로 읽기 · 스페이스 = 새 숫자</footer>
+<footer>"읽기·식 보기"를 켜면 한글 읽기와 더하기 식이 아래에 나와요 · ← → 키로 옮기고 Enter로 읽기 · 스페이스 = 새 숫자</footer>
 
 <script>
 (function(){
@@ -147,7 +148,7 @@
     state.digits.forEach(function(d,i){ if (d>0){ parts.push('<span class="p" data-place="'+state.places[i]+'">'+placeValue(d,state.places[i]).toLocaleString("ko-KR")+'</span>'); total += placeValue(d,state.places[i]); } });
     var full = readNumber(state.digits, state.places);
     sumEl.innerHTML = parts.join('<span>+</span>') + '<span>=</span><span class="total">' + total.toLocaleString("ko-KR") + '</span><span class="full">' + full + '</span>';
-    hint.textContent = "다 짚었어요! 전체를 읽어 볼까요? → " + full;
+    hint.textContent = document.body.classList.contains("detail") ? "다 짚었어요! 전체를 읽어 볼까요? → " + full : "다 짚었어요!";
   }
   if ("speechSynthesis" in window) { try { window.speechSynthesis.getVoices(); window.speechSynthesis.onvoiceschanged = function(){ window.speechSynthesis.getVoices(); }; } catch(e){} }
   var warmed = false;
@@ -167,6 +168,7 @@
   });
   $("typed").addEventListener("keydown", function(e){ if (e.key==="Enter") $("setBtn").click(); });
   $("zeroBtn").addEventListener("click", function(){ state.zeroMode = !state.zeroMode; this.classList.toggle("on", state.zeroMode); newNumber(); });
+  $("detailBtn").addEventListener("click", function(){ document.body.classList.toggle("detail"); this.classList.toggle("on", document.body.classList.contains("detail")); });
   $("soundBtn").addEventListener("click", function(){ state.sound = !state.sound; this.classList.toggle("on", state.sound); this.textContent = state.sound ? "🔊 소리" : "🔇 소리 없음"; });
   $("resetBtn").addEventListener("click", function(){ setNumber(state.digits.slice()); });
   document.addEventListener("keydown", function(e){
