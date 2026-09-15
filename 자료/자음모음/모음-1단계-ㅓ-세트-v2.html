@@ -44,10 +44,10 @@
   .card .num .one{color:var(--blue);font-size:54pt;}
   .card .read{font-size:20pt;font-weight:800;margin-top:6px;}
   .card .read b{background:var(--amber-tint);padding:0 6px;}
-  .items{display:grid;grid-template-columns:repeat(4,1fr);gap:0 10px;}
+  .items{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 10px;}
   .items.c1{grid-template-columns:1fr;}
   .items.c2{grid-template-columns:repeat(2,1fr);gap:0 24px;}
-  .items.c3{grid-template-columns:repeat(3,1fr);gap:0 14px;}
+  .items.c3{grid-template-columns:repeat(3,minmax(0,1fr));gap:0 14px;}
   .items.c5{grid-template-columns:repeat(5,1fr);gap:0 8px;}
   .item{border-bottom:1.5px solid var(--rule);padding:8px 4px 8px;}
   .item .no{font-family:'IBM Plex Mono',monospace;font-size:10pt;color:var(--ink3);display:block;}
@@ -58,7 +58,13 @@
   .item .mk.x{letter-spacing:.3em;}
   .item .hint{display:block;font-size:10pt;color:var(--ink3);}
   .item .sub2{display:block;font-size:12pt;color:var(--ink2);}
-  .item .work{display:block;margin-top:6px;border-top:1px dashed var(--rule);height:64px;background:repeating-linear-gradient(to right,transparent 0 22px,var(--rule2) 22px 23px);}
+  .item .work{display:grid;grid-template-columns:.55fr 1fr 1fr 1fr;grid-template-rows:repeat(3,12mm);margin-top:5px;border:1.5px solid var(--rule);}
+  .item .work i{display:block;border-right:1px solid var(--rule2);border-bottom:1px solid var(--rule2);}
+  .item .work i:nth-child(4n){border-right:0;}
+  .item .work i:nth-child(n+9){border-bottom:0;border-top:1.5px solid var(--ink2);margin-top:-1px;}
+  .item .work i:nth-child(4n+1){background:var(--bg);}
+  .item .num.s.w{letter-spacing:.03em;font-size:20pt;}
+  .items.c3 .num.s.w{font-size:24pt;}
   .item .ans{display:block;font-size:11pt;margin-top:6px;color:var(--ink2);}
   .item .ans u{display:inline-block;border-bottom:1.5px solid var(--ink);min-width:38px;height:16px;text-decoration:none;}
   .item .mul{display:block;font-size:10.5pt;margin-top:4px;color:var(--ink2);}
@@ -101,7 +107,7 @@
   .foot{margin-top:auto;border-top:1px solid var(--rule);padding-top:8px;font-size:10pt;color:var(--ink3);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;}
   .foot b{color:var(--ink2);}
   @media print{body{background:#fff;padding:0}.bar{display:none}.page{border:none;box-shadow:none;margin:0;width:auto;min-height:auto;padding:0;break-after:page;height:auto}.page:last-child{break-after:auto}
-    .item{padding:5px 4px}.item .num{font-size:40pt}.item .num.s{font-size:22pt}.item .mk{font-size:18pt}.card .num{font-size:40pt}.card .num .one{font-size:48pt}.card .read{font-size:18pt}.rule .big{font-size:18pt}.rule .big .one{font-size:28pt}.head h1{font-size:23pt}.bigcard{height:250px}.bigcard .l{font-size:120px}.cut .g{font-size:72pt}
+    .item{padding:5px 4px}.item .num{font-size:40pt}.item .num.s{font-size:22pt}.item .num.s.w{font-size:19pt}.items.c3 .num.s.w{font-size:22pt}.item .mk{font-size:18pt}.card .num{font-size:40pt}.card .num .one{font-size:48pt}.card .read{font-size:18pt}.rule .big{font-size:18pt}.rule .big .one{font-size:28pt}.head h1{font-size:23pt}.bigcard{height:250px}.bigcard .l{font-size:120px}.cut .g{font-size:72pt}
     @page{size:A4;margin:11mm 13mm}}
 </style>
 </head>
