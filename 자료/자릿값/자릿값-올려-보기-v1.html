@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>자릿값 올려 보기 — 숫자에 마우스를 올리면 자릿값이 보여요</title>
+<title>자릿값 올려 보기 — 5992의 5를 짚으면 아래에 5000</title>
 <style>
   :root { --bg:#faf6ef; --ink:#2a2a26; --line:#e6ded0; --muted:#7a7468;
           --c만:#7b5ea7; --c천:#2f6db5; --c백:#2f8f5b; --c십:#e08a2e; --c일:#c8413f; }
@@ -22,24 +22,25 @@
   select { font:inherit; padding:6px 8px; border-radius:9px; border:1.5px solid var(--line); background:#fff; }
   main { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:20px 12px 110px; gap:28px; }
   .hint { color:var(--muted); font-size:1.05em; margin:0; text-align:center; }
-  .number { display:flex; gap:clamp(6px,1.5vw,18px); }
-  .digit { position:relative; width:clamp(64px,15vw,150px); height:clamp(84px,20vw,190px); display:flex; align-items:center; justify-content:center;
-           font-size:clamp(52px,12vw,150px); font-weight:800; line-height:1; border-radius:18px; background:#fff; border:3px solid var(--line);
-           cursor:pointer; user-select:none; -webkit-user-select:none; transition:transform .12s, border-color .12s, box-shadow .12s; touch-action:manipulation; }
-  .digit .tag { position:absolute; top:6px; left:0; right:0; text-align:center; font-size:clamp(11px,1.6vw,15px); font-weight:600; color:var(--muted); letter-spacing:.02em; }
-  .digit.active { transform:translateY(-6px) scale(1.04); box-shadow:0 8px 22px rgba(0,0,0,.12); }
-  .digit.done { border-style:solid; }
-  .digit[data-place="만"].active { border-color:var(--c만); color:var(--c만); }
-  .digit[data-place="천"].active { border-color:var(--c천); color:var(--c천); }
-  .digit[data-place="백"].active { border-color:var(--c백); color:var(--c백); }
-  .digit[data-place="십"].active { border-color:var(--c십); color:var(--c십); }
-  .digit[data-place="일"].active { border-color:var(--c일); color:var(--c일); }
-  .digit.zero { color:#b9b4aa; }
-  .value { min-height:clamp(90px,16vw,150px); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; }
-  .value .num { font-size:clamp(48px,11vw,130px); font-weight:800; line-height:1.05; }
-  .value .read { font-size:clamp(22px,4.5vw,44px); font-weight:600; }
-  .value.none .num, .value.none .read { color:#b9b4aa; }
-  .value.idle .num { color:#b9b4aa; }
+  .number { display:flex; gap:0; align-items:flex-start; }
+  .digit { position:relative; padding:0 clamp(2px,.6vw,8px) clamp(34px,6vw,60px); font-size:clamp(72px,19vw,220px); font-weight:800; line-height:1; letter-spacing:0;
+           cursor:pointer; user-select:none; -webkit-user-select:none; transition:color .12s, transform .12s; touch-action:manipulation; color:var(--ink); }
+  .digit .tag { display:none; }
+  .digit .pv { position:absolute; left:50%; transform:translateX(-50%); bottom:0; font-size:clamp(14px,3.2vw,34px); font-weight:700; line-height:1.2; white-space:nowrap; opacity:0; transition:opacity .15s; }
+  .digit.done .pv { opacity:.45; }
+  .digit.active { transform:translateY(-4px); }
+  .digit.active .pv { opacity:1; }
+  .digit[data-place="만"].active, .digit[data-place="만"] .pv { color:var(--c만); }
+  .digit[data-place="천"].active, .digit[data-place="천"] .pv { color:var(--c천); }
+  .digit[data-place="백"].active, .digit[data-place="백"] .pv { color:var(--c백); }
+  .digit[data-place="십"].active, .digit[data-place="십"] .pv { color:var(--c십); }
+  .digit[data-place="일"].active, .digit[data-place="일"] .pv { color:var(--c일); }
+  .digit.zero { color:#b9b4aa; } .digit.zero .pv { color:#b9b4aa; }
+  .value { min-height:clamp(40px,7vw,70px); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; }
+  .value .num { display:none; }
+  .value .read { font-size:clamp(24px,5vw,48px); font-weight:700; }
+  .value.none .read { color:#b9b4aa; }
+  .value.idle .read { color:#b9b4aa; font-weight:500; }
   .sum { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:6px 10px; font-size:clamp(18px,3.6vw,34px); font-weight:700; min-height:1.6em; }
   .sum span.p { padding:2px 10px; border-radius:10px; background:#fff; border:2px solid var(--line); }
   .sum span.p[data-place="만"] { color:var(--c만); border-color:var(--c만); } .sum span.p[data-place="천"] { color:var(--c천); border-color:var(--c천); }
@@ -64,9 +65,9 @@
 </header>
 
 <main>
-  <p class="hint" id="hint">숫자 하나에 마우스를 올리거나 손가락으로 눌러 보세요.</p>
+  <p class="hint" id="hint">숫자에 마우스를 올리거나 손가락으로 눌러 보세요. 그 숫자 아래에 자릿값이 나와요.</p>
   <div class="number" id="number"></div>
-  <div class="value idle" id="value"><div class="num" id="vnum">?</div><div class="read" id="vread">&nbsp;</div></div>
+  <div class="value idle" id="value"><div class="num" id="vnum"></div><div class="read" id="vread">숫자를 짚어 보세요</div></div>
   <div class="sum" id="sum"></div>
   <div class="legend"><span><i style="background:var(--c만)"></i>만</span><span><i style="background:var(--c천)"></i>천</span><span><i style="background:var(--c백)"></i>백</span><span><i style="background:var(--c십)"></i>십</span><span><i style="background:var(--c일)"></i>일</span></div>
 </main>
@@ -111,14 +112,14 @@
     digits.forEach(function(d,i){
       var el = document.createElement("div");
       el.className = "digit" + (d===0 ? " zero" : ""); el.dataset.place = state.places[i]; el.dataset.i = i;
-      el.innerHTML = '<span class="tag">' + state.places[i] + '의 자리</span>' + d;
+      el.innerHTML = d + '<span class="pv"></span>';
       el.addEventListener("mouseenter", function(){ if (!isTouch) show(i); });
       el.addEventListener("touchstart", function(){ isTouch = true; show(i, true); }, {passive:true});
       el.addEventListener("click", function(e){ e.preventDefault(); show(i, true); });
       numberEl.appendChild(el);
     });
-    valueEl.className = "value idle"; vnum.textContent = "?"; vread.innerHTML = "&nbsp;"; sumEl.innerHTML = "";
-    hint.textContent = "숫자 하나에 마우스를 올리거나 손가락으로 눌러 보세요.";
+    valueEl.className = "value idle"; vnum.textContent = ""; vread.textContent = "숫자를 짚어 보세요"; sumEl.innerHTML = "";
+    hint.textContent = "숫자에 마우스를 올리거나 손가락으로 눌러 보세요. 그 숫자 아래에 자릿값이 나와요.";
   }
   var isTouch = false;
   window.addEventListener("touchstart", function(){ isTouch = true; }, {passive:true, once:true});
@@ -128,12 +129,14 @@
     var d = state.digits[i], place = state.places[i];
     var dup = (lastSpoken.i === i && Date.now() - lastSpoken.t < 600); lastSpoken = { i:i, t:Date.now() };
     state.active = i;
-    Array.prototype.forEach.call(numberEl.children, function(el, k){ el.classList.toggle("active", k===i); });
+    Array.prototype.forEach.call(numberEl.children, function(el, k){ el.classList.toggle("active", k===i); if (k===i) el.classList.add("done"); });
+    var pv = numberEl.children[i].querySelector(".pv");
+    pv.textContent = d === 0 ? "없음" : placeValue(d, place).toLocaleString("ko-KR");
     if (d === 0){
       valueEl.className = "value none"; vnum.textContent = "0"; vread.textContent = place + "의 자리 — 없음";
       if (!dup) speak(place + "의 자리는 없어요");
     } else {
-      valueEl.className = "value"; vnum.textContent = placeValue(d, place).toLocaleString("ko-KR"); vread.textContent = readPlace(d, place);
+      valueEl.className = "value"; vread.textContent = readPlace(d, place);
       if (!dup) speak(readPlace(d, place));
     }
     state.visited[i] = true;
