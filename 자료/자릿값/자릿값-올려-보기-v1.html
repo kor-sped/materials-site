@@ -24,13 +24,11 @@
   select { font:inherit; padding:6px 8px; border-radius:9px; border:1.5px solid var(--line); background:#fff; }
   main { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:6px 8px 70px; gap:6px; overflow:hidden; }
   .hint, .legend { display:none !important; }
-  .number { display:flex; gap:0; align-items:flex-start; justify-content:center; transform-origin:center top; transform:scale(var(--fit,1)); }
-  .number.n5 .digit { font-size:calc(clamp(80px,min(30vw,56vh),700px) * var(--scale)); }
-  .number.n3 .digit { font-size:calc(clamp(96px,min(48vw,56vh),700px) * var(--scale)); }
-  .digit { position:relative; padding:0 0 clamp(40px,min(9vw,14vh),170px); font-size:calc(clamp(96px,min(38vw,56vh),700px) * var(--scale)); margin:0 var(--gap); font-weight:800; line-height:1; letter-spacing:0;
+  .number { display:flex; gap:0; align-items:flex-start; justify-content:center; font-size:200px; }
+  .digit { position:relative; padding:0 0 .28em; font-size:inherit; margin:0 var(--gap); font-weight:800; line-height:1; letter-spacing:0;
            cursor:pointer; user-select:none; -webkit-user-select:none; transition:color .12s, transform .12s; touch-action:manipulation; color:var(--ink); }
   .digit .tag { display:none; }
-  .digit .pv { position:absolute; left:50%; transform:translateX(-50%); bottom:0; font-size:clamp(18px,min(6vw,9vh),110px); font-weight:700; line-height:1.2; white-space:nowrap; opacity:0; transition:opacity .15s; }
+  .digit .pv { position:absolute; left:50%; transform:translateX(-50%); bottom:0; font-size:.17em; font-weight:700; line-height:1.2; white-space:nowrap; opacity:0; transition:opacity .15s; }
   .digit.active { transform:translateY(-4px); }
   .digit.active .pv { opacity:1; }
   .digit[data-place="만"].active, .digit[data-place="만"] .pv { color:var(--c만); }
@@ -165,22 +163,22 @@
   }
   function newNumber(){ setNumber(makeNumber(parseInt($("digits").value,10))); }
 
-  var SCALES = {1:0.6, 2:0.8, 3:1, 4:1.2, 5:1.4};
+  var LEVEL = {1:0.4, 2:0.55, 3:0.7, 4:0.85, 5:1.0};
   function fitWidth(){
-    document.documentElement.style.setProperty("--fit", 1);
+    // 100px 기준으로 재서, 화면(폭·높이)에 들어가는 최대 글자 크기를 구한다
+    numberEl.style.fontSize = "100px";
     var r = numberEl.getBoundingClientRect();
-    var availW = window.innerWidth - 24;
     var head = document.querySelector("header").getBoundingClientRect().height;
-    var availH = window.innerHeight - head - 70;
-    var f = Math.min(1, availW / Math.max(1, r.width), availH / Math.max(1, r.height));
-    if (f < 1) document.documentElement.style.setProperty("--fit", f.toFixed(3));
+    var availW = window.innerWidth - 24, availH = window.innerHeight - head - 70;
+    var maxFont = 100 * Math.min(availW / Math.max(1, r.width), availH / Math.max(1, r.height));
+    var lv = parseInt($("sizeR").value,10); if (!(lv >= 1 && lv <= 5)) lv = 3;
+    numberEl.style.fontSize = Math.max(40, Math.round(maxFont * LEVEL[lv])) + "px";
   }
   window.addEventListener("resize", fitWidth);
   function applyLook(){
     var lv = parseInt($("sizeR").value,10), gp = parseInt($("gapR").value,10);
     if (!(lv >= 1 && lv <= 5)) { lv = 3; $("sizeR").value = 3; }
     if (!(gp >= -12 && gp <= 30)) { gp = 0; $("gapR").value = 0; }
-    document.documentElement.style.setProperty("--scale", SCALES[lv] || 1);
     document.documentElement.style.setProperty("--gap", (gp/100) + "em");
     Array.prototype.forEach.call(document.querySelectorAll("#sizeSeg button"), function(b){ b.classList.toggle("on", parseInt(b.dataset.v,10)===lv); });
     $("gapV").textContent = gp;
