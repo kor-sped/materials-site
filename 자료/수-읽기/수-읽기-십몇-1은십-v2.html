@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="문서열쇠" content="십몇-1은십">
+<meta name="버전" content="3">
+<title>십몇 — 1은 십!</title>
+<style>
+  :root{--ink:#16323D;--ink2:#4A6272;--ink3:#8799A5;--rule:#C6D5DD;--rule2:#E3ECF0;--blue:#1F5D8C;--blue-tint:#E4EFF6;--amber:#BF860F;--amber-tint:#FAF0D9;--tint:#EFF4F7;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#DFE8ED;color:var(--ink);font-family:'Gothic A1','Apple SD Gothic Neo','Malgun Gothic',sans-serif;font-size:13pt;line-height:1.6;-webkit-font-smoothing:antialiased;padding:0 10px 60px;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .bar{position:sticky;top:0;z-index:50;background:rgba(223,232,237,.95);border-bottom:1px solid var(--rule);display:flex;gap:6px;align-items:center;justify-content:center;padding:8px 10px;margin:0 -10px 20px;}
+  .bar button{font-family:inherit;font-size:10pt;font-weight:500;color:var(--ink);background:#fff;border:1px solid var(--rule);border-radius:2px;padding:5px 13px;cursor:pointer;}
+  .bar button:hover{background:var(--ink);color:#fff;}
+  .bar .tag{font-size:8.5pt;letter-spacing:.14em;font-weight:800;color:var(--ink3);}
+  .page{background:#fff;width:210mm;max-width:100%;margin:0 auto 18px;padding:14mm 15mm 12mm;border:1px solid var(--rule);box-shadow:0 2px 12px rgba(22,50,61,.10);min-height:297mm;}
+  .head{border-bottom:2.5px solid var(--ink);padding-bottom:8px;margin-bottom:16px;}
+  .head .eyebrow{font-size:9pt;letter-spacing:.16em;font-weight:800;color:var(--blue);}
+  .head h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:26pt;line-height:1.22;letter-spacing:-.02em;margin:4px 0 4px;}
+  .head .lede{font-size:11pt;color:var(--ink2);}
+  .phead{display:flex;align-items:baseline;gap:10px;border-bottom:2px solid var(--ink);padding-bottom:5px;margin:14px 0 8px;}
+  .phead .n{font-family:'IBM Plex Mono',monospace;font-size:10pt;font-weight:700;letter-spacing:.1em;color:#fff;background:var(--blue);padding:2px 8px;flex:none;}
+  .phead h2{font-family:'Gowun Batang',serif;font-weight:700;font-size:17pt;letter-spacing:-.01em;}
+  .rule{background:var(--tint);border-left:4px solid var(--blue);padding:10px 16px;margin:6px 0 10px;text-align:center;}
+  .rule .big{font-family:'Gowun Batang',serif;font-size:22pt;font-weight:700;line-height:1.35;}
+  .rule .big .one{font-size:36pt;color:var(--blue);vertical-align:-4px;}
+  .rule .ex{font-size:16pt;margin-top:8px;color:var(--ink2);}
+  .rule .ex b{color:var(--blue);}
+  .cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:10px 0 4px;}
+  .card{border:1.5px solid var(--rule);padding:10px 8px 12px;text-align:center;}
+  .card .num{font-family:'Gowun Batang',serif;font-size:44pt;font-weight:700;line-height:1;letter-spacing:.02em;}
+  .card .num .one{color:var(--blue);font-size:54pt;}
+  .card .read{font-size:20pt;font-weight:800;margin-top:6px;}
+  .card .read b{background:var(--amber-tint);padding:0 6px;}
+  .items{display:grid;grid-template-columns:repeat(4,1fr);gap:0 10px;}
+  .item{border-bottom:1.5px solid var(--rule);padding:8px 4px 8px;}
+  .item .no{font-family:'IBM Plex Mono',monospace;font-size:10pt;color:var(--ink3);display:block;}
+  .item .num{font-family:'Gowun Batang',serif;font-size:48pt;font-weight:700;line-height:1.05;display:block;letter-spacing:.02em;}
+  .item .num .one{color:var(--blue);}
+  .item .mk{display:block;font-size:22pt;letter-spacing:.18em;color:var(--ink2);margin-top:2px;white-space:nowrap;}
+  .foot{margin-top:18px;border-top:1px solid var(--rule);padding-top:8px;font-size:10pt;color:var(--ink3);display:flex;justify-content:space-between;}
+  @media print{body{background:#fff;padding:0}.bar{display:none}.page{border:none;box-shadow:none;margin:0;width:auto;min-height:auto;padding:0}.item{padding:5px 4px 5px}.item .num{font-size:44pt}.item .mk{font-size:20pt}.card .num{font-size:40pt}.card .num .one{font-size:48pt}.card .read{font-size:18pt}.rule .big{font-size:20pt}.rule .big .one{font-size:32pt}.head h1{font-size:23pt}@page{size:A4;margin:11mm 13mm}}
+</style>
+</head>
+<body>
+<div class="bar"><span class="tag">보기</span><button onclick="document.body.style.fontSize=(parseFloat(getComputedStyle(document.body).fontSize)*1.1)+'px'">글자 크게</button><button onclick="document.body.style.fontSize=(parseFloat(getComputedStyle(document.body).fontSize)/1.1)+'px'">글자 작게</button><button onclick="window.print()">인쇄하기</button><span class="tag">A4 1장</span></div>
+<div class="page">
+  <div class="head">
+    <div class="eyebrow">수 읽기 · 십몇</div>
+    <h1>십몇 — 1은 십!</h1>
+    <div class="lede">앞이 1이면 "십"부터. 왼쪽부터 읽어요.</div>
+  </div>
+
+  <div class="phead"><span class="n">1</span><h2>약속</h2></div>
+  <div class="rule">
+    <div class="big">앞이 <span class="one">1</span>이면 → "십!" 하고 뒤 숫자</div>
+    <div class="ex"><b>1</b>3 → "십" + "삼" = <b>십삼</b></div>
+  </div>
+  <div class="cards">
+    <div class="card"><div class="num"><span class="one">1</span>3</div><div class="read"><b>십삼</b></div></div>
+    <div class="card"><div class="num"><span class="one">1</span>5</div><div class="read"><b>십오</b></div></div>
+    <div class="card"><div class="num">30</div><div class="read">삼십</div></div>
+  </div>
+
+  <div class="phead"><span class="n">2</span><h2>혼자 읽어요 — 왼쪽부터</h2></div>
+  <div class="items">
+    <div class="item"><span class="no">1</span><span class="num"><span class="one">1</span>3</span><span class="mk">○ △ ✕</span></div>
+    <div class="item"><span class="no">2</span><span class="num"><span class="one">1</span>5</span><span class="mk">○ △ ✕</span></div>
+    <div class="item"><span class="no">3</span><span class="num"><span class="one">1</span>2</span><span class="mk">○ △ ✕</span></div>
+    <div class="item"><span class="no">4</span><span class="num"><span class="one">1</span>7</span><span class="mk">○ △ ✕</span></div>
+    <div class="item"><span class="no">5</span><span class="num"><span class="one">1</span>4</span><span class="mk">○ △ ✕</span></div>
+    <div class="item"><span class="no">6</span><span class="num"><span class="one">1</span>9</span><span class="mk">○ △ ✕</span></div>
+    <div class="item"><span class="no">7</span><span class="num"><span class="one">1</span>6</span><span class="mk">○ △ ✕</span></div>
+    <div class="item"><span class="no">8</span><span class="num"><span class="one">1</span>1</span><span class="mk">○ △ ✕</span></div>
+    <div class="item"><span class="no">9</span><span class="num"><span class="one">1</span>8</span><span class="mk">○ △ ✕</span></div>
+    <div class="item"><span class="no">10</span><span class="num"><span class="one">1</span>0</span><span class="mk">○ △ ✕</span></div>
+  </div>
+
+  <div class="phead"><span class="n">3</span><h2>섞어서</h2></div>
+  <div class="items">
+    <div class="item"><span class="no">11</span><span class="num">30</span><span class="mk">○ △ ✕</span></div>
+    <div class="item"><span class="no">12</span><span class="num"><span class="one">1</span>3</span><span class="mk">○ △ ✕</span></div>
+    <div class="item"><span class="no">13</span><span class="num">50</span><span class="mk">○ △ ✕</span></div>
+    <div class="item"><span class="no">14</span><span class="num"><span class="one">1</span>5</span><span class="mk">○ △ ✕</span></div>
+  </div>
+
+  <div class="foot"><span>○ ____ /10 &nbsp;·&nbsp; 섞어서 ____ /4</span><span>막히면 "앞이 1이지? 그럼 뭐부터?" 한마디만 → △</span></div>
+</div>
+<!-- mak-home --><a href="../../" style="position:fixed;left:12px;bottom:12px;z-index:2147483000;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:22px;background:#232320;color:#efe6d6;font:14px/1 'Apple SD Gothic Neo','Noto Sans KR',sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.35);opacity:.92" title="나눔터 첫 화면으로">⌂ 나눔터</a><style>@media print{a[href="../../"]{display:none!important}}</style>
+</body>
+</html>
