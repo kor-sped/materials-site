@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>긴바늘 5분 화면판 — 긴바늘이 1이면 5분</title>
+<style>
+  :root{--accent:#1a56db;--line:#d8dee8;--dark:#5b6478;--soft:#f3f6fb;--ink:#111;}
+  *{box-sizing:border-box;}
+  body{margin:0;background:#eef1f6;color:var(--ink);font-family:"Apple SD Gothic Neo","Noto Sans KR",sans-serif;font-size:22px;line-height:1.4;}
+  .wrap{max-width:980px;margin:0 auto;padding:10px 16px 20px;}
+  h1{font-size:22px;margin:0 0 6px;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;}
+  h1 small{font-size:16px;color:var(--dark);font-weight:400;}
+  .top{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:8px;}
+  .top button{font:inherit;font-size:18px;padding:7px 14px;border:2px solid var(--accent);background:#fff;color:var(--accent);border-radius:20px;cursor:pointer;font-weight:700;}
+  .top button.on{background:var(--accent);color:#fff;}
+  .top .sp{flex:1;}
+  .stage{background:#fff;border-radius:18px;box-shadow:0 1px 6px rgba(0,0,0,.08);padding:12px 14px 14px;text-align:center;position:relative;user-select:none;}
+  svg{width:min(78vw,52vh,480px);height:auto;display:block;margin:0 auto;}
+  .say{font-size:clamp(30px,6vw,52px);font-weight:900;margin:6px 0 2px;min-height:1.3em;}
+  .say b{color:var(--accent);}
+  .say .n{display:inline-block;min-width:1.2em;}
+  .sub{font-size:20px;color:var(--dark);min-height:30px;}
+  .nav{display:flex;gap:10px;justify-content:center;align-items:center;margin:10px 0 4px;flex-wrap:wrap;}
+  .nav button{font:inherit;font-size:24px;padding:10px 22px;border-radius:14px;border:0;background:var(--accent);color:#fff;cursor:pointer;font-weight:800;}
+  .nav button.ghost{background:#fff;border:3px solid var(--accent);color:var(--accent);}
+  .nav button:disabled{opacity:.35;cursor:default;}
+  .dots{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-top:8px;}
+  .dots button{width:40px;height:34px;border-radius:9px;border:2px solid var(--line);background:#fff;font:inherit;font-size:15px;font-weight:700;color:var(--dark);cursor:pointer;padding:0;}
+  .dots button.on{background:var(--accent);border-color:var(--accent);color:#fff;}
+  .foot{font-size:15px;color:var(--dark);margin-top:10px;line-height:1.5;}
+  .tap{position:absolute;top:0;bottom:0;width:22%;cursor:pointer;}
+  .tap.l{left:0;} .tap.r{right:0;}
+  @media print{
+    body{background:#fff;font-size:16px;}
+    .top,.nav,.dots,.foot,.tap,.stage{display:none;}
+    .wrap{max-width:none;padding:0;}
+    h1{display:none;}
+    #sheet{display:block;}
+    .pg{break-after:page;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;}
+    .pg:last-child{break-after:auto;}
+    .pg svg{width:150mm;height:150mm;}
+    .pg .t{font-size:34pt;font-weight:900;}
+    .pg .t b{color:var(--accent);}
+    .pg .s{font-size:14pt;color:var(--dark);}
+    .pg .k{position:fixed;right:10mm;bottom:8mm;font-size:10pt;color:#999;}
+    @page{size:A4;margin:12mm;}
+  }
+  #sheet{display:none;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>긴바늘 5분 화면판 <small>긴바늘이 1이면 5분 · 한 칸 갈 때마다 5분씩 · 13장</small></h1>
+  <div class="top">
+    <button id="mAuto">▶ 자동으로 넘기기</button>
+    <button id="mSound" class="on">🔊 소리</button>
+    <button id="mHour">짧은바늘도 보이기</button>
+    <span class="sp"></span>
+    <button id="print">🖨 13장 인쇄</button>
+  </div>
+  <div class="stage" id="stage">
+    <div class="tap l" id="tapL" aria-label="앞 장"></div><div class="tap r" id="tapR" aria-label="다음 장"></div>
+    <svg viewBox="0 0 200 200" id="clk" aria-label="시계"></svg>
+    <div class="say" id="say">&nbsp;</div>
+    <div class="sub" id="sub">&nbsp;</div>
+    <div class="nav">
+      <button class="ghost" id="prev">◀ 앞</button>
+      <button id="next">다음 ▶</button>
+    </div>
+    <div class="dots" id="dots"></div>
+  </div>
+  <div class="foot">화살표 키(← →)나 스페이스로 넘겨요. 화면 양옆을 눌러도 넘어가요. 긴바늘이 숫자 1에 오면 5분, 2에 오면 10분 … 12에 오면 60분(=한 시간)이에요. 안쪽 색 띠는 지나온 5분 칸이에요.</div>
+  <section id="sheet"></section>
+</div>
+<script>
+(function(){
+'use strict';
+const $=id=>document.getElementById(id);
+const N=13; let idx=0, auto=null, sound=true, showHour=false;
+const KO=['영','오','십','십오','이십','이십오','삼십','삼십오','사십','사십오','오십','오십오','육십'];
+const NUMKO=['','일','이','삼','사','오','육','칠','팔','구','십','십일','십이'];
+const COLORS=['#ffd166','#ffb347','#ff8fa3','#ff7b7b','#c3a6ff','#8fb8ff','#7fd1ff','#7fe0c3','#9be37d','#d4e157','#f6c343','#f39c6b'];
+function face(mins, hourHand){
+  const ma=mins*6, n=mins/5; // n = 지나온 5분 칸 수 (0~12)
+  let s='';
+  s+='<circle cx="100" cy="100" r="94" fill="#fff" stroke="#111" stroke-width="4"/>';
+  // 안쪽 색 띠: 12칸, 지나온 칸만 색
+  for(let i=0;i<12;i++){
+    const a0=(i*30-90)*Math.PI/180, a1=((i+1)*30-90)*Math.PI/180, R1=54, R2=62;
+    const p=(r,a)=>`${(100+r*Math.cos(a)).toFixed(2)} ${(100+r*Math.sin(a)).toFixed(2)}`;
+    const d=`M${p(R1,a0)} L${p(R2,a0)} A${R2} ${R2} 0 0 1 ${p(R2,a1)} L${p(R1,a1)} A${R1} ${R1} 0 0 0 ${p(R1,a0)}Z`;
+    const on=i<n;
+    s+=`<path d="${d}" fill="${on?COLORS[i]:'#f3f6fb'}" stroke="#fff" stroke-width="1.2"/>`;
+    // 띠 안 5분 숫자
+    const am=((i+1)*30-90)*Math.PI/180;
+    s+=`<text x="${(100+58*Math.cos(am)).toFixed(1)}" y="${(100+58*Math.sin(am)+2.6).toFixed(1)}" text-anchor="middle" font-size="7.5" font-weight="800" font-family="sans-serif" fill="${on?'#5a3b00':'#b9c2cf'}">${(i+1)*5}</text>`;
+  }
+  for(let i=0;i<60;i++){const a=i*6*Math.PI/180,big=i%5===0,r1=big?80:86;s+=`<line x1="${100+r1*Math.sin(a)}" y1="${100-r1*Math.cos(a)}" x2="${100+90*Math.sin(a)}" y2="${100-90*Math.cos(a)}" stroke="#111" stroke-width="${big?3:1.5}"/>`;}
+  for(let i=1;i<=12;i++){const a=i*30*Math.PI/180; const hit=(n===i)||(n===12&&i===12);
+    if(hit) s+=`<circle cx="${100+70*Math.sin(a)}" cy="${100-70*Math.cos(a)}" r="12" fill="#1a56db"/>`;
+    s+=`<text x="${100+70*Math.sin(a)}" y="${100-70*Math.cos(a)+7}" text-anchor="middle" font-size="20" font-weight="800" font-family="sans-serif" fill="${hit?'#fff':'#111'}">${i}</text>`;}
+  if(hourHand){const ha=(9*30+mins*0.5); s+=`<line x1="100" y1="100" x2="${100+42*Math.sin(ha*Math.PI/180)}" y2="${100-42*Math.cos(ha*Math.PI/180)}" stroke="#8a94a6" stroke-width="8" stroke-linecap="round"/>`;}
+  s+=`<line x1="100" y1="100" x2="${100+74*Math.sin(ma*Math.PI/180)}" y2="${100-74*Math.cos(ma*Math.PI/180)}" stroke="#1a56db" stroke-width="5" stroke-linecap="round"/>`;
+  s+=`<polygon points="${100+74*Math.sin(ma*Math.PI/180)},${100-74*Math.cos(ma*Math.PI/180)} ${100+64*Math.sin((ma-5)*Math.PI/180)},${100-64*Math.cos((ma-5)*Math.PI/180)} ${100+64*Math.sin((ma+5)*Math.PI/180)},${100-64*Math.cos((ma+5)*Math.PI/180)}" fill="#1a56db"/>`;
+  s+='<circle cx="100" cy="100" r="5" fill="#111"/>';
+  return s;
+}
+function textFor(i){
+  const mins=i*5, n=i===0?12:i;
+  if(i===0) return {big:'긴바늘이 <b>12</b> → <b>0분</b>', sub:'시작이에요. 아직 한 칸도 안 갔어요.', say:'긴바늘이 십이면 영 분. 시작이에요.'};
+  if(i===12) return {big:'긴바늘이 <b>12</b> → <b>60분</b>', sub:'한 바퀴 다 돌았어요 = 한 시간. 다시 0분부터!', say:'긴바늘이 십이면 육십 분. 한 바퀴, 한 시간이에요.'};
+  return {big:`긴바늘이 <b>${n}</b> → <b>${mins}분</b>`, sub:`${n} × 5 = ${mins}. 한 칸에 5분씩 ${n}칸 갔어요.`, say:`긴바늘이 ${NUMKO[n]}이면 ${KO[i]} 분.`};
+}
+function speak(t){ if(!sound) return; try{ speechSynthesis.cancel(); const u=new SpeechSynthesisUtterance(t); u.lang='ko-KR'; u.rate=.9; speechSynthesis.speak(u);}catch(e){} }
+function render(){
+  const t=textFor(idx);
+  $('clk').innerHTML=face(idx*5, showHour);
+  $('say').innerHTML=t.big; $('sub').textContent=t.sub;
+  [...$('dots').children].forEach((d,i)=>d.classList.toggle('on',i===idx));
+  $('prev').disabled=idx===0; $('next').disabled=idx===N-1;
+  speak(t.say);
+}
+function go(i){ idx=Math.max(0,Math.min(N-1,i)); render(); }
+for(let i=0;i<N;i++){const b=document.createElement('button');b.textContent=i*5;b.title=i*5+'분';b.onclick=()=>go(i);$('dots').appendChild(b);}
+$('prev').onclick=()=>go(idx-1); $('next').onclick=()=>go(idx+1);
+$('tapL').onclick=()=>go(idx-1); $('tapR').onclick=()=>go(idx+1);
+document.addEventListener('keydown',e=>{ if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();go(idx+1);} else if(e.key==='ArrowLeft'){e.preventDefault();go(idx-1);} else if(e.key==='Home'){go(0);} });
+$('mAuto').onclick=function(){ if(auto){clearInterval(auto);auto=null;this.classList.remove('on');this.textContent='▶ 자동으로 넘기기';return;} this.classList.add('on');this.textContent='⏸ 멈추기'; if(idx===N-1)go(0); auto=setInterval(()=>{ if(idx>=N-1){clearInterval(auto);auto=null;$('mAuto').classList.remove('on');$('mAuto').textContent='▶ 자동으로 넘기기';return;} go(idx+1); },3200); };
+$('mSound').onclick=function(){ sound=!sound; this.classList.toggle('on',sound); if(!sound){try{speechSynthesis.cancel();}catch(e){}} };
+$('mHour').onclick=function(){ showHour=!showHour; this.classList.toggle('on',showHour); $('clk').innerHTML=face(idx*5, showHour); };
+$('print').onclick=()=>{
+  const sh=$('sheet'); sh.innerHTML='';
+  for(let i=0;i<N;i++){ const t=textFor(i); sh.insertAdjacentHTML('beforeend',`<div class="pg"><svg viewBox="0 0 200 200">${face(i*5,false)}</svg><div class="t">${t.big}</div><div class="s">${t.sub}</div><div class="k">긴바늘 5분 화면판 ${i+1}/13 · MAK 나눔터</div></div>`); }
+  setTimeout(()=>window.print(),50);
+};
+render();
+})();
+</script>
+<!-- mak-home --><a href="../../" style="position:fixed;right:12px;top:8px;z-index:2147483000;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:22px;background:#232320;color:#efe6d6;font:14px/1 'Apple SD Gothic Neo','Noto Sans KR',sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.35);opacity:.92" title="나눔터 첫 화면으로" aria-label="나눔터 첫 화면으로">⌂ 나눔터</a><style>@media print{a[href="../../"]{display:none!important}}</style>
+</body>
+</html>
