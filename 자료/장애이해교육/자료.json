@@ -1,6 +1,7 @@
 {
   "주제": "장애이해교육",
   "범주": "장애이해교육",
+  "세부 범주": "교직원용",
   "설명": "교직원 연수와 학급 안내에 쓰는 장애이해 영상.",
   "자료": [
     {
@@ -12,7 +13,8 @@
       "길이": "17분 5초 · 720p · 16MB",
       "파일 URL": "https://github.com/kor-sped/materials-site/releases/download/videos-v1/disability-awareness-2026-v1-720p.mp4",
       "올린 날": "2026-09-13",
-      "유튜브": "https://youtu.be/ORl25S3t7-U"
+      "유튜브": "https://youtu.be/ORl25S3t7-U",
+      "쉬운 설명": "선생님들을 위한 장애 이해 영상이에요. 17분."
     }
   ]
 }

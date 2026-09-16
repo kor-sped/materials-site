@@ -1,6 +1,7 @@
 {
   "주제": "지구의 대륙",
   "범주": "과학",
+  "세부 범주": "지구·우주",
   "설명": "6학년 사회·과학 도입용. 세계지도에서 대륙 7개와 바다 5개를 하나씩 짚어 보는 영상과, 2억 년 동안 대륙이 움직여 온 모습을 실사 사진으로 보여 주는 타임랩스 영상.",
   "자료": [
     {
@@ -12,7 +13,8 @@
       "길이": "2분 45초 · 720p · 12MB",
       "파일 URL": "https://github.com/kor-sped/materials-site/releases/download/videos-v1/continents-oceans-v2-720p.mp4",
       "올린 날": "2026-09-15",
-      "유튜브": "https://youtu.be/MpqkG0xqpdI"
+      "유튜브": "https://youtu.be/MpqkG0xqpdI",
+      "쉬운 설명": "세계지도에서 큰 땅 7개와 큰 바다 5개를 알아봐요. 3분 영상, 자막이 있어요."
     },
     {
       "영상": "continental-drift-v2",
@@ -23,7 +25,8 @@
       "길이": "2분 7초 · 720p · 9MB",
       "파일 URL": "https://github.com/kor-sped/materials-site/releases/download/videos-v1/continental-drift-v2-720p.mp4",
       "올린 날": "2026-09-15",
-      "유튜브": "https://youtu.be/GlObIKHZmZ0"
+      "유튜브": "https://youtu.be/GlObIKHZmZ0",
+      "쉬운 설명": "아주 옛날부터 지금까지 땅이 움직인 모습을 2분 영상으로 봐요. 자막이 있어요."
     }
   ]
 }

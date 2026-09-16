@@ -7,33 +7,50 @@
 <style>
   :root { --ink:#2a2a26; --bg:#faf6ef; --line:#e6ded0; --dark:#232320; --terra:#c8703f; --cream:#efe6d6; --muted:#6f6a60; }
   * { box-sizing:border-box; }
-  body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6; font-family:"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif; }
+  body { margin:0; background:var(--bg); color:var(--ink); line-height:1.65; font-family:"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif; }
+  .skip { position:absolute; left:-999px; top:8px; background:#fff; color:#000; padding:8px 12px; z-index:100; }
+  .skip:focus { left:8px; }
   header { background:var(--dark); }
   header .wrap { display:flex; align-items:center; justify-content:space-between; min-height:64px; }
   header img { height:44px; display:block; }
-  header a.back { color:var(--cream); text-decoration:none; font-size:.95em; }
+  header a.back { color:var(--cream); text-decoration:none; font-size:1em; padding:8px 0; }
   .wrap { max-width:960px; margin:0 auto; padding:0 20px; }
   main { padding:28px 0 48px; }
   video { width:100%; max-height:70vh; background:#000; border-radius:12px; display:block; }
   .yt { position:relative; width:100%; aspect-ratio:16/9; background:#000; border-radius:12px; overflow:hidden; }
   .yt iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
-  h1 { font-size:1.35em; margin:18px 0 6px; }
-  .tags { color:var(--muted); font-size:.9em; margin:0 0 12px; }
+  h1 { font-size:1.4em; margin:18px 0 6px; }
+  .tags { color:var(--muted); font-size:.92em; margin:0 0 12px; }
+  .easy { background:#fff7e8; border-left:4px solid var(--terra); padding:10px 14px; border-radius:6px; font-size:1.08em; margin:0 0 12px; }
   .actions { display:flex; flex-wrap:wrap; gap:8px; margin:14px 0; }
-  .btn { display:inline-block; padding:8px 16px; border-radius:9px; border:1.5px solid var(--terra); color:var(--terra); text-decoration:none; background:#fff; }
+  .btn { display:inline-block; padding:9px 16px; border-radius:9px; border:1.5px solid var(--terra); color:var(--terra); text-decoration:none; background:#fff; font:inherit; cursor:pointer; }
   .btn.primary { background:var(--terra); color:#fff; }
-  .note { font-size:.88em; color:var(--muted); }
+  .note { font-size:.9em; color:var(--muted); }
+  details { background:#fff; border:1px solid var(--line); border-radius:12px; padding:10px 16px; margin:14px 0; }
+  summary { cursor:pointer; font-weight:700; padding:4px 0; }
+  details.alt video { margin-top:10px; }
+  .script ol { list-style:none; padding:0; margin:8px 0 0; columns:1; }
+  .script li { padding:4px 0; border-top:1px dashed var(--line); }
+  .script .t { color:var(--muted); font-variant-numeric:tabular-nums; margin-right:8px; font-size:.9em; }
+  a:focus-visible, button:focus-visible, summary:focus-visible { outline:3px solid #1f5d8c; outline-offset:2px; }
+  @media (prefers-reduced-motion: reduce) { * { scroll-behavior:auto !important; } }
 </style>
 </head>
 <body>
-<header><div class="wrap"><a href="../"><img src="../assets/logo-full.png" alt="MAK 나눔터"></a><a class="back" href="../">← 나눔터로</a></div></header>
-<main class="wrap">
-  <div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/GlObIKHZmZ0?rel=0" title="대륙 이동 — 2억 년 타임랩스 (2분)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+<header><div class="wrap"><a href="../"><img src="../assets/logo-full.png" alt="MAK 나눔터 첫 화면"></a><a class="back" href="../">← 나눔터로</a></div></header>
+<main class="wrap" id="main">
+  <div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/GlObIKHZmZ0?rel=0&cc_lang_pref=ko" title="대륙 이동 — 2억 년 타임랩스 (2분)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe></div><details class="alt"><summary>자막 있는 영상으로 보기 (유튜브가 안 열릴 때)</summary><video controls preload="metadata" poster="continental-drift-v2.jpg" src="https://github.com/kor-sped/materials-site/releases/download/videos-v1/continental-drift-v2-720p.mp4"><track kind="captions" srclang="ko" label="한국어 자막" src="continental-drift-v2.vtt" default>브라우저가 영상을 재생하지 못하면 아래 다운로드를 눌러 주세요.</video><p class="note">재생기 오른쪽 아래 자막(CC) 단추를 켜세요.</p></details>
   <h1>대륙 이동 — 2억 년 타임랩스 (2분)</h1>
-  <p class="tags">지구의 대륙 · 초등 고학년 사회·과학, 특수학급 · 2분 7초 · 720p · 9MB</p>
+  <p class="tags">지구의 대륙 · 초등 고학년 사회·과학, 특수학급 · 2분 7초 · 720p · 9MB · 자막 있음</p>
+  <p class="easy"><b>쉬운 설명</b> — 아주 옛날부터 지금까지 땅이 움직인 모습을 2분 영상으로 봐요. 자막이 있어요.</p>
   <p>남아메리카와 아프리카가 퍼즐처럼 맞는 장면으로 시작해, 판게아에서 지금까지 대륙이 움직여 온 과정을 실사 사진으로 이어 붙인 타임랩스. 대륙 이름표가 조각을 따라 움직이고, 아래 진행 막대가 몇 년 전인지 보여 준다.</p>
-  <div class="actions"><a class="btn primary" href="https://github.com/kor-sped/materials-site/releases/download/videos-v1/continental-drift-v2-720p.mp4" download>다운로드 (mp4)</a> <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdfFJVO-g9MBT9VFdlszQaTtEtjSbNbA8QiWCkhxSPRhQrlTg/viewform?entry.1977596085=%EB%8C%80%EB%A5%99%20%EC%9D%B4%EB%8F%99%20%E2%80%94%202%EC%96%B5%20%EB%85%84%20%ED%83%80%EC%9E%84%EB%9E%A9%EC%8A%A4%20%282%EB%B6%84%29" target="_blank" rel="noopener">의견 보내기</a></div>
+  <div class="actions"><a class="btn primary" href="https://github.com/kor-sped/materials-site/releases/download/videos-v1/continental-drift-v2-720p.mp4" download>다운로드 (mp4)</a> <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdfFJVO-g9MBT9VFdlszQaTtEtjSbNbA8QiWCkhxSPRhQrlTg/viewform?entry.1977596085=%EB%8C%80%EB%A5%99%20%EC%9D%B4%EB%8F%99%20%E2%80%94%202%EC%96%B5%20%EB%85%84%20%ED%83%80%EC%9E%84%EB%9E%A9%EC%8A%A4%20%282%EB%B6%84%29" target="_blank" rel="noopener" aria-label="의견 보내기 — 대륙 이동 — 2억 년 타임랩스 (2분)">의견 보내기</a> <button type="button" class="btn" id="say">🔊 설명 읽어 주기</button></div>
+  <details class="script" open><summary>영상 내용 글로 읽기 (대본 13줄)</summary><ol><li><span class="t">00:01</span> 지금의 대륙 모양, 원래부터 이랬을까요? 아니에요. 대륙은 아주 천천히 움직여요.</li><li><span class="t">00:08</span> 힌트! 남아메리카와 아프리카의 해안선을 보세요. 퍼즐처럼 딱 맞아요.</li><li><span class="t">00:16</span> 1912년 베게너는 &quot;옛날엔 대륙이 하나였다&quot;고 주장했어요. 지금은 판 구조론으로 설명해요.</li><li><span class="t">00:25</span> 5억 4천만 년 전. 남쪽에 큰 대륙 곤드와나가 있고, 나머지는 조각조각이에요.</li><li><span class="t">00:38</span> 4억 년 전. 조각난 대륙들이 서로 다가가고 있어요.</li><li><span class="t">00:50</span> 2억 5천만 년 전. 모든 대륙이 하나로 뭉친 판게아! 공룡이 살기 시작한 때예요.</li><li><span class="t">01:02</span> 2억 년 전. 판게아가 둘로 갈라져요. 북쪽 로라시아, 남쪽 곤드와나.</li><li><span class="t">01:12</span> 1억 5천만 년 전. 가운데에 대서양이 열리기 시작해요.</li><li><span class="t">01:22</span> 1억 년 전. 아프리카 옆에 있던 인도가 북쪽으로 출발해요.</li><li><span class="t">01:31</span> 5천만 년 전. 인도가 아시아에 쾅! 부딪혀 히말라야가 솟아요.</li><li><span class="t">01:42</span> 그리고 현재. 우리가 아는 지도가 되었어요. 옛날일수록 과학자들의 추정이에요.</li><li><span class="t">01:51</span> 대륙은 지금도 1년에 몇 cm, 손톱 자라는 만큼 움직여요.</li><li><span class="t">01:58</span> 그래서 아주 먼 미래에는 지도가 또 달라져요. 대륙은 살아 움직이는 퍼즐!</li></ol></details>
   <p class="note">수업에서는 다운로드해 두고 트는 편이 안정적입니다. 영상은 무료로 쓰되, 다시 올리거나 팔지 말아 주세요.</p>
 </main>
+<script>
+document.getElementById('say').addEventListener('click',function(){try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance("대륙 이동 — 2억 년 타임랩스 (2분). 아주 옛날부터 지금까지 땅이 움직인 모습을 2분 영상으로 봐요. 자막이 있어요.");u.lang='ko-KR';u.rate=.95;speechSynthesis.speak(u);}catch(e){}});
+</script>
 </body>
 </html>
