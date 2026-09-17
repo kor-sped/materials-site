@@ -118,7 +118,7 @@
   .free .fl{position:absolute;left:0;right:0;top:0;height:9mm;background:var(--amber-tint);border-left:4px solid var(--amber);padding:0 10px;font-size:10pt;font-weight:800;color:var(--amber);display:flex;align-items:center;}   /* 메모 상자와 같은 노란 띠 */
   .free .lines{position:absolute;left:0;right:0;top:9mm;bottom:2mm;background:repeating-linear-gradient(to bottom,transparent 0 16mm,#D3DDE3 16mm 16.5mm);-webkit-print-color-adjust:exact;print-color-adjust:exact;}   /* 띠 아래 한 줄 띄고 시작, 줄 간격 16.5mm(아이들 큰 글씨) */
   @container (max-height:32mm){.free .fl,.free .lines{display:none;}}
-  .foot{margin-top:6mm;border-top:1px solid var(--rule);padding-top:5px;font-size:9pt;color:var(--ink3);display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;}
+  .foot{margin-top:auto;padding-top:6mm;border-top:1px solid var(--rule);padding-top:5px;font-size:9pt;color:var(--ink3);display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;}
   .foot .brand{letter-spacing:.06em;}
   .foot b{color:var(--ink2);}
   @media print{body{background:#fff;padding:0}.bar{display:none}.page{border:none;box-shadow:none;margin:0;width:auto;min-height:276mm;padding:0;break-after:page;height:auto}   /* min-height: 종이를 채워야 '자유롭게 연습하기'가 남는 여백만큼 늘어난다 */.page:last-child{break-after:auto}
