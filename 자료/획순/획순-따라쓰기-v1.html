@@ -37,6 +37,16 @@
   .msg.bad{color:var(--red);}
   .msg.ok{color:var(--green);}
   .foot{font-size:12px;color:var(--ink3);text-align:center;max-width:560px;line-height:1.5;}
+  .bank{width:100%;max-width:820px;background:#fff;border:1.5px solid var(--rule);border-radius:14px;padding:6px 12px 10px;}
+  .bank summary{cursor:pointer;font-weight:800;font-size:16px;padding:6px 0;color:var(--ink2);}
+  .bank .tabs2{display:flex;gap:6px;margin:4px 0 8px;flex-wrap:wrap;}
+  .bank .tabs2 button{font-size:14px;padding:5px 12px;border-radius:16px;}
+  .bank .rows{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:4px 14px;}
+  .bank .row{display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:3px 0;border-top:1px dashed var(--rule2);}
+  .bank .row b{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:8px;background:var(--blue-tint);color:var(--blue);font-size:18px;flex:none;}
+  .bank .row button{font-size:17px;padding:4px 10px;border-radius:9px;font-weight:700;}
+  .bank .row button.on{background:var(--blue);color:#fff;border-color:var(--blue);}
+  @media print{.bank{display:none}}
   /* 학습지 (인쇄 전용) */
   #sheet{display:none;}
   @media print{
@@ -73,6 +83,11 @@
   </div>
 </header>
 <main>
+  <details class="bank" id="bank" open hidden>
+    <summary>낱말 고르기 — 받침 없는 쉬운 낱말 (누르면 바로 써 볼 수 있어요)</summary>
+    <div class="tabs2"><button data-b="cons" class="on">자음 따라 ㄱ~ㅎ</button><button data-b="vow">모음 따라 ㅏ~ㅣ</button><button data-b="more">ㅐ·ㅔ·쌍자음</button></div>
+    <div class="rows" id="bankRows"></div>
+  </details>
   <div class="pick" id="pick"></div>
   <div class="stage">
     <div class="title"><span id="cur">ㄱ</span><span id="name">기역</span><button id="say" title="읽어 주기">🔊</button></div>
@@ -220,10 +235,10 @@ const CONS=[...'ㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊㅋㅌㅍㅎ'],CONS2=[...'ㄲㄸ�
 
 function setMode(m){
   mode=m;document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.mode===m));
-  $('#wordbox').hidden=m!=='word';
+  $('#wordbox').hidden=m!=='word'; $('#bank').hidden=m!=='word'; if(m==='word') renderBank();
   if(m==='cons'){list=[...CONS,...CONS2];}
   else if(m==='vow'){list=[...VOW,...VOW2];}
-  else{const w=[...$('#word').value].filter(isHangul);list=w.length?w:[...'나'];}
+  else{ if(![...$('#word').value].filter(isHangul).length) $('#word').value='하마'; const w=[...$('#word').value].filter(isHangul);list=w; }
   idx=0;try{localStorage.setItem('hs-mode',m);}catch(e){}
   renderPick();load();
 }
@@ -344,6 +359,28 @@ function buildSheet(){
 }
 $('#print').onclick=()=>{buildSheet();setTimeout(()=>window.print(),50);};
 
+/* 낱말 고르기 — 받침 없는 쉬운 낱말 */
+const BANK={
+ cons:[['ㄱ',['가수','고기','구두','기차']],['ㄴ',['나무','나비','누나','노루']],['ㄷ',['다리','두부','도토리','드라마']],['ㄹ',['라디오','리코더','루비','로고']],
+       ['ㅁ',['모자','머리','마루','미소']],['ㅂ',['바나나','버스','보리','비누']],['ㅅ',['사자','소','수저','시소']],['ㅇ',['아기','오이','우유','이모']],
+       ['ㅈ',['자두','주사','지구','저고리']],['ㅊ',['치마','차','초','고추']],['ㅋ',['코','키','쿠키','코코아']],['ㅌ',['토마토','타조','투수','티셔츠']],
+       ['ㅍ',['포도','파','피아노','피리']],['ㅎ',['하마','호두','허리','휴지']]],
+ vow:[['ㅏ',['하마','바나나','가지','사자']],['ㅑ',['야구','야자','이야기','샤프']],['ㅓ',['거미','머리','허리','버스']],['ㅕ',['여우','여자','혀','겨자']],
+      ['ㅗ',['포도','오리','모자','도로']],['ㅛ',['요리','요가','교사','효도']],['ㅜ',['우유','구두','두부','누구']],['ㅠ',['유리','휴지','우유','뉴스']],
+      ['ㅡ',['스키','그네','드리다','크다']],['ㅣ',['기차','비누','피리','시소']]],
+ more:[['ㅐ',['개미','배','새','매미']],['ㅔ',['게','세모','메주','제주도']],['ㅘ',['사과','과자','화가','기와']],['ㅝ',['더워','추워','타워','샤워']],
+       ['ㄲ',['토끼','꼬리','까치','코끼리']],['ㄸ',['따오기','또','뜨다','머리띠']],['ㅃ',['아빠','뽀뽀','뿌리','오빠']],['ㅆ',['아저씨','쓰다','싸다','씨']],['ㅉ',['찌개','짜다','가짜','쪼다']]]
+};
+let bankTab='cons';
+function renderBank(){
+  const box=$('#bankRows'); box.innerHTML='';
+  BANK[bankTab].forEach(([k,ws])=>{ const r=document.createElement('div'); r.className='row'; const b=document.createElement('b'); b.textContent=k; r.appendChild(b);
+    ws.filter(Boolean).forEach(w=>{ const bt=document.createElement('button'); bt.textContent=w; bt.classList.toggle('on', w===$('#word').value); bt.onclick=()=>{ $('#word').value=w; setMode('word'); say(w); $('#bank').open=false; $('#bank summary').textContent='낱말 고르기 — 지금: '+w+' (눌러서 다른 낱말)'; window.scrollTo({top:0}); }; r.appendChild(bt); });
+    box.appendChild(r); });
+  document.querySelectorAll('#bank .tabs2 button').forEach(b=>b.classList.toggle('on', b.dataset.b===bankTab));
+}
+document.querySelectorAll('#bank .tabs2 button').forEach(b=>b.onclick=()=>{ bankTab=b.dataset.b; renderBank(); });
+
 /* 단추 */
 document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>setMode(b.dataset.mode));
 $('#go').onclick=()=>setMode('word');$('#word').addEventListener('keydown',e=>{if(e.key==='Enter')setMode('word');});
@@ -362,6 +399,6 @@ const q=new URLSearchParams(location.search).get('sheet');
 if(q!==null){const v=q||'';if(v==='모음')setMode('vow');else if(v&&v!=='자음'){$('#word').value=v;setMode('word');}buildSheet();const st=document.createElement('style');st.textContent='body>*:not(#sheet){display:none!important}#sheet{display:block;padding:10mm;background:#fff}#sheet .row{display:grid;grid-template-columns:repeat(7,1fr);gap:1.6mm;margin-bottom:2.2mm}#sheet .cell{aspect-ratio:1/1;border:1px solid #9aa}#sheet .cell.model{border:1.5px solid #16323D}#sheet .cell svg{width:100%;height:100%;display:block}#sheet .hd{display:flex;justify-content:space-between;border-bottom:2px solid #16323D;margin-bottom:6mm}';document.head.appendChild(st);}
 })();
 </script>
-<!-- mak-home --><a href="../../" style="position:fixed;right:12px;top:8px;z-index:2147483000;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:22px;background:#232320;color:#efe6d6;font:14px/1 'Apple SD Gothic Neo','Noto Sans KR',sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.35);opacity:.92" title="나눔터 첫 화면으로">⌂ 나눔터</a><style>@media print{a[href="../../"]{display:none!important}}</style>
+<!-- mak-home --><a href="../../" style="position:fixed;left:12px;bottom:12px;z-index:2147483000;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:22px;background:#232320;color:#efe6d6;font:14px/1 'Apple SD Gothic Neo','Noto Sans KR',sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.35);opacity:.92" title="나눔터 첫 화면으로">⌂ 나눔터</a><style>@media print{a[href="../../"]{display:none!important}}</style>
 </body>
 </html>
