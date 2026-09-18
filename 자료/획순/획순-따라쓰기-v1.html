@@ -339,12 +339,13 @@ function check(stroke,ink,tol){
 }
 
 /* 소리 */
+function __ttsToast(){ if(window.__ttsWarned) return; window.__ttsWarned=true; var d=document.createElement('div');d.setAttribute('role','status'); d.style.cssText='position:fixed;left:50%;bottom:64px;transform:translateX(-50%);z-index:2147483600;max-width:min(92vw,560px);background:#232320;color:#fff;padding:12px 16px;border-radius:12px;font:15px/1.5 "Apple SD Gothic Neo","Noto Sans KR",sans-serif;box-shadow:0 6px 18px rgba(0,0,0,.35)';d.innerHTML='🔇 <b>소리가 시작되지 않아요.</b> 자료 문제가 아니라 브라우저의 읽어 주기 기능이 멈춘 상태예요. 브라우저를 <b>완전히 끄고</b>(맥 ⌘Q · 윈도우 창 모두 닫기) 다시 열면 돌아옵니다. <button style="margin-left:8px;border:1px solid #fff;background:transparent;color:#fff;border-radius:8px;padding:2px 10px;cursor:pointer">닫기</button>';d.querySelector('button').onclick=function(){ d.remove(); }; document.body.appendChild(d); setTimeout(function(){ if(d.parentNode) d.remove(); }, 20000); }
 (function(){ var koV=null,tm=null,keep=null; function pv(){ try{ koV=(speechSynthesis.getVoices()||[]).filter(function(v){return /^ko/i.test(v.lang);})[0]||null; }catch(e){} }
   if('speechSynthesis' in window){ pv(); try{ speechSynthesis.addEventListener('voiceschanged',pv); }catch(e){} document.addEventListener('visibilitychange',function(){ if(!document.hidden){ try{speechSynthesis.resume();}catch(e){} } }); }
   window.__say=function(text,rate){ if(!('speechSynthesis' in window)||!text) return; clearTimeout(tm); tm=setTimeout(function(){ var ss=speechSynthesis,started=false;
     function go(retry){ try{ ss.cancel(); ss.resume(); var u=new SpeechSynthesisUtterance(text); u.lang='ko-KR'; u.rate=rate||0.9; if(koV) u.voice=koV; u.onstart=function(){started=true;};
       u.onerror=function(ev){ if(!retry&&ev&&ev.error!=='interrupted'&&ev.error!=='canceled') setTimeout(function(){go(true);},120); }; keep=u; setTimeout(function(){ try{ss.speak(u);}catch(e){} },50);
-      if(!retry) setTimeout(function(){ if(!started&&!ss.speaking&&!ss.pending&&keep===u) go(true); },700); }catch(e){} } go(false); },80); }; })();
+      if(!retry) setTimeout(function(){ if(!started&&keep===u) go(true); },700); else setTimeout(function(){ if(!started&&keep===u) __ttsToast(); },1800); }catch(e){} } go(false); },80); }; })();
 function say(t){ window.__say(t,.9); }
 
 /* 인쇄 학습지 */
