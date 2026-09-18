@@ -339,7 +339,13 @@ function check(stroke,ink,tol){
 }
 
 /* 소리 */
-function say(t){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='ko-KR';u.rate=.9;speechSynthesis.speak(u);}catch(e){}}
+(function(){ var koV=null,tm=null,keep=null; function pv(){ try{ koV=(speechSynthesis.getVoices()||[]).filter(function(v){return /^ko/i.test(v.lang);})[0]||null; }catch(e){} }
+  if('speechSynthesis' in window){ pv(); try{ speechSynthesis.addEventListener('voiceschanged',pv); }catch(e){} document.addEventListener('visibilitychange',function(){ if(!document.hidden){ try{speechSynthesis.resume();}catch(e){} } }); }
+  window.__say=function(text,rate){ if(!('speechSynthesis' in window)||!text) return; clearTimeout(tm); tm=setTimeout(function(){ var ss=speechSynthesis,started=false;
+    function go(retry){ try{ ss.cancel(); ss.resume(); var u=new SpeechSynthesisUtterance(text); u.lang='ko-KR'; u.rate=rate||0.9; if(koV) u.voice=koV; u.onstart=function(){started=true;};
+      u.onerror=function(ev){ if(!retry&&ev&&ev.error!=='interrupted'&&ev.error!=='canceled') setTimeout(function(){go(true);},120); }; keep=u; setTimeout(function(){ try{ss.speak(u);}catch(e){} },50);
+      if(!retry) setTimeout(function(){ if(!started&&!ss.speaking&&!ss.pending&&keep===u) go(true); },700); }catch(e){} } go(false); },80); }; })();
+function say(t){ window.__say(t,.9); }
 
 /* 인쇄 학습지 */
 function buildSheet(){

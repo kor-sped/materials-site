@@ -112,7 +112,13 @@ function textFor(i){
   if(i===12) return {big:'긴바늘이 <b>12</b> → <b>60분</b>', sub:'한 바퀴 다 돌았어요 = 한 시간. 다시 0분부터!', say:'긴바늘이 십이면 육십 분. 한 바퀴, 한 시간이에요.'};
   return {big:`긴바늘이 <b>${n}</b> → <b>${mins}분</b>`, sub:`${n} × 5 = ${mins}. 한 칸에 5분씩 ${n}칸 갔어요.`, say:`긴바늘이 ${NUMKO[n]}이면 ${KO[i]} 분.`};
 }
-function speak(t){ if(!sound) return; try{ speechSynthesis.cancel(); const u=new SpeechSynthesisUtterance(t); u.lang='ko-KR'; u.rate=.9; speechSynthesis.speak(u);}catch(e){} }
+(function(){ var koV=null,tm=null,keep=null; function pv(){ try{ koV=(speechSynthesis.getVoices()||[]).filter(function(v){return /^ko/i.test(v.lang);})[0]||null; }catch(e){} }
+  if('speechSynthesis' in window){ pv(); try{ speechSynthesis.addEventListener('voiceschanged',pv); }catch(e){} document.addEventListener('visibilitychange',function(){ if(!document.hidden){ try{speechSynthesis.resume();}catch(e){} } }); }
+  window.__say=function(text,rate){ if(!('speechSynthesis' in window)||!text) return; clearTimeout(tm); tm=setTimeout(function(){ var ss=speechSynthesis,started=false;
+    function go(retry){ try{ ss.cancel(); ss.resume(); var u=new SpeechSynthesisUtterance(text); u.lang='ko-KR'; u.rate=rate||0.9; if(koV) u.voice=koV; u.onstart=function(){started=true;};
+      u.onerror=function(ev){ if(!retry&&ev&&ev.error!=='interrupted'&&ev.error!=='canceled') setTimeout(function(){go(true);},120); }; keep=u; setTimeout(function(){ try{ss.speak(u);}catch(e){} },50);
+      if(!retry) setTimeout(function(){ if(!started&&!ss.speaking&&!ss.pending&&keep===u) go(true); },700); }catch(e){} } go(false); },80); }; })();
+function speak(t){ if(!sound) return; window.__say(t,.9); }
 function render(){
   const t=textFor(idx);
   $('clk').innerHTML=face(idx*5, showHour);

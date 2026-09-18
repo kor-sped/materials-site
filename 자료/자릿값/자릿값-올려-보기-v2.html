@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>자릿값 올려 보기 v2 — 천조까지, 네 자리씩 끊어 읽기</title>
+<title>자릿값 올려 보기 v2 — 천조까지</title>
 <style>
   :root { --scale:1; --gap:0em; --bg:#faf6ef; --ink:#2a2a26; --line:#e6ded0; --muted:#7a7468;
           --c만:#7b5ea7; --c천:#2f6db5; --c백:#2f8f5b; --c십:#e08a2e; --c일:#c8413f;
@@ -67,7 +67,7 @@
     <select id="digits"></select></div>
   <div class="grp"><button class="primary" id="newBtn">새 숫자</button></div>
   <div class="grp"><input type="text" id="typed" inputmode="numeric" pattern="[0-9]*" maxlength="16" placeholder="직접 입력 (16자리까지)"><button id="setBtn">보기</button></div>
-  <div class="grp"><button id="chunkBtn" class="step" title="뒤에서부터 네 자리씩 끊고 만·억·조 이름표를 붙여요">네 자리 끊기</button><button id="stepsBtn" class="step" title="끊기 → 이름표 → 앞에서부터 읽기를 차례로 보여 줘요">▶ 차례로 읽기</button><button id="readAllBtn" title="전체를 읽어 줘요">🔊 전체 읽기</button></div>
+  <div class="grp"><button id="readAllBtn" title="전체를 읽어 줘요">🔊 전체 읽기</button></div>
   <div class="grp"><label>크기</label><span class="seg" id="sizeSeg"><button data-v="1">1</button><button data-v="2">2</button><button data-v="3">3</button><button data-v="4">4</button><button data-v="5">5</button></span><input type="hidden" id="sizeR" value="3"></div>
   <div class="grp"><label>간격</label><button id="gapMinus" title="숫자를 붙여요">◀ 좁게</button><span class="val" id="gapV">0</span><button id="gapPlus" title="숫자를 벌려요">넓게 ▶</button><input type="hidden" id="gapR" value="0"><button id="lookReset" title="크기 3, 간격 0으로">↺</button></div>
   <div class="grp"><button id="zeroBtn" title="0이 든 숫자를 자주 내요">0 섞기</button><button id="soundBtn" class="on">🔊 소리</button><button id="detailBtn" title="한글 읽기와 더하기 식을 아래에 보여 줘요">읽기·식 보기</button><button id="resetBtn">처음부터</button></div>
@@ -79,7 +79,7 @@
   <div class="value idle" id="value"><div class="read" id="vread">숫자를 짚어 보세요</div></div>
   <div class="sum" id="sum"></div>
 </main>
-<footer>숫자를 짚으면 그 자리 값 · "네 자리 끊기"를 켜면 만·억·조 이름표, 이름표를 누르면 그 묶음을 읽어 줘요 · 키보드: + − 크기, [ ] 간격, ← → 자리 옮기기, 스페이스 새 숫자</footer>
+<footer>숫자를 짚으면 바로 아래에 그 자리 값 · 16자리(천조)까지 · "읽기·식 보기"를 켜면 한글 읽기와 더하기 식 · 키보드: + − 크기, [ ] 간격, ← → 자리 옮기기, 스페이스 새 숫자</footer>
 
 <script>
 (function(){
@@ -128,7 +128,7 @@
     if(!state.zeroMode && digits.slice(1).every(function(x){return x===0;})) digits[n-1]=1+Math.floor(Math.random()*9);
     return digits;
   }
-  function clearTimers(){ state.timers.forEach(clearTimeout); state.timers=[]; $("stepsBtn").classList.remove("on"); $("stepsBtn").textContent="▶ 차례로 읽기"; }
+  function clearTimers(){ state.timers.forEach(clearTimeout); state.timers=[]; }
   function setNumber(digits){
     clearTimers(); stepmsg.textContent="";
     state.digits=digits; state.visited=digits.map(function(){return false;}); state.active=-1;
@@ -150,7 +150,7 @@
       gl.addEventListener("click", function(){ hlGroup(gr.g, true); });
       ge.appendChild(dsEl); ge.appendChild(gl); numberEl.appendChild(ge);
     });
-    recolor(); applyChunk(false);
+    recolor();
     valueEl.className="value idle"; vread.textContent="숫자를 짚어 보세요"; renderSum();
     fitWidth();
   }
@@ -194,46 +194,40 @@
     sumEl.innerHTML=html;
   }
 
-  /* ── 네 자리 끊기 */
-  function applyChunk(animated){
-    document.body.classList.toggle("chunk", state.chunk);
-    $("chunkBtn").classList.toggle("on", state.chunk);
-    Array.prototype.forEach.call(numberEl.children, function(ge){ ge.classList.toggle("sep", state.chunk); ge.classList.toggle("lab", state.chunk); ge.classList.remove("hl"); });
-    recolor(); renderSum(); if(!animated) fitWidth();
-  }
   function later(ms, fn){ state.timers.push(setTimeout(fn, ms)); }
-  function runSteps(){
-    clearTimers();
-    if(state.digits.length<5){ stepmsg.textContent="네 자리까지는 끊을 곳이 없어요. 다섯 자리부터 해 봐요."; return; }
-    $("stepsBtn").classList.add("on"); $("stepsBtn").textContent="■ 멈추기";
-    state.chunk=true; document.body.classList.add("chunk"); $("chunkBtn").classList.add("on"); recolor(); renderSum();
-    var ges=Array.prototype.slice.call(numberEl.children); ges.forEach(function(g){ g.classList.remove("sep","lab","hl"); });
-    Array.prototype.forEach.call(digitEls(), function(el){ el.classList.remove("active"); });
-    // 끊긴 상태의 폭으로 미리 맞춘다
-    ges.forEach(function(g){ g.classList.add("sep","lab"); }); fitWidth(); ges.forEach(function(g){ g.classList.remove("sep","lab"); });
-    var t=300, rev=ges.slice().reverse();
-    later(t, function(){ stepmsg.textContent="① 뒤에서부터 네 자리씩 끊어요"; speak("뒤에서부터 네 자리씩 끊어요"); }); t+=2300;
-    rev.forEach(function(g,k){ if(k===rev.length-1) return; later(t, function(){ g.classList.add("sep"); }); t+=900; });   // 끊는 곳 = 오른쪽 묶음의 왼쪽 여백
-    later(t, function(){ ges.forEach(function(g){ g.classList.add("sep"); }); stepmsg.textContent="② 이름표를 붙여요 — 뒤에서부터 (일), 만, 억, 조"; speak("이름표를 붙여요"); }); t+=1800;
-    rev.forEach(function(g){ later(t, function(){ g.classList.add("lab"); var u=UNIT[+g.dataset.g]; if(u) speak(u); }); t+=1000; });
-    later(t, function(){ stepmsg.textContent="③ 앞에서부터 읽어요"; speak("앞에서부터 읽어요"); }); t+=2000;
-    groups().forEach(function(gr){ var r=readGroup(gr); later(t, function(){ hlGroup(gr.g, true); }); t+= Math.max(1500, r.length*330+700); });
-    later(t, function(){ ges.forEach(function(g){ g.classList.remove("hl"); }); stepmsg.textContent=mixedAll(); valueEl.className="value"; vread.textContent=readAll(); speak(readAll()); clearTimersSoft(); });
-  }
-  function clearTimersSoft(){ state.timers=[]; $("stepsBtn").classList.remove("on"); $("stepsBtn").textContent="▶ 차례로 읽기"; }
 
   /* ── 소리 */
   if("speechSynthesis" in window){ try{ window.speechSynthesis.getVoices(); window.speechSynthesis.onvoiceschanged=function(){ window.speechSynthesis.getVoices(); }; }catch(e){} }
   var warmed=false;
   document.addEventListener("pointerdown", function(){ if(warmed||!("speechSynthesis" in window)) return; warmed=true; try{ var u=new SpeechSynthesisUtterance(" "); u.lang="ko-KR"; u.volume=0; window.speechSynthesis.speak(u);}catch(e){} }, {once:true, passive:true});
-  function speak(text){ if(!state.sound||!("speechSynthesis" in window)) return;
-    try{ window.speechSynthesis.cancel(); var u=new SpeechSynthesisUtterance(text); u.lang="ko-KR"; u.rate=0.9; window.speechSynthesis.speak(u);}catch(e){} }
-  function newNumber(){ var n=parseInt($("digits").value,10); if(n>=6 && !state.chunkTouched) state.chunk=true; if(n<5 && !state.chunkTouched) state.chunk=false; setNumber(makeNumber(n)); }
+  var koVoice=null, speakTimer=null, keepUtt=null;
+  function pickVoice(){ try{ var vs=window.speechSynthesis.getVoices()||[]; koVoice=vs.filter(function(v){return /^ko/i.test(v.lang);})[0]||null; }catch(e){} }
+  if("speechSynthesis" in window){ pickVoice(); try{ window.speechSynthesis.addEventListener("voiceschanged", pickVoice); }catch(e){} }
+  function speak(text){
+    if(!state.sound||!("speechSynthesis" in window)||!text) return;
+    clearTimeout(speakTimer);
+    speakTimer=setTimeout(function(){              // 빠르게 여러 번 짚어도 마지막 것만 말한다
+      var ss=window.speechSynthesis, started=false;
+      function go(retry){
+        try{
+          ss.cancel(); ss.resume();                 // 멈춘 채 굳어 있는 대기열을 푼다(크롬)
+          var u=new SpeechSynthesisUtterance(text); u.lang="ko-KR"; u.rate=0.9; if(koVoice) u.voice=koVoice;
+          u.onstart=function(){ started=true; };
+          u.onerror=function(ev){ if(!retry && ev && ev.error!=="interrupted" && ev.error!=="canceled") setTimeout(function(){ go(true); }, 120); };
+          keepUtt=u;                                // 말하는 도중 지워지지 않게 붙잡아 둔다
+          setTimeout(function(){ try{ ss.speak(u); }catch(e){} }, 50);   // cancel 직후 speak 는 크롬이 삼킬 때가 있다
+          if(!retry) setTimeout(function(){ if(!started && !ss.speaking && !ss.pending && keepUtt===u) go(true); }, 700);
+        }catch(e){}
+      }
+      go(false);
+    }, 80);
+  }
+  document.addEventListener("visibilitychange", function(){ if(!document.hidden && "speechSynthesis" in window){ try{ window.speechSynthesis.resume(); }catch(e){} } });
+  function newNumber(){ setNumber(makeNumber(parseInt($("digits").value,10))); }
 
   /* ── 크기·간격 */
   var LEVEL={1:0.4,2:0.55,3:0.7,4:0.85,5:1.0};
   function fitWidth(){
-    numberEl.classList.toggle("two", window.innerWidth<640 && numberEl.children.length>=3);
     numberEl.style.fontSize="100px";
     var r=numberEl.getBoundingClientRect();
     var head=document.querySelector("header").getBoundingClientRect().height;
@@ -268,13 +262,10 @@
   $("setBtn").addEventListener("click", function(){
     var v=$("typed").value.replace(/\D/g,"").replace(/^0+/,"");
     if(!v||v.length>16){ $("typed").focus(); return; }
-    if(v.length>=6 && !state.chunkTouched) state.chunk=true;
     setNumber(v.split("").map(Number)); $("typed").value="";
   });
   $("typed").addEventListener("keydown", function(e){ if(e.key==="Enter") $("setBtn").click(); });
-  $("chunkBtn").addEventListener("click", function(){ clearTimers(); stepmsg.textContent=""; state.chunk=!state.chunk; state.chunkTouched=true; applyChunk(false); if(state.chunk) speak("뒤에서부터 네 자리씩"); });
-  $("stepsBtn").addEventListener("click", function(){ if(this.classList.contains("on")){ clearTimers(); try{speechSynthesis.cancel();}catch(e){} stepmsg.textContent=""; applyChunk(false); } else runSteps(); });
-  $("readAllBtn").addEventListener("click", function(){ valueEl.className="value"; vread.textContent=readAll(); stepmsg.textContent=mixedAll(); speak(readAll()); });
+  $("readAllBtn").addEventListener("click", function(){ valueEl.className="value"; vread.textContent=readAll(); speak(readAll()); });
   $("zeroBtn").addEventListener("click", function(){ state.zeroMode=!state.zeroMode; this.classList.toggle("on",state.zeroMode); newNumber(); });
   $("detailBtn").addEventListener("click", function(){ document.body.classList.toggle("detail"); this.classList.toggle("on", document.body.classList.contains("detail")); fitWidth(); });
   $("soundBtn").addEventListener("click", function(){ state.sound=!state.sound; this.classList.toggle("on",state.sound); this.textContent=state.sound?"🔊 소리":"🔇 소리 없음"; if(!state.sound){ try{speechSynthesis.cancel();}catch(e){} } });
@@ -291,7 +282,7 @@
   });
   /* 확인용: ?n=429840932245328 */
   var q=new URLSearchParams(location.search).get("n");
-  if(q && /^\d{1,16}$/.test(q)){ if(q.length>=6) state.chunk=true; setNumber(q.replace(/^0+/,"").split("").map(Number)); if(new URLSearchParams(location.search).get("detail")) $("detailBtn").click(); }
+  if(q && /^\d{1,16}$/.test(q)){ setNumber(q.replace(/^0+/,"").split("").map(Number)); if(new URLSearchParams(location.search).get("detail")) $("detailBtn").click(); }
   else newNumber();
   window.__pv={readAll:readAll, mixedAll:mixedAll, set:function(s){ setNumber(String(s).split("").map(Number)); }, place:function(i){ return [placeName(i), readPlace(i), pvText(i)]; }};
 })();
