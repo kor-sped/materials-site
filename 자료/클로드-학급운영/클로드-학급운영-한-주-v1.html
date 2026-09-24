@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="문서열쇠" content="교직원-클로드코드-학급운영-흐름">
+<meta name="버전" content="1">
+<title>클로드 코드로 꾸리는 특수학급 한 주</title>
+<style>
+  :root {
+    --ink: #1a1a2e; --accent: #1a56db; --soft: #f3f6fb; --line: #d8dee8;
+    --warn-bg: #fff8e6; --warn-line: #e6c34a; --note-bg: #fffbe0; --note-line: #e8d24a;
+    --red: #c0392b; --green: #1e8449;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0 auto; padding: 24px 20px 96px; max-width: 720px; color: var(--ink);
+    font-family: "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif; line-height: 1.7; background: #fff; }
+  h1 { font-size: 1.7em; margin: 0 0 8px; line-height: 1.35; }
+  h2 { font-size: 1.3em; margin: 48px 0 12px; padding-top: 8px; border-top: 2px solid var(--line); }
+  h3 { font-size: 1.1em; margin: 28px 0 8px; color: #10306e; }
+  h4 { font-size: 1em; margin: 20px 0 6px; }
+  a { color: var(--accent); }
+  code { background: #eef1f6; padding: 1px 5px; border-radius: 4px; font-size: .92em; }
+  .memo { font-size: .85em; color: #667; border: 1px dashed var(--line); border-radius: 6px; padding: 4px 10px; display: inline-block; margin-bottom: 14px; }
+  .subtitle { color: #667; margin: 0 0 20px; }
+
+  nav#toc { background: var(--soft); border: 1px solid var(--line); border-radius: 10px; padding: 16px 20px; margin: 24px 0 40px; }
+  nav#toc strong { display: block; margin-bottom: 8px; }
+  nav#toc ol { margin: 0; padding-left: 22px; }
+  nav#toc li { margin: 4px 0; }
+  nav#toc a { text-decoration: none; }
+  nav#toc a:hover { text-decoration: underline; }
+
+  .fab-wrap { position: fixed; right: 16px; bottom: 16px; display: flex; flex-direction: column; gap: 8px; z-index: 100; }
+  .fab { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%;
+    background: var(--accent); color: #fff; font-size: 20px; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,.25); }
+  .to-toc { display: block; text-align: right; font-size: .9em; margin: 16px 0 0; }
+
+  figure { margin: 20px 0; }
+  figcaption { font-size: .88em; color: #667; margin-top: 6px; text-align: center; }
+  svg { width: 100%; height: auto; display: block; }
+  .table-wrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+  th, td { border: 1px solid var(--line); padding: 8px 12px; text-align: left; vertical-align: top; }
+  th { background: var(--soft); }
+  .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 20px 0; }
+  .flow .step { background: var(--soft); border: 1.5px solid var(--accent); border-radius: 8px; padding: 8px 14px; font-size: .95em; }
+  .flow .step.now { background: var(--accent); color: #fff; }
+  .flow .arrow { color: var(--accent); font-weight: bold; }
+
+  a.term { color: var(--accent); text-decoration: none; border-bottom: 2px dotted var(--accent); position: relative; cursor: help; }
+  a.term:hover::after { content: attr(data-tip); position: absolute; left: 50%; bottom: 130%; transform: translateX(-50%);
+    background: var(--ink); color: #fff; font-size: .85em; line-height: 1.4; padding: 6px 10px; border-radius: 6px;
+    white-space: normal; width: max-content; max-width: 240px; z-index: 50; pointer-events: none; }
+  dl.glossary dt { font-weight: bold; margin-top: 16px; }
+  dl.glossary dd { margin: 4px 0 0 0; padding-left: 12px; border-left: 3px solid var(--line); }
+
+  #confirm-box { background: var(--warn-bg); border: 1.5px solid var(--warn-line); border-radius: 10px; padding: 4px 20px 16px; }
+  #confirm-box pre { background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 14px; overflow-x: auto; font-size: .9em; line-height: 1.5; }
+
+  blockquote { margin: 16px 0; padding: 10px 16px; background: var(--soft); border-left: 4px solid var(--accent); border-radius: 0 8px 8px 0; }
+  blockquote .who { display: block; font-size: .85em; color: #667; margin-top: 4px; }
+  .note { background: var(--note-bg); border: 1.5px solid var(--note-line); border-radius: 8px; padding: 10px 14px; margin: 14px 0; }
+  .note strong:first-child { display: block; margin-bottom: 4px; }
+  .frame { border: 1.5px solid var(--line); border-radius: 10px; padding: 12px 16px; margin: 14px 0; }
+  .frame h4:first-child { margin-top: 0; }
+  .boxes { display: flex; flex-wrap: wrap; gap: 12px; margin: 20px 0; }
+  .box { flex: 1 1 200px; border: 1.5px solid var(--accent); border-radius: 10px; padding: 12px 16px; background: var(--soft); }
+  .box h4 { margin: 0 0 8px; font-size: 1em; }
+  .box ul { margin: 0; padding-left: 18px; font-size: .95em; }
+  .box.bad { border-color: var(--red); background: #fdf3f2; }
+  .box.good { border-color: var(--green); background: #f0faf3; }
+  .tag { display: inline-block; font-size: .78em; padding: 0 8px; border-radius: 10px; background: #556; color: #fff; vertical-align: middle; margin-left: 4px; }
+  .tag.once { background: #7a5ea8; }
+  .tag.week { background: var(--accent); }
+
+  /* 복사해 쓸 말 */
+  .say { display: flex; align-items: center; gap: 10px; border: 1.5px solid var(--accent); border-radius: 8px; padding: 8px 12px; margin: 8px 0; background: #fff; }
+  .say span { flex: 1; font-weight: bold; }
+  button.copy { border: 0; background: var(--accent); color: #fff; border-radius: 6px; padding: 5px 12px; font-size: .88em; cursor: pointer; white-space: nowrap; font-family: inherit; }
+  button.copy.done { background: var(--green); }
+
+  /* 규칙 고르기 */
+  .picker fieldset { border: 1.5px solid var(--line); border-radius: 10px; margin: 14px 0; padding: 8px 16px 12px; }
+  .picker legend { font-weight: bold; padding: 0 6px; }
+  .picker legend small { font-weight: normal; color: #667; }
+  .picker label { display: flex; gap: 10px; align-items: flex-start; margin: 8px 0; cursor: pointer; }
+  .picker input[type=checkbox] { transform: scale(1.3); margin-top: 7px; flex: none; }
+  .picker input[disabled] + span { color: #333; }
+  .picker .why { display: block; font-size: .85em; color: #667; }
+  .picker .name { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin: 10px 0; }
+  .picker .name input { flex: 1; min-width: 200px; font: inherit; padding: 6px 10px; border: 1.5px solid var(--line); border-radius: 6px; }
+  .result { border: 2px solid var(--accent); border-radius: 10px; padding: 12px 14px; margin: 18px 0; background: var(--soft); }
+  .result .bar { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 8px; }
+  .result .bar b { flex: 1; }
+  .result pre { background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 12px; font-size: .86em; line-height: 1.55;
+    white-space: pre-wrap; max-height: 420px; overflow: auto; margin: 0; }
+  .count { font-size: .9em; color: #667; }
+
+  ul.checklist { list-style: none; padding-left: 0; }
+  ul.checklist li { margin: 8px 0; }
+  ul.checklist input { transform: scale(1.3); margin-right: 8px; }
+
+  @media print {
+    .fab-wrap, button.copy, .result .bar button { display: none; }
+    body { padding-bottom: 24px; max-width: none; }
+    a { color: #1a3a8a; }
+    figure, table, .flow, .boxes, blockquote, .frame, .note, fieldset { break-inside: avoid; }
+    h2 { break-after: avoid; }
+    a.term:hover::after { display: none; }
+    .result pre { max-height: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="memo">독자: 교직원(특수교사) · 작성 2026-09-25 · 우리 반 운영 기록(2026-08-30~09-25)에서 방법만 뽑음</div>
+<h1 id="top">클로드 코드로 꾸리는 특수학급 한 주</h1>
+<p class="subtitle">시작하기 → 규칙 골라 담기 → 영상 → 수업 → 학습지로 평가 → 기록. 한 흐름으로 보는 안내서입니다.</p>
+
+<!-- 상황별 입구 -->
+<div class="table-wrap">
+<table id="entry">
+  <thead><tr><th>이럴 땐</th><th>여기</th></tr></thead>
+  <tbody>
+    <tr><td>전체가 어떻게 돌아가는지 한눈에 보고 싶다</td><td><a href="#ch0">0장 큰 그림 한 장</a></td></tr>
+    <tr><td>클로드 코드를 처음 깐다</td><td><a href="#ch1">1장 시작하기</a></td></tr>
+    <tr><td>내 폴더에 넣을 규칙을 바로 만들고 싶다</td><td><a href="#ch2">2장 규칙 골라 담기</a></td></tr>
+    <tr><td>어떤 영상부터 만들지 모르겠다</td><td><a href="#ch3">3장 영상</a></td></tr>
+    <tr><td>자료가 너무 많아 아침마다 정신없다</td><td><a href="#ch4">4장 수업(주간 계획표)</a></td></tr>
+    <tr><td>학습지로 진전도를 재고 싶다</td><td><a href="#ch5">5장 학습지로 평가</a></td></tr>
+    <tr><td>기록에 시간이 너무 든다 · 학생 정보가 걱정된다</td><td><a href="#ch6">6장 기록</a></td></tr>
+  </tbody>
+</table>
+</div>
+
+<nav id="toc">
+  <strong>차례</strong>
+  <ol start="0">
+    <li><a href="#ch0">큰 그림 한 장</a></li>
+    <li><a href="#ch1">시작하기 — 폴더 하나, 세션 하루 하나</a></li>
+    <li><a href="#ch2">규칙 골라 담기 — 내 폴더의 CLAUDE.md 만들기</a></li>
+    <li><a href="#ch3">영상 — IEP 목표에서 거꾸로 고르기</a></li>
+    <li><a href="#ch4">수업 — 주간 학습 계획표 한 장</a></li>
+    <li><a href="#ch5">학습지로 평가 — 한 파일에 지도와 측정</a></li>
+    <li><a href="#ch6">기록 — 사진 올리고 "완료해줘"</a></li>
+    <li><a href="#checklist">돌아가서 할 일</a></li>
+    <li><a href="#glossary">용어집</a></li>
+  </ol>
+</nav>
+
+<!-- ===================== 0 ===================== -->
+<h2 id="ch0">0. 큰 그림 한 장</h2>
+<p>처음 두 단계는 <b>한 번</b>만 합니다. 나머지 네 단계는 <b>매주</b> 돕니다.
+기록이 다음 주 영상·수업을 고르는 근거가 됩니다.</p>
+
+<figure id="fig-big">
+<svg viewBox="0 0 680 330" role="img" aria-label="여섯 단계 흐름: 시작하기, 규칙 담기는 한 번, 영상·수업·평가·기록은 매주 반복">
+  <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1a56db"/></marker></defs>
+  <rect x="8" y="8" width="664" height="100" rx="12" fill="#f6f2fb" stroke="#7a5ea8" stroke-dasharray="5 4"/>
+  <text x="20" y="30" font-size="13" fill="#7a5ea8" font-weight="bold">한 번</text>
+  <rect x="8" y="126" width="664" height="196" rx="12" fill="#f3f6fb" stroke="#1a56db" stroke-dasharray="5 4"/>
+  <text x="20" y="148" font-size="13" fill="#1a56db" font-weight="bold">매주</text>
+  <!-- 1,2 -->
+  <rect x="60" y="40" width="200" height="54" rx="10" fill="#fff" stroke="#7a5ea8" stroke-width="2"/>
+  <text x="160" y="64" text-anchor="middle" font-size="16" font-weight="bold">① 시작하기</text>
+  <text x="160" y="84" text-anchor="middle" font-size="12" fill="#555">폴더 하나 · 앱 설치</text>
+  <rect x="340" y="40" width="200" height="54" rx="10" fill="#fff" stroke="#7a5ea8" stroke-width="2"/>
+  <text x="440" y="64" text-anchor="middle" font-size="16" font-weight="bold">② 규칙 담기</text>
+  <text x="440" y="84" text-anchor="middle" font-size="12" fill="#555">CLAUDE.md 한 장</text>
+  <line x1="262" y1="67" x2="336" y2="67" stroke="#1a56db" stroke-width="2.5" marker-end="url(#ah)"/>
+  <line x1="440" y1="96" x2="440" y2="120" stroke="#1a56db" stroke-width="2.5"/>
+  <line x1="440" y1="120" x2="150" y2="120" stroke="#1a56db" stroke-width="2.5"/>
+  <line x1="150" y1="120" x2="150" y2="160" stroke="#1a56db" stroke-width="2.5" marker-end="url(#ah)"/>
+  <!-- 3,4,5,6 -->
+  <rect x="60" y="164" width="180" height="54" rx="10" fill="#fff" stroke="#1a56db" stroke-width="2"/>
+  <text x="150" y="188" text-anchor="middle" font-size="16" font-weight="bold">③ 영상</text>
+  <text x="150" y="208" text-anchor="middle" font-size="12" fill="#555">아침에 먼저 보기</text>
+  <rect x="440" y="164" width="180" height="54" rx="10" fill="#fff" stroke="#1a56db" stroke-width="2"/>
+  <text x="530" y="188" text-anchor="middle" font-size="16" font-weight="bold">④ 수업</text>
+  <text x="530" y="208" text-anchor="middle" font-size="12" fill="#555">주간 계획표대로</text>
+  <rect x="440" y="254" width="180" height="54" rx="10" fill="#fff" stroke="#1a56db" stroke-width="2"/>
+  <text x="530" y="278" text-anchor="middle" font-size="16" font-weight="bold">⑤ 학습지로 평가</text>
+  <text x="530" y="298" text-anchor="middle" font-size="12" fill="#555">주 1회 요일 고정</text>
+  <rect x="60" y="254" width="180" height="54" rx="10" fill="#fff" stroke="#1a56db" stroke-width="2"/>
+  <text x="150" y="278" text-anchor="middle" font-size="16" font-weight="bold">⑥ 기록</text>
+  <text x="150" y="298" text-anchor="middle" font-size="12" fill="#555">사진 → 카드 → 정산</text>
+  <line x1="242" y1="191" x2="436" y2="191" stroke="#1a56db" stroke-width="2.5" marker-end="url(#ah)"/>
+  <line x1="530" y1="220" x2="530" y2="250" stroke="#1a56db" stroke-width="2.5" marker-end="url(#ah)"/>
+  <line x1="438" y1="281" x2="244" y2="281" stroke="#1a56db" stroke-width="2.5" marker-end="url(#ah)"/>
+  <line x1="150" y1="252" x2="150" y2="222" stroke="#1a56db" stroke-width="2.5" marker-end="url(#ah)"/>
+  <text x="160" y="241" font-size="12" fill="#1a56db">다음 주 고르기</text>
+</svg>
+<figcaption>그림 0. 한 번 하는 두 단계와 매주 도는 네 단계</figcaption>
+</figure>
+
+<div class="boxes">
+  <div class="box bad"><h4>전에는</h4><ul>
+    <li>채팅창에 매번 설명하고, 결과물은 아이클라우드에 손으로 정리</li>
+    <li>무엇을 어디까지 했는지 기억에 의존</li>
+    <li>기록·갱신에 시간이 많이 들고 실수가 잦음</li></ul></div>
+  <div class="box good"><h4>지금은</h4><ul>
+    <li>규칙은 폴더에 한 번 적어 두면 클로드가 매번 읽음</li>
+    <li>한 일은 파일(STATUS·기록 문서)에 남음</li>
+    <li>교사는 사진 올리고, 인쇄하고, 판단만 함</li></ul></div>
+</div>
+<a class="to-toc" href="#toc">↑ 차례로</a>
+
+<!-- ===================== 1 ===================== -->
+<h2 id="ch1">1. 시작하기 — 폴더 하나, 세션 하루 하나 <span class="tag once">한 번</span></h2>
+
+<div class="frame">
+<h4>1단계 — 앱 설치 (10분)</h4>
+<ol><li>클로드 데스크톱 앱을 설치하고 로그인합니다.</li>
+<li>앱에서 <b>Code</b> 탭을 엽니다. 이것이 <a class="term" href="#g-cc" data-tip="내 컴퓨터의 폴더를 읽고 파일을 만드는 클로드">클로드 코드</a>입니다.</li></ol>
+<h4>2단계 — 학급 폴더 하나 만들기 (5분)</h4>
+<ol><li>문서 폴더에 <code>2026-2학기-학급운영</code> 같은 폴더를 하나 만듭니다.</li>
+<li>Code 탭에서 그 폴더를 열고 이렇게 말합니다.</li></ol>
+<div class="say"><span>이 폴더를 학급운영 프로젝트로 세팅해 줘. private/ 폴더를 만들고 깃에서 빼 줘.</span><button class="copy">복사</button></div>
+<h4>3단계 — 규칙 넣기 (10분)</h4>
+<ol><li><a href="#ch2">2장</a>에서 규칙을 골라 복사합니다.</li>
+<li>"이 내용을 CLAUDE.md에 넣어 줘"라고 붙여 넣습니다.</li></ol>
+</div>
+
+<h3 id="ch1-folder">폴더 안은 이렇게 생깁니다</h3>
+<figure id="fig-folder">
+<svg viewBox="0 0 680 300" role="img" aria-label="학급 폴더 구조">
+  <rect x="6" y="6" width="668" height="288" rx="12" fill="#f3f6fb" stroke="#1a56db" stroke-width="2"/>
+  <text x="22" y="32" font-size="15" font-weight="bold">📁 2026-2학기-학급운영</text>
+  <g font-size="13">
+  <rect x="22" y="46" width="200" height="54" rx="8" fill="#fff" stroke="#1a56db"/><text x="34" y="68" font-weight="bold">CLAUDE.md</text><text x="34" y="88" fill="#555">규칙 — 클로드가 매번 읽음</text>
+  <rect x="236" y="46" width="200" height="54" rx="8" fill="#fff" stroke="#1a56db"/><text x="248" y="68" font-weight="bold">STATUS.md</text><text x="248" y="88" fill="#555">어디까지 했나 · 확정된 결정</text>
+  <rect x="450" y="46" width="208" height="54" rx="8" fill="#fff" stroke="#1a56db"/><text x="462" y="68" font-weight="bold">docs/</text><text x="462" y="88" fill="#555">사람용 · 클로드용 · 날짜별 기록</text>
+  <rect x="22" y="114" width="310" height="54" rx="8" fill="#fff" stroke="#1a56db"/><text x="34" y="136" font-weight="bold">output/</text><text x="34" y="156" fill="#555">학습지 · 계획표 · 리포트 (가명만)</text>
+  <rect x="346" y="114" width="312" height="54" rx="8" fill="#fff" stroke="#1a56db"/><text x="358" y="136" font-weight="bold">research/</text><text x="358" y="156" fill="#555">조사 · 문헌 요약</text>
+  </g>
+  <rect x="22" y="184" width="636" height="96" rx="10" fill="#fdf3f2" stroke="#c0392b" stroke-width="2.5"/>
+  <text x="38" y="210" font-size="15" font-weight="bold" fill="#c0392b">🔒 private/  — 깃에 올리지 않음 · 밖으로 복사하지 않음</text>
+  <text x="38" y="236" font-size="13">실명↔가명 대응표 · 학생 카드 · 사진 · 전사 원본 · IEP 원문 · 나이스 입력안</text>
+  <text x="38" y="260" font-size="13" fill="#555">private/ 밖에서는 가명만 (예: 학년-이름 한 글자 → "4-나")</text>
+</svg>
+<figcaption>그림 1. 학급 폴더. 학생을 알아볼 수 있는 것은 모두 빨간 상자(private/) 안에</figcaption>
+</figure>
+
+<h3 id="ch1-words">매일 쓰는 말 세 가지</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>언제</th><th>이렇게 말하면</th><th>클로드가 하는 일</th></tr></thead>
+<tbody>
+<tr><td>아침에 새 세션을 열고</td><td><b>이어서 하자</b></td><td>STATUS와 최근 기록을 읽고 6줄 요약 + 오늘 할 일</td></tr>
+<tr><td>자료가 필요할 때</td><td><b>○○ 다음 자료</b></td><td>그 아이 자료 한 장을 만들어 인쇄 폴더에</td></tr>
+<tr><td>하루를 마칠 때</td><td><b>완료해줘</b></td><td>기록 정리 → STATUS 갱신 → 개인정보 검사 → 저장(커밋)</td></tr>
+</tbody></table></div>
+<div class="say"><span>이어서 하자</span><button class="copy">복사</button></div>
+<div class="say"><span>완료해줘</span><button class="copy">복사</button></div>
+
+<div class="note"><strong>하루 한 세션 — 우리 반에서 배운 것</strong>
+처음 22일을 <a class="term" href="#g-session" data-tip="클로드와 나누는 대화 한 묶음">세션</a> 하나로 썼더니 기록이 193MB로 불고 요약(압축)이 10번 일어났습니다. 그러다 오래된 일의 발화자를 잘못 적는 일이 생겼습니다. 지금은 아침에 열고 "완료해줘"로 닫습니다. 다음 날은 새 세션을 엽니다. 일은 세션이 아니라 <b>파일</b>에 남아 있어서 잃는 것이 없습니다.</div>
+<a class="to-toc" href="#toc">↑ 차례로</a>
+
+<!-- ===================== 2 ===================== -->
+<h2 id="ch2">2. 규칙 골라 담기 — 내 폴더의 CLAUDE.md 만들기 <span class="tag once">한 번</span></h2>
+<p>우리 반 <a class="term" href="#g-claudemd" data-tip="폴더 맨 위의 규칙 파일. 클로드가 대화를 시작할 때마다 읽는다">CLAUDE.md</a>와 <a class="term" href="#g-decision" data-tip="STATUS.md에 날짜와 함께 적어 둔, 다시 논의하지 않는 결정">확정된 결정</a>에서 다른 학급에도 쓸 만한 것만 골랐습니다.
+<b>꼭 필요한 세 묶음(개인정보·울타리·일하는 방식)은 미리 체크</b>되어 있습니다. 나머지는 쓰면서 하나씩 더하세요. 🔒 표시는 빼지 않는 규칙입니다. 체크를 바꾸면 아래 결과가 바로 바뀝니다.</p>
+
+<figure>
+<div class="flow">
+  <span class="step">체크 고르기</span><span class="arrow">→</span>
+  <span class="step">복사</span><span class="arrow">→</span>
+  <span class="step">클로드에게 "CLAUDE.md에 넣어 줘"</span><span class="arrow">→</span>
+  <span class="step now">다음 세션부터 적용</span>
+</div>
+<figcaption>그림 2. 규칙을 담는 순서</figcaption>
+</figure>
+
+<div class="picker" id="picker">
+  <div class="name"><b>폴더 이름</b><input id="projname" value="2026-2학기 학급운영" aria-label="폴더 이름"></div>
+</div>
+
+<div class="result" id="result">
+  <div class="bar"><b>내 CLAUDE.md</b><span class="count" id="count"></span>
+    <button class="copy" id="copyAll">전체 복사</button>
+    <button class="copy" id="saveFile">파일로 저장</button>
+    <button class="copy" id="resetBtn" style="background:#556">기본으로</button></div>
+  <pre id="out"></pre>
+</div>
+<p class="count">이 체크는 이 화면에만 남습니다. 어디로도 보내지 않습니다.</p>
+<a class="to-toc" href="#toc">↑ 차례로</a>
+
+<!-- ===================== 3 ===================== -->
+<h2 id="ch3">3. 영상 — IEP 목표에서 거꾸로 고르기 <span class="tag week">매주</span></h2>
+<p>영상은 교과서 순서가 아니라 <b>우리 반 아이들의 <a class="term" href="#g-iep" data-tip="개별화교육계획. 아이마다 학기 목표를 적은 계획">IEP</a> 목표</b>에서 고릅니다.
+아침·쉬는 시간·수업 전에 보여 주고, 그다음 학습지로 이어 갑니다(2026-09-25 결정).</p>
+
+<figure id="fig-video">
+<svg viewBox="0 0 680 300" role="img" aria-label="영상 고르는 흐름">
+  <defs><marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1a56db"/></marker></defs>
+  <g font-size="14">
+  <rect x="10" y="20" width="200" height="56" rx="10" fill="#f3f6fb" stroke="#1a56db" stroke-width="2"/>
+  <text x="110" y="44" text-anchor="middle" font-weight="bold">IEP 목표 하나</text><text x="110" y="64" text-anchor="middle" font-size="12" fill="#555">8~10월 먼저, 11~1월 미리</text>
+  <polygon points="340,18 450,48 340,78 230,48" fill="#fff" stroke="#1a56db" stroke-width="2"/>
+  <text x="340" y="53" text-anchor="middle" font-weight="bold">영상이 있나?</text>
+  <rect x="490" y="20" width="180" height="56" rx="10" fill="#f0faf3" stroke="#1e8449" stroke-width="2"/>
+  <text x="580" y="44" text-anchor="middle" font-weight="bold">있는 것 쓰기</text><text x="580" y="64" text-anchor="middle" font-size="12" fill="#555">새로 만들지 않음</text>
+  <line x1="212" y1="48" x2="228" y2="48" stroke="#1a56db" stroke-width="2.5" marker-end="url(#ah2)"/>
+  <line x1="452" y1="48" x2="486" y2="48" stroke="#1a56db" stroke-width="2.5" marker-end="url(#ah2)"/><text x="468" y="40" text-anchor="middle" font-size="12">예</text>
+  <line x1="340" y1="80" x2="340" y2="120" stroke="#1a56db" stroke-width="2.5" marker-end="url(#ah2)"/><text x="352" y="104" font-size="12">아니요</text>
+  <polygon points="340,124 480,156 340,188 200,156" fill="#fff" stroke="#1a56db" stroke-width="2"/>
+  <text x="340" y="152" text-anchor="middle" font-weight="bold">교과서 한 단원에</text><text x="340" y="170" text-anchor="middle" font-weight="bold">들어 있나?</text>
+  <line x1="260" y1="172" x2="170" y2="222" stroke="#1a56db" stroke-width="2.5" marker-end="url(#ah2)"/><text x="196" y="190" font-size="12">예</text>
+  <line x1="420" y1="172" x2="510" y2="222" stroke="#1a56db" stroke-width="2.5" marker-end="url(#ah2)"/><text x="480" y="190" font-size="12">여러 단원에 걸침</text>
+  <rect x="40" y="226" width="260" height="62" rx="10" fill="#f3f6fb" stroke="#1a56db" stroke-width="2"/>
+  <text x="170" y="250" text-anchor="middle" font-weight="bold">단원 영상</text><text x="170" y="272" text-anchor="middle" font-size="12" fill="#555">학년-단원 하나 = 영상 + 쉬운 영상 + 학습지</text>
+  <rect x="380" y="226" width="260" height="62" rx="10" fill="#f3f6fb" stroke="#1a56db" stroke-width="2"/>
+  <text x="510" y="250" text-anchor="middle" font-weight="bold">학습 기술 영상</text><text x="510" y="272" text-anchor="middle" font-size="12" fill="#555">겹받침 · 세로셈 자릿수 · '왜냐하면'</text>
+  </g>
+</svg>
+<figcaption>그림 3. 영상 고르기. 차시별 영상은 만들지 않고 단원 하나에 영상 하나(9/25 결정)</figcaption>
+</figure>
+
+<h3 id="ch3-order">여러 아이가 함께 보는 것부터</h3>
+<p>우리 반 목록에서 순서만 옮겼습니다(아이 이름은 뺐습니다).</p>
+<div class="table-wrap"><table>
+<thead><tr><th>순서 · 내용</th><th>단원</th><th>보는 아이</th></tr></thead>
+<tbody>
+<tr><td>1. 쌓기나무 개수 세기</td><td>수학 6-2 2단원</td><td>3명</td></tr>
+<tr><td>2. 인상적인 부분 골라 말하기</td><td>국어 5-2 1단원</td><td>3명</td></tr>
+<tr><td>3. 약수·공약수·최대공약수</td><td>수학 5-1 2단원</td><td>2명 (11월 약분으로 이어짐)</td></tr>
+<tr><td>4. 받아내림 (십몇)−(몇)</td><td>수학 1-2 4단원</td><td>1명</td></tr>
+<tr><td>5. 중심 문장 찾기</td><td>국어 3~4학년</td><td>2명</td></tr>
+</tbody></table></div>
+<p>한 명만 보는 것은 그 뒤에 둡니다. 우리 반은 8~10월 단원 영상 13개, 학습 기술 영상 7개, 11~1월 미리 만들 것 9개가 나왔습니다.</p>
+
+<h3 id="ch3-ask">클로드에게 이렇게 부탁합니다</h3>
+<div class="say"><span>아이들 IEP 목표 중 영상이 없는 것을 뽑아 줘. 교과서 단원에 있는 건 단원 영상, 여러 단원에 걸친 건 학습 기술 영상으로 나누고, 여러 아이가 함께 보는 것부터 순서를 매겨 줘. '아직 못 함'은 [추론]으로 표시해 줘.</span><button class="copy">복사</button></div>
+<div class="note"><strong>주의</strong>
+'아직 못 한 목표'는 클로드가 기록을 보고 짐작한 것입니다. 교사가 틀린 줄을 고쳐 준 뒤에 만듭니다.
+영상에는 아이 얼굴·이름·학교명을 넣지 않고, 교과서 본문·삽화도 쓰지 않습니다(단원명·성취기준만).</div>
+<p>만든 영상 예시: <a href="https://youtu.be/1VubabpEo1U" target="_blank" rel="noopener">특수 국어 5학년 7단원 「글자를 만들어요」(2분 59초)</a>. 영상은 영상 제작용 폴더에서 따로 만들어 <a class="term" href="#g-share" data-tip="완성 영상·자료를 올려 두는 공개 웹페이지">나눔터</a>에 올리고, 학급 폴더의 계획표에는 나눔터 위치만 적습니다.</p>
+<a class="to-toc" href="#toc">↑ 차례로</a>
+
+<!-- ===================== 4 ===================== -->
+<h2 id="ch4">4. 수업 — 주간 학습 계획표 한 장 <span class="tag week">매주</span></h2>
+<p>처음에는 날마다 카드와 자료를 여러 장 만들었습니다. 교사가 "자료가 많아 정신없다"고 느껴 <b>주간 계획형</b>으로 바꿨습니다(9/13 결정).</p>
+
+<figure id="fig-plan">
+<div class="table-wrap"><table>
+<thead><tr><th>아이</th><th>순서대로 할 것 (자료 위치)</th><th>측정 요일</th></tr></thead>
+<tbody>
+<tr><td>아이 A</td><td>1) 영상 — 나눔터 › 수학 › 받아내림 ☐<br>2) 빼기 1·2 돈 학습지 — 인쇄 폴더 ☐<br>3) 교재 32쪽 ☐</td><td>수</td></tr>
+<tr><td>아이 B</td><td>1) 겹받침 2 영상 ☐<br>2) 겹받침 학습지 v4 ☐</td><td>화 (첫 시간, 지도 없이)</td></tr>
+<tr><td>아이 C</td><td>1) 약수 학습지 2면 ☐<br>2) 교재 18~19쪽 ☐</td><td>목</td></tr>
+</tbody></table></div>
+<figcaption>그림 4. 주간 학습 계획표 모양(예시). ☐ 는 완료 칸. 교재로 할 것은 쪽수만 적고 새 파일을 만들지 않음</figcaption>
+</figure>
+
+<h3 id="ch4-day">하루는 이렇게 흐릅니다</h3>
+<figure>
+<div class="flow">
+  <span class="step">아침: "할 것" 한 장 확인</span><span class="arrow">→</span>
+  <span class="step">인쇄 폴더에서 그날 묶음만 인쇄</span><span class="arrow">→</span>
+  <span class="step">영상 보기</span><span class="arrow">→</span>
+  <span class="step">학습지</span><span class="arrow">→</span>
+  <span class="step now">못 끝낸 것은 내일로</span>
+</div>
+<figcaption>그림 5. 하루 흐름. 못 한 것은 '이월'로 내일 "할 것"에 자동으로 옮겨짐</figcaption>
+</figure>
+<ol>
+<li>자료는 <b>"○○ 다음 자료"라고 부탁할 때 한 장씩</b> 만듭니다. 미리 여러 장 만들지 않습니다.</li>
+<li>하루를 마치면 클로드가 다음 날 할 것을 아이별 <code>1) 2)</code> 한 줄씩 적은 <code>날짜 할 것.html</code>을 인쇄 폴더에 둡니다.</li>
+<li>못 한 자료는 새로 만들지 않고 같은 파일을 새 날짜 이름으로 다시 넣습니다.</li>
+<li>못 한 측정은 "몇 번째 이월"로 세지 않고 <b>하지 않았다고만</b> 적습니다.</li>
+</ol>
+<a class="to-toc" href="#toc">↑ 차례로</a>
+
+<!-- ===================== 5 ===================== -->
+<h2 id="ch5">5. 학습지로 평가 — 한 파일에 지도와 측정 <span class="tag week">매주</span></h2>
+<p>학습지 한 파일에 교사용 안내, 배우는 내용, 연습, 측정이 다 들어 있습니다. 측정은 <b>아이당 주 1회, 요일을 정해</b> 합니다.</p>
+
+<figure id="fig-sheet">
+<svg viewBox="0 0 680 250" role="img" aria-label="학습지 한 파일의 네 장">
+  <g font-size="13">
+  <rect x="10" y="20" width="150" height="200" rx="8" fill="#fff" stroke="#556" stroke-width="2"/>
+  <rect x="10" y="20" width="150" height="34" rx="8" fill="#556"/><text x="85" y="42" text-anchor="middle" fill="#fff" font-weight="bold">교사 머리</text>
+  <text x="22" y="78">아침 요약</text><text x="22" y="100">준비물 · ⚠️</text><text x="22" y="122">【방법】 3줄</text><text x="22" y="198" fill="#888" font-size="11">교사만 봄</text>
+  <rect x="180" y="20" width="150" height="200" rx="8" fill="#fff" stroke="#1a56db" stroke-width="2"/>
+  <rect x="180" y="20" width="150" height="34" rx="8" fill="#1a56db"/><text x="255" y="42" text-anchor="middle" fill="#fff" font-weight="bold">배운 것</text>
+  <text x="255" y="110" text-anchor="middle" font-size="30" font-weight="bold" fill="#1a56db">ㄳ ㄺ</text><text x="192" y="160">크고 굵게 한 장</text><text x="192" y="198" fill="#888" font-size="11">아이용</text>
+  <rect x="350" y="20" width="150" height="200" rx="8" fill="#fff" stroke="#1e8449" stroke-width="2"/>
+  <rect x="350" y="20" width="150" height="34" rx="8" fill="#1e8449"/><text x="425" y="42" text-anchor="middle" fill="#fff" font-weight="bold">직접 해보기</text>
+  <text x="362" y="78">【지도용】</text><text x="362" y="100">함께 연습</text><text x="362" y="198" fill="#888" font-size="11">기록 없음</text>
+  <rect x="520" y="20" width="150" height="200" rx="8" fill="#fff" stroke="#c0392b" stroke-width="3"/>
+  <rect x="520" y="20" width="150" height="34" rx="8" fill="#c0392b"/><text x="595" y="42" text-anchor="middle" fill="#fff" font-weight="bold">테스트</text>
+  <text x="532" y="78">【측정용】</text><text x="532" y="100">지도 없이 한 번</text>
+  <rect x="532" y="150" width="126" height="40" rx="6" fill="#fdf3f2" stroke="#c0392b"/><text x="595" y="175" text-anchor="middle" font-size="12">오답 번호: ★</text>
+  <text x="532" y="210" fill="#888" font-size="11">기록 상자는 여기만</text>
+  </g>
+  <text x="340" y="244" text-anchor="middle" font-size="12" fill="#555">모든 장 아래 '자유롭게 연습하기' 줄 · 인쇄는 한 장 = 한 쪽</text>
+</svg>
+<figcaption>그림 6. 학습지 한 파일 = 네 장. 측정(빨강)만 기록을 남김</figcaption>
+</figure>
+
+<h3 id="ch5-rules">측정 규칙</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>규칙</th><th>까닭</th></tr></thead>
+<tbody>
+<tr><td>아이당 주 1회, 요일 고정</td><td>매일 재면 교사도 아이도 지침. 주 1회로도 흐름이 보임</td></tr>
+<tr><td>하루에 한 번만 제시</td><td>두 번째 시도는 연습이 섞여 점수가 부풀음</td></tr>
+<tr><td>측정 장은 묶음 앞쪽(교사면 바로 뒤)</td><td>측정지를 못 찾아 지도 뒤에 잰 일이 있었음(9/8)</td></tr>
+<tr><td>틀린 문항에 별표(★), 기록은 오답 번호만</td><td>사진만 봐도 판독이 되고, 적는 부담이 가장 작음</td></tr>
+<tr><td>목표마다 <a class="term" href="#g-line" data-tip="이 점수를 몇 번 넘으면 '도달'로 보는 기준">판정선</a>을 정해 둠</td><td>"몇 번 연속 넘으면 다음 단계"를 미리 정해 두면 판단이 빠름</td></tr>
+</tbody></table></div>
+<p>점수는 클로드가 아이별 카드에 쌓고, 주말 <a class="term" href="#g-settle" data-tip="한 주를 모아 리포트와 다음 주 계획표를 만드는 작업">정산</a> 때 <a class="term" href="#g-progress" data-tip="같은 측정을 여러 주 되풀이해 오르내림을 보는 그래프">진전도</a> 그래프로 그립니다. "도달했다·단계를 올린다"는 <b>교사가 확인한 뒤에만</b> 확정합니다. 그전에는 [추론]으로 둡니다.</p>
+<a class="to-toc" href="#toc">↑ 차례로</a>
+
+<!-- ===================== 6 ===================== -->
+<h2 id="ch6">6. 기록 — 사진 올리고 "완료해줘" <span class="tag week">매주</span></h2>
+<p>기록은 원래 교사가 하던 일입니다. 클로드는 <b>읽고, 나누어 적고, 모으는 일</b>을 맡습니다.</p>
+
+<figure id="fig-record">
+<svg viewBox="0 0 680 210" role="img" aria-label="기록 흐름">
+  <defs><marker id="ah3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1a56db"/></marker></defs>
+  <g font-size="13">
+  <rect x="10" y="20" width="150" height="70" rx="10" fill="#f3f6fb" stroke="#1a56db" stroke-width="2"/>
+  <text x="85" y="46" text-anchor="middle" font-weight="bold">교사</text><text x="85" y="66" text-anchor="middle">학습지 사진</text><text x="85" y="82" text-anchor="middle" font-size="11" fill="#555">+ 녹음 전사 · 한 줄 보고</text>
+  <rect x="190" y="20" width="150" height="70" rx="10" fill="#fff" stroke="#1a56db" stroke-width="2"/>
+  <text x="265" y="46" text-anchor="middle" font-weight="bold">클로드</text><text x="265" y="66" text-anchor="middle">판독 → 아이별 카드</text><text x="265" y="82" text-anchor="middle" font-size="11" fill="#555">사진 더 있는지 먼저 물음</text>
+  <rect x="370" y="20" width="150" height="70" rx="10" fill="#fff" stroke="#1a56db" stroke-width="2"/>
+  <text x="445" y="46" text-anchor="middle" font-weight="bold">완료해줘</text><text x="445" y="66" text-anchor="middle">날짜별 기록 · STATUS</text><text x="445" y="82" text-anchor="middle" font-size="11" fill="#555">내일 "할 것" 한 장</text>
+  <rect x="550" y="20" width="120" height="70" rx="10" fill="#f0faf3" stroke="#1e8449" stroke-width="2"/>
+  <text x="610" y="46" text-anchor="middle" font-weight="bold">주말 정산</text><text x="610" y="66" text-anchor="middle">리포트</text><text x="610" y="82" text-anchor="middle" font-size="11" fill="#555">다음 주 계획표</text>
+  <line x1="162" y1="55" x2="186" y2="55" stroke="#1a56db" stroke-width="2.5" marker-end="url(#ah3)"/>
+  <line x1="342" y1="55" x2="366" y2="55" stroke="#1a56db" stroke-width="2.5" marker-end="url(#ah3)"/>
+  <line x1="522" y1="55" x2="546" y2="55" stroke="#1a56db" stroke-width="2.5" marker-end="url(#ah3)"/>
+  <rect x="10" y="120" width="660" height="76" rx="10" fill="#fdf3f2" stroke="#c0392b" stroke-width="2"/>
+  <text x="26" y="146" font-weight="bold" fill="#c0392b">🔒 이 흐름의 원본(사진·전사·카드)은 모두 private/ 안에</text>
+  <text x="26" y="170">커밋할 때마다 private/가 섞이지 않았는지, 실명이 없는지 클로드가 먼저 검사</text>
+  <text x="26" y="188" font-size="12" fill="#555">나이스 입력·학부모 연락은 클로드가 하지 않음 — 초안까지만, 보내는 건 교사</text>
+  </g>
+</svg>
+<figcaption>그림 7. 기록 흐름. 교사는 사진을 올리고 판단만, 나누어 적는 일은 클로드가</figcaption>
+</figure>
+
+<div class="table-wrap"><table id="tbl-record">
+<thead><tr><th>기록하는 것</th><th>기록하지 않는 것</th></tr></thead>
+<tbody>
+<tr><td>날짜 있는 학습지 사진 (가장 강한 근거)</td><td>교사의 감정 섞인 말</td></tr>
+<tr><td>측정 점수 · 오답 번호</td><td>전사에 섞인 다른 어른(실무사·동료)의 말</td></tr>
+<tr><td>아이의 행동과 그 경과</td><td>아이 성격·가정 배경에 대한 짐작</td></tr>
+<tr><td>교사가 확인한 판단 (날짜와 함께)</td><td>교사 확인 전의 결론 — [추론]으로만</td></tr>
+</tbody></table></div>
+<p>사진을 올릴 때는 가명 한 단어만 붙입니다(예: "4-나"). 전사나 말로 한 보고만 오면 클로드가 "활동지·칠판 사진이 더 있나요?"라고 먼저 묻습니다. 사진이 가장 강한 근거이기 때문입니다.</p>
+<div class="say"><span>○○ 오늘 측정지 사진이야. 카드에 기록하고 판정선과 비교해 줘. 결론은 [추론]으로 둬.</span><button class="copy">복사</button></div>
+<a class="to-toc" href="#toc">↑ 차례로</a>
+
+<!-- ===================== 체크리스트 ===================== -->
+<h2 id="checklist">돌아가서 할 일</h2>
+<ul class="checklist">
+  <li><label><input type="checkbox"> 학급 폴더 하나 만들고 Code 탭에서 열기 (<a href="#ch1">1장</a>)</label></li>
+  <li><label><input type="checkbox"> private/ 만들고 깃에서 빼기 · 실명↔가명 대응표를 그 안에</label></li>
+  <li><label><input type="checkbox"> <a href="#ch2">2장</a>에서 규칙 골라 CLAUDE.md에 넣기</label></li>
+  <li><label><input type="checkbox"> 아이마다 측정 요일 하나씩 정하기 (<a href="#ch5">5장</a>)</label></li>
+  <li><label><input type="checkbox"> IEP 목표에서 영상 없는 것 뽑아 달라고 하기 (<a href="#ch3">3장</a>)</label></li>
+  <li><label><input type="checkbox"> 첫 주는 사진 올리고 "완료해줘"까지 한 번 해 보기 (<a href="#ch6">6장</a>)</label></li>
+</ul>
+<a class="to-toc" href="#toc">↑ 차례로</a>
+
+<!-- ===================== 용어집 ===================== -->
+<h2 id="glossary">용어집</h2>
+<dl class="glossary">
+  <dt id="g-cc">클로드 코드</dt><dd>내 컴퓨터의 폴더를 직접 읽고, 파일을 만들고 고치는 클로드. 데스크톱 앱의 Code 탭에서 씁니다. 채팅과 달리 결과가 파일로 남습니다.</dd>
+  <dt id="g-session">세션</dt><dd>클로드와 나누는 대화 한 묶음. 길어질수록 느리고 비싸지며 오래된 내용을 헷갈리므로 하루 하나로 닫습니다.</dd>
+  <dt id="g-claudemd">CLAUDE.md</dt><dd>폴더 맨 위의 규칙 파일. 클로드가 대화를 시작할 때마다 읽으므로 같은 말을 되풀이하지 않아도 됩니다.</dd>
+  <dt id="g-decision">확정된 결정</dt><dd>STATUS.md에 날짜와 함께 적어 둔 결정. 클로드는 이것을 다시 논의하자고 하지 않습니다. 바꿀 때는 교사가 말하고 "~로 변경(날짜)"로 고칩니다.</dd>
+  <dt id="g-iep">IEP</dt><dd>개별화교육계획. 아이마다 학기 목표와 평가 방법을 적은 계획.</dd>
+  <dt id="g-share">나눔터</dt><dd>완성한 영상·학습지를 올려 두는 공개 웹페이지. 교실에서 바로 열어 봅니다.</dd>
+  <dt id="g-line">판정선</dt><dd>"이 점수를 몇 번 넘으면 도달"이라는 미리 정한 기준. 예: 8문항 중 7개 이상 2회.</dd>
+  <dt id="g-progress">진전도</dt><dd>같은 측정을 여러 주 되풀이해 오르내림을 보는 것. 그래프에는 지도 방법이 바뀐 때를 세로선으로 긋습니다.</dd>
+  <dt id="g-settle">정산</dt><dd>주말에 한 주 기록을 모아 리포트와 다음 주 계획표를 만드는 작업. 하루 세션과 따로 엽니다.</dd>
+  <dt id="g-git">깃 · 커밋</dt><dd>폴더의 변경을 날짜별로 저장해 두는 도구와 그 저장 한 번. 잘못 고쳐도 되돌릴 수 있습니다. private/는 여기서 뺍니다.</dd>
+</dl>
+<a class="to-toc" href="#toc">↑ 차례로</a>
+
+<div class="fab-wrap">
+  <a class="fab" href="#toc" title="차례로 가기">☰</a>
+  <a class="fab" href="#top" title="맨 위로">↑</a>
+</div>
+
+<script>
+/* 규칙 목록: lock = 빼지 않음, on = 기본 체크 */
+const GROUPS = [
+ { title: "개인정보 — 최우선", note: "모든 학급 필수", rules: [
+  { lock:1, t:"학생 실명·생년월일·진단명이 든 파일은 private/에만 둔다. private/는 .gitignore에 넣는다.", w:"원본은 한곳에만" },
+  { lock:1, t:"private/ 밖의 문서·파일명·대화에서는 가명만 쓴다(예: 학년-이름 한 글자 '4-나'). 실명↔가명 대응표는 private/에만.", w:"문서가 밖으로 나가도 아이를 알아볼 수 없게" },
+  { lock:1, t:"커밋 전마다 private/가 섞이지 않았는지, 실명 패턴이 없는지 검사한다. 의심되면 멈추고 보여 준다.", w:"실수는 저장할 때 막는다" },
+  { lock:1, t:"나이스 등 학교 시스템은 자동화하지 않는다. 학부모 등 밖으로 나가는 문장은 초안까지만 만들고 보내지 않는다.", w:"보내는 사람은 교사" },
+  { on:1, t:"폴더 밖으로 복사·업로드할 때 private/는 항상 뺀다.", w:"드롭박스·클라우드 복사 때" }
+ ]},
+ { title: "아이를 대하는 AI의 울타리", rules: [
+  { on:1, t:"아이의 글·그림·답을 대신 쓰지 않는다. 틀·예시·힌트까지만 만든다.", w:"아이의 산출물은 아이의 것" },
+  { on:1, t:"아이에게 주는 자료에서 정답을 바로 주지 않는다. 힌트를 단계로 준다(짧은 바늘을 봐요 → 숫자를 짚어요 → 함께 세요).", w:"" },
+  { on:1, t:"평가·관찰의 결론은 교사가 확인하기 전에는 확정하지 않는다. 그전에는 [추론]으로 둔다.", w:"판단은 교사" },
+  { on:1, t:"장애·성별·가정 배경에 대한 편향이 든 표현을 만들지 않는다. 의심되면 보여 준다.", w:"" }
+ ]},
+ { title: "일하는 방식", rules: [
+  { on:1, t:"세션을 시작하면 STATUS.md와 docs/ing/의 최근 기록을 읽고 6줄 요약 + 다음 스텝을 먼저 보고한다('이어서 하자').", w:"어제 어디까지 했는지 묻지 않아도 됨" },
+  { on:1, t:"'완료해줘'라고 하면: ① 오늘 논의를 docs/ing/YYYY-MM-DD-주제.md에 ② STATUS.md 갱신 ③ 개인정보 검사 후 커밋 ④ '이제 잊어도 됩니다'.", w:"" },
+  { on:1, t:"하루 한 세션. 아침에 열고 '완료해줘'로 닫는다. 닫은 세션은 다시 열지 않는다. 압축보다 비우기.", w:"긴 세션은 오래된 일을 헷갈림" },
+  { on:1, t:"STATUS.md '확정된 결정'에 있는 것은 다시 논의하자고 하지 않는다. 바꿀 때는 교사가 말하고 '~로 변경(날짜)'로 적는다.", w:"" },
+  { on:1, t:"큰 작업(폴더 정리·파일 옮기기·지우기)은 계획을 먼저 보여 주고 허락받은 뒤 한다.", w:"" },
+  { on:0, t:"다음 스텝은 맥락 없이 읽어도 바로 할 수 있는 문장으로 쓴다.", w:"" }
+ ]},
+ { title: "자료 문체", rules: [
+  { on:1, t:"교사용 자료 맨 위에 '아침 요약'(1~2문장) + 준비물 목록. 오리기·코팅·기기 세팅처럼 준비가 큰 것은 맨 앞에 ⚠️.", w:"아침에 읽고 바로 준비" },
+  { on:1, t:"자료 순서 고정: 아침 요약 → 【방법】 큰 글씨 상자(순서만) → 학생 지면 → 참고(작게, 맨 뒤). 내용·방법·근거를 섞지 않는다.", w:"" },
+  { on:1, t:"지시는 번호 붙인 짧은 문장, 교실 말로.", w:"" },
+  { on:0, t:"'오늘 할 일'을 물으면 교사가 할 일을 먼저, 번호 붙인 짧은 문장으로 답한다.", w:"" }
+ ]},
+ { title: "학습지와 측정", rules: [
+  { on:1, t:"학습지 한 파일 = 교사 머리(요약·준비물·【방법】) + 배운 것 한 장 + 직접 해보기【지도용】 + 테스트【측정용】. 기록 상자는 측정 장에만.", w:"" },
+  { on:1, t:"측정은 아이당 주 1회, 요일 고정. 하루에 한 번만 제시한다.", w:"" },
+  { on:1, t:"측정 장은 교사면 바로 뒤에 둔다(지도 전에 잰다).", w:"측정지를 못 찾아 지도 뒤에 잰 일 방지" },
+  { on:1, t:"채점: 틀린 문항에 별표(★). 기록 줄은 '오답 번호'만.", w:"" },
+  { on:1, t:"인쇄는 한 연습 = 한 쪽. 만들 때마다 PDF로 쪽 수를 검사한다.", w:"" },
+  { on:0, t:"학생 문항 글씨는 크게(숫자·낱말 44pt 안팎), 한 장에 상자는 많아야 둘.", w:"" }
+ ]},
+ { title: "주간 계획과 이월", rules: [
+  { on:1, t:"주간 학습 계획표 한 장: 아이 × 순서대로 할 것 · 자료 위치 · 완료 칸 · 측정 요일. 교재로 할 것은 '교재 ○쪽'만.", w:"자료가 많으면 정신없다" },
+  { on:1, t:"자료는 '○○ 다음 자료'라고 할 때 한 장씩 만든다. 미리 여러 장 만들지 않는다.", w:"" },
+  { on:0, t:"하루 마감 때 다음 날 할 것을 아이별 '1) 2)' 한 줄씩 적은 'YYYY-MM-DD 할 것.html'(복사 버튼)을 인쇄 폴더에 둔다.", w:"" },
+  { on:0, t:"못 한 자료는 새로 만들지 않고 같은 파일을 새 날짜 이름으로 다시 넣는다. 옛 파일은 _지난버전/으로.", w:"" },
+  { on:0, t:"못 한 측정은 '몇 번째 이월'로 세지 않고 하지 않았다고만 적는다. 할 것·계획표에는 아이 항목만(보호자 연락은 빼기).", w:"" }
+ ]},
+ { title: "기록", rules: [
+  { on:1, t:"전사나 말로 한 보고만 오면 활동지·칠판·기록지 사진이 더 있는지 먼저 묻는다(사진이 가장 강한 근거).", w:"" },
+  { on:1, t:"교사의 감정 섞인 말은 카드·기록·리포트에 넣지 않는다. 아이의 행동과 경과만 적는다.", w:"" },
+  { on:1, t:"전사·사진에 다른 어른(실무사·동료)의 말이 섞이면 기록에 남기지 않는다.", w:"" },
+  { on:0, t:"사진을 올릴 때 가명 한 단어를 붙인다.", w:"" }
+ ]},
+ { title: "영상", note: "선택", rules: [
+  { on:0, t:"아이들 IEP 목표 중 영상이 없는 것을 뽑아 docs/ai/영상-만들-목록.md에 둔다. 8~10월 못 한 것 먼저, 11~1월 것은 미리.", w:"" },
+  { on:0, t:"교과서 한 단원에 있는 것은 단원 영상(차시별 아님), 여러 단원에 걸친 것은 학습 기술 영상.", w:"" },
+  { on:0, t:"영상은 아침·쉬는 시간·수업 전에 보여 주고 학습지로 잇는다. 계획표에는 영상 위치만 적는다.", w:"" }
+ ]},
+ { title: "연결 (선택)", note: "쓰는 도구가 있을 때만", rules: [
+  { on:0, t:"완성 자료는 인쇄용 폴더(드롭박스 등)에 'YYYY-MM-DD 가명 내용 v버전.html' 복사본을 함께 둔다. 복사 전 실명 검사, private/는 절대 복사하지 않는다.", w:"" },
+  { on:0, t:"사용 날짜가 있는 자료는 캘린더에 일정을 넣고 메모에 파일명과 준비 요령을 적는다.", w:"" },
+  { on:0, t:"나이스 입력안처럼 복사해 붙이는 문서는 상자마다 복사 버튼을 둔다.", w:"" },
+  { on:0, t:"작업이 일단락될 때마다 커밋을 제안한다. 저장소는 비공개.", w:"" }
+ ]}
+];
+
+const picker = document.getElementById('picker');
+GROUPS.forEach((g, gi) => {
+  const fs = document.createElement('fieldset');
+  fs.innerHTML = `<legend>${g.title}${g.note ? ` <small>· ${g.note}</small>` : ''}</legend>`;
+  g.rules.forEach((r, ri) => {
+    const id = `r${gi}_${ri}`;
+    const on = r.lock || (r.on && gi < 3);
+    const lab = document.createElement('label');
+    lab.innerHTML = `<input type="checkbox" id="${id}" ${on?'checked':''} ${r.lock?'disabled':''} data-default="${on?1:0}">`
+      + `<span>${r.lock?'🔒 ':''}${r.t}${r.w?`<span class="why">${r.w}</span>`:''}</span>`;
+    fs.appendChild(lab);
+  });
+  picker.appendChild(fs);
+});
+
+function build() {
+  const name = document.getElementById('projname').value.trim() || '학급운영';
+  let s = `# ${name}\n\n## 세션 시작 시\nSTATUS.md와 docs/ing/의 최근 문서를 먼저 읽고, 6줄 이내 요약 + 다음 스텝을 보고한 뒤 시작한다.\n`;
+  let n = 0;
+  GROUPS.forEach((g, gi) => {
+    const lines = g.rules.map((r, ri) => document.getElementById(`r${gi}_${ri}`).checked ? `- ${r.t}` : null).filter(Boolean);
+    if (lines.length) { s += `\n## ${g.title.replace(/ \(선택\)$/, '')}\n${lines.join('\n')}\n`; n += lines.length; }
+  });
+  document.getElementById('out').textContent = s;
+  document.getElementById('count').textContent = `규칙 ${n}개`;
+}
+picker.addEventListener('change', build);
+document.getElementById('projname').addEventListener('input', build);
+document.getElementById('resetBtn').addEventListener('click', () => {
+  picker.querySelectorAll('input[type=checkbox]').forEach(c => c.checked = c.dataset.default === '1');
+  build();
+});
+document.getElementById('saveFile').addEventListener('click', () => {
+  const blob = new Blob([document.getElementById('out').textContent], { type: 'text/markdown;charset=utf-8' });
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'CLAUDE.md'; a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+});
+build();
+
+function copyText(txt, btn) {
+  const done = () => { const o = btn.textContent; btn.textContent = '복사됨'; btn.classList.add('done'); setTimeout(() => { btn.textContent = o; btn.classList.remove('done'); }, 1400); };
+  if (navigator.clipboard) navigator.clipboard.writeText(txt).then(done, () => fallback(txt, done)); else fallback(txt, done);
+}
+function fallback(txt, done) {
+  const ta = document.createElement('textarea'); ta.value = txt; document.body.appendChild(ta); ta.select();
+  try { document.execCommand('copy'); done(); } catch (e) {} ta.remove();
+}
+document.getElementById('copyAll').addEventListener('click', e => copyText(document.getElementById('out').textContent, e.target));
+document.querySelectorAll('.say button.copy').forEach(b => b.addEventListener('click', () => copyText(b.previousElementSibling.textContent, b)));
+</script>
+<!-- mak-home --><a href="../../" style="position:fixed;left:12px;bottom:12px;z-index:2147483000;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:22px;background:#232320;color:#efe6d6;font:14px/1 'Apple SD Gothic Neo','Noto Sans KR',sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.35);opacity:.92" title="나눔터 첫 화면으로" aria-label="나눔터 첫 화면으로">⌂ 나눔터</a><style>@media print{a[href="../../"]{display:none!important}}</style>
+</body>
+</html>
