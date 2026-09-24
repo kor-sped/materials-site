@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>남중고도 — 쉽게 보기 (움직이는 그림)</title>
+<style>
+  :root {
+    --ink: #1a1a2e; --accent: #1a56db; --soft: #f3f6fb; --line: #d8dee8;
+    --warn-bg: #fff8e6; --warn-line: #e6c34a; --note-bg: #fffbe0; --note-line: #e8d24a;
+    --red: #c0392b; --green: #1e8449; --sun: #f5a623; --orange: #ff7a3d;
+  }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0 auto; padding: 24px 20px 96px; max-width: 720px; color: var(--ink);
+    font-family: "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif; line-height: 1.7; background: #fff; }
+  h1 { font-size: 1.7em; margin: 0 0 8px; }
+  h2 { font-size: 1.3em; margin: 48px 0 12px; padding-top: 8px; border-top: 2px solid var(--line); }
+  h3 { font-size: 1.1em; margin: 28px 0 8px; color: #10306e; }
+  h4 { font-size: 1em; margin: 20px 0 6px; }
+  a { color: var(--accent); }
+  code { background: #eef1f6; padding: 1px 5px; border-radius: 4px; font-size: .92em; }
+  .subtitle { color: #667; margin: 0 0 24px; }
+  nav#toc { background: var(--soft); border: 1px solid var(--line); border-radius: 10px; padding: 16px 20px; margin: 24px 0 40px; }
+  nav#toc strong { display: block; margin-bottom: 8px; }
+  nav#toc ol { margin: 0; padding-left: 4px; list-style: none; }
+  nav#toc li { margin: 4px 0; }
+  nav#toc a { text-decoration: none; }
+  nav#toc a:hover { text-decoration: underline; }
+  .fab-wrap { position: fixed; right: 16px; bottom: 16px; display: flex; flex-direction: column; gap: 8px; z-index: 100; }
+  .fab { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%;
+    background: var(--accent); color: #fff; font-size: 20px; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,.25); }
+  .to-toc { display: block; text-align: right; font-size: .9em; margin: 16px 0 0; }
+  figure { margin: 20px 0; }
+  figcaption { font-size: .88em; color: #667; margin-top: 6px; text-align: center; }
+  .table-wrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+  th, td { border: 1px solid var(--line); padding: 8px 12px; text-align: left; }
+  th { background: var(--soft); }
+  .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 20px 0; }
+  .flow .step { background: var(--soft); border: 1.5px solid var(--accent); border-radius: 8px; padding: 8px 14px; font-size: .95em; }
+  .flow .arrow { color: var(--accent); font-weight: bold; }
+  a.term { color: var(--accent); text-decoration: none; border-bottom: 2px dotted var(--accent); position: relative; cursor: help; }
+  a.term:hover::after { content: attr(data-tip); position: absolute; left: 50%; bottom: 130%; transform: translateX(-50%);
+    background: var(--ink); color: #fff; font-size: .85em; line-height: 1.4; padding: 6px 10px; border-radius: 6px;
+    white-space: normal; width: max-content; max-width: 240px; z-index: 50; pointer-events: none; }
+  dl.glossary dt { font-weight: bold; margin-top: 16px; }
+  dl.glossary dd { margin: 4px 0 0 0; padding-left: 12px; border-left: 3px solid var(--line); }
+  #confirm { background: var(--warn-bg); border: 1.5px solid var(--warn-line); border-radius: 10px; padding: 4px 20px 16px; }
+  #confirm pre { background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 14px; overflow-x: auto; font-size: .9em; line-height: 1.5; }
+  details.sup { background: #fff3a6; border-left: 4px solid #e0b800; border-radius: 6px; padding: 8px 14px; margin: 12px 0 18px; }
+  details.sup summary { cursor: pointer; list-style: none; line-height: 1.6; }
+  details.sup summary::-webkit-details-marker { display: none; }
+  details.sup summary::after { content: "▸ 더 보기"; color: #7a6200; font-size: .85em; margin-left: 8px; white-space: nowrap; }
+  details.sup[open] summary::after { content: "▾ 접기"; }
+  details.sup .sup-q { font-size: .85em; color: #7a6200; margin: 8px 0 4px; }
+  details.sup .sup-body { border-top: 1px dashed #e0b800; margin-top: 6px; padding-top: 6px; }
+  .note { background: var(--note-bg); border: 1.5px solid var(--note-line); border-radius: 8px; padding: 10px 14px; margin: 14px 0; }
+  .note strong:first-child { display: block; margin-bottom: 4px; }
+  .boxes { display: flex; flex-wrap: wrap; gap: 12px; margin: 20px 0; }
+  .box { flex: 1 1 200px; border: 1.5px solid var(--accent); border-radius: 10px; padding: 12px 16px; background: var(--soft); }
+  .box h4 { margin: 0 0 8px; font-size: 1em; }
+  .box ul { margin: 0; padding-left: 18px; font-size: .95em; }
+  .box.bad { border-color: var(--red); background: #fdf3f2; }
+  .box.good { border-color: var(--green); background: #f0faf3; }
+  details.quiz { border: 1.5px solid var(--line); border-radius: 8px; padding: 8px 14px; margin: 10px 0; background: #fafbfd; }
+  details.quiz summary { cursor: pointer; font-weight: bold; }
+  details.quiz p { margin: 8px 0 0; }
+  .big { font-size: 1.15em; }
+
+  /* ===== 놀이터 (움직이는 그림) — 본문보다 넓게 ===== */
+  figure.wide { position: relative; width: 100%; max-width: 100%;
+    background: #0f1a2e; border-radius: 14px; padding: 10px 12px 12px; color: #eef; }
+  figure.wide:fullscreen { transform: none; left: 0; width: 100%; height: 100%; border-radius: 0; overflow: auto; padding: 8px 12px; }
+  figure.wide:fullscreen svg.stage { max-height: calc(100vh - 210px); }
+  figure.wide figcaption { color: #aab; }
+  .ctl { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; font-size: 15px; margin: 4px 0 8px; }
+  .ctl label { display: inline-flex; align-items: center; gap: 6px; }
+  .ctl button { font: inherit; font-size: 15px; padding: 6px 14px; min-height: 40px; border-radius: 8px; border: 1.5px solid #6c7fb0; background: #1b2b4a; color: #fff; cursor: pointer; touch-action: manipulation; }
+  .ctl input[type=range] { min-height: 32px; touch-action: pan-y; }
+  .ctl button.on { background: var(--sun); color: #1a1a2e; border-color: var(--sun); font-weight: bold; }
+  .ctl button.play { background: var(--green); border-color: var(--green); font-weight: bold; min-width: 90px; }
+  .ctl input[type=range] { width: min(320px, 55vw); accent-color: var(--sun); }
+  .ctl select { font: inherit; font-size: 15px; padding: 4px 8px; border-radius: 6px; }
+  .ctl .spacer { flex: 1; }
+  svg.stage { width: 100%; max-width: 100%; height: auto; aspect-ratio: 1200 / 640; display: block; border-radius: 10px; }
+  .readouts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 10px 0 4px; }
+  .ro { background: #1b2b4a; border-radius: 10px; padding: 8px 10px; text-align: center; }
+  .ro .k { font-size: 13px; color: #aab; }
+  .ro .v { font-size: clamp(20px, 2.6vw, 34px); font-weight: bold; color: #fff; line-height: 1.2; }
+  .ro.hi .v { color: var(--sun); }
+  #story { font-size: clamp(15px, 1.8vw, 21px); text-align: center; margin: 6px 0 0; min-height: 1.6em; color: #ffe9b0; }
+  @media (max-width: 640px) { .readouts { grid-template-columns: repeat(2, 1fr); } }
+
+  body.stage-only > :not(figure.wide) { display: none; }
+  body.stage-only .fab-wrap { display: none; }
+  #btnBack { display: none; }
+  body.stage-only #btnBack { display: inline-block; }
+  body.stage-only #btnBig { display: none; }
+  body.stage-only { padding: 0; max-width: none; }
+  body.stage-only figure.wide { width: 100%; margin: 0; border-radius: 0; }
+  body.stage-only svg.stage { max-height: calc(100vh - 240px); margin: 0 auto; }
+  .ctl a.btn { font-size: 15px; padding: 6px 14px; border-radius: 8px; border: 1.5px solid #6c7fb0; background: #1b2b4a; color: #fff; text-decoration: none; }
+  @media print {
+    .fab-wrap, .ctl { display: none; }
+    body { padding-bottom: 24px; max-width: none; }
+    a { color: #1a3a8a; }
+    figure, table, .flow, .boxes, #confirm pre, .note { break-inside: avoid; }
+    h2 { break-after: avoid; }
+    a.term:hover::after { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<h1 id="top">남중고도 — 쉽게 보기</h1>
+<p class="subtitle">해가 하루 중 가장 높이 떴을 때, 땅에서 몇 도 올라갔나. 지구의 자전(하루)과 공전(일 년)에 맞춰 <strong>움직이는 그림</strong>으로 봅니다. 기준 위치는 인천·서울(북위 37.5°). (작성일: 2026-09-11)</p>
+
+<nav id="toc">
+  <strong>차례</strong>
+  <ol start="0">
+    <li><a href="#ch0">0. 움직이는 그림 — 남중고도 놀이터</a></li>
+    <li><a href="#ch1">1. 남중고도가 뭐예요?</a></li>
+    <li><a href="#ch2">2. 하루 — 해는 왜 올라갔다 내려와요? (자전)</a></li>
+    <li><a href="#ch3">3. 일 년 — 남중고도는 왜 계절마다 달라요? (공전 + 기울기)</a></li>
+    <li><a href="#ch4">4. 거리 때문이 아니에요</a></li>
+    <li><a href="#ch5">5. 숫자로 맞춰 보기</a></li>
+    <li><a href="#ch6">6. 그림자로 알 수 있어요</a></li>
+    <li><a href="#ch7">7. 헷갈리기 쉬운 것</a></li>
+    <li><a href="#ch8">8. 한 줄 정리와 퀴즈</a></li>
+    <li><a href="#glossary">용어집</a></li>
+  </ol>
+</nav>
+
+<!-- ============================================================ 0. 놀이터 -->
+<h2 id="ch0">0. 움직이는 그림 — 남중고도 놀이터</h2>
+<p>아래 그림은 <strong>스스로 움직입니다</strong>. 작게 보이면 <strong>[그림만 크게]</strong>를 누르세요(핸드폰은 가로로 돌리면 더 큽니다). 컴퓨터에서는 <strong>[전체 화면]</strong>도 됩니다. 위쪽 단추로 <strong>일 년(공전)</strong>과 <strong>하루(자전)</strong>를 바꿔 볼 수 있습니다. 설명은 <a href="#ch2">2장</a>(하루)과 <a href="#ch3">3장</a>(일 년)에 있습니다.</p>
+
+<figure class="wide" id="stageFig">
+  <div class="ctl">
+    <button id="tabYear" class="on">일 년 — 공전</button>
+    <button id="tabDay">하루 — 자전</button>
+    <button id="btnPlay" class="play">▶ 움직이기</button>
+    <label>빠르기 <select id="speed"><option value="0.5">느리게</option><option value="1" selected>보통</option><option value="2">빠르게</option></select></label>
+    <label>내가 선 곳 <select id="place"><option value="37.5|인천·서울" selected>인천·서울 (북위 37.5°)</option><option value="33.5|제주">제주 (북위 33.5°)</option><option value="55.8|모스크바">모스크바 (북위 55.8°)</option></select></label>
+    <label><input type="checkbox" id="detail"> 각도 자세히(위도·적위)</label>
+    <span class="spacer"></span>
+    <button id="btnFull">⛶ 전체 화면</button>
+    <button id="btnBig">🔍 그림만 크게</button>
+    <button id="btnBack">✕ 문서로 돌아가기</button>
+  </div>
+  <div class="ctl" id="rowDate">
+    <label>날짜 <input type="range" id="dateSl" min="0" max="364" value="171"></label>
+    <span id="dateLbl" style="min-width:5em;font-weight:bold"></span>
+    <button data-n="79">춘분 3/21</button><button data-n="171">하지 6/21</button><button data-n="265">추분 9/23</button><button data-n="355">동지 12/22</button>
+  </div>
+  <div class="ctl" id="rowTime" hidden>
+    <label>시각 <input type="range" id="timeSl" min="0" max="24" step="0.05" value="9"></label>
+    <span id="timeLbl" style="min-width:6em;font-weight:bold"></span>
+    <button data-t="6">아침 6시</button><button data-t="9">9시</button><button data-t="12.5">12시 30분(남중)</button><button data-t="15">오후 3시</button><button data-t="18">저녁 6시</button>
+  </div>
+
+  <!-- ===== 일 년(공전) 무대 ===== -->
+  <svg class="stage" id="svgYear" viewBox="0 0 1200 640" xmlns="http://www.w3.org/2000/svg" font-family="Apple SD Gothic Neo, Noto Sans KR, Malgun Gothic, sans-serif">
+    <defs>
+      <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M2 1L8 5L2 9" fill="none" stroke="#ffb340" stroke-width="1.6" stroke-linecap="round"/></marker>
+      <marker id="arw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+        <path d="M2 1L8 5L2 9" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></marker>
+      <radialGradient id="sunG"><stop offset="0" stop-color="#fff3b0"/><stop offset="55%" stop-color="#f5a623"/><stop offset="100%" stop-color="#f5a623" stop-opacity="0"/></radialGradient>
+      <radialGradient id="earthG" cx="35%" cy="35%"><stop offset="0" stop-color="#bfe0ff"/><stop offset="100%" stop-color="#3a7bd5"/></radialGradient>
+    </defs>
+    <rect width="1200" height="640" fill="#0f1a2e"/>
+    <!-- 왼쪽: 궤도 -->
+    <text x="250" y="34" text-anchor="middle" font-size="20" fill="#fff" font-weight="bold">지구가 태양 둘레를 도는 길 (공전, 비스듬히 본 모습)</text>
+    <text x="250" y="58" text-anchor="middle" font-size="14" fill="#aab">자전축(흰 막대)은 1년 내내 같은 쪽으로 기울어져 있어요</text>
+    <ellipse cx="250" cy="320" rx="205" ry="82" fill="none" stroke="#5a6d95" stroke-width="1.5" stroke-dasharray="6 5"/>
+    <g id="orbitBack"></g>
+    <g id="sunY"><circle cx="250" cy="320" r="70" fill="url(#sunG)" opacity=".7"/><circle cx="250" cy="320" r="30" fill="#ffd55a"/><text x="250" y="326" text-anchor="middle" font-size="15" font-weight="bold" fill="#5a3a00">태양</text></g>
+    <g id="orbitFront"></g>
+    <g font-size="14" fill="#cfd8ea">
+      <text x="455" y="392" text-anchor="middle">하지 6/21</text>
+      <text x="300" y="236" text-anchor="start">추분 9/23</text>
+      <text x="45" y="392" text-anchor="middle">동지 12/22</text>
+      <text x="250" y="470" text-anchor="middle">춘분 3/21</text>
+    </g>
+    <g font-size="12" fill="#8fa3c8">
+      <text x="60" y="412" text-anchor="middle">가장 가까움 1/3</text><circle cx="50" cy="338" r="3.5" fill="#8fa3c8"/><circle cx="449" cy="301" r="3.5" fill="#8fa3c8"/>
+      <text x="445" y="252" text-anchor="middle">가장 멂 7/4</text>
+    </g>
+    <line id="distLine" x1="250" y1="320" x2="455" y2="320" stroke="#ffb340" stroke-width="1.5" stroke-dasharray="4 4"/>
+    <g id="earthOrb"></g>
+    <text id="distTxt" x="350" y="300" text-anchor="middle" font-size="17" font-weight="bold" fill="#ffd55a" stroke="#0f1a2e" stroke-width="5" paint-order="stroke">1억 5,200만 km</text>
+    <!-- 거리 눈금 -->
+    <g id="gauge" font-size="13" fill="#cfd8ea">
+      <text x="250" y="492" text-anchor="middle" font-size="15" fill="#fff">태양까지의 거리 — 1년 내내 거의 같아요 (차이 3%)</text>
+      <rect x="60" y="512" width="380" height="14" rx="7" fill="#25365a"/>
+      <text x="60" y="552" text-anchor="start">1억 4,700만</text>
+      <text x="440" y="552" text-anchor="end">1억 5,200만 km</text>
+      <circle id="gaugeDot" cx="440" cy="519" r="10" fill="#ffd55a" stroke="#fff" stroke-width="2"/>
+      <text x="250" y="582" text-anchor="middle" fill="#ffe9b0">1월 초가 제일 가깝고 7월 초가 제일 멀어요. 그런데 1월은 겨울! → 거리는 계절의 이유가 아니에요</text>
+    </g>
+    <!-- 오른쪽: 단면 -->
+    <line x1="510" y1="20" x2="510" y2="620" stroke="#25365a"/>
+    <text x="860" y="34" text-anchor="middle" font-size="20" fill="#fff" font-weight="bold">해가 남중한 순간의 지구 (옆에서 자른 모습)</text>
+    <text x="860" y="58" text-anchor="middle" font-size="14" fill="#aab">햇빛은 나란히 들어와요. 내 발밑 땅(지평선)과 햇빛 사이의 각도 = 남중고도</text>
+    <g id="xs"></g>
+  </svg>
+
+  <!-- ===== 하루(자전) 무대 ===== -->
+  <svg class="stage" id="svgDay" viewBox="0 0 1200 640" xmlns="http://www.w3.org/2000/svg" font-family="Apple SD Gothic Neo, Noto Sans KR, Malgun Gothic, sans-serif" hidden>
+    <defs>
+      <linearGradient id="skyG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3c7bd9"/><stop offset="100%" stop-color="#bfe0ff"/></linearGradient>
+      <clipPath id="skyClip"><rect x="430" y="80" width="750" height="540" rx="8"/></clipPath>
+      <linearGradient id="nightG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b1430"/><stop offset="100%" stop-color="#2a3c6b"/></linearGradient>
+    </defs>
+    <rect width="1200" height="640" fill="#0f1a2e"/>
+    <text x="215" y="34" text-anchor="middle" font-size="20" fill="#fff" font-weight="bold">북극 위에서 내려다본 지구 (자전)</text>
+    <text x="215" y="58" text-anchor="middle" font-size="14" fill="#aab">지구가 하루에 한 바퀴 돌아요. 내 자리가 태양을 똑바로 볼 때 = 남중</text>
+    <g id="topView"></g>
+    <g id="prot"></g>
+    <line x1="420" y1="20" x2="420" y2="620" stroke="#25365a"/>
+    <text x="805" y="34" text-anchor="middle" font-size="20" fill="#fff" font-weight="bold">남쪽을 보고 서서 본 하늘</text>
+    <text x="805" y="58" text-anchor="middle" font-size="14" fill="#aab">해는 동쪽에서 떠서 남쪽에서 가장 높고 서쪽으로 져요</text>
+    <g id="sky"></g>
+  </svg>
+
+  <div class="readouts" id="roYear">
+    <div class="ro"><div class="k">날짜</div><div class="v" id="roDate">6월 21일</div></div>
+    <div class="ro"><div class="k">햇빛이 적도에서 기운 각(적위)</div><div class="v" id="roDecl">+23.5°</div></div>
+    <div class="ro hi"><div class="k">남중고도</div><div class="v" id="roAlt">76.0°</div></div>
+    <div class="ro"><div class="k">태양까지 거리</div><div class="v" id="roDist">1억 5,200만 km</div></div>
+  </div>
+  <div class="readouts" id="roDay" hidden>
+    <div class="ro"><div class="k">시각</div><div class="v" id="roTime">오전 9:00</div></div>
+    <div class="ro hi"><div class="k">지금 해의 고도</div><div class="v" id="roNow">40°</div></div>
+    <div class="ro"><div class="k">오늘의 남중고도</div><div class="v" id="roMax">76.0°</div></div>
+    <div class="ro"><div class="k">그림자 길이 (막대 길이의)</div><div class="v" id="roShadow">1.2배</div></div>
+  </div>
+  <p id="story"></p>
+  <figcaption>그림 0. 남중고도 놀이터. 왼쪽은 원인(공전·자전), 오른쪽은 결과(각도). 숫자는 실제 값과 같습니다.</figcaption>
+</figure>
+
+<div class="note"><strong>수업에서 이렇게 써 보세요</strong>
+① 일 년 모드에서 [움직이기] → 오른쪽 빨간 각도 숫자만 보게 하기: "커졌다 작아졌다" ② 하지에서 멈추고 왼쪽 지구를 보기: "북쪽이 태양 쪽으로 기울었네" ③ 동지로 가서 비교 ④ 하루 모드로 바꿔 [움직이기]: 왼쪽 점(나)이 태양을 똑바로 볼 때 오른쪽 해가 제일 높다는 걸 확인 ⑤ 거리 눈금이 거의 안 움직이는 걸 보여 주고 "거리 때문이 아니구나".</div>
+
+<div class="note"><strong>3D판도 있어요</strong> 같은 폴더의 <a href="남중고도-3D.html">남중고도-3D.html</a>을 열면 카메라를 마음대로 돌려(위·아래·앞·뒤·왼쪽·오른쪽, 지구 가까이, 내가 선 곳에서) 같은 내용을 입체로 볼 수 있어요.</div>
+
+<a class="to-toc" href="#toc">↑ 차례로</a>
+
+<!-- ============================================================ 1 -->
+<h2 id="ch1">1. 남중고도가 뭐예요?</h2>
+<p class="big"><strong>남중고도 = 남중 + 고도.</strong> 낱말 두 개를 따로 알면 쉬워요.</p>
+<div class="table-wrap">
+<table id="tbl-words">
+  <thead><tr><th>낱말</th><th>뜻</th><th>쉽게 말하면</th></tr></thead>
+  <tbody>
+    <tr><td><a class="term" href="#g-altitude" data-tip="땅(지평선)에서 해까지 올려다본 각도. 0°는 땅 끝, 90°는 머리 바로 위">고도</a></td><td>땅 끝(지평선)에서 해까지 올려다본 각도</td><td>"해가 얼마나 높이 있나"를 숫자로</td></tr>
+    <tr><td><a class="term" href="#g-meridian" data-tip="해가 정남쪽 하늘에 오는 순간. 하루 중 가장 높이 떠 있을 때. 우리나라는 낮 12시 30분쯤">남중</a></td><td>해가 <strong>정남쪽</strong>에 오는 순간</td><td>하루 중 해가 <strong>제일 높은 때</strong> (낮 12시 30분쯤)</td></tr>
+    <tr><td><a class="term" href="#g-mer-alt" data-tip="하루 중 해가 가장 높이 떴을 때(남중)의 고도">남중고도</a></td><td>남중했을 때의 고도</td><td>"오늘 해가 <strong>제일 높이</strong> 올라갔을 때 몇 도?"</td></tr>
+  </tbody>
+</table>
+</div>
+
+<figure>
+<svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="고도는 지평선과 해 사이의 각도" font-family="sans-serif">
+  <rect width="720" height="300" fill="#eef5ff"/>
+  <rect y="230" width="720" height="70" fill="#cfe7c3"/>
+  <line x1="0" y1="230" x2="720" y2="230" stroke="#4a7a3a" stroke-width="2"/>
+  <!-- 사람 -->
+  <circle cx="180" cy="180" r="14" fill="#f9d7b5" stroke="#333"/>
+  <line x1="180" y1="194" x2="180" y2="232" stroke="#333" stroke-width="4"/>
+  <!-- 팔: 지평선과 나란히, 해 쪽으로 -->
+  <line x1="180" y1="205" x2="330" y2="205" stroke="#333" stroke-width="3" stroke-dasharray="6 4"/>
+  <text x="335" y="210" font-size="13" fill="#555">팔을 땅과 나란히</text>
+  <!-- 해 -->
+  <circle cx="470" cy="70" r="28" fill="#ffd55a" stroke="#f5a623" stroke-width="3"/>
+  <line x1="180" y1="205" x2="445" y2="82" stroke="#e8842a" stroke-width="3"/>
+  <text x="520" y="76" font-size="15" fill="#333">해</text>
+  <!-- 각도 호 -->
+  <path d="M260 205 A80 80 0 0 0 251 168" fill="none" stroke="#c0392b" stroke-width="3"/>
+  <text x="270" y="188" font-size="20" font-weight="bold" fill="#c0392b">고도</text>
+  <!-- 주먹 -->
+  <g font-size="12" fill="#555">
+    <rect x="600" y="150" width="34" height="26" rx="8" fill="#f9d7b5" stroke="#333"/>
+    <rect x="600" y="178" width="34" height="26" rx="8" fill="#f9d7b5" stroke="#333"/>
+    <rect x="600" y="206" width="34" height="26" rx="8" fill="#f9d7b5" stroke="#333"/>
+    <text x="617" y="140" text-anchor="middle">주먹 하나 ≈ 10°</text>
+    <text x="617" y="252" text-anchor="middle">세 개 쌓으면 ≈ 30°</text>
+  </g>
+  <text x="20" y="28" font-size="14" fill="#555">땅과 나란히 뻗은 팔을 해 쪽으로 들어 올린 만큼이 "고도"</text>
+</svg>
+<figcaption>그림 1. 고도는 "땅 끝에서 해까지 올려다본 각도". 팔을 뻗고 주먹을 쌓아 대강 잴 수 있어요(주먹 하나 ≈ 10°).</figcaption>
+</figure>
+
+<div class="boxes">
+  <div class="box good"><h4>해가 높다 = 고도가 크다</h4><ul><li>머리 위 가까이 (90°에 가까움)</li><li>그림자가 짧다</li><li>햇빛이 세다(뜨겁다)</li></ul></div>
+  <div class="box bad"><h4>해가 낮다 = 고도가 작다</h4><ul><li>땅 끝 가까이 (0°에 가까움)</li><li>그림자가 길다</li><li>햇빛이 비스듬해 약하다</li></ul></div>
+</div>
+
+<div class="note"><strong>왜 12시가 아니고 12시 30분?</strong> 우리나라 시계는 일본 쪽(동경 135°) 기준으로 맞춰져 있어서, 해가 실제로 남쪽에 오는 때는 시계로 12시 30분쯤이에요. 그래서 "정오"라 하지 않고 "남중"이라는 말을 따로 씁니다.</div>
+
+<a class="to-toc" href="#toc">↑ 차례로</a>
+
+<!-- ============================================================ 2 -->
+<h2 id="ch2">2. 하루 — 해는 왜 올라갔다 내려와요? (자전)</h2>
+<p>해가 움직이는 게 아니에요. <strong>지구가 하루에 한 바퀴 도는 것</strong>(<a class="term" href="#g-rotation" data-tip="지구가 자기 축을 중심으로 하루에 한 바퀴 도는 것. 낮과 밤을 만든다">자전</a>)이에요. 내가 선 자리가 태양 쪽으로 돌아가면 해가 뜨고, 태양을 <strong>똑바로 마주 보는 순간</strong>이 남중, 다시 돌아 나가면 해가 져요. <a href="#ch0">놀이터</a>의 [하루 — 자전] 단추를 눌러 보세요.</p>
+
+<figure>
+<div class="flow">
+  <span class="step">아침<br>내 자리가 태양 쪽으로 돌아옴<br>고도 0° → 올라감</span><span class="arrow">→</span>
+  <span class="step now">낮 12시 30분 <strong>남중</strong><br>태양을 똑바로 마주 봄<br><strong>고도 가장 높음 = 남중고도</strong></span><span class="arrow">→</span>
+  <span class="step">저녁<br>내 자리가 태양에서 돌아 나감<br>고도 내려감 → 0°</span>
+</div>
+<figcaption>그림 2. 하루 동안 고도가 변하는 까닭. 지구가 도는 만큼 내 자리가 태양을 보는 방향이 바뀐다.</figcaption>
+</figure>
+
+<div class="note"><strong>자전은 "언제"를 정해요</strong> 자전은 매일 똑같이 돌기 때문에, 남중이 <strong>언제</strong>(12시 30분쯤)인지는 정하지만, 그때 각도가 <strong>얼마</strong>인지(76°냐 29°냐)는 정하지 못해요. 그건 <a href="#ch3">3장</a>의 공전이 정합니다.</div>
+
+<a class="to-toc" href="#toc">↑ 차례로</a>
+
+<!-- ============================================================ 3 -->
+<h2 id="ch3">3. 일 년 — 남중고도는 왜 계절마다 달라요? (공전 + 기울기)</h2>
+<p>여름엔 76°, 겨울엔 29°. 같은 곳인데 왜 다를까요? 두 가지가 합쳐진 결과예요.</p>
+<ol>
+  <li><strong>지구의 <a class="term" href="#g-axis" data-tip="지구가 도는 축. 똑바로 서 있지 않고 23.5° 기울어져 있고, 그 방향은 1년 내내 같다">자전축</a>이 23.5° 기울어져 있고</strong>, 그 기울어진 방향은 1년 내내 그대로예요(팽이처럼).</li>
+  <li>지구가 태양 둘레를 1년에 한 바퀴 도니까(<a class="term" href="#g-revolution" data-tip="지구가 태양 둘레를 1년에 한 바퀴 도는 것">공전</a>), <strong>태양이 어느 쪽에 있느냐</strong>가 계절마다 달라져요.</li>
+</ol>
+<p>그래서 6월엔 우리가 사는 북쪽 반이 태양 <strong>쪽으로</strong> 기울어 햇빛을 <strong>똑바로</strong> 받고, 12월엔 태양 <strong>반대쪽</strong>으로 기울어 햇빛을 <strong>비스듬히</strong> 받아요. <a href="#ch0">놀이터</a>에서 하지·동지 단추를 눌러 왼쪽 지구의 흰 막대(자전축)와 오른쪽 각도를 비교해 보세요.</p>
+
+<div class="table-wrap">
+<table id="tbl-season">
+  <thead><tr><th>날</th><th>북쪽 반은 어느 쪽으로?</th><th>남중고도 (인천·서울)</th></tr></thead>
+  <tbody>
+    <tr><td>하지 (6월 21일쯤)</td><td>태양 쪽으로 기움 → 햇빛 똑바로</td><td><strong>76°</strong> (가장 높음)</td></tr>
+    <tr><td>춘분·추분 (3월 21일, 9월 23일쯤)</td><td>옆을 향함 → 중간</td><td><strong>52.5°</strong></td></tr>
+    <tr><td>동지 (12월 22일쯤)</td><td>태양 반대쪽으로 기움 → 햇빛 비스듬히</td><td><strong>29°</strong> (가장 낮음)</td></tr>
+  </tbody>
+</table>
+</div>
+
+<figure>
+<svg viewBox="0 0 720 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="하지와 동지의 지구 기울기 비교" font-family="sans-serif">
+  <rect width="720" height="330" fill="#0f1a2e" rx="10"/>
+  <text x="360" y="30" text-anchor="middle" font-size="15" fill="#aab">햇빛은 오른쪽에서 나란히 들어와요 →→→</text>
+  <!-- 하지 -->
+  <g transform="translate(180,175)">
+    <circle r="75" fill="#3a7bd5"/><path d="M0,-75 A75 75 0 0 0 0,75 Z" fill="#000" opacity=".45"/>
+    <line x1="-34" y1="80" x2="34" y2="-80" stroke="#fff" stroke-width="3"/>
+    <line x1="-74" y1="-30" x2="74" y2="30" stroke="#fff" stroke-width="1" stroke-dasharray="4 3" opacity=".7"/>
+    <text x="40" y="-84" font-size="13" fill="#fff">북극</text>
+    <circle cx="72" cy="-18" r="6" fill="#ff4d4d"/>
+    <text x="0" y="118" text-anchor="middle" font-size="16" fill="#fff" font-weight="bold">하지 · 북쪽이 태양 쪽으로</text>
+    <text x="0" y="140" text-anchor="middle" font-size="14" fill="#ffd55a">햇빛을 똑바로 → 76°</text>
+  </g>
+  <!-- 동지 -->
+  <g transform="translate(540,175)">
+    <circle r="75" fill="#3a7bd5"/><path d="M0,-75 A75 75 0 0 0 0,75 Z" fill="#000" opacity=".45"/>
+    <line x1="34" y1="80" x2="-34" y2="-80" stroke="#fff" stroke-width="3"/>
+    <line x1="-74" y1="30" x2="74" y2="-30" stroke="#fff" stroke-width="1" stroke-dasharray="4 3" opacity=".7"/>
+    <text x="-70" y="-84" font-size="13" fill="#fff">북극</text>
+    <circle cx="36" cy="-65" r="6" fill="#ff4d4d"/>
+    <text x="0" y="118" text-anchor="middle" font-size="16" fill="#fff" font-weight="bold">동지 · 북쪽이 태양 반대쪽으로</text>
+    <text x="0" y="140" text-anchor="middle" font-size="14" fill="#ffd55a">햇빛을 비스듬히 → 29°</text>
+  </g>
+  <g stroke="#ffb340" stroke-width="2">
+    <line x1="700" y1="120" x2="640" y2="120"/><line x1="700" y1="175" x2="625" y2="175"/><line x1="700" y1="230" x2="640" y2="230"/>
+    <line x1="340" y1="120" x2="280" y2="120"/><line x1="340" y1="175" x2="265" y2="175"/><line x1="340" y1="230" x2="280" y2="230"/>
+  </g>
+  <circle cx="30" cy="305" r="6" fill="#ff4d4d"/><text x="44" y="310" font-size="13" fill="#cfd8ea">빨간 점 = 인천·서울에 선 나. 흰 막대 = 자전축(기운 방향이 똑같죠?). 어두운 쪽 = 밤</text>
+</svg>
+<figcaption>그림 3. 자전축은 똑같이 기울어 있는데, 태양이 어느 쪽에 있느냐에 따라 햇빛을 받는 각도가 달라진다.</figcaption>
+</figure>
+
+<a class="to-toc" href="#toc">↑ 차례로</a>
+
+<!-- ============================================================ 4 -->
+<h2 id="ch4">4. 거리 때문이 아니에요</h2>
+<p>아이들이 가장 많이 하는 생각: <strong>"여름엔 지구가 태양에 가까워서 덥다"</strong>. 아니에요. 놀이터의 거리 눈금을 보면 알 수 있어요.</p>
+<div class="table-wrap">
+<table id="tbl-dist">
+  <thead><tr><th>때</th><th>태양까지 거리</th><th>우리나라 계절</th></tr></thead>
+  <tbody>
+    <tr><td>1월 3일쯤 (<a class="term" href="#g-perihelion" data-tip="지구가 태양에 가장 가까워지는 때. 1월 초">가장 가까울 때</a>)</td><td>약 1억 4,700만 km</td><td><strong>겨울</strong> (남중고도 낮음)</td></tr>
+    <tr><td>7월 4일쯤 (가장 멀 때)</td><td>약 1억 5,200만 km</td><td><strong>여름</strong> (남중고도 높음)</td></tr>
+    <tr><td>차이</td><td>약 500만 km = 3%뿐</td><td>오히려 가까울 때가 겨울</td></tr>
+  </tbody>
+</table>
+</div>
+<p>거리 차이는 아주 작고, 게다가 <strong>가까울 때가 겨울</strong>이에요. 계절을 만드는 건 거리가 아니라 <a href="#ch3">3장</a>의 <strong>햇빛을 받는 각도(남중고도)</strong>입니다. 남반구(호주)는 같은 1월에 여름인 것도 거리로는 설명이 안 되고, 기울기로만 설명돼요.</p>
+
+<a class="to-toc" href="#toc">↑ 차례로</a>
+
+<!-- ============================================================ 5 -->
+<h2 id="ch5">5. 숫자로 맞춰 보기</h2>
+<p>궁금한 아이들을 위한 계산법이에요. 외울 필요는 없고 "세 숫자가 합쳐진다"만 알면 돼요.</p>
+<figure>
+<div class="flow">
+  <span class="step">90°</span><span class="arrow">−</span>
+  <span class="step"><a class="term" href="#g-latitude" data-tip="적도에서 얼마나 북쪽(남쪽)에 있는지를 각도로. 인천·서울은 북위 37.5°">위도</a><br>(내가 어디 사나)</span><span class="arrow">+</span>
+  <span class="step"><a class="term" href="#g-decl" data-tip="햇빛이 적도에서 위아래로 기운 각. 하지 +23.5°, 춘·추분 0°, 동지 −23.5°">적위</a><br>(지금 어느 계절인가)</span><span class="arrow">=</span>
+  <span class="step now">남중고도</span>
+</div>
+<figcaption>그림 4. 남중고도 계산. 위도는 자전축(내 위치), 적위는 공전(계절)이 정한다.</figcaption>
+</figure>
+<div class="table-wrap">
+<table id="tbl-calc">
+  <thead><tr><th>날</th><th>계산 (인천·서울 37.5°)</th><th>남중고도</th></tr></thead>
+  <tbody>
+    <tr><td>하지</td><td>90 − 37.5 + 23.5</td><td><strong>76°</strong></td></tr>
+    <tr><td>춘분·추분</td><td>90 − 37.5 + 0</td><td><strong>52.5°</strong></td></tr>
+    <tr><td>동지</td><td>90 − 37.5 − 23.5</td><td><strong>29°</strong></td></tr>
+  </tbody>
+</table>
+</div>
+<p>놀이터에서 <strong>[각도 자세히]</strong>를 켜면 오른쪽 그림에 위도와 적위 각이 함께 표시돼요. 사는 곳을 제주·모스크바로 바꾸면 위도만 바뀌어서 값이 어떻게 달라지는지 볼 수 있어요.</p>
+
+<a class="to-toc" href="#toc">↑ 차례로</a>
+
+<!-- ============================================================ 6 -->
+<h2 id="ch6">6. 그림자로 알 수 있어요</h2>
+<p>각도를 직접 재기 어려우면 <strong>그림자</strong>를 보면 돼요. 해가 높을수록 그림자가 짧아요. 놀이터의 하루 모드에서 막대 그림자가 어떻게 변하는지 보세요.</p>
+<div class="table-wrap">
+<table id="tbl-life">
+  <thead><tr><th>볼 것</th><th>여름 (남중고도 높음)</th><th>겨울 (남중고도 낮음)</th></tr></thead>
+  <tbody>
+    <tr><td>낮 그림자</td><td>발밑에 짧게</td><td>길게 늘어짐</td></tr>
+    <tr><td>집 안 햇빛</td><td>창가에만 조금</td><td>방 안 깊숙이 들어옴</td></tr>
+    <tr><td>기온</td><td>햇빛이 좁은 곳에 모여 덥다</td><td>햇빛이 넓게 퍼져 춥다</td></tr>
+  </tbody>
+</table>
+</div>
+<div class="note"><strong>교실 실험</strong> 운동장에 막대 하나를 세우고 <strong>같은 시각(12시 30분)</strong>에 한 달에 한 번씩 그림자 길이를 재 보세요. 그림자가 짧아지면 남중고도가 높아진 것, 길어지면 낮아진 것입니다.</div>
+
+<a class="to-toc" href="#toc">↑ 차례로</a>
+
+<!-- ============================================================ 7 -->
+<h2 id="ch7">7. 헷갈리기 쉬운 것</h2>
+<div class="table-wrap">
+<table id="tbl-miscon">
+  <thead><tr><th>이렇게 생각하기 쉬움</th><th>진짜는</th><th>놀이터에서 확인</th></tr></thead>
+  <tbody>
+    <tr><td>남중 = 낮 12시</td><td>우리나라는 12시 30분쯤 (<a href="#ch1">1장</a>)</td><td>하루 모드, 12시 30분 단추</td></tr>
+    <tr><td>해가 하늘을 움직인다</td><td>지구가 돈다(자전). 내가 돌아서 해가 움직여 보이는 것 (<a href="#ch2">2장</a>)</td><td>하루 모드 왼쪽 지구</td></tr>
+    <tr><td>여름엔 태양이 가깝다</td><td>거리는 거의 같고, 오히려 1월이 더 가깝다 (<a href="#ch4">4장</a>)</td><td>일 년 모드 거리 눈금</td></tr>
+    <tr><td>남중고도가 매일 똑같다</td><td>매일 조금씩 바뀐다. 여름 76° ↔ 겨울 29° (<a href="#ch3">3장</a>)</td><td>일 년 모드 [움직이기]</td></tr>
+    <tr><td>남중고도 = 낮의 길이</td><td>다른 것. 둘 다 여름에 커지지만 남중고도는 "각도", 낮의 길이는 "시간"</td><td>하루 모드 해 뜨는 시각·지는 시각</td></tr>
+  </tbody>
+</table>
+</div>
+
+<a class="to-toc" href="#toc">↑ 차례로</a>
+
+<!-- ============================================================ 8 -->
+<h2 id="ch8">8. 한 줄 정리와 퀴즈</h2>
+<p class="big"><strong>남중고도 = "오늘 낮에 해가 제일 높이 올랐을 때 땅에서 몇 도 올라갔나".</strong><br>
+자전이 그 <strong>시각</strong>(12시 30분쯤)을 정하고, 공전 + 자전축 기울기가 그 <strong>값</strong>(여름 76°, 겨울 29°)을 정한다.</p>
+
+<details class="quiz"><summary>Q1. "남중"은 해가 어느 쪽 하늘에 왔을 때일까요?</summary><p>정남쪽. 이때 해가 하루 중 가장 높아요. (<a href="#ch1">1장</a>)</p></details>
+<details class="quiz"><summary>Q2. 하루 동안 해가 올라갔다 내려오는 건 지구의 무엇 때문일까요?</summary><p>자전. 내 자리가 태양 쪽으로 돌아왔다가 돌아 나가기 때문. (<a href="#ch2">2장</a>)</p></details>
+<details class="quiz"><summary>Q3. 여름과 겨울의 남중고도가 다른 건 무엇 때문일까요?</summary><p>자전축이 23.5° 기울어진 채 공전하기 때문. 6월엔 북쪽이 태양 쪽으로, 12월엔 반대쪽으로 기울어요. (<a href="#ch3">3장</a>)</p></details>
+<details class="quiz"><summary>Q4. 지구가 태양에 가장 가까운 달은?</summary><p>1월. 그런데 겨울이죠. 그러니 거리는 계절의 이유가 아니에요. (<a href="#ch4">4장</a>)</p></details>
+<details class="quiz"><summary>Q5. 낮 12시 30분에 그림자가 짧은 계절은?</summary><p>여름. 남중고도가 높아서(76°) 그림자가 발밑에 짧게 생겨요. (<a href="#ch6">6장</a>)</p></details>
+<details class="quiz"><summary>Q6. 인천·서울(북위 37.5°)의 봄·가을 남중고도는?</summary><p>90 − 37.5 = 52.5°. (<a href="#ch5">5장</a>)</p></details>
+
+<a class="to-toc" href="#toc">↑ 차례로</a>
+
+<!-- ============================================================ 용어집 -->
+<h2 id="glossary">용어집</h2>
+<dl class="glossary">
+  <dt id="g-altitude">고도(태양 고도)</dt><dd>땅 끝(지평선)에서 해까지 올려다본 각도. 0°는 지평선, 90°는 머리 바로 위.</dd>
+  <dt id="g-meridian">남중</dt><dd>해가 정남쪽 하늘에 오는 순간. 하루 중 가장 높이 떠 있을 때. 우리나라는 낮 12시 30분쯤.</dd>
+  <dt id="g-mer-alt">남중고도</dt><dd>남중했을 때의 고도. "오늘 해가 제일 높이 올라갔을 때 몇 도". 인천·서울은 여름 76°, 봄·가을 52.5°, 겨울 29°.</dd>
+  <dt id="g-rotation">자전</dt><dd>지구가 자기 축을 중심으로 하루에 한 바퀴 도는 것. 낮과 밤, 하루 동안의 고도 변화를 만든다.</dd>
+  <dt id="g-revolution">공전</dt><dd>지구가 태양 둘레를 1년에 한 바퀴 도는 것. 자전축 기울기와 합쳐져 계절(남중고도의 변화)을 만든다.</dd>
+  <dt id="g-axis">자전축</dt><dd>지구가 도는 축. 똑바로 서 있지 않고 23.5° 기울어져 있으며, 그 기울어진 방향은 1년 내내 같다(북극성 쪽).</dd>
+  <dt id="g-latitude">위도</dt><dd>적도에서 얼마나 북쪽(또는 남쪽)에 있는지를 각도로 나타낸 것. 인천·서울은 북위 37.5°.</dd>
+  <dt id="g-decl">적위(태양의 적위)</dt><dd>햇빛이 적도에서 위아래로 얼마나 기울어 들어오는지의 각. 하지 +23.5°, 춘분·추분 0°, 동지 −23.5°. 공전 때문에 달라진다.</dd>
+  <dt id="g-perihelion">근일점·원일점</dt><dd>지구가 태양에 가장 가까워지는 때(근일점, 1월 초, 약 1억 4,700만 km)와 가장 멀어지는 때(원일점, 7월 초, 약 1억 5,200만 km). 차이는 3%뿐.</dd>
+</dl>
+<a class="to-toc" href="#toc">↑ 차례로</a>
+
+<div class="fab-wrap">
+  <a class="fab" href="#toc" title="차례로 가기">☰</a>
+  <a class="fab" href="#top" title="맨 위로">↑</a>
+</div>
+
+<script>
+(function(){
+  const $ = id => document.getElementById(id);
+  const rad = d => d*Math.PI/180, deg = r => r*180/Math.PI;
+  const NS = 'http://www.w3.org/2000/svg';
+  const S = { mode:'year', N:171, t:9, phi:37.5, place:'인천·서울', playing:false, speed:1, detail:false };
+
+  // ---------- 천문 계산 ----------
+  const ANCH = [[79,0],[171,90],[265,180],[355,270],[444,360]]; // 날짜 → 위상(춘분 0, 하지 90, 추분 180, 동지 270)
+  function phase(N){ let n=N; if(n<79) n+=365; for(let i=0;i<4;i++){ const [d0,p0]=ANCH[i],[d1,p1]=ANCH[i+1]; if(n>=d0&&n<=d1) return p0+(p1-p0)*(n-d0)/(d1-d0);} return 0; }
+  const decl = N => 23.5*Math.sin(rad(phase(N)));
+  const dist = N => 14960*(1-0.0167*Math.cos(2*Math.PI*(N-2)/365.25)); // 만 km
+  function fmtDist(d){ const km=Math.round(d/10)*10; return `${Math.floor(km/10000)}억 ${(km%10000).toLocaleString()}만 km`; }
+  function dateStr(N){ const d=new Date(2026,0,1+Math.floor(N)); return `${d.getMonth()+1}월 ${d.getDate()}일`; }
+  function monthOf(N){ return new Date(2026,0,1+Math.floor(N)).getMonth()+1; }
+  function altAz(phi, dl, H){
+    const p=rad(phi), d=rad(dl), h=rad(H);
+    const sinA=Math.sin(p)*Math.sin(d)+Math.cos(p)*Math.cos(d)*Math.cos(h);
+    const alt=deg(Math.asin(Math.max(-1,Math.min(1,sinA))));
+    const y=Math.sin(h), x=Math.cos(h)*Math.sin(p)-Math.tan(d)*Math.cos(p);
+    return { alt, az: deg(Math.atan2(y,x))+180 };
+  }
+  function H0(phi, dl){ const c=-Math.tan(rad(phi))*Math.tan(rad(dl)); return deg(Math.acos(Math.max(-1,Math.min(1,c)))); }
+  function timeStr(t){ let h=Math.floor(t), m=Math.floor((t-h)*60); const ap=h<12?'오전':'오후'; let h12=h%12; if(h12===0) h12=12; return `${ap} ${h12}:${String(m).padStart(2,'0')}`; }
+  const f1 = v => (Math.round(v*10)/10).toFixed(1);
+
+  // ---------- SVG 도우미 ----------
+  function el(tag, attrs, text){ const e=document.createElementNS(NS,tag); for(const k in attrs) e.setAttribute(k, attrs[k]); if(text!=null) e.textContent=text; return e; }
+  function arcPath(cx,cy,r,a0,a1){ const p0=[cx+r*Math.cos(rad(a0)), cy+r*Math.sin(rad(a0))], p1=[cx+r*Math.cos(rad(a1)), cy+r*Math.sin(rad(a1))];
+    const large=Math.abs(a1-a0)>180?1:0, sweep=a1>a0?1:0; return `M${p0[0].toFixed(1)} ${p0[1].toFixed(1)} A${r} ${r} 0 ${large} ${sweep} ${p1[0].toFixed(1)} ${p1[1].toFixed(1)}`; }
+  function clear(g){ while(g.firstChild) g.removeChild(g.firstChild); }
+
+  // ---------- 일 년: 궤도 ----------
+  const OC={x:250,y:320,a:205,b:82};
+  function drawOrbit(){
+    const N=S.N, psi=90-360*(N-79)/365.25;
+    const ex=OC.x+OC.a*Math.cos(rad(psi)), ey=OC.y+OC.b*Math.sin(rad(psi));
+    const sc=1+0.22*Math.sin(rad(psi));
+    const g=$('earthOrb'); clear(g);
+    const ang=deg(Math.atan2(OC.y-ey, OC.x-ex)); // 지구→태양 (화면 각)
+    const e=el('g',{transform:`translate(${ex.toFixed(1)},${ey.toFixed(1)}) scale(${sc.toFixed(3)})`});
+    e.appendChild(el('circle',{r:24,fill:'url(#earthG)'}));
+    e.appendChild(el('path',{d:'M0,-24 A24 24 0 0 1 0,24 Z',fill:'#000',opacity:.5,transform:`rotate(${(ang+180).toFixed(1)})`}));
+    e.appendChild(el('ellipse',{rx:24,ry:7,fill:'none',stroke:'#fff','stroke-width':1,'stroke-dasharray':'3 3',opacity:.8,transform:'rotate(-23.5)'}));
+    e.appendChild(el('line',{x1:0,y1:38,x2:0,y2:-38,stroke:'#fff','stroke-width':3.5,'stroke-linecap':'round',transform:'rotate(-23.5)','marker-end':'url(#arw)'}));
+    e.appendChild(el('text',{x:0,y:-50,'text-anchor':'middle','font-size':12,fill:'#fff',transform:'rotate(-23.5)'},'북'));
+    // 관측자 점(북쪽 반, 태양 쪽)
+    e.appendChild(el('circle',{cx:0,cy:-12,r:4,fill:'#ff4d4d',transform:`rotate(-23.5)`}));
+    g.appendChild(e);
+    // 앞/뒤 순서
+    const sun=$('sunY');
+    if(Math.sin(rad(psi))<0){ sun.parentNode.insertBefore(g, sun); } else { sun.parentNode.insertBefore(g, $('distTxt')); }
+    // 거리선·글자
+    const dl=$('distLine'); dl.setAttribute('x2',ex.toFixed(1)); dl.setAttribute('y2',ey.toFixed(1));
+    const d=dist(N), tx=$('distTxt'); tx.textContent=fmtDist(d);
+    const mx=(OC.x+ex)/2, my=(OC.y+ey)/2; const side=Math.abs(Math.sin(rad(psi)))>0.7; tx.setAttribute('text-anchor',side?'start':'middle'); tx.setAttribute('x',(side?mx+22:mx).toFixed(1)); tx.setAttribute('y',(side?my+6:my-14).toFixed(1));
+    // 눈금
+    const frac=(d-14710)/(15210-14710); $('gaugeDot').setAttribute('cx',(60+380*Math.max(0,Math.min(1,frac))).toFixed(1));
+  }
+
+  // ---------- 일 년: 단면 ----------
+  const XC={x:860,y:330,R:170};
+  function drawXS(){
+    const g=$('xs'); clear(g);
+    const dl=decl(S.N), phi=S.phi, th=phi-dl, alt=90-th;
+    const {x:cx,y:cy,R}=XC;
+    // 지구
+    g.appendChild(el('circle',{cx,cy,r:R,fill:'url(#earthG)'}));
+    g.appendChild(el('path',{d:`M${cx},${cy-R} A${R} ${R} 0 0 0 ${cx},${cy+R} Z`,fill:'#000',opacity:.5}));
+    g.appendChild(el('text',{x:cx-R+30,y:cy+6,'font-size':14,fill:'#cfd8ea'},'밤'));
+    // 자전축·적도
+    const ap=-(90-dl), ae=dl;
+    const px=cx+R*1.16*Math.cos(rad(ap)), py=cy+R*1.16*Math.sin(rad(ap));
+    g.appendChild(el('line',{x1:cx-R*1.16*Math.cos(rad(ap)),y1:cy-R*1.16*Math.sin(rad(ap)),x2:px,y2:py,stroke:'#fff','stroke-width':3,'stroke-linecap':'round','marker-end':'url(#arw)'}));
+    g.appendChild(el('text',{x:px+(Math.cos(rad(ap))>0?10:-10),y:py-6,'text-anchor':Math.cos(rad(ap))>0?'start':'end','font-size':14,fill:'#fff'},'북극'));
+    g.appendChild(el('line',{x1:cx-R*Math.cos(rad(ae)),y1:cy-R*Math.sin(rad(ae)),x2:cx+R*Math.cos(rad(ae)),y2:cy+R*Math.sin(rad(ae)),stroke:'#fff','stroke-width':1.2,'stroke-dasharray':'5 4',opacity:.85}));
+    g.appendChild(el('text',{x:cx-R*Math.cos(rad(ae))-8,y:cy-R*Math.sin(rad(ae))+5,'text-anchor':'end','font-size':13,fill:'#cfd8ea'},'적도'));
+    // 햇빛
+    for(const dy of [-135,-70,0,70,135]){ const xe=cx+Math.sqrt(R*R-dy*dy)+4; g.appendChild(el('line',{x1:1150,y1:cy+dy,x2:xe,y2:cy+dy,stroke:'#ffb340','stroke-width':2,'marker-end':'url(#ar)',opacity:.55})); }
+    // 관측자
+    const ox=cx+R*Math.cos(rad(-th)), oy=cy+R*Math.sin(rad(-th));
+    g.appendChild(el('line',{x1:1150,y1:oy,x2:ox,y2:oy,stroke:'#ffb340','stroke-width':4,'marker-end':'url(#ar)'}));
+    const tx=Math.sin(rad(th)), ty=Math.cos(rad(th)); // 지평선 방향(남쪽)
+    g.appendChild(el('line',{x1:ox-135*tx,y1:oy-135*ty,x2:ox+135*tx,y2:oy+135*ty,stroke:'#39d98a','stroke-width':2.5}));
+    g.appendChild(el('text',{x:ox+145*tx,y:oy+145*ty+5,'font-size':14,fill:'#39d98a','text-anchor':'start'},'남쪽 지평선'));
+    g.appendChild(el('text',{x:ox-150*tx+18*Math.cos(rad(th)),y:oy-150*ty-18*Math.sin(rad(th))+5,'font-size':13,fill:'#39d98a','text-anchor':'start'},'북쪽'));
+    const nx=Math.cos(rad(th)), ny=-Math.sin(rad(th));
+    g.appendChild(el('line',{x1:ox,y1:oy,x2:ox+26*nx,y2:oy+26*ny,stroke:'#ff4d4d','stroke-width':4,'stroke-linecap':'round'}));
+    g.appendChild(el('circle',{cx:ox+34*nx,cy:oy+34*ny,r:8,fill:'#ff4d4d'}));
+    g.appendChild(el('text',{x:ox+52*nx-10,y:oy+52*ny-8,'font-size':14,fill:'#ff9b9b'},`나 (${S.place})`));
+    // 남중고도 호
+    const a1=90-th;
+    g.appendChild(el('path',{d:arcPath(ox,oy,54,0,a1),fill:'none',stroke:'#ff4d4d','stroke-width':4}));
+    const m=a1/2; g.appendChild(el('text',{x:ox+92*Math.cos(rad(m)),y:oy+92*Math.sin(rad(m))+10,'text-anchor':'middle','font-size':30,'font-weight':'bold',fill:'#ff6b6b',stroke:'#0f1a2e','stroke-width':6,'paint-order':'stroke'},`${f1(alt)}°`));
+    // 자세히: 적위·위도
+    if(S.detail){
+      g.appendChild(el('line',{x1:cx,y1:cy,x2:cx+R+40,y2:cy,stroke:'#ffb340','stroke-width':1,'stroke-dasharray':'3 3'}));
+      if(Math.abs(dl)>0.5){ g.appendChild(el('path',{d:arcPath(cx,cy,110,0,dl),fill:'none',stroke:'#ffd55a','stroke-width':2.5}));
+        g.appendChild(el('text',{x:cx+128*Math.cos(rad(dl/2)),y:cy+128*Math.sin(rad(dl/2))+5,'font-size':14,fill:'#ffd55a'},`적위 ${dl>0?'+':''}${f1(dl)}°`)); }
+      g.appendChild(el('path',{d:arcPath(cx,cy,75,dl,-th),fill:'none',stroke:'#7fd0ff','stroke-width':2.5}));
+      const lm=(dl-th)/2; g.appendChild(el('text',{x:cx+50*Math.cos(rad(lm))-16,y:cy+50*Math.sin(rad(lm))+5,'font-size':14,fill:'#7fd0ff'},`위도 ${phi}°`));
+      g.appendChild(el('line',{x1:cx,y1:cy,x2:ox,y2:oy,stroke:'#7fd0ff','stroke-width':1,'stroke-dasharray':'3 3'}));
+      g.appendChild(el('text',{x:860,y:600,'text-anchor':'middle','font-size':16,fill:'#fff'},`90° − 위도 ${phi}° ${dl>=0?'+':'−'} 적위 ${f1(Math.abs(dl))}° = 남중고도 ${f1(alt)}°`));
+    }
+    // 태양
+    g.appendChild(el('circle',{cx:1215,cy:cy,r:80,fill:'url(#sunG)',opacity:.8}));
+    g.appendChild(el('circle',{cx:1215,cy:cy,r:40,fill:'#ffd55a'}));
+    g.appendChild(el('text',{x:1160,y:cy-100,'text-anchor':'middle','font-size':14,fill:'#ffe9b0'},'햇빛 →'));
+  }
+
+  // ---------- 하루: 위에서 본 지구 ----------
+  const TC={x:215,y:300,R:140};
+  function drawTop(){
+    const g=$('topView'); clear(g);
+    const {x:cx,y:cy,R}=TC, H=15*(S.t-12.5), phi=S.phi;
+    g.appendChild(el('circle',{cx,cy,r:R,fill:'url(#earthG)'}));
+    g.appendChild(el('path',{d:`M${cx},${cy-R} A${R} ${R} 0 0 0 ${cx},${cy+R} Z`,fill:'#000',opacity:.55}));
+    g.appendChild(el('text',{x:cx-R+22,y:cy+6,'font-size':14,fill:'#cfd8ea'},'밤'));
+    
+    for(const dy of [-100,-50,0,50,100]){ const xe=cx+Math.sqrt(R*R-dy*dy)+4; g.appendChild(el('line',{x1:400,y1:cy+dy,x2:xe,y2:cy+dy,stroke:'#ffb340','stroke-width':2,'marker-end':'url(#ar)',opacity:.6})); }
+    g.appendChild(el('text',{x:412,y:cy+128,'text-anchor':'end','font-size':14,fill:'#ffe9b0'},'햇빛 (태양은 오른쪽 →)'));
+    g.appendChild(el('circle',{cx,cy,r:5,fill:'#fff'})); g.appendChild(el('text',{x:cx+8,y:cy-8,'font-size':12,fill:'#fff'},'북극'));
+    const rl=R*Math.cos(rad(phi));
+    g.appendChild(el('circle',{cx,cy,r:rl,fill:'none',stroke:'#fff','stroke-width':1,'stroke-dasharray':'4 4',opacity:.6}));
+    // 회전 화살표
+    g.appendChild(el('path',{d:arcPath(cx,cy,R+18,-20,-75),fill:'none',stroke:'#fff','stroke-width':2.5,'marker-end':'url(#arw)'}));
+    g.appendChild(el('text',{x:cx+R*0.2,y:cy-R-30,'font-size':13,fill:'#fff'},'하루에 한 바퀴 (이쪽으로 돌아요)'));
+    // 관측자
+    const ox=cx+rl*Math.cos(rad(H)), oy=cy-rl*Math.sin(rad(H));
+    const ux=Math.cos(rad(H)), uy=-Math.sin(rad(H));
+    g.appendChild(el('line',{x1:ox,y1:oy,x2:ox+34*ux,y2:oy+34*uy,stroke:'#ff4d4d','stroke-width':4,'stroke-linecap':'round'}));
+    g.appendChild(el('circle',{cx:ox+42*ux,cy:oy+42*uy,r:8,fill:'#ff4d4d'}));
+    g.appendChild(el('circle',{cx:ox,cy:oy,r:5,fill:'#ff4d4d',stroke:'#fff','stroke-width':1.5}));
+    g.appendChild(el('text',{x:ox+60*ux-12,y:oy+60*uy+5,'font-size':14,fill:'#ff9b9b'},'나'));
+    if(Math.abs(H)<3){ g.appendChild(el('text',{x:cx,y:cy+R+40,'text-anchor':'middle','font-size':22,'font-weight':'bold',fill:'#ffd55a'},'남중! 태양을 똑바로 마주 봐요')); }
+    else { g.appendChild(el('text',{x:cx,y:cy+R+40,'text-anchor':'middle','font-size':15,fill:'#aab'},H<0?'내 자리가 태양 쪽으로 돌아가는 중 (오전)':'내 자리가 태양에서 돌아 나가는 중 (오후)')); }
+  }
+  // ---------- 하루: 각도계 ----------
+  function drawProt(alt){
+    const g=$('prot'); clear(g);
+    const cx=60, cy=628, r=112;
+    g.appendChild(el('path',{d:`M${cx},${cy} L${cx+r},${cy} A${r} ${r} 0 0 0 ${cx},${cy-r} Z`,fill:'#1b2b4a',stroke:'#6c7fb0'}));
+    for(let a=0;a<=90;a+=10){ const c=Math.cos(rad(a)), s=Math.sin(rad(a)); const len=a%30===0?14:7;
+      g.appendChild(el('line',{x1:cx+(r-len)*c,y1:cy-(r-len)*s,x2:cx+r*c,y2:cy-r*s,stroke:'#cfd8ea','stroke-width':a%30===0?2:1}));
+      if(a%30===0) g.appendChild(el('text',{x:cx+(r+16)*c,y:cy-(r+16)*s+5,'text-anchor':'middle','font-size':12,fill:'#cfd8ea'},a+'°')); }
+    const a=Math.max(0,alt);
+    g.appendChild(el('line',{x1:cx,y1:cy,x2:cx+(r-4)*Math.cos(rad(a)),y2:cy-(r-4)*Math.sin(rad(a)),stroke:'#ff4d4d','stroke-width':4,'stroke-linecap':'round'}));
+    g.appendChild(el('circle',{cx,cy,r:6,fill:'#ff4d4d'}));
+    g.appendChild(el('text',{x:cx+r+34,y:cy-r/2-30,'font-size':15,fill:'#fff'},'각도계 — 지금 해의 고도'));
+    g.appendChild(el('text',{x:cx+r+34,y:cy-r/2+12,'font-size':36,'font-weight':'bold',fill:'#ff6b6b'},alt>0?`${f1(alt)}°`:'해 없음'));
+  }
+  // ---------- 하루: 하늘 ----------
+  const SK={cx:805,gy:540,kx:3.1,ky:4.8,x0:430,x1:1180};
+  function skyXY(az,alt){ return [SK.cx+(az-180)*SK.kx, SK.gy-alt*SK.ky]; }
+  function pathFor(N,phi){ const dl=decl(N), h0=H0(phi,dl); const pts=[]; for(let H=-h0;H<=h0;H+=2){ const {alt,az}=altAz(phi,dl,H); pts.push(skyXY(az,alt).map(v=>v.toFixed(1)).join(',')); } const {alt,az}=altAz(phi,dl,h0); pts.push(skyXY(az,alt).map(v=>v.toFixed(1)).join(',')); return pts.join(' '); }
+  function drawSky(){
+    const g=$('sky'); clear(g); g.setAttribute('clip-path','url(#skyClip)');
+    const dl=decl(S.N), phi=S.phi, H=15*(S.t-12.5), {alt,az}=altAz(phi,dl,H);
+    const night=alt<=0;
+    g.appendChild(el('rect',{x:SK.x0,y:80,width:SK.x1-SK.x0,height:SK.gy-80,fill:night?'url(#nightG)':'url(#skyG)',rx:8}));
+    g.appendChild(el('rect',{x:SK.x0,y:SK.gy,width:SK.x1-SK.x0,height:80,fill:'#3f7a3a'}));
+    g.appendChild(el('line',{x1:SK.x0,y1:SK.gy,x2:SK.x1,y2:SK.gy,stroke:'#245a20','stroke-width':2}));
+    g.appendChild(el('text',{x:SK.x0+10,y:SK.gy+24,'font-size':16,fill:'#fff','font-weight':'bold'},'동쪽'));
+    g.appendChild(el('text',{x:SK.cx,y:SK.gy+24,'text-anchor':'middle','font-size':16,fill:'#fff','font-weight':'bold'},'남쪽'));
+    g.appendChild(el('text',{x:SK.x1-10,y:SK.gy+24,'text-anchor':'end','font-size':16,fill:'#fff','font-weight':'bold'},'서쪽'));
+    // 참고 호 세 개
+    const refs=[[171,'#ff7a3d','하지'],[79,'#9be7a3','춘·추분'],[355,'#8fd3ff','동지']];
+    for(const [n,c,name] of refs){ g.appendChild(el('polyline',{points:pathFor(n,phi),fill:'none',stroke:c,'stroke-width':1.5,'stroke-dasharray':'5 5',opacity:.7}));
+      const top=altAz(phi,decl(n),0); const [tx,ty]=skyXY(top.az,top.alt); g.appendChild(el('text',{x:tx-16,y:ty-8,'text-anchor':'end','font-size':12,fill:c},`${name} ${f1(top.alt)}°`)); }
+    g.appendChild(el('polyline',{points:pathFor(S.N,phi),fill:'none',stroke:'#ffd55a','stroke-width':3.5}));
+    // 관측자
+    const ox=SK.cx, oy=SK.gy;
+    // 막대와 그림자
+    g.appendChild(el('line',{x1:ox,y1:oy,x2:ox,y2:oy-60,stroke:'#5a3a1a','stroke-width':6,'stroke-linecap':'round'}));
+    let shadow=null;
+    if(!night){ const [sx]=skyXY(az,alt); const dir=sx>ox?-1:1; const len=Math.min(60/Math.tan(rad(Math.max(alt,2))),330); shadow=1/Math.tan(rad(Math.max(alt,2)));
+      g.appendChild(el('line',{x1:ox,y1:oy+6,x2:ox+dir*len,y2:oy+6,stroke:'#1e3a1c','stroke-width':8,'stroke-linecap':'round',opacity:.85}));
+      g.appendChild(el('text',{x:ox+dir*(len/2),y:oy+44,'text-anchor':'middle','font-size':13,fill:'#dfe'},'그림자')); }
+    // 사람
+    g.appendChild(el('line',{x1:ox+30,y1:oy,x2:ox+30,y2:oy-30,stroke:'#ff4d4d','stroke-width':4,'stroke-linecap':'round'}));
+    g.appendChild(el('circle',{cx:ox+30,cy:oy-38,r:8,fill:'#ff4d4d'}));
+    // 해
+    if(!night){ const [sx,sy]=skyXY(az,alt);
+      g.appendChild(el('line',{x1:sx,y1:sy,x2:ox,y2:oy,stroke:'#ffb340','stroke-width':2.5,'stroke-dasharray':'6 4'}));
+      g.appendChild(el('circle',{cx:sx,cy:sy,r:34,fill:'url(#sunG)',opacity:.9})); g.appendChild(el('circle',{cx:sx,cy:sy,r:18,fill:'#ffd55a'}));
+      g.appendChild(el('text',{x:sx+(sx>SK.cx?-30:30),y:sy+9,'text-anchor':sx>SK.cx?'end':'start','font-size':26,'font-weight':'bold',fill:'#ff6b6b',stroke:'#0f1a2e','stroke-width':5,'paint-order':'stroke'},`${f1(alt)}°`));
+      if(Math.abs(H)<3) g.appendChild(el('text',{x:sx,y:sy-46,'text-anchor':'middle','font-size':22,'font-weight':'bold',fill:'#ffd55a',stroke:'#0f1a2e','stroke-width':5,'paint-order':'stroke'},'남중!'));
+    } else { g.appendChild(el('text',{x:SK.cx,y:200,'text-anchor':'middle','font-size':26,fill:'#cfd8ea'},'밤 — 해가 지평선 아래에 있어요')); }
+    // 해 뜨는·지는 시각
+    const h0=H0(phi,dl); const rise=12.5-h0/15, set=12.5+h0/15;
+    g.appendChild(el('text',{x:SK.x0+10,y:100,'font-size':14,fill:'#fff'},`오늘(${dateStr(S.N)}) 해 뜸 ${timeStr(rise)} · 해 짐 ${timeStr(set)} · 낮 길이 ${Math.floor(2*h0/15)}시간 ${Math.round((2*h0/15%1)*60)}분`));
+    return {alt, shadow};
+  }
+
+  // ---------- 읽기 상자·이야기 ----------
+  function render(){
+    const dl=decl(S.N), maxAlt=90-S.phi+dl;
+    $('dateSl').value=Math.floor(S.N); $('dateLbl').textContent=dateStr(S.N);
+    $('timeSl').value=S.t; $('timeLbl').textContent=timeStr(S.t);
+    if(S.mode==='year'){
+      drawOrbit(); drawXS();
+      $('roDate').textContent=dateStr(S.N); $('roDecl').textContent=`${dl>=0?'+':'−'}${f1(Math.abs(dl))}°`; $('roAlt').textContent=`${f1(maxAlt)}°`; $('roDist').textContent=fmtDist(dist(S.N));
+      const m=monthOf(S.N);
+      let s = dl>15 ? '여름 쪽: 북쪽 반이 태양 쪽으로 기울어 햇빛을 똑바로 받아요 → 남중고도가 높아요'
+            : dl<-15 ? '겨울 쪽: 북쪽 반이 태양 반대쪽으로 기울어 햇빛을 비스듬히 받아요 → 남중고도가 낮아요'
+            : (m>=2&&m<=5) ? '봄: 기울기가 옆을 향해요 → 남중고도가 중간이고 날마다 올라가는 중' : '가을: 기울기가 옆을 향해요 → 남중고도가 중간이고 날마다 내려가는 중';
+      $('story').textContent=s;
+    } else {
+      drawTop(); const r=drawSky(); drawProt(r.alt);
+      $('roTime').textContent=timeStr(S.t); $('roNow').textContent=r.alt>0?`${f1(r.alt)}°`:'밤'; $('roMax').textContent=`${f1(maxAlt)}°`;
+      $('roShadow').textContent=r.shadow==null?'—':(r.shadow>8?'아주 김':`${(Math.round(r.shadow*10)/10).toFixed(1)}배`);
+      const H=15*(S.t-12.5);
+      $('story').textContent = r.alt<=0 ? '밤이에요. 내 자리가 태양 반대쪽을 보고 있어요.'
+        : Math.abs(H)<3 ? `남중! 내 자리가 태양을 똑바로 마주 봐요. 지금 각도가 오늘의 남중고도 ${f1(maxAlt)}°`
+        : H<0 ? '아침·오전: 지구가 돌아 내 자리가 태양 쪽으로 다가가요 → 해가 올라가요' : '오후: 내 자리가 태양에서 멀어져요 → 해가 내려가요';
+    }
+  }
+
+  // ---------- 조작 ----------
+  function setMode(m){ S.mode=m; const y=m==='year';
+    $('tabYear').classList.toggle('on',y); $('tabDay').classList.toggle('on',!y);
+    $('svgYear').toggleAttribute('hidden',!y); $('svgDay').toggleAttribute('hidden',y); $('roYear').hidden=!y; $('roDay').hidden=y; $('rowTime').hidden=y; render(); }
+  $('tabYear').onclick=()=>setMode('year'); $('tabDay').onclick=()=>setMode('day');
+  $('dateSl').oninput=e=>{ S.N=+e.target.value; render(); };
+  $('timeSl').oninput=e=>{ S.t=+e.target.value; render(); };
+  document.querySelectorAll('#rowDate button[data-n]').forEach(b=>b.onclick=()=>{ S.N=+b.dataset.n; render(); });
+  document.querySelectorAll('#rowTime button[data-t]').forEach(b=>b.onclick=()=>{ S.t=+b.dataset.t; render(); });
+  $('speed').onchange=e=>{ S.speed=+e.target.value; };
+  $('place').onchange=e=>{ const [p,n]=e.target.value.split('|'); S.phi=+p; S.place=n; render(); };
+  $('detail').onchange=e=>{ S.detail=e.target.checked; render(); };
+  function setBig(on){ document.body.classList.toggle('stage-only',on); if(on) scrollTo(0,0); }
+  $('btnBig').onclick=()=>setBig(true); $('btnBack').onclick=()=>setBig(false);
+  $('btnFull').onclick=()=>{ const f=$('stageFig'); if(document.fullscreenElement){ document.exitFullscreen(); return; } if(document.fullscreenEnabled&&f.requestFullscreen){ f.requestFullscreen().catch(()=>setBig(true)); } else setBig(true); };
+  let last=null;
+  function loop(ts){ if(!S.playing){ last=null; return; } if(last==null) last=ts; const dt=(ts-last)/1000; last=ts;
+    if(S.mode==='year') S.N=(S.N+dt*365/20*S.speed)%365; else S.t=(S.t+dt*24/16*S.speed)%24;
+    render(); requestAnimationFrame(loop); }
+  $('btnPlay').onclick=()=>{ S.playing=!S.playing; $('btnPlay').textContent=S.playing?'⏸ 멈추기':'▶ 움직이기'; if(S.playing) requestAnimationFrame(loop); };
+  // 주소 뒤에 ?mode=day&n=171&t=12.5&detail=1&place=55.8|모스크바&play=1&stage=1 로 시작 상태를 정할 수 있어요
+  const Q=new URLSearchParams(location.search);
+  if(Q.get('n')) S.N=+Q.get('n'); if(Q.get('t')) S.t=+Q.get('t');
+  if(Q.get('detail')==='1'){ S.detail=true; $('detail').checked=true; }
+  if(Q.get('place')){ $('place').value=Q.get('place'); const [p,n]=Q.get('place').split('|'); S.phi=+p; S.place=n; }
+  if(Q.get('stage')==='1') document.body.classList.add('stage-only');
+  setMode(Q.get('mode')==='day'?'day':'year');
+  if(Q.get('play')==='1') $('btnPlay').click();
+})();
+</script>
+<!-- mak-home --><a href="../../" style="position:fixed;left:12px;bottom:12px;z-index:2147483000;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:22px;background:#232320;color:#efe6d6;font:14px/1 'Apple SD Gothic Neo','Noto Sans KR',sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.35);opacity:.92" title="나눔터 첫 화면으로" aria-label="나눔터 첫 화면으로">⌂ 나눔터</a><style>@media print{a[href="../../"]{display:none!important}}</style>
+</body>
+</html>
