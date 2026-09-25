@@ -15,30 +15,30 @@
       "쉬운 설명": "0이 있는 뺄셈 연습이에요. 계산하기 전에 확인할 것 4가지가 있어요."
     },
     {
-      "영상": "zero-sub-1-borrow-next-v1",
+      "영상": "zero-sub-1-borrow-next-v2",
       "학습지": "연산-0-낀-뺄셈-혼합",
-      "제목": "0 낀 뺄셈 1 — 0을 만나면 옆에서 빌려요 (1분 59초)",
+      "제목": "0 낀 뺄셈 1 — 0을 만나면 옆에서 빌려요 (1분 57초)",
       "대상": "초등 3~4학년·특수학급",
       "형식": "영상",
       "설명": "일의 자리에서 못 빼는데 십의 자리도 0이면, 한 칸 더 옆(백의 자리)에서 빌려 십의 자리를 10으로, 다시 9로 바꾸는 절차를 보여 준다. 300−174 · 306−9 시연 뒤 아이 차례 두 문제. 학습지 0 낀 뺄셈 회차와 짝.",
-      "길이": "1분 59초 · 720p · 3.9MB",
-      "파일 URL": "https://github.com/kor-sped/materials-site/releases/download/videos-v1/zero-sub-1-borrow-next-v1-720p.mp4",
+      "길이": "1분 57초 · 720p · 3.0MB",
+      "파일 URL": "https://github.com/kor-sped/materials-site/releases/download/videos-v2/zero-sub-1-borrow-next-v2-720p.mp4",
       "올린 날": "2026-09-25",
       "쉬운 설명": "0이 있어서 못 빼면, 옆으로 한 칸 더 가서 빌려요.",
-      "유튜브": "https://youtu.be/Hjf2ZcJjFTs"
+      "유튜브": "https://youtu.be/pqSjDfUYO7E"
     },
     {
-      "영상": "zero-sub-2-sign-first-align-v1",
+      "영상": "zero-sub-2-sign-first-align-v2",
       "학습지": "연산-0-낀-뺄셈-혼합",
-      "제목": "0 낀 뺄셈 2 — 부호 먼저, 끝 맞추기 (2분 8초)",
+      "제목": "0 낀 뺄셈 2 — 부호 먼저, 끝 맞추기 (2분 7초)",
       "대상": "초등 3~4학년·특수학급",
       "형식": "영상",
       "설명": "계산 전 자기 점검 네 가지(부호에 ○, 오른쪽 끝 맞추기, 위에서 아래로 — 밑이 커도 뒤집어 빼지 않기, 0은 옆에서 빌리기)를 덧셈·뺄셈이 섞인 문제로 연습한다. 930−7 · 46+528 등 시연 뒤 아이 차례 두 문제. 학습지 자기 점검 카드·덧뺄 혼합 회차와 짝.",
-      "길이": "2분 8초 · 720p · 4.3MB",
-      "파일 URL": "https://github.com/kor-sped/materials-site/releases/download/videos-v1/zero-sub-2-sign-first-align-v1-720p.mp4",
+      "길이": "2분 7초 · 720p · 3.3MB",
+      "파일 URL": "https://github.com/kor-sped/materials-site/releases/download/videos-v2/zero-sub-2-sign-first-align-v2-720p.mp4",
       "올린 날": "2026-09-25",
       "쉬운 설명": "계산하기 전에 부호를 먼저 보고, 오른쪽 끝을 맞춰 써요.",
-      "유튜브": "https://youtu.be/UWyTEt-1HwU"
+      "유튜브": "https://youtu.be/7OJXfwxRzgA"
     },
     {
       "파일": "연산-나눗셈-배수표-전략",
@@ -51,29 +51,29 @@
       "쉬운 설명": "나눗셈을 배수표로 쉽게 푸는 방법이에요."
     },
     {
-      "영상": "baesu-1-write-pick-subtract-v1",
+      "영상": "baesu-1-write-pick-subtract-v2",
       "학습지": "연산-나눗셈-배수표-전략",
-      "제목": "나눗셈 배수표 1 — 적고, 고르고, 빼기 (1분 57초)",
+      "제목": "나눗셈 배수표 1 — 적고, 고르고, 빼기 (2분)",
       "대상": "초등 4~5학년·특수학급",
       "형식": "영상",
       "설명": "머릿속 곱셈 대신 배수표를 더하기로 채우고, 넘지 않는 가장 큰 수를 골라 몫을 적고, 빼서 나머지를 구한다. 64÷19 · 75÷23 시연 뒤 89÷17 · 70÷16 아이 차례. 학습지 개념·1·2회차와 짝.",
-      "길이": "1분 57초 · 720p · 2.8MB",
-      "파일 URL": "https://github.com/kor-sped/materials-site/releases/download/videos-v1/baesu-1-write-pick-subtract-v1-720p.mp4",
+      "길이": "2분 · 720p · 2.9MB",
+      "파일 URL": "https://github.com/kor-sped/materials-site/releases/download/videos-v2/baesu-1-write-pick-subtract-v2-720p.mp4",
       "올린 날": "2026-09-24",
-      "유튜브": "https://youtu.be/ZqK_IvvEMg4",
+      "유튜브": "https://youtu.be/yIsncRJOkjc",
       "쉬운 설명": "배수표를 적고, 고르고, 빼면 나눗셈이 풀려요."
     },
     {
-      "영상": "baesu-2-estimate-check-v1",
+      "영상": "baesu-2-estimate-check-v2",
       "학습지": "연산-나눗셈-배수표-전략",
-      "제목": "나눗셈 배수표 2 — 어림하고, 검산하기 (2분)",
+      "제목": "나눗셈 배수표 2 — 어림하고, 검산하기 (1분 58초)",
       "대상": "초등 4~5학년·특수학급",
       "형식": "영상",
       "설명": "19를 20으로 어림해 몫을 먼저 짐작하고 배수표로 확인한 뒤, '나누는 수 × 몫 + 나머지 = 나누어지는 수'로 검산한다. 85÷19 · 90÷21 아이 차례, 64÷19 · 87÷25 검산. 학습지 3회차(선택 사용 + 검산)와 짝.",
-      "길이": "2분 · 720p · 3.0MB",
-      "파일 URL": "https://github.com/kor-sped/materials-site/releases/download/videos-v1/baesu-2-estimate-check-v1-720p.mp4",
+      "길이": "1분 58초 · 720p · 2.9MB",
+      "파일 URL": "https://github.com/kor-sped/materials-site/releases/download/videos-v2/baesu-2-estimate-check-v2-720p.mp4",
       "올린 날": "2026-09-24",
-      "유튜브": "https://youtu.be/YKp8soXPlV8",
+      "유튜브": "https://youtu.be/uPuqqjufe_I",
       "쉬운 설명": "어림으로 몫을 짐작하고, 검산으로 맞았는지 확인해요."
     }
   ]
