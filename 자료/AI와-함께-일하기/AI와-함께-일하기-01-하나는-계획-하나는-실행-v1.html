@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI와 함께 일하기 ① — 하나는 계획, 하나는 실행 — MAK 나눔터</title>
+<style>
+  /* ===== 기본 ===== */
+  :root {
+    --ink: #1a1a2e;          /* 본문 글자색 */
+    --accent: #1a56db;       /* 링크·강조 파랑 */
+    --soft: #f3f6fb;         /* 옅은 배경 */
+    --line: #d8dee8;         /* 경계선 */
+    --warn-bg: #fff8e6;      /* 확인 필요 배경 */
+    --warn-line: #e6c34a;
+    --note-bg: #fffbe0;      /* 메모 상자 */
+    --note-line: #e8d24a;
+    --red: #c0392b;          /* 나쁨·주의 */
+    --green: #1e8449;        /* 좋음 */
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0 auto;
+    padding: 24px 20px 96px;
+    max-width: 720px;
+    color: var(--ink);
+    font-family: "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+    line-height: 1.7;
+    background: #fff;
+  }
+  h1 { font-size: 1.7em; margin: 0 0 8px; }
+  h2 { font-size: 1.3em; margin: 48px 0 12px; padding-top: 8px; border-top: 2px solid var(--line); }
+  h3 { font-size: 1.1em; margin: 28px 0 8px; color: #10306e; }
+  h4 { font-size: 1em; margin: 20px 0 6px; }
+  a { color: var(--accent); }
+  code { background: #eef1f6; padding: 1px 5px; border-radius: 4px; font-size: .92em; }
+  pre { background: #f6f8fb; border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px; overflow-x: auto; font-size: .88em; line-height: 1.5; }
+  .subtitle { color: #667; margin: 0 0 24px; }
+
+  /* ===== 규칙1: 차례 ===== */
+  nav#toc {
+    background: var(--soft);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 24px 0 40px;
+  }
+  nav#toc strong { display: block; margin-bottom: 8px; }
+  nav#toc ol { margin: 0; padding-left: 22px; }
+  nav#toc ol ol { padding-left: 18px; font-size: .93em; }
+  nav#toc li { margin: 4px 0; }
+  nav#toc a { text-decoration: none; }
+  nav#toc a:hover { text-decoration: underline; }
+
+  /* ===== 규칙3: 고정 버튼 + 장 끝 링크 ===== */
+  .fab-wrap {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 100;
+  }
+  .fab {
+    display: flex; align-items: center; justify-content: center;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,.25);
+  }
+  .to-toc {
+    display: block;
+    text-align: right;
+    font-size: .9em;
+    margin: 16px 0 0;
+  }
+
+  /* ===== 규칙4: 그림·표 ===== */
+  figure { margin: 20px 0; }
+  figcaption { font-size: .88em; color: #667; margin-top: 6px; text-align: center; }
+  .table-wrap { overflow-x: auto; }        /* 휴대폰에서 넓은 표는 가로 스크롤 */
+  table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+  th, td { border: 1px solid var(--line); padding: 8px 12px; text-align: left; }
+  th { background: var(--soft); }
+  /* 흐름 다이어그램: flex 박스 + 화살표 */
+  .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 20px 0; }
+  .flow .step {
+    background: var(--soft);
+    border: 1.5px solid var(--accent);
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: .95em;
+  }
+  .flow .arrow { color: var(--accent); font-weight: bold; }
+
+  /* ===== 규칙5: 용어 툴팁 ===== */
+  a.term {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 2px dotted var(--accent);
+    position: relative;
+    cursor: help;
+  }
+  a.term:hover::after {
+    content: attr(data-tip);
+    position: absolute;
+    left: 50%; bottom: 130%;
+    transform: translateX(-50%);
+    background: var(--ink);
+    color: #fff;
+    font-size: .85em;
+    line-height: 1.4;
+    padding: 6px 10px;
+    border-radius: 6px;
+    white-space: normal;
+    width: max-content;
+    max-width: 240px;
+    z-index: 50;
+    pointer-events: none;
+  }
+  dl.glossary dt { font-weight: bold; margin-top: 16px; }
+  dl.glossary dd { margin: 4px 0 0 0; padding-left: 12px; border-left: 3px solid var(--line); }
+
+  /* ===== 규칙6: 확인 필요 ===== */
+  #confirm { background: var(--warn-bg); border: 1.5px solid var(--warn-line); border-radius: 10px; padding: 4px 20px 16px; }
+  #confirm pre {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 14px;
+    overflow-x: auto;
+    font-size: .9em;
+    line-height: 1.5;
+  }
+
+  /* ===== 규칙7: 보충 상자 (접힘) — 독자 질문에 대한 보충 설명. 요약 1~2줄만 보이고 누르면 펼쳐진다 ===== */
+  details.sup { background: #fff3a6; border-left: 4px solid #e0b800; border-radius: 6px; padding: 8px 14px; margin: 12px 0 18px; }
+  details.sup summary { cursor: pointer; list-style: none; line-height: 1.6; }
+  details.sup summary::-webkit-details-marker { display: none; }
+  details.sup summary::after { content: "▸ 더 보기"; color: #7a6200; font-size: .85em; margin-left: 8px; white-space: nowrap; }
+  details.sup[open] summary::after { content: "▾ 접기"; }
+  details.sup .sup-q { font-size: .85em; color: #7a6200; margin: 8px 0 4px; }
+  details.sup .sup-body { border-top: 1px dashed #e0b800; margin-top: 6px; padding-top: 6px; }
+  details.sup ul { margin: 6px 0 0; padding-left: 20px; }
+  details.sup li { margin: 3px 0; }
+
+  /* ===== 규칙8: 설명서·강의 정리 구성 요소 (2026-09-06, 6강 문서에서 가져옴) ===== */
+  blockquote { margin: 16px 0; padding: 10px 16px; background: var(--soft); border-left: 4px solid var(--accent); border-radius: 0 8px 8px 0; }
+  blockquote .who { display: block; font-size: .85em; color: #667; margin-top: 4px; }   /* 인용 화자 */
+  .pri { display: inline-block; font-size: .8em; padding: 0 8px; border-radius: 10px; background: var(--accent); color: #fff; margin-left: 6px; vertical-align: middle; } /* 장 제목 우선순위 배지 */
+  .pri.p1 { background: var(--red); }
+  .note { background: var(--note-bg); border: 1.5px solid var(--note-line); border-radius: 8px; padding: 10px 14px; margin: 14px 0; } /* 메모·주의 상자 */
+  .note strong:first-child { display: block; margin-bottom: 4px; }
+  .frame { border: 1.5px solid var(--line); border-radius: 10px; padding: 12px 16px; margin: 14px 0; } /* 단계 상자 */
+  .frame h4 { margin-top: 8px; }
+  .frame h4:first-child { margin-top: 0; }
+  .label { font-size: .8em; color: #fff; background: #556; padding: 1px 8px; border-radius: 10px; }
+  .boxes { display: flex; flex-wrap: wrap; gap: 12px; margin: 20px 0; } /* 나란한 비교 카드 */
+  .box { flex: 1 1 200px; border: 1.5px solid var(--accent); border-radius: 10px; padding: 12px 16px; background: var(--soft); }
+  .box h4 { margin: 0 0 8px; font-size: 1em; }
+  .box ul { margin: 0; padding-left: 18px; font-size: .95em; }
+  .box.bad { border-color: var(--red); background: #fdf3f2; }
+  .box.good { border-color: var(--green); background: #f0faf3; }
+  .flow .step.now { background: var(--accent); color: #fff; }   /* 흐름 중 현재 단계 강조 */
+  ul.check { list-style: none; padding-left: 0; }               /* 체크리스트 */
+  ul.check li { padding-left: 28px; position: relative; margin: 6px 0; }
+  ul.check li::before { content: "☐"; position: absolute; left: 4px; color: var(--accent); }
+
+  /* ===== 인쇄 ===== */
+  @media print {
+    .fab-wrap { display: none; }             /* 고정 버튼 숨김 */
+    body { padding-bottom: 24px; max-width: none; }
+    a { color: #1a3a8a; }
+    figure, table, .flow, .boxes, #confirm pre, blockquote, .frame, .note { break-inside: avoid; }
+    h2 { break-after: avoid; }
+    a.term:hover::after { display: none; }
+    details.sup summary::after { display: none; }
+  }
+  .meta { font-size:.85em; color:#556; margin:-4px 0 10px; }
+  blockquote.req { font-family: ui-monospace, Menlo, monospace; font-size:.9em; line-height:1.6; white-space:pre-wrap; }
+  blockquote.req::before { content:"요청문"; display:block; font-family:inherit; font-size:.8em; color:#667; margin-bottom:4px; }
+  .pillars { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:10px; }
+  .pillars .box h4 { font-size:1em; }
+  .base { margin-top:10px; text-align:center; background:#556; color:#fff; border-radius:8px; padding:6px; font-size:.92em; }
+  .flow .step small { display:block; color:#556; font-size:.82em; }
+  table.tbl { width:100%; border-collapse:collapse; margin:10px 0 16px; font-size:.95em; }
+  table.tbl th, table.tbl td { border:1px solid #ccd; padding:7px 9px; text-align:left; vertical-align:top; }
+  table.tbl th { background:#eef1f7; }
+  ul.check { list-style:none; padding-left:4px; }
+  ul.check li::before { content:none; }
+  ul.check li { padding-left:0; }
+  .flow .step.now small { color:#e8ecf7; }
+  ul.check li { margin:8px 0; }
+  ul.check input { width:1.15em; height:1.15em; margin-right:8px; vertical-align:-2px; }
+  #toc > ol { list-style:none; padding-left:6px; }
+</style>
+</head><body>
+<!-- 독자: 교직원 + 일반 독자 (독자별-문서 점검 2026-09-28) -->
+<h1 id="top">AI와 함께 일하기 ① — 하나는 계획, 하나는 실행</h1>
+<p class="subtitle">특수교사가 두 달 동안 클로드 코드를 쓰며 배운 것. 예시는 교실 이야기지만, 문서를 쓰고 되풀이하고 고치는 일이라면 어디든 옮겨 쓸 수 있습니다. (2026-09-28)</p>
+<div class="note"><strong>읽는 법</strong>처음부터 읽어도 좋고, 아래 "이럴 땐 여기부터"에서 지금 막힌 곳을 골라 읽어도 좋습니다. 활동은 모두 실명과 사진 없이 합니다.</div>
+<nav id="toc"><strong>차례</strong><ol><li><a href="#entry">이럴 땐 여기부터</a></li><li><a href="#intro">도입</a><ol><li><a href="#intro-1">엄두도 못 내던 일에서 시작했다</a></li><li><a href="#intro-2">불안이 없어서 쓰는 게 아니다</a></li><li><a href="#intro-3">시간이 아니라 엄두가 줄었다</a></li><li><a href="#intro-4">아이들이 먼저 묻기 시작했다</a></li><li><a href="#intro-5">맡기지 않는 일, 아직 못 맡기는 일</a></li><li><a href="#intro-6">하나는 계획, 하나는 실행</a></li><li><a href="#intro-7">내일 아침 10분이 있다면</a></li><li><a href="#intro-8">두 달 전의 나에게</a></li></ol></li><li><a href="#s1">1. 세 가지가 전부였습니다</a></li><li><a href="#p1">기둥 1. 채팅에서 폴더로 — 클로드 코드</a><ol><li><a href="#p1-1">불안해도 쓰는 법: 경계부터 정하기</a></li><li><a href="#act-A">활동 A. 나의 규칙 세 줄 쓰기 (10분)</a></li><li><a href="#p1-3">기억은 AI가 아니라 파일에 있다</a></li><li><a href="#act-B">활동 B. 끝내는 한 마디, 다시 여는 한 마디 (10분)</a></li><li><a href="#p1-5">되풀이는 스킬로 굳힌다</a></li><li><a href="#act-C">활동 C. 되풀이하는 일 찾고 사다리 한 칸 오르기 (20분)</a></li></ol></li><li><a href="#p2">기둥 2. 계획하고, 해 보고, 고치기</a><ol><li><a href="#p2-1">요청은 대화하듯 자세하게</a></li><li><a href="#act-D">활동 D. 요청 한 줄을 다섯 부분으로 다시 쓰기 (10분)</a></li><li><a href="#act-E">활동 E. 끝에 &quot;내가 놓친 게 뭐야?&quot; 붙이기 (5분)</a></li><li><a href="#p2-4">말을 문서로, 문서를 믿을 수 있게</a></li><li><a href="#act-F">활동 F. 회의 녹음 한 개를 회의록으로 (15분)</a></li><li><a href="#act-G">활동 G. 기록 정리에 분류 단계 끼우기 (20분)</a></li><li><a href="#p2-7">사례: 읽기 병목을 없앤 도구</a></li><li><a href="#act-H">활동 H. 읽다 막힌 곳에 표시하고 한 번에 묻기 (15분)</a></li></ol></li><li><a href="#p3">기둥 3. 한 단어에서 나눔터까지 — 하이퍼프레임</a><ol><li><a href="#p3-1">작은 것 하나부터</a></li><li><a href="#p3-2">도구는 내 용도를 찾아야 산다</a></li><li><a href="#p3-3">영상은 열고, 연습판은 되풀이한다</a></li><li><a href="#act-I">활동 I. 10초 영상 하나부터 (30분)</a></li><li><a href="#act-J">활동 J. 자주 막히는 것 하나로 연습판 목업 만들기 (30분)</a></li><li><a href="#p3-6">하나를 끝까지</a></li></ol></li><li><a href="#s7">7. 넘어진 곳이 지도가 됩니다</a></li><li><a href="#s8">8. 모른다는 것도 몰랐던 것들</a></li><li><a href="#end">맺음: 저도 아직 배우는 중입니다</a></li><li><a href="#todo">돌아가서 할 일</a></li><li><a href="#glossary">용어 풀이</a></li></ol></nav>
+<h2 id="entry">이럴 땐 여기부터</h2>
+<p>처음부터 읽어도 좋고, 지금 막힌 곳부터 읽어도 좋습니다.</p>
+<table class="tbl"><tr><th>이럴 땐</th><th>여기</th></tr><tr><td>AI를 어디서부터 써야 할지 모르겠어요</td><td><a href="#s1">1장</a></td></tr><tr><td>개인정보가 걱정돼서 선뜻 못 쓰겠어요</td><td><a href="#p1">기둥 1</a> · <a href="#act-A">활동 A</a></td></tr><tr><td>AI가 어제 한 일을 기억하지 못해요</td><td><a href="#act-B">활동 B</a></td></tr><tr><td>같은 설명을 매번 되풀이해요</td><td><a href="#act-C">활동 C</a></td></tr><tr><td>원하는 답이 잘 나오지 않아요</td><td><a href="#act-D">활동 D</a> · <a href="#act-E">활동 E</a></td></tr><tr><td>회의·상담 기록 정리가 밀려 있어요</td><td><a href="#act-F">활동 F</a> · <a href="#act-G">활동 G</a></td></tr><tr><td>AI가 만든 문서를 다 읽지 못하겠어요</td><td><a href="#act-H">활동 H</a></td></tr><tr><td>영상이나 연습 화면을 만들고 싶어요</td><td><a href="#act-I">활동 I</a> · <a href="#act-J">활동 J</a></td></tr></table>
+<a class="to-toc" href="#toc">↑ 차례로</a>
+<h2 id="intro">도입</h2>
+<p>"선생님, 그러면 태양은 몇 살이에요? 태양도 죽어요?"</p>
+<p>지구의 자전과 공전을 화면으로 보던 한 아이가 물었습니다. 이 질문을 듣기까지 두 달쯤 걸렸어요.</p>
+<h3 id="intro-1">엄두도 못 내던 일에서 시작했다</h3>
+<p>시작은 점심시간이었습니다. 6학년 일반 학생들과 하는 수어 수업에 쓸 홈페이지를 만들고 싶었어요. AI가 있기 전에는 엄두도 못 냈던 일입니다. 클로드 채팅으로 자료를 모아 공부하고, 묻고, 자료를 올렸습니다. 책을 읽고 정리하는 웹페이지도 만들었고요.</p>
+<p>저는 당연히 그렇게 하는 거라고 생각했어요. 하나씩 물어보고, 제가 고쳐 가면서요. 시간이 오래 걸렸습니다. 모르니까 사진을 계속 찍어 올리고, 답을 들으며 해 나갔죠.</p>
+<h3 id="intro-2">불안이 없어서 쓰는 게 아니다</h3>
+<p>홍싸부에게 <a class="term" href="#g0" data-tip="채팅 창이 아니라 내 컴퓨터의 폴더 안에서 파일을 직접 읽고 고치는 클로드.">클로드 코드</a> 쓰는 법을 들었을 때, 처음에는 꺼려졌습니다. 정보 때문이에요. 학교 일과 개인 메모, 자료가 드롭박스로 이어져 있으니 AI가 마음대로 돌아다니게 둘 수는 없었습니다. 그렇다고 안 쓸 수도 없었고요.</p>
+<p>그래서 이 컴퓨터를 클로드 코드 전용으로 만들었습니다. 드롭박스에는 필요한 것만 넣고, 메모는 아이클라우드 연동을 없앴어요. 하나씩 없애는 중입니다. 그래도 불안한 건 사실이에요. 클로드가 다 볼 수 있고 고칠 수도 있다는 것. 저뿐 아니라 모든 선생님이 불안해하는 점일 겁니다.</p>
+<p>그런데 한 번 쓰고 나니 정신을 못 차리겠더라고요. 말로 시키고, 필요한 것은 직접 해 달라고 할 수 있으니 편하고 좋았습니다.</p>
+<h3 id="intro-3">시간이 아니라 엄두가 줄었다</h3>
+<p>우리 아이들은 수업에서 못 하는 부분이 저마다 달라요. 한 목표에 닿기까지 시간도 자료도 많이 필요합니다. 시중 참고서와 교과서로는 다 감당할 수 없어서 책을 많이 샀어요. 저작권 때문에 복사는 하지 않으려 했고요. 그러다 보니 참고서는 쌓이는데, 정작 틀린 부분을 복습할 자료는 없었습니다. 전 학년 교과서를 다 가져와 필요한 쪽을 찢어서 아이 맞춤 교과서를 만든 적도 있어요.</p>
+<p>이제는 그 일을 할 수 있습니다. 덧셈에서 걸리는 아이에게도, 나눗셈이 안 되는 아이에게도 같은 학습지를 되풀이해 주지 않아요. 수 자릿값이나 시계 읽기처럼 종이로는 한계가 있던 것도 HTML 학습지로 원하는 만큼 연습하고 복습합니다. 분수처럼 눈으로 보여 줘야 하는 것도 만들고요.</p>
+<p>교육 일지도 그렇습니다. 매일 쓰다 보면 대충 적는 날이 늘었어요. 분석해서 다음 수업에 써야 하는데, 모아 두기만 했죠. 아직 편하게 쓸 정도는 아니지만, 어떻게 정리하고 분석해서 수업에 쓸지 감은 옵니다.</p>
+<p>굳이 말하면 하루 걸릴 일을 한 시간 안에 합니다. 하지만 제게 더 큰 건 시간이 아니었어요. 엄두가 나지 않던 일을 할 수 있게 된 것. 그리고 원하는 것을 만들 수 있다는 자신감입니다.</p>
+<h3 id="intro-4">아이들이 먼저 묻기 시작했다</h3>
+<p>예전에는 칠판에 쓰거나, 앞에 앉아 책을 돌려 보며 설명했습니다. 지금은 큰 수부터 두 자리 수까지 한 화면에서, 아이마다 다른 수준으로 읽어요. 11시 50분을 모형 시계로 하나하나 설명하던 것도 이제는 그 장면만 따로 보여 줄 수 있습니다.</p>
+<p>눈으로 보니 질문이 좋아졌어요. 태양의 나이를 물은 아이처럼요. 이제 아이들이 먼저 "이건 어떻게 해요?" 하고 묻고, 더 보여 달라고 나섭니다.</p>
+<h3 id="intro-5">맡기지 않는 일, 아직 못 맡기는 일</h3>
+<p>맡기지 않는 일과 아직 못 맡기는 일은 다릅니다.</p>
+<p>맡기지 않는 일은 학교 일이에요. 아이들 자료를 넣는 엑셀과 공문은 손으로 하는 게 마음 편합니다. 개인정보가 담긴 문서라 가명으로 바꿀 수도 없고요. 일지도 조심스럽게 씁니다.</p>
+<p>아직 못 맡기는 일은 <a class="term" href="#g12" data-tip="아이가 목표를 지금 어느 수준까지 해내는지 살펴보는 평가.">수행수준평가</a>, 진단 검사, 유창성 지원, 글쓰기 지원이에요. 제가 아직 개념과 방법을 정확히 찾지 못해 정리가 안 되었기 때문입니다.</p>
+<h3 id="intro-6">하나는 계획, 하나는 실행</h3>
+<p>동료 선생님께 권하고 싶은 것은 두 가지입니다. 하나는 계획, 하나는 실행.</p>
+<p>계획은 <a class="term" href="#g10" data-tip="특수교육을 받는 학생마다 학기마다 세우는 개인별 교육 계획. 목표와 방법을 아이에게 맞춘다.">개별화교육계획</a> 작성 지원 프로그램이에요. 지도서를 모두 펴 놓거나 한글 파일을 보며 하던 일을 HTML 문서 하나로 합니다. 일반 학급에서도 모든 아이에게 <a class="term" href="#g11" data-tip="교육과정에서 학년·과목마다 정해 둔, 배우고 나서 할 수 있어야 하는 것.">성취기준</a>이 있고, 아이마다 성취수준은 다르죠. 그러니 성취기준을 보는 일은 모든 선생님께 필요합니다.</p>
+<p>실행은 이 나눔터예요. 나눔터는 단순히 나누는 곳이 아니라, 수업을 하는 곳이 되어 가고 있습니다.</p>
+<h3 id="intro-7">내일 아침 10분이 있다면</h3>
+<p>고민하지 말고, 대화하듯이 글로 자세하게 써서 요구해 보세요. 그래야 좋은 결과를 얻습니다. 마지막에 "내가 놓친 게 뭐야?" 하고 묻는 것도 잊지 마세요.</p>
+<p>수업을 녹음해서 내가 어떻게 가르치는지 돌아보는 데 써 봐도 좋습니다.</p>
+<h3 id="intro-8">두 달 전의 나에게</h3>
+<p>참, 고생했다. 잘 모르는 것을 밤새워 하느라 손과 머리가 고생했다. 하지만 그 과정이 있었기에 지금의 작업 방식이 더 애틋하고 마음에 든다. 고마워.</p>
+<a class="to-toc" href="#toc">↑ 차례로</a>
+<h2 id="s1">1. 세 가지가 전부였습니다</h2>
+<p>제가 두 달 동안 배운 것을 한 문장으로 줄이면 이렇습니다. AI와 나 사이의 병목을 줄이는 일. 병목은 병의 목처럼 좁아서 막히는 곳을 말해요.</p>
+<p>들여다보니, 일이 막힌 진짜 까닭은 AI가 모자라서가 아니었습니다. 제가 말을 덜 했거나, AI가 어제 한 일을 몰랐거나, AI가 만든 것을 제가 다 읽지 못해서 막혔죠. 그 막힌 곳을 넓혀 준 것이 세 가지였어요.</p>
+<figure id="fig1"><div class="pillars">
+<div class="box"><h4>① 클로드 코드</h4>채팅이 아니라 폴더에서 일한다</div>
+<div class="box"><h4>② 계획하고, 해 보고, 고친다</h4>한 번에 완성하지 않는다</div>
+<div class="box"><h4>③ 하이퍼프레임</h4>한 단어가 길을 열었다</div></div>
+<div class="base">바닥에 깔린 것: 개인정보 보호 · 결정은 사람이</div>
+<figcaption>그림 1. 세 기둥</figcaption></figure>
+<p>첫째는 클로드 코드입니다. 채팅 창에서 묻고 답하던 것을, 내 컴퓨터의 폴더 안에서 함께 일하는 것으로 바꿨어요. 둘째는 일하는 순서입니다. 계획을 세우고, 작게 직접 해 보고, 고칩니다. 셋째는 <a class="term" href="#g9" data-tip="웹페이지(HTML)로 장면을 짜서 영상으로 찍어 내는 공개(오픈소스) 도구.">하이퍼프레임</a>이라는 한 단어입니다. 이 단어를 찾아보다가 영상을 만들게 되었고, 영상을 나눌 곳을 찾다가 이 나눔터가 생겼어요.</p>
+<figure id="fig2"><div class="flow"><span class="step">① 채팅<small>묻고 답하기</small></span><span class="arrow">→</span><span class="step">② 폴더와 문서<small>문서가 기억이다</small></span><span class="arrow">→</span><span class="step">③ 녹음과 목업<small>말하면 문서, 그림 먼저</small></span><span class="arrow">→</span><span class="step">④ 규칙을 스킬로<small>되풀이를 굳힌다</small></span><span class="arrow">→</span><span class="step">⑤ 영상과 연습판<small>한 단어에서 시작</small></span><span class="arrow">→</span><span class="step">⑥ 나눔터<small>하나를 끝까지</small></span></div><figcaption>그림 2. 지나온 길 — 두 달, 여섯 걸음</figcaption></figure>
+<p>저는 이것을 교사의 일에 썼습니다. 학습지, 수업 영상, 관찰 기록, 계획서. 하지만 다른 일도 크게 다르지 않을 거예요. 문서를 쓰고, 되풀이하고, 사람에게 보여 주고, 고치는 일이라면 어디든 같은 병목이 있으니까요. 아래 예시가 교실 이야기여도, 읽으면서 내 일의 무엇에 해당하는지 바꿔 보세요.</p>
+<p>모든 분이 ⑥까지 오실 필요는 없습니다. ①에서 ②로만 옮겨도 "AI가 기억을 못 해요"라는 불편은 대부분 풀립니다. 징검다리처럼 필요한 돌까지만 건너면 돼요.</p>
+<p>각 기둥에는 직접 해 보는 활동을 붙였습니다. 모든 활동은 실명과 사진 없이 합니다.</p>
+<a class="to-toc" href="#toc">↑ 차례로</a>
+<h2 id="p1">기둥 1. 채팅에서 폴더로 — 클로드 코드</h2>
+<p>채팅은 들여다볼 수 없는 상자입니다. 폴더에서 일하면 AI가 만든 모든 것이 내 눈에 보여요.</p>
+<p>채팅에서 저는 사진을 찍어 올리고, 답을 옮겨 적고, 다음 날 어제 한 일을 다시 설명했습니다. 클로드 코드는 달랐어요. 폴더 안의 파일을 직접 읽고, 만들고, 고칩니다. 저는 말로 시키고, 확인하고, 결정만 하면 됐죠.</p>
+<p>많은 분이 오해하는 것이 있습니다. 클로드 코드는 개발자의 도구라고 생각하죠. 하지만 제가 쓴 것은 코드가 아니라 문서와 결정이었습니다. 코드는 AI가 쓰고, 무엇을 왜 만들지는 제가 정했어요.</p>
+<h3 id="p1-1">불안해도 쓰는 법: 경계부터 정하기</h3>
+<p><a href="#intro">도입</a>에서 말했듯, 저도 처음엔 꺼렸습니다. AI가 폴더를 마음대로 돌아다니며 볼 수 있으니까요. 그래서 쓰기 전에 경계부터 정했어요. 이 컴퓨터는 클로드 코드 전용으로 두고, 필요한 것만 넣었습니다.</p>
+<p>그리고 규칙을 파일로 적었습니다. 흥미로운 것은 규칙이 실제로 사람을 지켰다는 점이에요. '설마 없겠지' 했던 채팅 기록을 폴더로 옮기며 검사해 보니 학생 실명이 열 명 나왔습니다. 규칙을 적어 두고 옮길 때마다 검사하게 한 뒤로는 놓치지 않아요.</p>
+<h3 id="act-A">활동 A. 나의 규칙 세 줄 쓰기 (10분)</h3>
+<p class="meta">채팅 프로젝트 지침 또는 폴더의 지침 파일</p>
+<p><a class="term" href="#g3" data-tip="대화 내내 깔려 있는 규칙. 사실·취향은 지침에, 절차는 <a class="term" href="#g4" data-tip="되풀이하는 절차를 파일로 굳혀 둔 것. 이름을 부르거나 상황이 맞으면 AI가 꺼내 쓴다.">스킬</a>에 둔다.">지침</a>은 미리 만드는 것이 아니라 문제가 생겼을 때 넣는 것입니다.</p>
+<p>첫 번째 줄은 누구에게나 같기를 권합니다. 내 일에서 새면 안 되는 정보를 적으세요.</p>
+<blockquote class="req">1. 학생 실명·생년월일·진단명은 쓰지 않는다. 가명이나 이니셜만 쓴다.</blockquote>
+<p>교실이 아니라면 고객 이름, 환자 정보, 계약 금액이 그 자리에 들어갑니다.</p>
+<p>두 번째와 세 번째 줄은 내 불편에서 나옵니다. AI와 일하다 불편했던 순간을 떠올려 한 줄로 쓰세요.</p>
+<blockquote class="req">2. (내 불편) 예: 답은 짧게, 표는 3칸 넘지 않게.
+3. (내 불편) 예: 내가 정한 것은 다시 반박하지 않는다.</blockquote>
+<p>해 본 뒤 스스로 물어보세요. '다음 대화에서 규칙을 말하지 않아도 지켜지나?', '안 지켜진다면 문장이 모호하지 않나?'</p>
+<h3 id="p1-3">기억은 AI가 아니라 파일에 있다</h3>
+<p>AI는 기억하지 않습니다. 말할 때마다 대화 전체를 처음부터 다시 읽어요. 그러니 기억하게 하려면 파일에 써야 합니다.</p>
+<p>숫자로 보면 분명합니다. 긴 대화는 한 마디를 할 때마다 새 대화의 열두 배쯤을 다시 읽고 있었어요.</p>
+<figure id="fig3"><svg viewBox="0 0 640 150" width="100%" role="img" aria-label="긴 대화 81만 2천 토큰, 새 대화 6만 6천 토큰">
+<text x="0" y="40" font-size="15" fill="#1a1a2e">긴 대화</text><rect x="80" y="22" width="540" height="28" rx="4" fill="#c0392b"/><text x="610" y="42" font-size="14" fill="#fff" text-anchor="end">81만 2천</text>
+<text x="0" y="100" font-size="15" fill="#1a1a2e">새 대화</text><rect x="80" y="82" width="44" height="28" rx="4" fill="#1e8449"/><text x="132" y="102" font-size="14" fill="#1a1a2e">6만 6천 — 약 12분의 1</text>
+</svg><figcaption>그림 3. 한 마디를 할 때마다 AI가 다시 읽는 양 (토큰, 실제 숫자)</figcaption></figure>
+<p>그날 제가 겪은 실수 셋이 모두 긴 대화에서 나왔습니다. 대화가 꽉 차면 저절로 줄여 주니 괜찮다고 믿었거든요. 하지만 줄이는 동안 세부가 사라졌습니다. 그 뒤로는 한 대화에 한 일감만 둡니다.</p>
+<h3 id="act-B">활동 B. 끝내는 한 마디, 다시 여는 한 마디 (10분)</h3>
+<p class="meta">클로드 코드</p>
+<p>일을 멈출 때 한 마디, 다시 열 때 한 마디만 하세요.</p>
+<blockquote class="req">(멈출 때) 오늘 한 것을 정리해서 상태 파일에 적어 줘.
+6줄 요약, 멈춘 곳, 다음에 할 일(맥락 없이 읽어도 바로 할 수 있게).</blockquote>
+<blockquote class="req">(다시 열 때, 새 대화에서) 상태 파일을 읽고 6줄로 요약해 줘. 다음 할 일이 뭐야?</blockquote>
+<p>여기서 중요한 것은 "새 대화에서"입니다. 일감이 바뀌면 끝내는 한 마디를 하고 새 대화를 여세요.</p>
+<p>해 본 뒤 스스로 물어보세요. '새 대화에서 "다음 할 일이 뭐야?"만 물어도 제대로 답하나?'</p>
+<p>답한다면 이제 그 일은 잊어도 됩니다. 일은 대화가 아니라 파일에 있으니까요.</p>
+<h3 id="p1-5">되풀이는 스킬로 굳힌다</h3>
+<p>같은 설명을 두 번 했다면, 그 일은 굳힐 때가 된 것입니다.</p>
+<p>스킬은 되풀이하는 절차를 파일로 굳혀 둔 것입니다. 저는 프로젝트를 여닫는 방법을 스킬로 만들었어요. 폴더 모양, 끝낼 때 정리하기, 다시 열 때 요약하기, 개인정보 검사까지요. 읽기 좋은 문서를 만드는 규칙도 스킬로 굳혔습니다. 이제 "읽기 좋은 문서로" 한 마디면 차례와 그림과 용어 풀이가 있는 문서가 나와요. 같은 설명을 되풀이하지 않게 된 것. 제게는 이것이 가장 큰 시간 절약이었습니다.</p>
+<h3 id="act-C">활동 C. 되풀이하는 일 찾고 사다리 한 칸 오르기 (20분)</h3>
+<p class="meta">채팅 → 클로드 코드</p>
+<p>첫 번째는 찾기입니다. 지난 한 주에 두 번 넘게 한 일을 적어 보세요.</p>
+<p>두 번째는 거르기입니다. 세 가지를 물어요. 되풀이되나? 순서가 같나? 바뀌는 것은 입력뿐인가? 셋 다 "예"인 일 하나만 남깁니다.</p>
+<p>세 번째는 한 칸 오르기입니다. 그 일을 아래 사다리에서 딱 한 칸만 올려요.</p>
+<figure id="fig4"><div class="flow"><span class="step">말로</span><span class="arrow">→</span><span class="step now">요청문 파일</span><span class="arrow">→</span><span class="step">지침</span><span class="arrow">→</span><span class="step">스킬</span><span class="arrow">→</span><span class="step">앱</span></div><figcaption>그림 4. 자동화 사다리 — 한 번에 한 칸만. 대부분의 일은 "요청문 파일"에서 충분하다</figcaption></figure>
+<p>처음부터 큰일을 맡기면 오히려 헤맵니다. 요청문 파일부터 해 보세요. 오늘 쓴 요청을 메모장에 저장해 두고, 다음 주에 그대로 붙여 넣는 것입니다. 대부분의 일은 이 두 번째 칸에서 충분해요.</p>
+<p>자동화하지 않는 일도 있습니다. 판단 기준이 매번 바뀌는 일, 밖으로 나가는 최종 문장, 5분도 안 걸리는 일. 이런 일은 사다리에 올리지 않습니다.</p>
+<p>해 본 뒤 스스로 물어보세요. '다음 주에 이 요청문을 정말 다시 꺼냈나?', '꺼낼 때 고친 곳이 있었나?'</p>
+<p>폴더에서 일하는 것이 처음엔 낯섭니다. 그건 뒤처진 게 아니에요. 오히려 AI가 한 일을 내 눈으로 보기 시작했다는 뜻입니다.</p>
+<a class="to-toc" href="#toc">↑ 차례로</a>
+<h2 id="p2">기둥 2. 계획하고, 해 보고, 고치기</h2>
+<p>한 번에 완성하려 하지 않습니다. 계획을 세우고, 작게 직접 해 보고, 보이는 것을 보고 다시 계획합니다.</p>
+<p>AI 덕분에 만드는 값이 싸졌습니다. 그러니 오래 고민하기보다 싸게 만들어 보고 판단하는 편이 낫죠. 이때 쓰는 것이 <a class="term" href="#g5" data-tip="진짜처럼 보이는 시험판. 판단하려고 싸게 만들어 보는 것.">목업</a>입니다. 목업은 진짜처럼 보이는 시험판이에요. 계획이 글로만 있을 때는 보이지 않던 것이 목업에서 보이니까요.</p>
+<p>제가 처음 해 본 것은 개별화교육계획을 쓰는 흐름이었습니다. 협의 녹음 두 개를 넣고, 하루 만에 화면 목업을 만들었어요. 보고, 고치고, 다시 계획하기를 다섯 번 했습니다. 영상을 만들 때도 같았어요. 큰 영상을 고치기 전에 3초짜리 시험판부터 만들어 원인을 찾았습니다.</p>
+<p>이 기둥은 네 가지로 나뉩니다. 요청하기, 모르는 것 묻기, 믿을 수 있게 하기, 그리고 읽기.</p>
+<h3 id="p2-1">요청은 대화하듯 자세하게</h3>
+<p>요청을 다시 쓰는 것도 기술입니다. <a href="#intro">도입</a>에서 "대화하듯이 글로 자세하게 써서 요구해 보세요"라고 했죠.</p>
+<h3 id="act-D">활동 D. 요청 한 줄을 다섯 부분으로 다시 쓰기 (10분)</h3>
+<p class="meta">채팅</p>
+<p>첫 번째는 평소에 쓴 짧은 요청 하나를 고르는 것입니다. 어제 AI에게 한 말이면 충분해요.</p>
+<p>두 번째는 그 요청을 다섯 부분으로 나눠 다시 쓰는 것입니다. 역할, 맥락, 과제, 형식, 검증.</p>
+<p>세 번째는 두 답을 나란히 놓고 비교하는 것입니다.</p>
+<p>전: "받아올림 있는 덧셈 학습지 만들어 줘"</p>
+<p>후: 이렇게 써 보세요.</p>
+<blockquote class="req">역할: 너는 초등 특수학급 수학 수업을 돕는 조교야.
+맥락: 3학년 아이인데 한 자리 수 덧셈은 되고, 받아올림에서 10을 빼먹어.
+과제: 받아올림 있는 두 자리 + 한 자리 덧셈 연습 문제 8개를 만들어 줘.
+형식: A4 한 장, 글자 크게, 문제마다 칸 넓게, 답은 따로.
+검증: 이 아이에게 맞지 않을 수 있는 점이 있으면 먼저 말해 줘.</blockquote>
+<p>해 본 뒤 스스로 물어보세요. '두 답은 어디서 달라졌나?', '맥락에 무엇을 더 넣을 수 있었나?'</p>
+<p>차이는 대개 맥락에서 납니다. 맥락이 요청의 절반이니까요.</p>
+<h3 id="act-E">활동 E. 끝에 "내가 놓친 게 뭐야?" 붙이기 (5분)</h3>
+<p class="meta">채팅</p>
+<p>모르는 것에는 두 가지가 있습니다. 모르는 줄 아는 것, 그리고 모른다는 것조차 모르는 것. 뒤의 것은 혼자서는 찾을 수 없어요. 그래서 AI에게 거꾸로 묻습니다.</p>
+<p>첫 번째는 이미 세운 계획 하나를 적는 것입니다. 행사, 새 규칙, 새 프로젝트 무엇이든 좋습니다.</p>
+<p>두 번째는 그 끝에 아래 두 줄을 붙이는 것입니다.</p>
+<blockquote class="req">이 계획에서 내가 모르고 있다는 것조차 모르는 것을 찾아 줘.
+"6개월 뒤 이 계획이 실패했다면 왜일까?"로 생각해서 5개만.</blockquote>
+<p>세 번째는 나온 다섯 개를 '알던 것'과 '처음 듣는 것'으로 나누는 것입니다.</p>
+<p>처음 듣는 것이 하나라도 있으면 이 두 줄은 제 몫을 한 것입니다. 저는 계획마다 이 두 줄을 붙여요.</p>
+<h3 id="p2-4">말을 문서로, 문서를 믿을 수 있게</h3>
+<p>받아 적느라 대화를 놓치지 않으려면, 녹음하고 문서는 나중에 만드세요.</p>
+<p>저는 배우는 자리를 모두 녹음만 했습니다. 끝나고 녹음을 넣어 정리했죠. 열한 번의 만남이 모두 정리본으로 남았고, 배운 것은 300항목의 목록이 되었어요. 이 글도 그 목록에서 나왔습니다.</p>
+<h3 id="act-F">활동 F. 회의 녹음 한 개를 회의록으로 (15분)</h3>
+<p class="meta">채팅(파일 첨부) 또는 클로드 코드</p>
+<p>첫 번째는 약속입니다. 10분 회의를 시작하기 전에 녹음 동의를 받아요. 다른 사람 이름이 나오면 가명으로 말하기로 먼저 정합니다.</p>
+<p>두 번째는 녹음과 받아쓰기입니다. 녹음을 글로 받아쓴 파일(<a class="term" href="#g6" data-tip="녹음을 글로 받아쓴 것.">전사문</a>)을 만드세요.</p>
+<p>세 번째는 요청입니다.</p>
+<blockquote class="req">이 전사문으로 회의록을 만들어 줘.
+정한 것 / 아직 안 정한 것 / 누가 언제까지 할 일, 세 칸으로.
+전사가 잘못 들은 것 같은 곳은 [확인]으로 표시해.</blockquote>
+<p>해 본 뒤 스스로 물어보세요. '[확인] 표시가 몇 개인가?', '정한 것과 안 정한 것이 섞이지 않았나?'</p>
+<p>AI에게 기록을 주고 "종합해 줘"라고 하면 어떻게 될까요? 90%는 좋습니다. 나머지 10%는 AI가 그럴듯하게 추측해서 채워요. 문제는 그 10%가 어디인지 모른다는 데 있습니다. 그래서 중간에 사람이 보는 단계를 하나 끼웁니다.</p>
+<h3 id="act-G">활동 G. 기록 정리에 분류 단계 끼우기 (20분)</h3>
+<p class="meta">채팅 · 가상 자료로만</p>
+<figure id="fig5"><div class="flow"><span class="step">기록</span><span class="arrow">→</span><span class="step">AI: 분류만</span><span class="arrow">→</span><span class="step now">사람: 분류표 승인</span><span class="arrow">→</span><span class="step">AI: 분류에 근거해서만 작성</span><span class="arrow">→</span><span class="step now">사람: 확정</span></div><figcaption>그림 5. 기록 정리 흐름 — 진한 칸이 사람이 하는 일</figcaption></figure>
+<p>첫 번째는 분류만 시키는 것입니다. 저는 가상 학생 "가온(가명)"의 2주 관찰 메모 10줄로 연습했어요. 상담 기록, 민원 기록, 현장 메모도 같습니다.</p>
+<blockquote class="req">이 메모를 행동·학습·관계 세 갈래로만 분류해. 의견은 쓰지 마.</blockquote>
+<p>두 번째는 사람이 분류표를 고치는 것입니다. 잘못 들어간 줄은 옮기고, 빠진 줄은 넣으세요.</p>
+<p>세 번째는 승인한 분류표만 근거로 쓰게 하는 것입니다.</p>
+<blockquote class="req">내가 승인한 분류표에 있는 사실만 근거로 3문장 의견을 써.
+근거가 없는 추측은 [추론]이라고 표시해.</blockquote>
+<p>해 본 뒤 스스로 물어보세요. '[추론]이 붙은 문장은 몇 개인가?', '그 문장을 뒷받침할 기록이 내게 있나?'</p>
+<p>[추론]이 붙은 문장이 바로 그 10%입니다. 결론은 여전히 사람의 몫이에요. 사람이 확정하기 전에는 모두 초안입니다.</p>
+<h3 id="p2-7">사례: 읽기 병목을 없앤 도구</h3>
+<p>AI와 일하면 일이 줄어드는 것이 아니라 일의 모양이 바뀝니다. 만드는 일은 AI가 하고, 저는 하루 종일 읽고 결정해요. 그러다 보니 새 병목이 생겼습니다. AI가 만드는 속도를 제가 읽는 속도가 따라가지 못했죠.</p>
+<p>클로드 코드를 알려 준 분이 무엇보다 먼저 만들라고 한 것이 있습니다. "생산성 도구를 가장 먼저 만들어라." 만드는 도구가 아니라 읽는 도구를 먼저 만들라는 말이었어요.</p>
+<p>그래서 읽는 도구를 만들었습니다. 컴퓨터에 까는 작은 앱이에요. 종이로 뽑지 않고, AI가 만든 HTML 문서를 이 앱에서 바로 읽습니다. 읽다가 막히거나 고칠 곳이 보이면 그 자리에 <a class="term" href="#g7" data-tip="문서의 한 자리에 붙이는 요청 쪽지. 질문·수정·결정·메모 네 가지.">티켓</a>을 붙여요. 질문, 수정, 결정, 메모 네 가지로요. 클로드는 티켓을 읽고 내용을 고치거나 예시를 덧붙여, 문서를 완전한 문서로 만듭니다. 나중에 문서를 다시 열어도 티켓이 그 자리에 남아 있어요. 처음부터 다시 읽지 않아도 되죠.</p>
+<p>들여다보니, 진짜 병목은 만드는 속도가 아니라 읽고 결정하는 속도였습니다. 그리고 이 도구는 지금도 고칩니다. 일주일 동안 내 도구를 한 번도 고치지 않았다면, 불편을 습관처럼 참고 있는 것이니까요.</p>
+<h3 id="act-H">활동 H. 읽다 막힌 곳에 표시하고 한 번에 묻기 (15분)</h3>
+<p class="meta">누구나 · 도구 없이도</p>
+<p>도구가 없어도 방법은 같습니다.</p>
+<p>첫 번째는 표시하기입니다. AI가 만든 긴 문서를 읽으며 막힌 곳마다 번호를 붙이세요. 그 자리에서 묻지 않습니다.</p>
+<p>두 번째는 종류 나누기입니다. 번호마다 질문, 수정, 결정, 메모 중 하나를 붙여요.</p>
+<p>세 번째는 한 번에 보내기입니다.</p>
+<blockquote class="req">아래 표시를 문서에 반영해 줘.
+질문은 그 자리 아래에 짧은 보충으로, 수정은 원문을 직접 고치고,
+결정은 나에게 선택지를 물어 줘. 메모는 그대로 두고 목록만 만들어.</blockquote>
+<p>해 본 뒤 스스로 물어보세요. '하나씩 물을 때보다 몇 번 덜 오갔나?', '어떤 종류의 표시가 가장 많았나?'</p>
+<p>가장 많은 표시가 내 일의 병목입니다. 그 병목부터 도구로 만들면 돼요.</p>
+<p>계획대로 되지 않는 것은 실패가 아닙니다. 오히려 싸게 만들어 보고 일찍 알게 된 것이에요.</p>
+<a class="to-toc" href="#toc">↑ 차례로</a>
+<h2 id="p3">기둥 3. 한 단어에서 나눔터까지 — 하이퍼프레임</h2>
+<p>한 단어가 길을 열기도 합니다. 모르는 이름을 들으면, 짐작하지 말고 찾아보세요.</p>
+<p>"요즘 강의는 하이퍼프레임을 쓴다. 찾아봐라." 클로드 코드를 알려 준 분이 제 발표 자료를 보고 한 말입니다. 하이퍼프레임은 웹페이지(HTML)로 장면을 짜서 영상으로 찍어 내는 공개(오픈소스) 도구예요. 클로드 코드에 붙여 쓸 수 있습니다.</p>
+<p>처음 만든 것은 8초짜리 표지였습니다. 그다음은 교직원 연수 영상 17분. 제 목소리를 복제해 읽게 했어요. 그다음은 아이들 시계 읽기 영상 2분이었습니다. 아이들 반응이 좋아 편을 늘리고, 손으로 만지는 연습판까지 만들었죠. 만든 것을 나눌 곳이 필요했습니다. 그렇게 이 나눔터가 생겼어요. 한 단어에서 시작한 길입니다.</p>
+<figure id="fig6"><div class="flow"><span class="step">"찾아봐라"<small>한 단어</small></span><span class="arrow">→</span><span class="step">8초 표지</span><span class="arrow">→</span><span class="step">17분<small>연수 영상</small></span><span class="arrow">→</span><span class="step">2분<small>시계 영상</small></span><span class="arrow">→</span><span class="step">연습판<small>손으로 만진다</small></span><span class="arrow">→</span><span class="step now">나눔터<small>나눌 곳</small></span></div><figcaption>그림 6. 한 단어에서 나눔터까지 — 작은 것 하나를 내놓고 반응을 보며 한 걸음씩</figcaption></figure>
+<h3 id="p3-1">작은 것 하나부터</h3>
+<p>처음부터 시리즈를 계획했다면 어땠을까요? 아마 아이들이 보기도 전에 지쳤을 겁니다. 2분짜리 하나를 먼저 내놓고 반응을 봤기 때문에 다음이 보였어요.</p>
+<h3 id="p3-2">도구는 내 용도를 찾아야 산다</h3>
+<p>문제는 처음 목표가 틀렸다는 데 있었습니다. 저는 90분 연수를 하이퍼프레임으로 만들려 했어요. 그런데 저는 연수에서 대본 없이 화면을 보며 말합니다. 대본이 없으면 영상도 없죠. 그래서 목표를 접고 "대본이 있는 짧은 영상"으로 바꿨습니다. 90분 연수는 원래대로 발표 자료로 했고요.</p>
+<p>화려한 도구가 아니라 내 쓰임에 맞는 도구. 그 쓰임을 찾으니 도구가 살아났습니다.</p>
+<h3 id="p3-3">영상은 열고, 연습판은 되풀이한다</h3>
+<p>흥미로운 것은 가장 센 자료가 영상이 아니었다는 점입니다. 아이들은 영상은 딴짓하며 넘기기도 했어요. 그런데 숫자를 끊어 읽는 연습판에서는 손을 멈추지 않았습니다. 그 뒤로 역할을 나눴어요. 영상은 개념을 여는 데, 연습판은 되풀이하는 데 씁니다.</p>
+<p>움직임도 조심합니다. 움직이는 화면은 이해를 돕기도 하지만 시선을 빼앗기도 하니까요. 움직임은 이해를 도울 때만 씁니다.</p>
+<h3 id="act-I">활동 I. 10초 영상 하나부터 (30분)</h3>
+<p class="meta">클로드 코드</p>
+<p>첫 번째는 부탁하기입니다. 설치부터 맡기지 말고 먼저 설명을 들으세요.</p>
+<blockquote class="req">하이퍼프레임으로 10초짜리 표지 영상을 만들고 싶어.
+먼저 필요한 설치와 순서를 쉬운 말로 설명해 줘. 내가 좋다고 하면 시작해.</blockquote>
+<p>두 번째는 표지 한 장입니다. 제목 한 줄, 배경 하나, 글자가 천천히 나타나는 움직임 하나면 충분해요. 한글 글꼴이 깨지면 글꼴 파일을 넣어 달라고 하세요.</p>
+<p>세 번째는 한 곳만 고치기입니다. "글자를 조금 더 천천히"처럼 한 가지만 말하고 다시 만들어 보세요.</p>
+<p>해 본 뒤 스스로 물어보세요. '이 도구가 내 일의 어디에 맞나?', '영상이 필요한가, 손으로 만지는 화면이 필요한가?'</p>
+<h3 id="act-J">활동 J. 자주 막히는 것 하나로 연습판 목업 만들기 (30분)</h3>
+<p class="meta">채팅(아티팩트) 또는 클로드 코드</p>
+<p>영상이 필요 없는 일도 많습니다. 되풀이해야 하는 것은 한 화면짜리 연습판이 낫습니다.</p>
+<p>첫 번째는 고르기입니다. 자주 틀리는 것 하나만 고르세요. 제 경우엔 시계의 짧은 바늘이었어요.</p>
+<p>두 번째는 한 화면으로 만들기입니다. 처음에는 어설퍼도 됩니다. 목업은 판단하는 도구니까요.</p>
+<blockquote class="req">초등 2학년이 시계의 짧은 바늘을 읽는 연습판을 HTML 한 파일로 만들어 줘.
+- 한 화면에 한 가지만 묻는다.
+- 정답을 바로 보여 주지 않는다. 힌트 단추를 누를 때마다 한 단계씩:
+  "짧은 바늘을 봐요" → "바늘 끝의 숫자를 짚어요" → "함께 세요"
+- 글자 크게(24px 이상), 자동 재생 없음, 틀려도 다시 할 수 있게.
+- 이름을 묻거나 저장하지 않는다.</blockquote>
+<p>세 번째는 쓸 사람 앞에서 보여 주기입니다. 반응을 한 줄 적어 두세요.</p>
+<p>해 본 뒤 스스로 물어보세요. '쓰는 사람 눈에 이해되나, 만든 사람 눈에만 화려한가?', '어디서 멈췄나?'</p>
+<h3 id="p3-6">하나를 끝까지</h3>
+<p>AI로 일을 벌이기가 쉬워졌습니다. 그만큼 하나를 끝까지 만드는 일은 더 어려워졌어요. 그래서 저는 나눔터를 끝까지 만들어 보기로 했습니다. 올리고, 의견을 받고, 고쳐서 다시 올립니다.</p>
+<p>끝까지 만들어 봐야 보이는 것이 있습니다. 모르는 한 단어를 찾아본 것이 헛걸음이 아니었듯이요.</p>
+<a class="to-toc" href="#toc">↑ 차례로</a>
+<h2 id="s7">7. 넘어진 곳이 지도가 됩니다</h2>
+<p>목업 네 판이 한순간에 사라졌습니다.</p>
+<p>AI가 고친 것을 되돌리고 싶었는데, 되돌릴 장치가 없었어요. 들여다보니 진짜 까닭은 AI의 실수가 아니었습니다. 제가 판을 저장해 두지 않았던 거죠. 그 뒤로는 일을 시작하자마자 판을 저장하는 도구(<a class="term" href="#g8" data-tip="파일의 판을 저장해 두고 언제든 되돌릴 수 있게 하는 도구.">깃</a>)부터 켭니다.</p>
+<p>제가 돌아간 길을 세 갈래로 묶었습니다. 같은 곳에서 넘어지지 않으시길 바라며 적어요.</p>
+<table class="tbl" id="tbl-falls"><caption style="caption-side:bottom;font-size:.85em;color:#556;padding-top:4px">표 1. 넘어진 곳과 그다음</caption><tr><th>갈래</th><th>넘어진 것</th><th>그다음</th></tr><tr><th rowspan="2" style="white-space:nowrap">기억</th><td>대화가 꽉 차면 저절로 줄여 주니 괜찮다고 믿었습니다. 줄이는 동안 세부가 사라졌어요.</td><td>일감마다 새 대화.</td></tr><tr><td>한 폴더에서 두 작업을 동시에 돌렸습니다. 파일이 부딪혔어요.</td><td>한 폴더에 한 대화.</td></tr><tr><th rowspan="2" style="white-space:nowrap">도구</th><td>되돌리기 장치 없이 목업을 고쳤습니다. 네 판이 사라졌어요.</td><td>시작하자마자 깃.</td></tr><tr><td>화려한 영상 도구를 90분 연수에 쓰려 했습니다. 맞지 않았어요.</td><td>도구는 내 용도를 찾아야 삽니다.</td></tr><tr><th rowspan="3" style="white-space:nowrap">요청</th><td>처음 듣는 낱말을 비슷한 말로 짐작했습니다. 하루를 헛짚었어요.</td><td>모르면 이름부터 되묻기.</td></tr><tr><td>문서에 그림을 요청하지 않았습니다. 글만 나왔어요.</td><td>AI는 준 만큼만 똑똑합니다.</td></tr><tr><td>내가 푸는 방식대로 학습지를 만들었습니다. 쓰는 사람의 방식이 아니었어요.</td><td>쓰는 사람 눈으로, 목표 하나.</td></tr></table>
+<p>처음에 사진을 찍어 올리며 하나씩 묻던 것도 헛수고가 아닙니다. 오히려 지금의 방식을 알아보게 한 길이에요. 넘어진 자리는 적어 두고, 적은 것은 규칙으로 굳히세요.</p>
+<a class="to-toc" href="#toc">↑ 차례로</a>
+<h2 id="s8">8. 모른다는 것도 몰랐던 것들</h2>
+<p>활동 E의 질문을 제게 던져 보면 이런 답이 나옵니다. 모두 제가 실제로 부딪혔던 것입니다. 여섯 갈래로 묶었어요.</p>
+<figure id="fig7"><div class="pillars"><div class="box"><h4>기억과 맥락</h4>다시 읽는다<br>줄이기 ≠ 새로 시작<br>폴더 하나에 주제 하나</div><div class="box"><h4>믿음과 확인</h4>자신감 ≠ 정확도<br>셀 수 있으면 계산<br>&quot;어떻게&quot;는 맡기기</div><div class="box"><h4>개인정보와 책임</h4>없다고 확인하기 전엔 있다<br>파일째 올라간다<br>받으면 운영자</div><div class="box"><h4>파일과 도구</h4>되돌리기 장치<br>동기화 폴더 조심<br>HTML 한 장</div><div class="box"><h4>글과 독자</h4>주어 확인<br>독자마다 다른 문서<br>양은 값이 아니다</div><div class="box"><h4>배움과 태도</h4>무엇을 왜<br>읽고 결정하느라 지친다<br>불편을 알아차리는 힘</div></div><figcaption>그림 7. 여섯 갈래 한눈에</figcaption></figure>
+<p><strong>기억과 맥락</strong></p>
+<ul><li><strong>AI는 기억하는 것이 아니라, 말할 때마다 처음부터 다시 읽습니다.</strong> 그래서 대화가 길어질수록 한 마디의 값이 커지고, 긴 대화의 가운데는 흐려져요.</li><li><strong>대화가 꽉 차서 저절로 줄어드는 것은 새로 시작하는 것과 다릅니다.</strong> 말은 통하는데 세부가 빠져 있어요. 일감이 바뀌면 스스로 새 대화를 여는 편이 낫습니다.</li><li><strong>폴더 하나에 주제 하나를 두면 AI가 덜 헤맵니다.</strong> AI는 폴더를 기준으로 읽으니까요. 글의 문단을 나누는 기준과 같습니다. 같은 맥락이면 합치고, 다른 맥락이면 나눠요.</li></ul>
+<p><strong>믿음과 확인</strong></p>
+<ul><li><strong>AI의 자신감과 정확도는 다른 것입니다.</strong> 근거가 모자라도 같은 말투로 말해요. 그래서 근거가 있는 문장과 추측한 문장을 나눠 표시하게 합니다.</li><li><strong>규칙으로 셀 수 있는 일은 AI가 아니라 계산에 맡깁니다.</strong> 맞힌 문제 수는 계산이 늘 같은 답을 내요. AI는 "왜 막혔을까" 같은 판단에 씁니다.</li><li><strong>방법을 너무 자세히 시키면 오히려 결과가 나빠지기도 합니다.</strong> "무엇을, 왜"는 분명히 말하고 "어떻게"는 맡기세요. 다만 개인정보 규칙처럼 어기면 무언가 망가지는 규칙은 남깁니다.</li></ul>
+<p><strong>개인정보와 책임</strong></p>
+<ul><li><strong>개인정보는 "없다"고 확인하기 전까지는 있습니다.</strong> 사진 속 이름표, 파일 이름, 녹음 속 호명에도 숨어 있어요.</li><li><strong>파일을 AI에 올리면 그 안의 모든 것이 함께 올라갑니다.</strong> 한 쪽만 쓰려 해도 문서 전체가 넘어가요. 이름을 바꾼 사본이나 필요한 부분만 옮겨 쓰세요.</li><li><strong>다른 사람의 자료를 받는 순간, 만든 사람이 아니라 운영자가 됩니다.</strong> 보관·삭제·유출에 책임이 생겨요. 공무원이나 회사원이라면 돈을 받기 전에 겸직 규정부터 보세요.</li></ul>
+<p><strong>파일과 도구</strong></p>
+<ul><li><strong>되돌리기 장치(깃)가 없으면 AI가 고친 것을 되돌릴 수 없습니다.</strong> 용어 다섯 개면 충분하고, AI에게 "저장소 만들어 줘"라고 하면 돼요.</li><li><strong>드롭박스·아이클라우드 같은 동기화 폴더는 AI 작업 폴더와 부딪힙니다.</strong> AI가 파일을 쓰는 도중에 동기화가 끼어들면 충돌 사본이 생겨요.</li><li><strong>앱보다 웹페이지(HTML) 한 장이 더 멀리 갑니다.</strong> 주소만 누르면 열리니까요. 다만 회사망이나 학교망에서 막힐 수 있으니 한 번은 그곳에서 열어 보세요.</li></ul>
+<p><strong>글과 독자</strong></p>
+<ul><li><strong>AI가 쓴 한국어의 가장 큰 문제는 주어가 빠지는 것입니다.</strong> 읽는 사람의 머리가 한 번 더 일해요. 밖으로 나가는 글은 문장마다 "누가?"를 확인하세요.</li><li><strong>같은 내용도 읽는 사람이 바뀌면 다른 문서가 되어야 합니다.</strong> 누구에게는 그림이, 누구에게는 근거가 필요해요. "이건 학부모용이야"라고 말하는 것만으로 결과가 달라집니다.</li><li><strong>AI로 뽑은 글의 양은 값이 아닙니다.</strong> 많이 만들 수 있게 되어 오히려 하나를 빼는 일이 귀해졌어요.</li></ul>
+<p><strong>배움과 태도</strong></p>
+<ul><li><strong>귀해지는 것은 만드는 기술이 아니라, 무엇을 왜 만들지 정하는 일입니다.</strong> 코드는 AI가 써도, 현장에 무엇이 필요한지는 그 일을 하는 사람이 압니다.</li><li><strong>AI와 일하면 생각보다 지칩니다.</strong> 하루 내내 읽고 결정하니까요. 그래서 읽고 결정하는 도구를 편하게 만드는 것이 핵심 기술이 됩니다.</li><li><strong>불편을 알아차리는 힘은 사람을 관찰하는 힘과 같은 근육입니다.</strong> 제게는 아이를 관찰하는 힘이었어요. 도구는 쓰면서 고칩니다.</li></ul>
+<a class="to-toc" href="#toc">↑ 차례로</a>
+<h2 id="end">맺음: 저도 아직 배우는 중입니다</h2>
+<p>저도 아직 해 보지 못한 것이 많습니다.</p>
+<p>수업에서 아이들 반응을 녹음해 자료를 고치는 일은 아직 한 번도 돌려 보지 못했어요. 쓰는 사람이 AI와 직접 대화하게 할지도 아직 답을 정하지 못했습니다. 평가와 진단은 <a href="#intro">도입</a>에서 말했듯 아직 맡기지 못하는 일이고요.</p>
+<p>그래도 괜찮습니다. 배우는 중이라서 어디가 불편한지 잘 보이니까요.</p>
+<p>내일 아침에는 <a href="#act-D">활동 D</a> 하나만 해 보세요. 요청 한 줄을 다섯 부분으로 다시 쓰는 데 10분이면 됩니다. 그리고 마지막에 이렇게 물어보세요. "내가 놓친 게 뭐야?"</p>
+<a class="to-toc" href="#toc">↑ 차례로</a>
+<h2 id="todo">돌아가서 할 일</h2>
+<p>하나만 해도 충분합니다. 한 칸씩 채워 보세요.</p>
+<ul class="check"><li><label><input type="checkbox"> 새면 안 되는 정보를 규칙 첫 줄로 적었다 (<a href="#act-A">활동 A</a>)</label></li><li><label><input type="checkbox"> 일감이 바뀔 때 끝내는 한 마디를 하고 새 대화를 열었다 (<a href="#act-B">활동 B</a>)</label></li><li><label><input type="checkbox"> 어제 쓴 요청 하나를 다섯 부분으로 다시 썼다 (<a href="#act-D">활동 D</a>)</label></li><li><label><input type="checkbox"> 계획 하나 끝에 "내가 놓친 게 뭐야?"를 붙였다 (<a href="#act-E">활동 E</a>)</label></li><li><label><input type="checkbox"> 되풀이하는 일 하나를 사다리 한 칸 올렸다 (<a href="#act-C">활동 C</a>)</label></li></ul>
+<a class="to-toc" href="#toc">↑ 차례로</a>
+<h2 id="glossary">용어 풀이</h2><dl class="glossary"><dt id="g0">클로드 코드</dt><dd>채팅 창이 아니라 내 컴퓨터의 폴더 안에서 파일을 직접 읽고 고치는 클로드.</dd><dt id="g1">토큰</dt><dd>AI가 글을 읽고 쓰는 단위. 대략 글자 조각. 많이 읽을수록 비용과 시간이 든다.</dd><dt id="g2">대화(세션)</dt><dd>한 번 이어지는 대화. 새 대화는 빈 상태에서 파일을 읽고 시작한다.</dd><dt id="g3">지침</dt><dd>대화 내내 깔려 있는 규칙. 사실·취향은 지침에, 절차는 스킬에 둔다.</dd><dt id="g4">스킬</dt><dd>되풀이하는 절차를 파일로 굳혀 둔 것. 이름을 부르거나 상황이 맞으면 AI가 꺼내 쓴다.</dd><dt id="g5">목업</dt><dd>진짜처럼 보이는 시험판. 판단하려고 싸게 만들어 보는 것.</dd><dt id="g6">전사문</dt><dd>녹음을 글로 받아쓴 것.</dd><dt id="g7">티켓</dt><dd>문서의 한 자리에 붙이는 요청 쪽지. 질문·수정·결정·메모 네 가지.</dd><dt id="g8">깃</dt><dd>파일의 판을 저장해 두고 언제든 되돌릴 수 있게 하는 도구.</dd><dt id="g9">하이퍼프레임</dt><dd>웹페이지(HTML)로 장면을 짜서 영상으로 찍어 내는 공개(오픈소스) 도구.</dd><dt id="g10">개별화교육계획</dt><dd>특수교육을 받는 학생마다 학기마다 세우는 개인별 교육 계획. 목표와 방법을 아이에게 맞춘다.</dd><dt id="g11">성취기준</dt><dd>교육과정에서 학년·과목마다 정해 둔, 배우고 나서 할 수 있어야 하는 것.</dd><dt id="g12">수행수준평가</dt><dd>아이가 목표를 지금 어느 수준까지 해내는지 살펴보는 평가.</dd></dl><a class="to-toc" href="#toc">↑ 차례로</a>
+<div class="fab-wrap"><a class="fab" href="#toc" title="차례로 가기">☰</a><a class="fab" href="#top" title="맨 위로">↑</a></div>
+<!-- mak-home --><a href="../../" style="position:fixed;left:12px;bottom:12px;z-index:2147483000;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:22px;background:#232320;color:#efe6d6;font:14px/1 'Apple SD Gothic Neo','Noto Sans KR',sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.35);opacity:.92" title="나눔터 첫 화면으로" aria-label="나눔터 첫 화면으로">⌂ 나눔터</a><style>@media print{a[href="../../"]{display:none!important}}</style>
+<!--gc--><script>window.goatcounter={path:function(p){try{return decodeURIComponent(p)}catch(e){return p}}}</script><script data-goatcounter="https://mak.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body></html>
