@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>독서 카드함 소개</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<style>
+:root{
+  --paper:#FAF7F0; --card:#FFFDF7; --ink:#282318; --sub:#6E6653;
+  --rule:#E7E0D0; --hl:#FFE87A;
+  --acc:#A9711C; --acc-soft:#F3E6CD; --acc-deep:#6F4A0F;
+  --disp:'Gowun Batang','Apple SD Gothic Neo',serif;
+  --body:'Pretendard Variable',Pretendard,-apple-system,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.85;word-break:keep-all}
+a{color:var(--acc-deep)}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px;border-radius:4px}
+
+.series{background:#F1EDE2;border-bottom:1px solid var(--rule);padding:12px 16px}
+.series-in{max-width:860px;margin:0 auto;font-size:12px;letter-spacing:.12em;color:var(--sub)}
+
+.hero{background:repeating-linear-gradient(to bottom,transparent 0 35px,#E9E3D3 35px 36px),var(--card);border-bottom:1px solid var(--rule);padding:52px 16px 44px}
+.hero-in{max-width:860px;margin:0 auto;padding-left:26px;border-left:3px solid var(--acc)}
+.vol-tag{display:inline-block;background:var(--acc);color:#fff;font-weight:700;font-size:13px;letter-spacing:.14em;padding:6px 16px 7px;border-radius:8px 8px 8px 2px;margin-bottom:18px}
+h1{font-family:var(--disp);font-weight:700;font-size:clamp(26px,5.2vw,38px);line-height:1.38;margin-bottom:14px}
+.hl{background:linear-gradient(transparent 62%,var(--hl) 62%)}
+.lede{color:var(--sub);font-size:17px;max-width:660px}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.chip{font-size:12.5px;background:var(--acc-soft);color:var(--acc-deep);padding:5px 12px;border-radius:99px;font-weight:600}
+.open{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.open a{display:inline-block;text-decoration:none;font-weight:700;font-size:15px;padding:11px 20px;border-radius:10px;background:var(--acc);color:#fff}
+.open a.ghost{background:var(--card);color:var(--acc-deep);border:1.5px solid var(--acc)}
+
+.wrap{max-width:860px;margin:0 auto;padding:8px 16px 60px}
+.toc{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:24px 26px;margin:34px 0 10px}
+.toc h2{font-family:var(--disp);font-size:18px;margin-bottom:14px}
+.toc ol{list-style:none}
+.toc li{display:flex;align-items:baseline;gap:10px;padding:7px 0;border-bottom:1px dotted var(--rule);font-size:15.5px}
+.toc li:last-child{border-bottom:none}
+.toc .no{flex:none;min-width:44px;font-weight:700;color:var(--acc);font-size:13px}
+.toc a{text-decoration:none;color:var(--ink)}
+.toc a:hover{color:var(--acc-deep);text-decoration:underline}
+.toc .tm{margin-left:auto;flex:none;font-size:12px;color:var(--sub)}
+
+.sec{margin-top:62px;padding-left:26px;border-left:3px solid var(--acc-soft)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;color:var(--acc);margin-bottom:8px}
+h2.head{font-family:var(--disp);font-size:clamp(21px,3.6vw,27px);line-height:1.4;margin-bottom:16px}
+h3{font-family:var(--disp);font-size:18px;margin:28px 0 10px}
+p{margin-bottom:14px}
+p.mute{color:var(--sub);font-size:15px}
+ul.plain{margin:0 0 16px 22px}
+ul.plain li{margin-bottom:9px}
+.to-toc{display:block;text-align:right;font-size:13.5px;margin-top:18px;text-decoration:none}
+
+.lesson-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:12px;overflow:hidden;margin:16px 0 22px}
+.lesson-info div{background:var(--card);padding:12px 14px}
+.lesson-info .k{font-size:11.5px;font-weight:700;letter-spacing:.1em;color:var(--acc);margin-bottom:4px}
+.lesson-info .v{font-size:14.5px}
+
+.steps{counter-reset:st;list-style:none;margin:18px 0}
+.steps>li{counter-increment:st;position:relative;padding:0 0 22px 50px}
+.steps>li::before{content:counter(st);position:absolute;left:0;top:2px;width:34px;height:34px;border-radius:10px;background:var(--acc);color:#fff;font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center}
+.steps>li::after{content:"";position:absolute;left:17px;top:42px;bottom:4px;width:2px;background:var(--acc-soft)}
+.steps>li:last-child::after{display:none}
+.steps p{font-size:15.5px;margin-bottom:8px}
+.ui{display:inline-block;background:#fff;border:1px solid #CFC7B4;border-bottom-width:2.5px;border-radius:8px;padding:1px 10px 2px;font-size:14px;font-weight:600;color:#3A342A;white-space:nowrap}
+
+.done{background:var(--acc-soft);border-radius:12px;padding:13px 16px;margin:14px 0;font-size:15px}
+.done::before{content:"✔ 확인";font-weight:700;color:var(--acc-deep);margin-right:8px}
+.tip{display:flex;gap:10px;background:var(--acc-soft);border-radius:12px;padding:14px 16px;margin:18px 0;font-size:15px}
+.tip .i{flex:none;font-weight:700;color:var(--acc-deep)}
+.warn{display:flex;gap:10px;background:#FBEDE4;border:1px solid #E8C9B0;border-radius:12px;padding:14px 16px;margin:18px 0;font-size:15px}
+.warn .i{flex:none;font-weight:700;color:#9A5220}
+
+/* 카드 한 장 그림 */
+.cardfig{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:18px 20px;box-shadow:0 2px 0 var(--rule)}
+.cardfig .row{display:flex;gap:12px;padding:8px 0;border-top:1px dotted var(--rule);font-size:15px}
+.cardfig .row:first-child{border-top:none}
+.cardfig .k{flex:none;width:9.5em;font-weight:700;color:var(--acc-deep)}
+.cap{font-size:13.5px;color:var(--sub);text-align:center;margin:8px 0 18px}
+
+/* 흐름 그림 */
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:18px 0 6px}
+.flow .st{background:var(--card);border:1.5px solid var(--acc);border-radius:10px;padding:8px 14px;font-size:14.5px;line-height:1.5;text-align:center}
+.flow .st.me{background:var(--acc-soft)}
+.flow .ar{color:var(--acc);font-weight:700}
+
+/* 깊이 세 칸 */
+.three{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:16px 0}
+.three>div{background:var(--card);border:1px solid var(--rule);border-top:3px solid var(--acc);border-radius:12px;padding:12px 16px;font-size:15px}
+.three b{display:block;font-family:var(--disp);font-size:17px;margin-bottom:4px}
+
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14.5px;background:var(--card);border-radius:12px;overflow:hidden}
+th{background:var(--acc-soft);color:var(--acc-deep);text-align:left;font-weight:700;padding:11px 14px}
+td{padding:11px 14px;border-top:1px solid var(--rule);vertical-align:top}
+.check{list-style:none;margin:14px 0}
+.check li{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px dotted var(--rule)}
+.check input{margin-top:6px;accent-color:var(--acc);width:17px;height:17px;flex:none}
+
+/* 용어 툴팁 · 용어집 */
+a.term{color:var(--acc-deep);text-decoration:none;border-bottom:2px dotted var(--acc);position:relative;cursor:help}
+a.term:hover::after{content:attr(data-tip);position:absolute;left:50%;bottom:130%;transform:translateX(-50%);background:var(--ink);color:#fff;font-size:13px;line-height:1.5;padding:7px 11px;border-radius:8px;width:max-content;max-width:240px;z-index:50;pointer-events:none}
+dl.glossary dt{font-weight:700;margin-top:16px}
+dl.glossary dd{margin:4px 0 0;padding-left:12px;border-left:3px solid var(--acc-soft);font-size:15px}
+
+/* 고정 단추 */
+.fab-wrap{position:fixed;right:16px;bottom:16px;display:flex;flex-direction:column;gap:8px;z-index:100}
+.fab{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:var(--acc);color:#fff;font-size:19px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+
+footer{max-width:860px;margin:0 auto;padding:26px 16px 46px;color:var(--sub);font-size:13px;border-top:1px solid var(--rule)}
+@media(max-width:560px){.hero-in,.sec{padding-left:18px}.toc .tm{display:none}.cardfig .row{flex-direction:column;gap:0}}
+@media print{.series,.fab-wrap,.to-toc,.open{display:none}body{background:#fff}.hero{background:#fff}.sec,table,.cardfig,.flow{break-inside:avoid}a.term:hover::after{display:none}}
+</style>
+</head>
+<body>
+
+<nav class="series" aria-label="자리">
+  <div class="series-in">MAK 나눔터 · 앱·웹 · 읽기·공부</div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-in">
+    <span class="vol-tag">웹앱 소개</span>
+    <h1>독서 카드함 —<br><span class="hl">읽고, 덮고, 내 말로</span> 한 장</h1>
+    <p class="lede">책을 다 읽고 나면 "좋았다"만 남을 때가 많아요. 독서 카드함은 정해진 질문에 답하며 읽은 것을 카드 한 장에 남기게 도와줍니다. 설치 없이 휴대폰과 컴퓨터에서 같은 기록을 봐요. 혼자 쓰는 독서 노트이면서, 모임 사람들과 함께 보는 서재입니다.</p>
+    <div class="meta">
+      <span class="chip">무료 · 광고 없음</span>
+      <span class="chip">설치 없음 (웹)</span>
+      <span class="chip">이메일 · 구글 · 카카오 로그인</span>
+      <span class="chip">필수 칸은 제목 하나</span>
+    </div>
+    <div class="open">
+      <a href="https://kor-sped.github.io/reading-cards/" target="_blank" rel="noopener">독서 카드함 열기 ↗</a>
+      <a class="ghost" href="https://kor-sped.github.io/reading-cards/study-guide.html" target="_blank" rel="noopener">책 정리하는 방법 ↗</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<nav class="toc" id="toc" aria-label="차례">
+  <h2>차례</h2>
+  <ol>
+    <li><span class="no">1</span><a href="#ch1">어떤 앱인가 — 덮고, 내 말로 쓰는 카드</a><span class="tm">읽기 2분</span></li>
+    <li><span class="no">2</span><a href="#ch2">3분 만에 시작하기</a><span class="tm">따라 하기 3분</span></li>
+    <li><span class="no">3</span><a href="#ch3">카드 한 장에 적는 것</a><span class="tm">읽기 3분</span></li>
+    <li><span class="no">4</span><a href="#ch4">이런 자리에서 씁니다</a><span class="tm">읽기 2분</span></li>
+    <li><span class="no">5</span><a href="#ch5">나만 보기와 함께 보기</a><span class="tm">읽기 2분</span></li>
+    <li><span class="no">6</span><a href="#ch6">알아 두면 좋은 것</a><span class="tm">읽기 1분</span></li>
+    <li><span class="no">끝</span><a href="#checklist">돌아가서 할 일 · 용어집</a><span class="tm">필요할 때</span></li>
+  </ol>
+</nav>
+
+<!-- ══════════ 1 ══════════ -->
+<section class="sec" id="ch1">
+  <div class="eyebrow">1 · 개념 잡기</div>
+  <h2 class="head">어떤 앱인가 — 덮고, 내 말로 쓰는 카드</h2>
+  <p>핵심은 <strong>책을 덮고 내 말로 쓰는 것</strong>입니다. 그대로 옮기는 건 인상 깊은 문장뿐이에요. 내 말로 안 써지는 곳이 곧 아직 이해 못 한 곳입니다.</p>
+  <p><a href="../앱-웹/앱-내말로-소개-v1.html">「내 말로!」 앱</a>과 같은 원리예요. 그 원리를 책 한 권 크기로 키운 셈입니다.</p>
+  <div class="flow" id="fig1">
+    <span class="st">① 자료 고르기<br>책 · 논문 · 기타</span><span class="ar">→</span>
+    <span class="st">② 질문 칸 채우기<br>덮고, 내 말로</span><span class="ar">→</span>
+    <span class="st">③ 저장<br>내 서재에 쌓임</span><span class="ar">→</span>
+    <span class="st me">④ 원하면 공개<br>모두의 서재</span>
+  </div>
+  <p class="cap">그림 1. 카드 한 장의 흐름 — 공개는 고른 카드만 합니다(<a href="#ch5">5장</a>).</p>
+  <a class="to-toc" href="#toc">↑ 차례로</a>
+</section>
+
+<!-- ══════════ 2 ══════════ -->
+<section class="sec" id="ch2">
+  <div class="eyebrow">2 · 따라 하기</div>
+  <h2 class="head">3분 만에 시작하기</h2>
+  <div class="lesson-info">
+    <div><div class="k">목표</div><div class="v">카드 한 장을 저장한다</div></div>
+    <div><div class="k">준비물</div><div class="v">휴대폰, 요즘 읽는 책 한 권</div></div>
+    <div><div class="k">걸리는 시간</div><div class="v">약 3분</div></div>
+  </div>
+  <ol class="steps">
+    <li><p>휴대폰 브라우저에서 <strong>kor-sped.github.io/reading-cards</strong>를 엽니다. 위의 <a href="#top">독서 카드함 열기</a> 단추를 눌러도 돼요.</p></li>
+    <li><p><span class="ui">카카오로 로그인</span>이 가장 빨라요. 이메일이나 구글로도 됩니다.</p><p class="mute">이메일로 가입하면 확인 메일이 갑니다. 메일 안의 링크를 눌러야 로그인돼요. 안 보이면 스팸함을 봐 주세요.</p></li>
+    <li><p>닉네임을 정합니다. 공개한 카드에 이 이름이 붙어요.</p></li>
+    <li><p><span class="ui">＋ 새 카드</span>를 누르고 <strong>제목만</strong> 적은 뒤 <span class="ui">저장</span>. 나머지 칸은 나중에 채워도 됩니다.</p></li>
+    <li><p>(선택) 브라우저 메뉴의 <span class="ui">홈 화면에 추가</span>를 누릅니다. 앱처럼 아이콘이 생겨 한 번에 열려요.</p></li>
+  </ol>
+  <div class="done">목록 맨 위에 방금 적은 책 제목이 보이면 성공입니다. 컴퓨터에서 같은 주소로 로그인하면 같은 카드가 보여요.</div>
+  <a class="to-toc" href="#toc">↑ 차례로</a>
+</section>
+
+<!-- ══════════ 3 ══════════ -->
+<section class="sec" id="ch3">
+  <div class="eyebrow">3 · 카드 들여다보기</div>
+  <h2 class="head">카드 한 장에 적는 것</h2>
+  <p>칸은 많지만 다 채울 필요는 없어요. 위에서부터 필요한 만큼만 씁니다. 자료 유형을 고르면 질문 문구가 거기에 맞게 바뀌어요. 책의 "핵심질문과 저자의 답"이 논문에서는 "연구 문제"가 되는 식입니다.</p>
+  <div class="cardfig" id="fig2">
+    <div class="row"><span class="k">① 핵심질문과 저자의 답</span><span>저자는 무슨 질문에 어떻게 답하나</span></div>
+    <div class="row"><span class="k">② 기존 지식과의 차이</span><span>이미 알던 것과 무엇이 다른가</span></div>
+    <div class="row"><span class="k">③ 전개 방식</span><span>답을 어떤 순서로 풀어 가나</span></div>
+    <div class="row"><span class="k">④ 타당성 확인</span><span>근거가 결론을 받쳐 주나</span></div>
+    <div class="row"><span class="k">⑤ 내 생각</span><span>자유롭게</span></div>
+    <div class="row"><span class="k">⑥ 모임에서 나온 의견</span><span>다른 사람 이야기</span></div>
+    <div class="row"><span class="k">인상 깊은 문장</span><span>이것만 그대로 옮기고, 쪽수를 붙여요</span></div>
+    <div class="row"><span class="k">태그</span><span>나중에 찾을 열쇠</span></div>
+  </div>
+  <p class="cap">그림 2. 카드 한 장의 칸 — 필수는 제목뿐입니다.</p>
+
+  <h3 id="depth">모든 책을 같은 깊이로 읽지 않아요</h3>
+  <p>카드마다 <a class="term" href="#g-depth" data-tip="이 책을 얼마나 자세히 정리할지 고르는 버튼. 고른 깊이에 맞게 빈 칸이 접혀요">읽는 깊이</a>를 고릅니다. 고른 깊이에 맞춰 빈 칸이 접혀서 화면이 가벼워져요.</p>
+  <div class="three">
+    <div><b>훑는 책</b>제목과 핵심 한 문장만. 읽었다는 표시로 충분해요.</div>
+    <div><b>남기는 책</b>핵심 몇 칸과 인상 깊은 문장. 나중에 다시 꺼내 볼 책.</div>
+    <div><b>깊이 읽는 책</b>모든 칸과 장마다 메모. 스터디나 수업에 쓸 책.</div>
+  </div>
+  <p>깊이 읽는 책에는 <a class="term" href="#g-chapter" data-tip="장마다 제목·주장·근거·내 반응을 적는 메모. 논문은 '부분별 메모'">장별 메모</a>를 붙입니다. 장이 끝날 때마다 <strong>주장 · 근거 · 내 반응</strong> 세 줄이면 돼요.</p>
+  <div class="tip"><span class="i">TIP</span><span>어떻게 정리할지 막막하면 앱 맨 위의 <span class="ui">책 정리하고 스터디 준비하는 방법</span>을 먼저 읽어 보세요. 책·논문·잡지마다 먼저 볼 곳, 모임에서 말 아끼는 법, 모임 뒤 15분 정리까지 담았습니다.</span></div>
+  <a class="to-toc" href="#toc">↑ 차례로</a>
+</section>
+
+<!-- ══════════ 4 ══════════ -->
+<section class="sec" id="ch4">
+  <div class="eyebrow">4 · 쓰임</div>
+  <h2 class="head">이런 자리에서 씁니다</h2>
+  <p>선생님 공부에도, 아이들 독서 기록에도 씁니다. 질문이 읽기의 길잡이가 되거든요.</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>이런 자리에서</th><th>이렇게 씁니다</th></tr></thead>
+    <tbody>
+      <tr><td><strong>선생님 독서 모임</strong></td><td>모임 전에 ①·⑤·인상 깊은 문장을 채우고, 모임 뒤에 ⑥을 채워 카드를 닫습니다</td></tr>
+      <tr><td><strong>논문 읽기 모임</strong></td><td>유형을 "논문"으로. 연구 문제 → 방법 → 스스로 결론 내려 보기 순서로 질문이 바뀝니다</td></tr>
+      <tr><td><strong>아이들 독서 기록</strong></td><td>"훑는 책"으로 시작해요. 제목, 핵심 한 문장, 인상 깊은 문장 하나면 한 권 끝</td></tr>
+      <tr><td><strong>학급 독서 모임</strong></td><td>아이들이 카드를 공개하고, 모두의 서재에서 친구 카드를 읽고 이야기합니다</td></tr>
+      <tr><td><strong>기사 한 편 읽기</strong></td><td>유형을 "기타"로. 잡지 기사·신문 칼럼을 한 편씩 카드로 남깁니다</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="tip"><span class="i">아이들</span><span>아이들도 카카오 계정으로 바로 가입해 쓸 수 있어요. 닉네임은 실명 대신 별명으로 정하면 좋습니다.</span></div>
+  <a class="to-toc" href="#toc">↑ 차례로</a>
+</section>
+
+<!-- ══════════ 5 ══════════ -->
+<section class="sec" id="ch5">
+  <div class="eyebrow">5 · 함께 쓰기</div>
+  <h2 class="head">나만 보기와 함께 보기</h2>
+  <p>새 카드는 <strong>나만 보기</strong>로 시작합니다. 공개하고 싶은 카드만 체크하면 돼요.</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>내 서재</th><th>모두의 서재</th></tr></thead>
+    <tbody>
+      <tr><td>내가 쓴 카드 전부</td><td>누군가 "공개"로 체크한 카드만</td></tr>
+      <tr><td>나만 고칠 수 있어요</td><td>로그인한 사람 누구나 읽어요 (고치기는 쓴 사람만)</td></tr>
+      <tr><td>읽은 권수 통계가 보여요</td><td>닉네임과 함께 보여요</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <h3>그 밖에 되는 것</h3>
+  <ul class="plain">
+    <li><strong>상단 고정</strong> — 중요한 카드를 맨 위로. 남의 카드도 내 목록에 고정할 수 있어요.</li>
+    <li><strong>검색·필터</strong> — 제목·저자·태그로 찾고, 읽는 중·완독·유형·깊이로 거릅니다.</li>
+    <li><strong>인쇄</strong> — 카드 내용만 깔끔하게 종이나 PDF로.</li>
+    <li><strong><a class="term" href="#g-draft" data-tip="쓰던 내용을 기기에 잠깐 보관했다가, 돌아오면 그대로 되살리는 기능">자동 임시저장</a></strong> — 쓰다가 다른 앱에 다녀와도 쓰던 내용이 그대로 있어요.</li>
+    <li><strong><a class="term" href="#g-json" data-tip="내 카드 전부를 파일 하나로 내려받는 백업. 다시 가져올 수도 있어요">JSON 내보내기</a></strong> — 내 카드 전부를 파일 하나로 백업합니다.</li>
+  </ul>
+  <a class="to-toc" href="#toc">↑ 차례로</a>
+</section>
+
+<!-- ══════════ 6 ══════════ -->
+<section class="sec" id="ch6">
+  <div class="eyebrow">6 · 안심하고 쓰기</div>
+  <h2 class="head">알아 두면 좋은 것</h2>
+  <div class="warn"><span class="i">주의</span><span><strong>학생 이름과 이야기는 적지 않아요.</strong> 카드는 인터넷 서버에 저장됩니다. 수업 이야기를 쓸 때도 아이를 알아볼 수 있는 내용은 빼 주세요. 이 앱은 책 정리용입니다.</span></div>
+  <div class="tip"><span class="i">안 열리면</span><span>고장이 아니라 잠든 것일 수 있어요. 무료 서버라서 일주일 넘게 아무도 안 쓰면 <a class="term" href="#g-sleep" data-tip="무료 서버가 오래 쓰이지 않으면 스스로 멈추는 것. 깨우면 기록은 그대로 돌아와요">잠듭니다</a>. 화면은 뜨는데 카드가 안 보이면 의견으로 알려 주세요. 깨우면 기록은 그대로 돌아옵니다.</span></div>
+  <div class="tip"><span class="i">백업</span><span>한 달에 한 번 목록 화면의 <span class="ui">JSON 내보내기</span>를 누르면 됩니다.</span></div>
+  <a class="to-toc" href="#toc">↑ 차례로</a>
+</section>
+
+<!-- ══════════ 끝 ══════════ -->
+<section class="sec" id="checklist">
+  <div class="eyebrow">끝 · 돌아가서</div>
+  <h2 class="head">돌아가서 할 일</h2>
+  <ul class="check">
+    <li><input type="checkbox" id="k1"><label for="k1">휴대폰에서 독서 카드함 열고 로그인하기 (<a href="#ch2">2장</a>)</label></li>
+    <li><input type="checkbox" id="k2"><label for="k2">홈 화면에 추가하기</label></li>
+    <li><input type="checkbox" id="k3"><label for="k3">요즘 읽는 책 한 권을 "훑는 책"으로 카드 한 장 만들기 (<a href="#depth">읽는 깊이</a>)</label></li>
+    <li><input type="checkbox" id="k4"><label for="k4">「책 정리하고 스터디 준비하는 방법」 1절 읽어 보기</label></li>
+    <li><input type="checkbox" id="k5"><label for="k5">써 본 소감이나 고칠 점 한 줄 보내기 — 나눔터 카드의 "의견 보내기"</label></li>
+  </ul>
+
+  <h3 id="glossary">용어집</h3>
+  <dl class="glossary">
+    <dt id="g-depth">읽는 깊이</dt>
+    <dd>카드마다 고르는 세 단계(훑는 · 남기는 · 깊이). 고르면 그 깊이에 필요 없는 빈 칸이 접힙니다. 내용이 있는 칸은 늘 보이고, [펼치기]로 전부 볼 수 있어요. 비워 두면 "미정"입니다.</dd>
+    <dt id="g-chapter">장별 메모</dt>
+    <dd>장마다 제목과 주장 · 근거 · 내 반응 세 칸을 적는 메모. 필요한 만큼 장을 더합니다. 논문과 기타 자료에서는 이름이 "부분별 메모"로 바뀝니다.</dd>
+    <dt id="g-draft">자동 임시저장</dt>
+    <dd>쓰던 카드를 기기 안에 잠깐 보관하는 기능. 다른 앱에 다녀와도, 돌아오면 묻지 않고 그대로 되살립니다.</dd>
+    <dt id="g-json">JSON 내보내기</dt>
+    <dd>내 카드 전부를 파일 하나로 내려받는 백업. 같은 화면의 "가져오기"로 다시 넣을 수 있습니다.</dd>
+    <dt id="g-sleep">서버가 잠든다</dt>
+    <dd>이 앱의 기록은 무료 서버에 있습니다. 무료 서버는 일주일 넘게 쓰이지 않으면 스스로 멈춰요. 만든 사람이 깨우면 30초쯤 뒤 돌아오고, 기록은 사라지지 않습니다.</dd>
+  </dl>
+  <a class="to-toc" href="#toc">↑ 차례로</a>
+</section>
+
+</main>
+<footer>MAK 나눔터 · 앱·웹 · 독서 카드함 소개 · 클로드와 함께 만든 안내서 · 2026.09</footer>
+
+<div class="fab-wrap">
+  <a class="fab" href="#toc" title="차례로 가기" aria-label="차례로 가기">☰</a>
+  <a class="fab" href="#top" title="맨 위로" aria-label="맨 위로">↑</a>
+</div>
+
+<!-- mak-home --><a href="../../" style="position:fixed;left:12px;bottom:12px;z-index:2147483000;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:22px;background:#232320;color:#efe6d6;font:14px/1 'Apple SD Gothic Neo','Noto Sans KR',sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.35);opacity:.92" title="나눔터 첫 화면으로" aria-label="나눔터 첫 화면으로">⌂ 나눔터</a><style>@media print{a[href="../../"]{display:none!important}}</style>
+<!--gc--><script>window.goatcounter={path:function(p){try{return decodeURIComponent(p)}catch(e){return p}}}</script><script data-goatcounter="https://mak.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>
