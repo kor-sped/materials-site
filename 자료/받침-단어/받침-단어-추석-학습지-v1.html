@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="양식" content="MAK 학습지 새 양식 2026-09-16">
+<title>받침 있는 낱말·받침 없는 낱말 — 추석 학습지</title>
+<style>
+  :root{--ink:#16323D;--ink2:#4A6272;--ink3:#8799A5;--rule:#C6D5DD;--rule2:#E3ECF0;--blue:#1F5D8C;--blue-tint:#E4EFF6;--amber:#BF860F;--amber-tint:#FAF0D9;--tint:#EFF4F7;--red:#B5432F;--red-tint:#FBEAE6;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#DFE8ED;color:var(--ink);font-family:'Gothic A1','Apple SD Gothic Neo','Malgun Gothic',sans-serif;font-size:13pt;line-height:1.6;-webkit-font-smoothing:antialiased;padding:0 10px 60px;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .bar{position:sticky;top:0;z-index:50;background:rgba(223,232,237,.95);border-bottom:1px solid var(--rule);display:flex;gap:6px;align-items:center;justify-content:center;padding:8px 10px;margin:0 -10px 20px;flex-wrap:wrap;}
+  .bar button{font-family:inherit;font-size:10pt;font-weight:500;color:var(--ink);background:#fff;border:1px solid var(--rule);border-radius:2px;padding:5px 13px;cursor:pointer;}
+  .bar button:hover{background:var(--ink);color:#fff;}
+  .bar .tag{font-size:8.5pt;letter-spacing:.14em;font-weight:800;color:var(--ink3);}
+  .page{position:relative;background:#fff;width:210mm;max-width:100%;margin:0 auto 18px;padding:11mm 13mm 9mm;border:1px solid var(--rule);box-shadow:0 2px 12px rgba(22,50,61,.10);min-height:297mm;display:flex;flex-direction:column;}
+  .head{border-bottom:2px solid var(--ink);padding-bottom:5px;margin-bottom:8px;}
+  .head .eyebrow{font-size:9pt;letter-spacing:.16em;font-weight:800;color:var(--blue);}
+  .head h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:19pt;line-height:1.22;letter-spacing:-.02em;margin:4px 0 4px;}
+  .head .lede{font-size:9.5pt;color:var(--ink2);}
+  .phead{display:flex;align-items:baseline;gap:8px;border-bottom:1.5px solid var(--ink);padding-bottom:3px;margin:4px 0 6px;}
+  .phead .n{font-family:'IBM Plex Mono',monospace;font-size:8.5pt;font-weight:700;letter-spacing:.1em;color:#fff;background:var(--blue);padding:2px 8px;flex:none;}
+  .phead.m .n{background:var(--red);}
+  .phead h2{font-family:'Gowun Batang',serif;font-weight:700;font-size:13pt;letter-spacing:-.01em;}
+  .phead small{font-size:8.5pt;color:var(--ink3);font-weight:500;}
+  .rule{background:var(--tint);border-left:4px solid var(--blue);padding:6px 12px;margin:4px 0 8px;}
+  .rule.c{text-align:center;}
+  .rule .big{font-family:'Gowun Batang',serif;font-size:14pt;font-weight:700;line-height:1.4;}
+  .rule .big .one{font-size:22pt;color:var(--blue);vertical-align:-3px;}
+  .rule .ex{font-size:11pt;margin-top:3px;color:var(--ink2);}
+  .rule b{color:var(--blue);}
+  .say{color:var(--blue);font-weight:800;}
+  .note{background:var(--amber-tint);border-left:4px solid var(--amber);padding:5px 10px;margin:4px 0 6px;font-size:10pt;line-height:1.5;}
+  .note b:first-child{color:var(--amber);}
+  .warn{background:var(--red-tint);border-left:4px solid var(--red);padding:5px 10px;margin:4px 0 6px;font-size:10pt;font-weight:700;color:#7a2d20;}
+  .steps{list-style:none;counter-reset:s;margin:4px 0 8px;}
+  .steps li{counter-increment:s;position:relative;padding-left:34px;margin:0 0 6px;font-size:12pt;line-height:1.55;}
+  .steps li::before{content:counter(s);position:absolute;left:0;top:3px;width:24px;height:24px;border:2px solid var(--blue);color:var(--blue);border-radius:50%;font-size:10pt;font-weight:800;display:flex;align-items:center;justify-content:center;}
+  .meta{font-size:14pt;font-weight:700;color:var(--ink);margin:2px 0 8px;display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 28px;}
+  .meta .line{display:inline-block;border-bottom:2px solid var(--ink);min-width:80px;height:26px;vertical-align:bottom;}
+  .meta .line.name{min-width:150px;}
+  .cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:10px 0 4px;}
+  .card{border:1.5px solid var(--rule);padding:10px 8px 12px;text-align:center;}
+  .card .num{font-family:'Gowun Batang',serif;font-size:44pt;font-weight:700;line-height:1;letter-spacing:.02em;}
+  .card .num .one{color:var(--blue);font-size:54pt;}
+  .card .read{font-size:20pt;font-weight:800;margin-top:6px;}
+  .card .read b{background:var(--amber-tint);padding:0 6px;}
+  .items{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 10px;}
+  .items.c1{grid-template-columns:1fr;}
+  .items.c2{grid-template-columns:repeat(2,1fr);gap:0 24px;}
+  .items.c3{grid-template-columns:repeat(3,minmax(0,1fr));gap:0 14px;}
+  .items.c5{grid-template-columns:repeat(5,1fr);gap:0 8px;}
+  .item{border-bottom:1.5px solid var(--rule);padding:8px 4px 8px;}
+  .item .no{font-family:'IBM Plex Mono',monospace;font-size:10pt;color:var(--ink3);display:block;}
+  .item .num{font-family:'Gowun Batang',serif;font-size:44pt;font-weight:700;line-height:1.05;display:block;letter-spacing:.02em;}
+  .item .num.s{font-size:24pt;white-space:nowrap;letter-spacing:0;}
+  .item .num .one{color:var(--blue);}
+  .item .mk{display:block;font-size:20pt;letter-spacing:.18em;color:var(--ink2);margin-top:2px;white-space:nowrap;}
+  .item .mk.x{letter-spacing:.3em;}
+  .item .hint{display:block;font-size:10pt;color:var(--ink3);}
+  .item .sub2{display:block;font-size:12pt;color:var(--ink2);}
+  .item .work{display:grid;grid-template-columns:.55fr 1fr 1fr 1fr;grid-template-rows:repeat(3,12mm);margin-top:5px;border:1.5px solid var(--rule);}
+  .item .work i{display:block;border-right:1px solid var(--rule2);border-bottom:1px solid var(--rule2);}
+  .item .work i:nth-child(4n){border-right:0;}
+  .item .work i:nth-child(n+9){border-bottom:0;border-top:1.5px solid var(--ink2);margin-top:-1px;}
+  .item .work i:nth-child(4n+1){background:var(--bg);}
+  .item .num.s.w{letter-spacing:.03em;font-size:20pt;}
+  .items.c3 .num.s.w{font-size:24pt;}
+  .item .ans{display:block;font-size:11pt;margin-top:6px;color:var(--ink2);}
+  .item .ans u{display:inline-block;border-bottom:1.5px solid var(--ink);min-width:38px;height:16px;text-decoration:none;}
+  .item .mul{display:block;font-size:10.5pt;margin-top:4px;color:var(--ink2);}
+  .item .mul span{display:inline-block;border-bottom:1.5px solid var(--ink);min-width:30px;text-align:center;margin:0 2px;}
+  .item.dv{padding:12px 4px 16px;}
+  .item.dv .mul{font-size:13pt;margin-top:12px;line-height:1.6;display:flex;align-items:flex-end;gap:5px;white-space:nowrap;}
+  .item.dv .mul span{flex:1 1 0;min-width:0;height:26px;margin:0;}
+  .item.dv.nm{padding:24px 4px 28px;}
+  .item.dv .ans .chk{display:flex;align-items:flex-end;gap:4px;margin-top:10px;font-size:12.5pt;white-space:nowrap;}
+  .item.dv .ans .chk u{flex:1 1 0;min-width:0;height:24px;margin:0;}
+  .item.dv .ans{font-size:14pt;margin-top:10px;line-height:2.1;}
+  .item.dv .ans u{min-width:80px;height:26px;vertical-align:bottom;margin:0 6px 0 2px;}
+  .item .sent{font-size:20pt;font-weight:700;line-height:1.4;display:block;}
+  .item .sent u{text-decoration-color:var(--blue);text-decoration-thickness:2.5px;text-underline-offset:4px;}
+  .tbl{width:100%;border-collapse:collapse;margin:6px 0 10px;font-size:11.5pt;}
+  .tbl th,.tbl td{border:1.5px solid var(--rule);padding:6px 8px;text-align:center;vertical-align:middle;}
+  .tbl th{background:var(--tint);font-size:10pt;font-weight:800;color:var(--ink2);letter-spacing:.04em;}
+  .tbl td.l{text-align:left;}
+  .tbl td.w{font-family:'Gowun Batang',serif;font-size:26pt;font-weight:700;}
+  .tbl td.j{font-family:'Gowun Batang',serif;font-size:20pt;font-weight:700;color:var(--blue);}
+  .tbl td.mk{font-size:15pt;letter-spacing:.25em;color:var(--ink2);white-space:nowrap;}
+  .tbl td.faint{color:#DCE5EA;font-size:9pt;}
+  .tbl td.cell{height:34px;}
+  .tbl td.flash{font-family:'Gowun Batang',serif;font-size:18pt;font-weight:700;}
+  .bigcards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:10px;}
+  .bigcard{border:2.5px dashed var(--ink3);border-radius:6px;height:290px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+  .bigcard .l{font-family:'Gowun Batang',serif;font-size:140px;font-weight:700;line-height:1;}
+  .bigcard .hint{font-size:11pt;margin-top:8px;color:var(--ink2);}
+  .cut{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+  .cut div{border:2.5px dashed var(--ink3);border-radius:6px;padding:16px 6px;text-align:center;}
+  .cut .g{font-family:'Gowun Batang',serif;font-size:84pt;line-height:1.05;font-weight:700;}
+  .cut .h{font-size:11pt;border-top:1px solid var(--rule);margin-top:8px;padding-top:4px;color:var(--ink2);}
+  .clocks{display:grid;grid-template-columns:repeat(3,1fr);gap:10px 14px;}
+  .clock{border:1.5px solid var(--rule);padding:8px;text-align:center;}
+  .clock svg{width:100%;max-width:150px;height:auto;}
+  .clock .ans{font-size:15pt;margin-top:4px;}
+  .clock .blank{display:inline-block;border-bottom:1.5px solid var(--ink);min-width:56px;height:22px;}
+  .nc{display:grid;grid-template-columns:1fr;gap:8px;}
+  .nc>div{border:1.5px solid var(--rule);padding:6px 14px;display:flex;align-items:center;gap:16px;}
+  .nc .d{font-family:'Gowun Batang',serif;font-size:40pt;font-weight:700;min-width:64px;text-align:center;color:var(--blue);}
+  .nc .k{font-size:24pt;font-weight:800;min-width:110px;}
+  .nc .dots{font-size:16pt;letter-spacing:3px;min-width:150px;color:var(--ink2);}
+  .nc .t{font-size:13pt;color:var(--ink2);} .nc .t b{color:var(--ink);}
+  .check{border:2px solid var(--ink);padding:6px 12px;margin:8px 0;}
+  .check .it{font-size:13pt;font-weight:800;margin:5px 0;}
+  .check .it small{font-size:10.5pt;font-weight:400;color:var(--ink2);display:block;}
+  .sc{border:1.5px solid var(--rule);background:var(--tint);padding:6px 12px;margin-top:8px;font-size:10.5pt;}
+  /* 자유롭게 연습하기 — 장의 남는 여백을 채우는 흐릿한 가로줄(2026-09-17 사용자). 여백이 28mm보다 작으면 저절로 숨는다 */
+  .free{flex:1 1 0;min-height:0;position:relative;margin-top:6mm;container-type:size;}
+  .free .fl{position:absolute;left:0;right:0;top:0;height:9mm;background:var(--amber-tint);border-left:4px solid var(--amber);padding:0 10px;font-size:10pt;font-weight:800;color:var(--amber);display:flex;align-items:center;}   /* 메모 상자와 같은 노란 띠 */
+  .free .lines{position:absolute;left:0;right:0;top:9mm;bottom:2mm;background:repeating-linear-gradient(to bottom,transparent 0 16mm,#D3DDE3 16mm 16.5mm);-webkit-print-color-adjust:exact;print-color-adjust:exact;}   /* 띠 아래 한 줄 띄고 시작, 줄 간격 16.5mm(아이들 큰 글씨) */
+  @container (max-height:32mm){.free .fl,.free .lines{display:none;}}
+  .foot{margin-top:auto;padding-top:6mm;border-top:1px solid var(--rule);padding-top:5px;font-size:9pt;color:var(--ink3);display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;}
+  .foot .brand{letter-spacing:.06em;}
+  .foot b{color:var(--ink2);}
+  @media print{body{background:#fff;padding:0}.bar{display:none}.page{border:none;box-shadow:none;margin:0;width:auto;min-height:276mm;padding:0;break-after:page;height:auto}   /* min-height: 종이를 채워야 '자유롭게 연습하기'가 남는 여백만큼 늘어난다 */.page:last-child{break-after:auto}
+    .item{padding:5px 4px}.item .num{font-size:40pt}.item .num.s{font-size:22pt}.item .num.s.w{font-size:19pt}.items.c3 .num.s.w{font-size:22pt}.item .mk{font-size:18pt}.card .num{font-size:40pt}.card .num .one{font-size:48pt}.card .read{font-size:18pt}.rule .big{font-size:18pt}.rule .big .one{font-size:28pt}.head h1{font-size:23pt}.bigcard{height:250px}.bigcard .l{font-size:120px}.cut .g{font-size:72pt}
+    @page{size:A4;margin:9mm 11mm}}
+
+  .pic{display:block;width:17mm;height:17mm;margin:0 auto;}
+  .emo{font-size:40pt;line-height:17mm;text-align:center;font-family:'Apple Color Emoji','Segoe UI Emoji','Noto Color Emoji',sans-serif;}
+  .wd{font-family:'Gothic A1','Apple SD Gothic Neo','Malgun Gothic',sans-serif;font-weight:800;}
+  /* 1장 색칠 */
+  .color{display:grid;grid-template-columns:1fr 1fr;gap:3mm 8mm;margin:2mm 0;}
+  .color .r{display:flex;align-items:center;gap:4mm;border-bottom:1.5px solid var(--rule);padding:1.5mm 0;}
+  .color .r .pic{width:14mm;height:14mm;margin:0;} .color .r .emo{font-size:32pt;line-height:14mm;}
+  .sy{display:inline-flex;align-items:center;justify-content:center;width:19mm;height:19mm;border:2px solid var(--ink);margin-right:-2px;font-size:30pt;font-weight:800;background:#fff;}
+  .sy.fill{background:#BFE0C9;}
+  .color .r .no{font-family:'IBM Plex Mono',monospace;font-size:9.5pt;color:var(--ink3);width:8mm;}
+  .color .r.ex{background:var(--blue-tint);}
+  /* 2장 배운 것 */
+  .blk{display:flex;gap:10mm;justify-content:center;align-items:flex-start;margin:3mm 0 4mm;}
+  .blk .one{text-align:center;}
+  .blk .g{font-size:54pt;font-weight:800;line-height:1.1;}
+  .slots{display:grid;grid-template-columns:18mm 18mm;grid-template-rows:18mm 18mm;gap:1.5mm;margin:2mm auto 0;width:max-content;}
+  .slots span{display:flex;align-items:center;justify-content:center;border:2px solid var(--rule);border-radius:3mm;font-size:24pt;font-weight:800;}
+  .slots .c{color:#1F5D8C;} .slots .v{color:#BE6410;}
+  .slots .f{grid-column:1/3;color:#1F5D8C;border-color:#3E8E5A;border-width:3px;background:#E5F2E9;}
+  .slots .f.e{color:var(--ink3);border-style:dashed;border-color:var(--rule);background:none;font-size:11pt;font-weight:600;}
+  .blk .cap{font-size:12pt;font-weight:800;margin-top:1.5mm;}
+  .blk .cap.ok{color:#3E8E5A;}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:6mm;margin-top:2mm;}
+  .two h3{font-size:14pt;text-align:center;border-radius:3mm;padding:1mm 0;margin-bottom:2mm;}
+  .two h3.b0{background:var(--tint);} .two h3.b1{background:#E5F2E9;color:#1d5b33;}
+  .two .ws{display:grid;grid-template-columns:1fr 1fr;gap:2.5mm;}
+  .two .w{border:1.5px solid var(--rule);border-radius:3mm;padding:2mm 1mm;text-align:center;}
+  .two .w .wd{font-size:24pt;display:block;margin-top:1mm;}
+  .two .w .wd u{text-decoration:none;box-shadow:inset 0 -.15em 0 #3E8E5A;}
+  /* 3장 오려 붙이기 */
+  .binz{display:grid;grid-template-columns:1fr 1fr;gap:6mm;}
+  .binz .bn{border:2.5px solid var(--ink);border-radius:4mm;padding:2mm;}
+  .binz .bn h3{text-align:center;font-size:15pt;margin-bottom:2mm;}
+  .binz .sl{display:grid;grid-template-columns:1fr 1fr;gap:2mm;}
+  .binz .sl i{display:block;height:31mm;border:1.5px dashed var(--ink3);border-radius:2mm;}
+  .scissor{margin:5mm 0 3mm;border-top:2px dashed var(--ink3);text-align:center;height:0;}
+  .scissor span{position:relative;top:-3.2mm;background:#fff;padding:0 3mm;font-size:11pt;font-weight:800;color:var(--ink2);}
+  .cuts{display:grid;grid-template-columns:repeat(4,1fr);gap:0;}
+  .cuts div{border:1.5px dashed var(--ink3);height:34mm;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:-0.75px;}
+  .cuts .wd{font-size:22pt;margin-top:1mm;}
+  /* 4장 잇기·찾기 */
+  .match{display:grid;grid-template-columns:30mm 1fr 42mm;row-gap:3mm;margin:2mm 10mm 3mm;}
+  .match .l,.match .r{border:1.5px solid var(--rule);border-radius:3mm;height:21mm;display:flex;align-items:center;justify-content:center;position:relative;}
+  .match .l::after{content:"";position:absolute;right:-6px;top:50%;margin-top:-5px;width:10px;height:10px;border-radius:50%;background:var(--ink);}
+  .match .r::before{content:"";position:absolute;left:-6px;top:50%;margin-top:-5px;width:10px;height:10px;border-radius:50%;background:var(--ink);}
+  .match .r .wd{font-size:26pt;}
+  .find{margin:1mm 0;}
+  .find .r{display:flex;align-items:center;gap:4mm;border-bottom:1.5px solid var(--rule);padding:1.5mm 2mm;}
+  .find .r .pic{width:14mm;height:14mm;margin:0;} .find .r .emo{font-size:32pt;line-height:14mm;}
+  .find .r .no{font-family:'IBM Plex Mono',monospace;font-size:9.5pt;color:var(--ink3);width:8mm;}
+  .find .r .o{flex:1;text-align:center;font-size:26pt;font-weight:800;}
+  .find .r .o.on span{border:3px solid var(--blue);border-radius:999px;padding:0 3mm;}
+  .find .r.ex{background:var(--blue-tint);}
+  /* 5장 따라 쓰기 */
+  .trace{margin:1mm 0;}
+  .trace .r{display:flex;align-items:center;gap:3mm;border-bottom:1.5px solid var(--rule);padding:2.5mm 0;}
+  .trace .r .pic{width:16mm;height:16mm;margin:0;} .trace .r .emo{font-size:36pt;line-height:16mm;}
+  .trace .bx{display:flex;}
+  .trace .bx span{display:flex;align-items:center;justify-content:center;width:20mm;height:20mm;border:1.5px solid var(--ink2);margin-right:-1.5px;font-size:36pt;font-weight:500;color:#C9D3D9;background:linear-gradient(#E3ECF0,#E3ECF0) center/100% 1px no-repeat,linear-gradient(#E3ECF0,#E3ECF0) center/1px 100% no-repeat;}
+  .trace .bx.e span{color:transparent;}
+  .trace .arrow{font-size:14pt;color:var(--ink3);width:8mm;text-align:center;}
+  .trace .ln>div{display:flex;align-items:center;}
+  .trace .ln>div+div{margin-top:2mm;}
+  /* 6장 테스트 */
+  .rd{display:grid;grid-template-columns:repeat(4,1fr);gap:0 4mm;}
+  .rd .it{border-bottom:1.5px solid var(--rule);padding:1.5mm 1mm;text-align:center;}
+  .rd .it .no{font-family:'IBM Plex Mono',monospace;font-size:9pt;color:var(--ink3);display:block;text-align:left;}
+  .rd .it .wd{font-size:26pt;display:block;}
+  .rd .it .mk{font-size:15pt;letter-spacing:.25em;color:var(--ink2);}
+  .circ{display:flex;justify-content:space-around;flex-wrap:wrap;gap:2mm;margin:2mm 0 3mm;}
+  .circ span{font-size:26pt;font-weight:800;padding:0 3mm;}
+  .dict{display:flex;gap:6mm;justify-content:center;margin:2mm 0;}
+  .dict .d{display:flex;align-items:center;gap:2mm;}
+  .dict .d b{font-family:'IBM Plex Mono',monospace;font-size:11pt;color:var(--ink3);}
+  .dict .d i{display:block;width:17mm;height:17mm;border:1.5px solid var(--ink2);margin-right:-1.5px;}
+  .rec{border:2px solid var(--ink);padding:2mm 4mm;margin:3mm 0 1mm;font-size:11.5pt;}
+  .rec .row{display:flex;flex-wrap:wrap;gap:1mm 7mm;align-items:flex-end;margin:1mm 0;font-weight:800;}
+  .rec u{display:inline-block;border-bottom:1.5px solid var(--ink);min-width:13mm;height:18px;text-decoration:none;}
+  .rec .err{font-weight:500;font-size:10.5pt;}
+  .rec small{display:block;font-size:9pt;color:var(--ink2);font-weight:500;margin-top:1mm;}
+  .sub{font-size:12.5pt;font-weight:800;margin:3mm 0 1mm;}
+  .sub small{font-size:9.5pt;color:var(--ink3);font-weight:500;margin-left:2mm;}
+</style>
+</head>
+<body>
+<div class="bar"><span class="tag">받침 낱말 · 추석</span><button onclick="document.body.style.fontSize=(parseFloat(getComputedStyle(document.body).fontSize)*1.1)+'px'">글자 크게</button><button onclick="document.body.style.fontSize=(parseFloat(getComputedStyle(document.body).fontSize)/1.1)+'px'">글자 작게</button><button onclick="window.print()">인쇄하기</button><span class="tag">A4 6장</span></div>
+<div class="page"><div class="head"><div class="eyebrow">국어 · 낱말 읽기 · 받침</div><h1>받침 있는 낱말·받침 없는 낱말 — 추석</h1><div class="lede">6장: 해보기 4장【지도용】 · 배운 것 한 장(아이용) · 테스트 1장【측정용】 · 연습판 「받침 낱말 연습판」의 ‘추석’ 탭과 같은 낱말</div></div><div class="note"><b>아침 요약</b> — <b>받침</b>은 글자 아래에 있는 자음이다(송 = ㅅ ㅗ + 받침 ㅇ). 추석 낱말 8개(받침 없는 4 · 있는 4)를 읽고, 받침이 있는 글자를 가려낸다. 모음을 헷갈리는 아이(ㅏ·ㅑ)는 4장 아래 ‘바른 글자 찾기’를 꼭 한다. <b>준비물</b>: 인쇄 6장(아이 수만큼), 연필, 초록 색연필, 가위, 풀. 연습판으로 먼저 함께 읽으면 좋다.</div><div class="warn">⚠️ 힌트는 한 번에 하나씩: ① "글자 아래를 봐요" ② 손가락으로 글자 아래를 짚기 ③ 함께 읽기. 정답을 먼저 말해 주지 않는다.</div><div class="rule"><div class="big">【방법】 읽어요 → 글자 아래를 봐요 → <span class="say">"받침이 있어요!"</span> → 초록으로 칠해요</div><div class="ex">보기 줄은 같이, 나머지는 혼자. 받침 없는 글자 칸은 비워 둔다.</div></div><div class="phead"><span class="n">1</span><h2>직접 해보기 ① 받침 있는 글자에 색칠해요</h2><small>받침 있는 글자 칸만 초록으로</small></div><div class="meta"><span>날짜 <span class="line"></span> 월 <span class="line"></span> 일</span><span>이름 <span class="line name"></span></span></div><div class="color"><div class="r ex"><span class="no">보기</span><svg class="pic" viewBox="0 0 100 100" role="img" aria-label="송편"><ellipse cx="50" cy="74" rx="44" ry="12" fill="#E8EEF1" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M14 70 q0 -22 18 -22 q18 0 18 22 z" fill="#F7F4EC" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M20 64 q12 -8 24 0" fill="none" stroke="#16323D" stroke-width="2" opacity=".5"/><path d="M50 70 q0 -22 18 -22 q18 0 18 22 z" fill="#8DC06A" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M56 64 q12 -8 24 0" fill="none" stroke="#16323D" stroke-width="2" opacity=".5"/><path d="M32 56 q0 -22 18 -22 q18 0 18 22 z" fill="#F2A7B5" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M38 50 q12 -8 24 0" fill="none" stroke="#16323D" stroke-width="2" opacity=".5"/></svg><span class="wd"><span class="sy fill">송</span><span class="sy fill">편</span></span></div><div class="r"><span class="no">1</span><span class="pic emo" aria-hidden="true">🐇</span><span class="wd"><span class="sy">토</span><span class="sy">끼</span></span></div><div class="r"><span class="no">2</span><span class="pic emo" aria-hidden="true">🌰</span><span class="wd"><span class="sy">밤</span></span></div><div class="r"><span class="no">3</span><svg class="pic" viewBox="0 0 100 100" role="img" aria-label="한복"><path d="M30 14 L50 26 L70 14 L92 30 L82 44 L70 38 L70 50 L30 50 L30 38 L18 44 L8 30 Z" fill="#F2A7B5" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M50 26 L38 44 M50 26 L62 44" fill="none" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M50 36 q-10 4 -6 16 M50 36 q12 6 4 22" fill="none" stroke="#B5432F" stroke-width="4" stroke-linecap="round"/>
+<path d="M30 50 L20 94 L80 94 L70 50 Z" fill="#3A7CA5" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg><span class="wd"><span class="sy">한</span><span class="sy">복</span></span></div><div class="r"><span class="no">4</span><span class="pic emo" aria-hidden="true">🍎</span><span class="wd"><span class="sy">사</span><span class="sy">과</span></span></div><div class="r"><span class="no">5</span><svg class="pic" viewBox="0 0 100 100" role="img" aria-label="대추"><path d="M50 14 q-3 6 0 10" fill="none" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M50 14 q10 -6 18 0 q-8 6 -18 0z" fill="#6BA34A" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="50" cy="58" rx="24" ry="32" fill="#B7372B" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M38 44 q-4 12 0 26" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".55"/></svg><span class="wd"><span class="sy">대</span><span class="sy">추</span></span></div><div class="r"><span class="no">6</span><span class="pic emo" aria-hidden="true">🍐</span><span class="wd"><span class="sy">배</span></span></div><div class="r"><span class="no">7</span><span class="pic emo" aria-hidden="true">🌕</span><span class="wd"><span class="sy">보</span><span class="sy">름</span><span class="sy">달</span></span></div></div><div class="free"><div class="fl">자유롭게 연습하기</div><div class="lines"></div></div><div class="foot"><span>국어 · 받침 있는 낱말·받침 없는 낱말 · 추석</span><span class="brand">MAK · 모든 아이들과 함께</span><span>해보기 1/4</span></div></div><div class="page"><div class="phead"><span class="n">배운 것</span><h2>받침은 글자 아래에 있어요</h2><small>추석 낱말 한 장 — 집에 가져가요</small></div><div class="meta"><span>날짜 <span class="line"></span> 월 <span class="line"></span> 일</span><span>이름 <span class="line name"></span></span></div><div class="rule c"><div class="big">받침 = 글자 <b>아래</b>에 있는 자음</div></div><div class="blk"><div class="one"><div class="g wd">사</div><div class="slots"><span class="c">ㅅ</span><span class="v">ㅏ</span><span class="f e">아래가 비었어요</span></div><div class="cap">받침 없어요</div></div><div class="one"><div class="g wd">송</div><div class="slots"><span class="c">ㅅ</span><span class="v">ㅗ</span><span class="f">ㅇ</span></div><div class="cap ok">받침 있어요 (ㅇ)</div></div></div><div class="two"><div><h3 class="b0">받침 없는 낱말</h3><div class="ws"><div class="w"><span class="pic emo" aria-hidden="true">🍎</span><span class="wd">사과</span></div><div class="w"><span class="pic emo" aria-hidden="true">🍐</span><span class="wd">배</span></div><div class="w"><svg class="pic" viewBox="0 0 100 100" role="img" aria-label="대추"><path d="M50 14 q-3 6 0 10" fill="none" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M50 14 q10 -6 18 0 q-8 6 -18 0z" fill="#6BA34A" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="50" cy="58" rx="24" ry="32" fill="#B7372B" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M38 44 q-4 12 0 26" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".55"/></svg><span class="wd">대추</span></div><div class="w"><span class="pic emo" aria-hidden="true">🐇</span><span class="wd">토끼</span></div></div></div><div><h3 class="b1">받침 있는 낱말</h3><div class="ws"><div class="w"><svg class="pic" viewBox="0 0 100 100" role="img" aria-label="송편"><ellipse cx="50" cy="74" rx="44" ry="12" fill="#E8EEF1" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M14 70 q0 -22 18 -22 q18 0 18 22 z" fill="#F7F4EC" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M20 64 q12 -8 24 0" fill="none" stroke="#16323D" stroke-width="2" opacity=".5"/><path d="M50 70 q0 -22 18 -22 q18 0 18 22 z" fill="#8DC06A" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M56 64 q12 -8 24 0" fill="none" stroke="#16323D" stroke-width="2" opacity=".5"/><path d="M32 56 q0 -22 18 -22 q18 0 18 22 z" fill="#F2A7B5" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M38 50 q12 -8 24 0" fill="none" stroke="#16323D" stroke-width="2" opacity=".5"/></svg><span class="wd"><u>송</u><u>편</u></span></div><div class="w"><span class="pic emo" aria-hidden="true">🌕</span><span class="wd">보<u>름</u><u>달</u></span></div><div class="w"><span class="pic emo" aria-hidden="true">🌰</span><span class="wd"><u>밤</u></span></div><div class="w"><svg class="pic" viewBox="0 0 100 100" role="img" aria-label="한복"><path d="M30 14 L50 26 L70 14 L92 30 L82 44 L70 38 L70 50 L30 50 L30 38 L18 44 L8 30 Z" fill="#F2A7B5" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M50 26 L38 44 M50 26 L62 44" fill="none" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M50 36 q-10 4 -6 16 M50 36 q12 6 4 22" fill="none" stroke="#B5432F" stroke-width="4" stroke-linecap="round"/>
+<path d="M30 50 L20 94 L80 94 L70 50 Z" fill="#3A7CA5" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg><span class="wd"><u>한</u><u>복</u></span></div></div></div></div><div class="free"><div class="fl">자유롭게 연습하기</div><div class="lines"></div></div><div class="foot"><span>국어 · 받침 있는 낱말·받침 없는 낱말 · 추석</span><span class="brand">MAK · 모든 아이들과 함께</span><span>배운 것</span></div></div><div class="page"><div class="phead"><span class="n">2</span><h2>직접 해보기 ② 오려서 붙여요</h2><small>아래 카드를 오려 알맞은 바구니에 붙여요</small></div><div class="meta"><span>날짜 <span class="line"></span> 월 <span class="line"></span> 일</span><span>이름 <span class="line name"></span></span></div><div class="note"><b>교사 발화</b> — 카드를 하나씩 읽고 <b>"글자 아래를 봐요. 받침이 있어요? 없어요?"</b> 첫 카드는 같이 붙인다. 오리기가 어려우면 교사가 미리 오려 준다.</div><div class="binz"><div class="bn"><h3>받침 없어요</h3><div class="sl"><i></i><i></i><i></i><i></i></div></div><div class="bn"><h3 style="color:#1d5b33">받침 있어요</h3><div class="sl"><i></i><i></i><i></i><i></i></div></div></div><div class="scissor"><span>✂ 오려요</span></div><div class="cuts"><div><span class="pic emo" aria-hidden="true">🌰</span><span class="wd">밤</span></div><div><span class="pic emo" aria-hidden="true">🍐</span><span class="wd">배</span></div><div><span class="pic emo" aria-hidden="true">🍎</span><span class="wd">사과</span></div><div><svg class="pic" viewBox="0 0 100 100" role="img" aria-label="한복"><path d="M30 14 L50 26 L70 14 L92 30 L82 44 L70 38 L70 50 L30 50 L30 38 L18 44 L8 30 Z" fill="#F2A7B5" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M50 26 L38 44 M50 26 L62 44" fill="none" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M50 36 q-10 4 -6 16 M50 36 q12 6 4 22" fill="none" stroke="#B5432F" stroke-width="4" stroke-linecap="round"/>
+<path d="M30 50 L20 94 L80 94 L70 50 Z" fill="#3A7CA5" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg><span class="wd">한복</span></div><div><svg class="pic" viewBox="0 0 100 100" role="img" aria-label="대추"><path d="M50 14 q-3 6 0 10" fill="none" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M50 14 q10 -6 18 0 q-8 6 -18 0z" fill="#6BA34A" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="50" cy="58" rx="24" ry="32" fill="#B7372B" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M38 44 q-4 12 0 26" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".55"/></svg><span class="wd">대추</span></div><div><span class="pic emo" aria-hidden="true">🌕</span><span class="wd">보름달</span></div><div><span class="pic emo" aria-hidden="true">🐇</span><span class="wd">토끼</span></div><div><svg class="pic" viewBox="0 0 100 100" role="img" aria-label="송편"><ellipse cx="50" cy="74" rx="44" ry="12" fill="#E8EEF1" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M14 70 q0 -22 18 -22 q18 0 18 22 z" fill="#F7F4EC" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M20 64 q12 -8 24 0" fill="none" stroke="#16323D" stroke-width="2" opacity=".5"/><path d="M50 70 q0 -22 18 -22 q18 0 18 22 z" fill="#8DC06A" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M56 64 q12 -8 24 0" fill="none" stroke="#16323D" stroke-width="2" opacity=".5"/><path d="M32 56 q0 -22 18 -22 q18 0 18 22 z" fill="#F2A7B5" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M38 50 q12 -8 24 0" fill="none" stroke="#16323D" stroke-width="2" opacity=".5"/></svg><span class="wd">송편</span></div></div><div class="free"><div class="fl">자유롭게 연습하기</div><div class="lines"></div></div><div class="foot"><span>국어 · 받침 있는 낱말·받침 없는 낱말 · 추석</span><span class="brand">MAK · 모든 아이들과 함께</span><span>해보기 2/4</span></div></div><div class="page"><div class="phead"><span class="n">3</span><h2>직접 해보기 ③ 그림과 낱말을 이어요</h2><small>읽고 알맞은 그림에 선으로</small></div><div class="meta"><span>날짜 <span class="line"></span> 월 <span class="line"></span> 일</span><span>이름 <span class="line name"></span></span></div><div class="note"><b>교사 발화</b> — 낱말을 먼저 소리 내어 읽고 그림을 찾는다. 모음을 짚으며 <b>"ㅏ는 막대 오른쪽에 점 하나"</b>.</div><div class="match"><div class="l"><span class="pic emo" aria-hidden="true">🍎</span></div><div></div><div class="r"><span class="wd">밤</span></div><div class="l"><span class="pic emo" aria-hidden="true">🐇</span></div><div></div><div class="r"><span class="wd">사과</span></div><div class="l"><svg class="pic" viewBox="0 0 100 100" role="img" aria-label="송편"><ellipse cx="50" cy="74" rx="44" ry="12" fill="#E8EEF1" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M14 70 q0 -22 18 -22 q18 0 18 22 z" fill="#F7F4EC" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M20 64 q12 -8 24 0" fill="none" stroke="#16323D" stroke-width="2" opacity=".5"/><path d="M50 70 q0 -22 18 -22 q18 0 18 22 z" fill="#8DC06A" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M56 64 q12 -8 24 0" fill="none" stroke="#16323D" stroke-width="2" opacity=".5"/><path d="M32 56 q0 -22 18 -22 q18 0 18 22 z" fill="#F2A7B5" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M38 50 q12 -8 24 0" fill="none" stroke="#16323D" stroke-width="2" opacity=".5"/></svg></div><div></div><div class="r"><span class="wd">토끼</span></div><div class="l"><span class="pic emo" aria-hidden="true">🌰</span></div><div></div><div class="r"><span class="wd">보름달</span></div><div class="l"><span class="pic emo" aria-hidden="true">🌕</span></div><div></div><div class="r"><span class="wd">송편</span></div></div><div class="phead"><h2>바른 글자를 찾아 ○ 해요</h2><small>모음을 잘 봐요 (ㅏ·ㅑ·ㅓ)</small></div><div class="find"><div class="r ex"><span class="no">보기</span><span class="pic emo" aria-hidden="true">🍎</span><span class="o"><span>샤과</span></span><span class="o"><span>서과</span></span><span class="o on"><span>사과</span></span></div><div class="r"><span class="no">1</span><span class="pic emo" aria-hidden="true">🐇</span><span class="o"><span>투끼</span></span><span class="o"><span>툐끼</span></span><span class="o"><span>토끼</span></span></div><div class="r"><span class="no">2</span><svg class="pic" viewBox="0 0 100 100" role="img" aria-label="송편"><ellipse cx="50" cy="74" rx="44" ry="12" fill="#E8EEF1" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M14 70 q0 -22 18 -22 q18 0 18 22 z" fill="#F7F4EC" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M20 64 q12 -8 24 0" fill="none" stroke="#16323D" stroke-width="2" opacity=".5"/><path d="M50 70 q0 -22 18 -22 q18 0 18 22 z" fill="#8DC06A" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M56 64 q12 -8 24 0" fill="none" stroke="#16323D" stroke-width="2" opacity=".5"/><path d="M32 56 q0 -22 18 -22 q18 0 18 22 z" fill="#F2A7B5" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M38 50 q12 -8 24 0" fill="none" stroke="#16323D" stroke-width="2" opacity=".5"/></svg><span class="o"><span>숭편</span></span><span class="o"><span>송편</span></span><span class="o"><span>숑편</span></span></div><div class="r"><span class="no">3</span><span class="pic emo" aria-hidden="true">🌕</span><span class="o"><span>부름달</span></span><span class="o"><span>뵤름달</span></span><span class="o"><span>보름달</span></span></div></div><div class="free"><div class="fl">자유롭게 연습하기</div><div class="lines"></div></div><div class="foot"><span>국어 · 받침 있는 낱말·받침 없는 낱말 · 추석</span><span class="brand">MAK · 모든 아이들과 함께</span><span>해보기 3/4</span></div></div><div class="page"><div class="phead"><span class="n">4</span><h2>직접 해보기 ④ 따라 쓰고, 혼자 써요</h2><small>흐린 글자를 따라 쓰고 → 빈칸에 혼자</small></div><div class="meta"><span>날짜 <span class="line"></span> 월 <span class="line"></span> 일</span><span>이름 <span class="line name"></span></span></div><div class="note"><b>교사 발화</b> — 소리 내어 읽으며 쓴다. 받침은 <b>"맨 아래에 꾹"</b>. 모음 방향이 바뀌면 연습판의 글자 나눠 보기로 다시 본다.</div><div class="trace"><div class="r"><span class="pic emo" aria-hidden="true">🍎</span><div class="ln"><div><div class="bx"><span>사</span><span>과</span></div><span class="arrow">→</span><div class="bx e"><span>.</span><span>.</span></div></div><div><div class="bx e"><span>.</span><span>.</span></div><span class="arrow"></span><div class="bx e"><span>.</span><span>.</span></div></div></div></div><div class="r"><span class="pic emo" aria-hidden="true">🐇</span><div class="ln"><div><div class="bx"><span>토</span><span>끼</span></div><span class="arrow">→</span><div class="bx e"><span>.</span><span>.</span></div></div><div><div class="bx e"><span>.</span><span>.</span></div><span class="arrow"></span><div class="bx e"><span>.</span><span>.</span></div></div></div></div><div class="r"><span class="pic emo" aria-hidden="true">🌰</span><div class="ln"><div><div class="bx"><span>밤</span></div><span class="arrow">→</span><div class="bx e"><span>.</span></div></div><div><div class="bx e"><span>.</span></div><span class="arrow"></span><div class="bx e"><span>.</span></div></div></div></div><div class="r"><svg class="pic" viewBox="0 0 100 100" role="img" aria-label="송편"><ellipse cx="50" cy="74" rx="44" ry="12" fill="#E8EEF1" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M14 70 q0 -22 18 -22 q18 0 18 22 z" fill="#F7F4EC" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M20 64 q12 -8 24 0" fill="none" stroke="#16323D" stroke-width="2" opacity=".5"/><path d="M50 70 q0 -22 18 -22 q18 0 18 22 z" fill="#8DC06A" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M56 64 q12 -8 24 0" fill="none" stroke="#16323D" stroke-width="2" opacity=".5"/><path d="M32 56 q0 -22 18 -22 q18 0 18 22 z" fill="#F2A7B5" stroke="#16323D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M38 50 q12 -8 24 0" fill="none" stroke="#16323D" stroke-width="2" opacity=".5"/></svg><div class="ln"><div><div class="bx"><span>송</span><span>편</span></div><span class="arrow">→</span><div class="bx e"><span>.</span><span>.</span></div></div><div><div class="bx e"><span>.</span><span>.</span></div><span class="arrow"></span><div class="bx e"><span>.</span><span>.</span></div></div></div></div></div><div class="free"><div class="fl">자유롭게 연습하기</div><div class="lines"></div></div><div class="foot"><span>국어 · 받침 있는 낱말·받침 없는 낱말 · 추석</span><span class="brand">MAK · 모든 아이들과 함께</span><span>해보기 4/4</span></div></div><div class="page"><div class="phead m"><span class="n">측정</span><h2>읽기 · 받침 찾기 · 받아쓰기</h2><small>보기·그림·힌트 없음 · ○ 바로 · △ 도움 받아 · ✕ 못함</small></div><div class="meta"><span>날짜 <span class="line"></span> 월 <span class="line"></span> 일</span><span>이름 <span class="line name"></span></span></div><div class="sub">1. 읽어요<small>교사가 가리키면 아이가 읽는다. 교사가 ○△✕</small></div><div class="rd"><div class="it"><span class="no">1</span><span class="wd">한복</span><span class="mk">○△✕</span></div><div class="it"><span class="no">2</span><span class="wd">사과</span><span class="mk">○△✕</span></div><div class="it"><span class="no">3</span><span class="wd">밤</span><span class="mk">○△✕</span></div><div class="it"><span class="no">4</span><span class="wd">대추</span><span class="mk">○△✕</span></div><div class="it"><span class="no">5</span><span class="wd">보름달</span><span class="mk">○△✕</span></div><div class="it"><span class="no">6</span><span class="wd">송편</span><span class="mk">○△✕</span></div><div class="it"><span class="no">7</span><span class="wd">토끼</span><span class="mk">○△✕</span></div><div class="it"><span class="no">8</span><span class="wd">배</span><span class="mk">○△✕</span></div></div><div class="sub">2. 받침 있는 낱말에 ○ 해요<small>아이가 혼자</small></div><div class="circ"><span class="wd">보름달</span><span class="wd">사과</span><span class="wd">대추</span><span class="wd">토끼</span><span class="wd">송편</span><span class="wd">배</span></div><div class="sub">3. 듣고 써요<small>교사가 한 번씩 불러 준다(두 번까지)</small></div><div class="dict"><div class="d"><b>1</b><i></i><i></i><i></i></div><div class="d"><b>2</b><i></i><i></i><i></i></div><div class="d"><b>3</b><i></i><i></i><i></i></div></div><div class="rec"><div class="row">읽기 <u></u> / 8 &nbsp; 받침 찾기 <u></u> / 6 &nbsp; 받아쓰기 <u></u> / 3 &nbsp; 걸린 시간 <u></u> 분</div><div class="row err">틀린 까닭: □ 모음을 바꿈(ㅏ↔ㅑ, ㅗ↔ㅜ) &nbsp; □ 받침을 빠뜨림 &nbsp; □ 없는 받침을 붙임 &nbsp; □ 글자 순서</div><small>2번 정답(○): 보름달 · 송편 · 3번 불러 줄 낱말: 1 배 · 2 밤 · 3 송편 · 같은 장을 1~2주 뒤 다시 해서 비교한다.</small></div><div class="free"><div class="fl">자유롭게 연습하기</div><div class="lines"></div></div><div class="foot"><span><b>측정용</b> — 연습판·해보기를 마친 다음 날</span><span class="brand">MAK · 모든 아이들과 함께</span><span>측정 1/1</span></div></div>
+<!-- mak-home --><a href="../../" style="position:fixed;left:12px;bottom:12px;z-index:2147483000;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:22px;background:#232320;color:#efe6d6;font:14px/1 'Apple SD Gothic Neo','Noto Sans KR',sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.35);opacity:.92" title="나눔터 첫 화면으로" aria-label="나눔터 첫 화면으로">⌂ 나눔터</a><style>@media print{a[href="../../"]{display:none!important}}</style>
+<!--gc--><script>window.goatcounter={path:function(p){try{return decodeURIComponent(p)}catch(e){return p}}}</script><script data-goatcounter="https://mak.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>
