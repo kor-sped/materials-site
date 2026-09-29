@@ -1151,6 +1151,8 @@
     $$('.gradebar button').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.g===grade ? 'true':'false'); });
     $$('.gblock[data-grades]').forEach(function(g){ g.classList.toggle('g-off', !!grade && (' '+g.dataset.grades+' ').indexOf(' '+grade+' ')<0); });
     $$('.trackgroup').forEach(function(t){ var gb=$$('.gblock',t); t.classList.toggle('g-off', !!grade && gb.length>0 && !gb.some(function(g){return !g.classList.contains('g-off');})); });
+    $$('details.sub').forEach(function(d){ var gb=$$('.gblock',d), off=!!grade && gb.length>0 && !gb.some(function(g){return !g.classList.contains('g-off');});
+      d.classList.toggle('g-off',off); var a=document.querySelector('.subnav a[href="#'+d.id+'"]'); if(a) a.classList.toggle('g-off',off); });
     $$('.gradebar').forEach(function(bar){ var sec=bar.closest('section'), msg=bar.nextElementSibling;
       var none=!!grade && !$$('.gblock[data-grades]',sec).some(function(g){return !g.classList.contains('g-off');});
       msg.hidden=!none; msg.textContent= none ? '이 과목에는 '+grade+'학년 교과서 자료가 아직 없어요. 다른 학년이나 "전체"를 눌러 보세요.' : ''; });
