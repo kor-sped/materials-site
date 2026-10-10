@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>콩이 마음 낱말 책</title>
+<!-- 독자: 아이들 (교사가 TV에 띄워 함께 봄). 한 화면 = 그림 1 + 문장 1, 글씨 40px+, 자동 재생 없음,
+     표상: 그림·글·소리 / 표현: 누르기·말하기 / 참여: 고르기·별·힌트 3단계. 이름 입력 없음, 기록 JSON+복사.
+     이 파일은 scripts/감정낱말-책.py가 scripts/감정낱말-책-틀.html로 만든다. 직접 고치지 말고 틀을 고친다. -->
+<style>
+  :root { --ink: #1f2430; --soft: #fff8ec; --line: #e7dcc8; --accent: #1a56db; --say: #1e7a46; --star: #b7791f; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body { font-family: "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif; color: var(--ink); background: var(--soft); font-size: 40px; line-height: 1.35; overflow: hidden; }
+  button { font: inherit; color: var(--ink); background: #fff; border: 3px solid var(--line); border-radius: 18px; cursor: pointer; min-height: 72px; padding: 0 24px; }
+  button:focus-visible { outline: 5px solid var(--accent); outline-offset: 3px; }
+  button[aria-pressed="true"] { border-color: var(--accent); background: #e8efff; }
+  .screen { position: fixed; inset: 0; display: none; }
+  .screen.on { display: grid; }
+
+  /* 표지 */
+  #cover { place-items: center; align-content: center; gap: 3vh; padding: 3vh 4vw; text-align: center; }
+  #cover h1 { margin: 0; font-size: clamp(52px, 8vh, 96px); }
+  #cover img { height: 50vh; max-width: 90vw; border-radius: 24px; object-fit: contain; }
+  .modes { display: flex; gap: 3vw; flex-wrap: wrap; justify-content: center; }
+  .modes button { font-size: clamp(40px, 5.5vh, 64px); min-height: 11vh; padding: 0 4vw; border-width: 4px; }
+
+  /* 차례 */
+  #toc { grid-template-rows: auto 1fr auto; padding: 2vh 3vw; gap: 2vh; }
+  .toc-top { display: flex; justify-content: space-between; align-items: center; gap: 2vw; }
+  .toc-top h2 { margin: 0; font-size: clamp(44px, 6vh, 72px); }
+  .groups { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, 1fr); gap: 2vh 1.5vw; min-height: 0; }
+  .groups button { display: grid; grid-template-rows: 1fr auto; padding: 1vh; gap: 0.5vh; min-height: 0; overflow: hidden; }
+  .groups img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; min-height: 0; }
+  .groups span { font-size: clamp(36px, 4.6vh, 56px); font-weight: 800; }
+  .groups small { font-size: 0.6em; font-weight: 400; color: #666; }
+  details.log { font-size: 16px; } details.log textarea { width: 100%; height: 90px; font-size: 13px; }
+  details.log button { font-size: 16px; min-height: 36px; }
+
+  /* 카드 */
+  #card { grid-template-rows: auto 1fr auto auto; padding: 1.5vh 2vw; gap: 1.2vh; }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: 1vw; font-size: clamp(28px, 3.6vh, 40px); }
+  .bar button { font-size: inherit; min-height: 6vh; }
+  #where { font-weight: 800; }
+  .stars { color: var(--star); font-weight: 800; }
+  .stage { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1vw; min-height: 0; }
+  .stage img { width: 100%; height: 100%; object-fit: contain; min-height: 0; border-radius: 20px; }
+  .arrow { font-size: clamp(48px, 7vh, 80px); min-height: 18vh; width: 7vw; min-width: 72px; padding: 0; border-radius: 24px; }
+  .arrow:disabled { opacity: .25; cursor: default; }
+  .text { text-align: center; height: 22vh; display: grid; align-content: center; gap: .4vh; }
+  .word { font-size: clamp(56px, 10vh, 120px); font-weight: 900; letter-spacing: .02em; }
+  .line { font-size: clamp(40px, 6vh, 72px); }
+  .line.say { color: var(--say); font-weight: 700; }
+  .line.say::before { content: "💬 "; }
+  .line.hint { color: #6b4e16; }
+  .line.hint .line { color: var(--ink); font-weight: 700; }
+  .tools { display: flex; gap: 1.5vw; justify-content: center; flex-wrap: wrap; }
+  .tools button { font-size: clamp(32px, 4.4vh, 52px); min-height: 9vh; }
+  button.speaking { border-color: var(--say); background: #e6f6ec; }
+  .ok { animation: pop .5s ease-out; }
+  @keyframes pop { from { transform: scale(.85); } to { transform: scale(1); } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style></head><body>
+
+<section class="screen on" id="cover">
+  <h1>콩이와 뭉치의 마음 낱말</h1>
+  <img src="그림/01.jpg" alt="콩이와 강아지 뭉치가 선물을 받고 기뻐해요">
+  <div class="modes">
+    <button data-mode="read">📖 읽어요</button>
+    <button data-mode="guess">🤔 맞혀요</button>
+  </div>
+</section>
+
+<section class="screen" id="toc">
+  <div class="toc-top">
+    <h2 id="tocTitle">어떤 마음을 볼까요?</h2>
+    <button id="toCover" style="font-size:32px">🏠 처음</button>
+  </div>
+  <div class="groups" id="groups"></div>
+  <details class="log"><summary>기록 (선생님용) — 이름 없이 남습니다</summary>
+    <textarea id="log" readonly></textarea> <button id="copy">복사</button></details>
+</section>
+
+<section class="screen" id="card">
+  <div class="bar">
+    <button id="toToc">☰ 차례</button>
+    <span id="where"></span>
+    <span class="stars" id="stars"></span>
+    <button id="modeBtn"></button>
+  </div>
+  <div class="stage">
+    <button class="arrow" id="prev" aria-label="앞 장">‹</button>
+    <img id="pic" alt="">
+    <button class="arrow" id="next" aria-label="다음 장">›</button>
+  </div>
+  <div class="text" id="text"></div>
+  <div class="tools" id="tools"></div>
+</section>
+
+<script>
+const CARDS = [{"no": 1, "group": "기쁨", "word": "기쁘다", "haeyo": "기뻐요", "situation": "선물을 받았어요.", "s1": "콩이가 선물을 받아서 기뻐요.", "s2": "와~ 정말 기뻐요!", "img": "그림/01.jpg", "audio": {"a": "소리/01-a.m4a", "b": "소리/01-b.m4a", "c": "소리/01-c.m4a", "d": "소리/01-d.m4a"}}, {"no": 2, "group": "기쁨", "word": "즐겁다", "haeyo": "즐거워요", "situation": "노래를 불러요.", "s1": "콩이가 노래를 불러서 즐거워요.", "s2": "노래하니까 즐거워요!", "img": "그림/02.jpg", "audio": {"a": "소리/02-a.m4a", "b": "소리/02-b.m4a", "c": "소리/02-c.m4a", "d": "소리/02-d.m4a"}}, {"no": 3, "group": "기쁨", "word": "신나다", "haeyo": "신나요", "situation": "오늘 소풍을 가요.", "s1": "콩이가 소풍을 가서 신나요.", "s2": "야호! 신나요!", "img": "그림/03.jpg", "audio": {"a": "소리/03-a.m4a", "b": "소리/03-b.m4a", "c": "소리/03-c.m4a", "d": "소리/03-d.m4a"}}, {"no": 4, "group": "기쁨", "word": "행복하다", "haeyo": "행복해요", "situation": "곰 인형을 꼭 안았어요.", "s1": "콩이가 곰 인형을 꼭 안아서 행복해요.", "s2": "지금 정말 행복해요.", "img": "그림/04.jpg", "audio": {"a": "소리/04-a.m4a", "b": "소리/04-b.m4a", "c": "소리/04-c.m4a", "d": "소리/04-d.m4a"}}, {"no": 5, "group": "기쁨", "word": "설레다", "haeyo": "설레요", "situation": "내일 생일 파티가 있어요.", "s1": "콩이가 내일 생일 파티가 있어서 설레요.", "s2": "내일이 너무 기다려져요!", "img": "그림/05.jpg", "audio": {"a": "소리/05-a.m4a", "b": "소리/05-b.m4a", "c": "소리/05-c.m4a", "d": "소리/05-d.m4a"}}, {"no": 6, "group": "기쁨", "word": "뿌듯하다", "haeyo": "뿌듯해요", "situation": "혼자서 그림을 다 그렸어요.", "s1": "콩이가 그림을 혼자 다 그려서 뿌듯해요.", "s2": "제가 혼자 다 했어요!", "img": "그림/06.jpg", "audio": {"a": "소리/06-a.m4a", "b": "소리/06-b.m4a", "c": "소리/06-c.m4a", "d": "소리/06-d.m4a"}}, {"no": 7, "group": "기쁨", "word": "고맙다", "haeyo": "고마워요", "situation": "친구가 지우개를 빌려줬어요.", "s1": "콩이가 지우개를 빌려서 고마워요.", "s2": "빌려줘서 고마워!", "img": "그림/07.jpg", "audio": {"a": "소리/07-a.m4a", "b": "소리/07-b.m4a", "c": "소리/07-c.m4a", "d": "소리/07-d.m4a"}}, {"no": 8, "group": "기쁨", "word": "편안하다", "haeyo": "편안해요", "situation": "푹신한 쿠션에 기대 쉬어요.", "s1": "콩이가 쿠션에 기대서 편안해요.", "s2": "아, 편안해요.", "img": "그림/08.jpg", "audio": {"a": "소리/08-a.m4a", "b": "소리/08-b.m4a", "c": "소리/08-c.m4a", "d": "소리/08-d.m4a"}}, {"no": 9, "group": "기쁨", "word": "좋다", "haeyo": "좋아요", "situation": "아이스크림을 먹어요.", "s1": "콩이가 아이스크림을 먹어서 좋아요.", "s2": "음~ 좋아요!", "img": "그림/09.jpg", "audio": {"a": "소리/09-a.m4a", "b": "소리/09-b.m4a", "c": "소리/09-c.m4a", "d": "소리/09-d.m4a"}}, {"no": 10, "group": "기쁨", "word": "재미있다", "haeyo": "재미있어요", "situation": "만화책을 읽어요.", "s1": "콩이가 만화책을 읽어서 재미있어요.", "s2": "하하, 재미있어요!", "img": "그림/10.jpg", "audio": {"a": "소리/10-a.m4a", "b": "소리/10-b.m4a", "c": "소리/10-c.m4a", "d": "소리/10-d.m4a"}}, {"no": 11, "group": "기쁨", "word": "반갑다", "haeyo": "반가워요", "situation": "오랜만에 친구를 만났어요.", "s1": "콩이가 친구를 만나서 반가워요.", "s2": "안녕! 정말 반가워!", "img": "그림/11.jpg", "audio": {"a": "소리/11-a.m4a", "b": "소리/11-b.m4a", "c": "소리/11-c.m4a", "d": "소리/11-d.m4a"}}, {"no": 12, "group": "기쁨", "word": "자랑스럽다", "haeyo": "자랑스러워요", "situation": "달리기에서 메달을 받았어요.", "s1": "콩이가 메달을 받아서 자랑스러워요.", "s2": "제가 해냈어요!", "img": "그림/12.jpg", "audio": {"a": "소리/12-a.m4a", "b": "소리/12-b.m4a", "c": "소리/12-c.m4a", "d": "소리/12-d.m4a"}}, {"no": 13, "group": "기쁨", "word": "흐뭇하다", "haeyo": "흐뭇해요", "situation": "키운 화분에 꽃이 피었어요.", "s1": "콩이가 키운 꽃이 피어서 흐뭇해요.", "s2": "꽃이 예쁘게 피었네.", "img": "그림/13.jpg", "audio": {"a": "소리/13-a.m4a", "b": "소리/13-b.m4a", "c": "소리/13-c.m4a", "d": "소리/13-d.m4a"}}, {"no": 14, "group": "기쁨", "word": "든든하다", "haeyo": "든든해요", "situation": "아빠가 옆에 있어요.", "s1": "콩이가 아빠 손을 잡아서 든든해요.", "s2": "아빠가 있어서 든든해요.", "img": "그림/14.jpg", "audio": {"a": "소리/14-a.m4a", "b": "소리/14-b.m4a", "c": "소리/14-c.m4a", "d": "소리/14-d.m4a"}}, {"no": 15, "group": "기쁨", "word": "감동하다", "haeyo": "감동했어요", "situation": "친구가 손편지를 써 줬어요.", "s1": "콩이가 친구 편지를 읽고 감동했어요.", "s2": "편지 고마워. 감동이야.", "img": "그림/15.jpg", "audio": {"a": "소리/15-a.m4a", "b": "소리/15-b.m4a", "c": "소리/15-c.m4a", "d": "소리/15-d.m4a"}}, {"no": 16, "group": "기쁨", "word": "만족스럽다", "haeyo": "만족스러워요", "situation": "점심을 다 먹었어요.", "s1": "콩이가 점심을 다 먹어서 만족스러워요.", "s2": "아, 배부르고 좋아요.", "img": "그림/16.jpg", "audio": {"a": "소리/16-a.m4a", "b": "소리/16-b.m4a", "c": "소리/16-c.m4a", "d": "소리/16-d.m4a"}}, {"no": 17, "group": "기쁨", "word": "사랑스럽다", "haeyo": "사랑스러워요", "situation": "아기 고양이를 봤어요.", "s1": "콩이가 아기 고양이를 보니 사랑스러워요.", "s2": "아이, 귀여워!", "img": "그림/17.jpg", "audio": {"a": "소리/17-a.m4a", "b": "소리/17-b.m4a", "c": "소리/17-c.m4a", "d": "소리/17-d.m4a"}}, {"no": 18, "group": "기쁨", "word": "후련하다", "haeyo": "후련해요", "situation": "어려운 숙제를 끝냈어요.", "s1": "콩이가 숙제를 끝내서 후련해요.", "s2": "휴, 다 끝났다!", "img": "그림/18.jpg", "audio": {"a": "소리/18-a.m4a", "b": "소리/18-b.m4a", "c": "소리/18-c.m4a", "d": "소리/18-d.m4a"}}, {"no": 19, "group": "기쁨", "word": "홀가분하다", "haeyo": "홀가분해요", "situation": "무거운 가방을 내려놓았어요.", "s1": "콩이가 무거운 가방을 내려놓아서 홀가분해요.", "s2": "아, 가벼워요!", "img": "그림/19.jpg", "audio": {"a": "소리/19-a.m4a", "b": "소리/19-b.m4a", "c": "소리/19-c.m4a", "d": "소리/19-d.m4a"}}, {"no": 20, "group": "기쁨", "word": "상쾌하다", "haeyo": "상쾌해요", "situation": "아침에 창문을 열었어요.", "s1": "콩이가 창문을 열어서 상쾌해요.", "s2": "아, 시원하고 상쾌해!", "img": "그림/20.jpg", "audio": {"a": "소리/20-a.m4a", "b": "소리/20-b.m4a", "c": "소리/20-c.m4a", "d": "소리/20-d.m4a"}}, {"no": 21, "group": "슬픔", "word": "슬프다", "haeyo": "슬퍼요", "situation": "풍선이 날아갔어요.", "s1": "콩이가 풍선을 놓쳐서 슬퍼요.", "s2": "내 풍선이 날아갔어요.", "img": "그림/21.jpg", "audio": {"a": "소리/21-a.m4a", "b": "소리/21-b.m4a", "c": "소리/21-c.m4a", "d": "소리/21-d.m4a"}}, {"no": 22, "group": "슬픔", "word": "속상하다", "haeyo": "속상해요", "situation": "쌓던 블록이 무너졌어요.", "s1": "콩이가 쌓던 블록이 무너져서 속상해요.", "s2": "아, 다 무너졌어요.", "img": "그림/22.jpg", "audio": {"a": "소리/22-a.m4a", "b": "소리/22-b.m4a", "c": "소리/22-c.m4a", "d": "소리/22-d.m4a"}}, {"no": 23, "group": "슬픔", "word": "서운하다", "haeyo": "서운해요", "situation": "친구가 혼자 먼저 가 버렸어요.", "s1": "콩이가 친구가 먼저 가서 서운해요.", "s2": "같이 가고 싶었는데...", "img": "그림/23.jpg", "audio": {"a": "소리/23-a.m4a", "b": "소리/23-b.m4a", "c": "소리/23-c.m4a", "d": "소리/23-d.m4a"}}, {"no": 24, "group": "슬픔", "word": "외롭다", "haeyo": "외로워요", "situation": "놀이터에 혼자 있어요.", "s1": "콩이가 혼자 있어서 외로워요.", "s2": "같이 놀 친구가 없어요.", "img": "그림/24.jpg", "audio": {"a": "소리/24-a.m4a", "b": "소리/24-b.m4a", "c": "소리/24-c.m4a", "d": "소리/24-d.m4a"}}, {"no": 25, "group": "슬픔", "word": "실망하다", "haeyo": "실망했어요", "situation": "비가 와서 소풍이 취소됐어요.", "s1": "콩이가 소풍이 취소되어 실망했어요.", "s2": "소풍 못 가서 아쉬워요.", "img": "그림/25.jpg", "audio": {"a": "소리/25-a.m4a", "b": "소리/25-b.m4a", "c": "소리/25-c.m4a", "d": "소리/25-d.m4a"}}, {"no": 26, "group": "슬픔", "word": "아쉽다", "haeyo": "아쉬워요", "situation": "놀이 시간이 끝났어요.", "s1": "콩이가 놀이 시간이 끝나서 아쉬워요.", "s2": "조금만 더 놀고 싶어요.", "img": "그림/26.jpg", "audio": {"a": "소리/26-a.m4a", "b": "소리/26-b.m4a", "c": "소리/26-c.m4a", "d": "소리/26-d.m4a"}}, {"no": 27, "group": "슬픔", "word": "미안하다", "haeyo": "미안해요", "situation": "친구 발을 밟았어요.", "s1": "콩이가 친구 발을 밟아서 미안해요.", "s2": "미안해. 괜찮아?", "img": "그림/27.jpg", "audio": {"a": "소리/27-a.m4a", "b": "소리/27-b.m4a", "c": "소리/27-c.m4a", "d": "소리/27-d.m4a"}}, {"no": 28, "group": "슬픔", "word": "섭섭하다", "haeyo": "섭섭해요", "situation": "친구가 내 생일을 잊었어요.", "s1": "콩이가 친구가 생일을 잊어서 섭섭해요.", "s2": "오늘 내 생일인데...", "img": "그림/28.jpg", "audio": {"a": "소리/28-a.m4a", "b": "소리/28-b.m4a", "c": "소리/28-c.m4a", "d": "소리/28-d.m4a"}}, {"no": 29, "group": "슬픔", "word": "허전하다", "haeyo": "허전해요", "situation": "짝이 전학을 갔어요.", "s1": "콩이가 짝이 전학 가서 허전해요.", "s2": "옆자리가 비었어요.", "img": "그림/29.jpg", "audio": {"a": "소리/29-a.m4a", "b": "소리/29-b.m4a", "c": "소리/29-c.m4a", "d": "소리/29-d.m4a"}}, {"no": 30, "group": "슬픔", "word": "그립다", "haeyo": "그리워요", "situation": "멀리 사는 할머니를 생각해요.", "s1": "콩이가 할머니가 그리워요.", "s2": "할머니 보고 싶어요.", "img": "그림/30.jpg", "audio": {"a": "소리/30-a.m4a", "b": "소리/30-b.m4a", "c": "소리/30-c.m4a", "d": "소리/30-d.m4a"}}, {"no": 31, "group": "슬픔", "word": "후회하다", "haeyo": "후회해요", "situation": "장난감을 던져서 망가졌어요.", "s1": "콩이가 장난감을 던져서 후회해요.", "s2": "던지지 말 걸 그랬어요.", "img": "그림/31.jpg", "audio": {"a": "소리/31-a.m4a", "b": "소리/31-b.m4a", "c": "소리/31-c.m4a", "d": "소리/31-d.m4a"}}, {"no": 32, "group": "슬픔", "word": "우울하다", "haeyo": "우울해요", "situation": "며칠째 비가 와서 밖에 못 나가요.", "s1": "콩이가 계속 비가 와서 우울해요.", "s2": "기운이 하나도 없어요.", "img": "그림/32.jpg", "audio": {"a": "소리/32-a.m4a", "b": "소리/32-b.m4a", "c": "소리/32-c.m4a", "d": "소리/32-d.m4a"}}, {"no": 33, "group": "화", "word": "화나다", "haeyo": "화나요", "situation": "동생이 그림에 낙서했어요.", "s1": "콩이가 그림에 낙서가 되어 화나요.", "s2": "내 그림에 낙서하지 마!", "img": "그림/33.jpg", "audio": {"a": "소리/33-a.m4a", "b": "소리/33-b.m4a", "c": "소리/33-c.m4a", "d": "소리/33-d.m4a"}}, {"no": 34, "group": "화", "word": "짜증 나다", "haeyo": "짜증 나요", "situation": "신발 끈이 자꾸 풀려요.", "s1": "콩이가 신발 끈이 자꾸 풀려서 짜증 나요.", "s2": "아이, 또 풀렸어!", "img": "그림/34.jpg", "audio": {"a": "소리/34-a.m4a", "b": "소리/34-b.m4a", "c": "소리/34-c.m4a", "d": "소리/34-d.m4a"}}, {"no": 35, "group": "화", "word": "억울하다", "haeyo": "억울해요", "situation": "내가 안 했는데 혼났어요.", "s1": "콩이가 하지 않았는데 혼나서 억울해요.", "s2": "제가 안 했어요!", "img": "그림/35.jpg", "audio": {"a": "소리/35-a.m4a", "b": "소리/35-b.m4a", "c": "소리/35-c.m4a", "d": "소리/35-d.m4a"}}, {"no": 36, "group": "화", "word": "답답하다", "haeyo": "답답해요", "situation": "병뚜껑이 안 열려요.", "s1": "콩이가 뚜껑이 안 열려서 답답해요.", "s2": "왜 안 열리지?", "img": "그림/36.jpg", "audio": {"a": "소리/36-a.m4a", "b": "소리/36-b.m4a", "c": "소리/36-c.m4a", "d": "소리/36-d.m4a"}}, {"no": 37, "group": "화", "word": "심술 나다", "haeyo": "심술 나요", "situation": "친구만 먼저 뽑혔어요.", "s1": "콩이가 친구만 뽑혀서 심술 나요.", "s2": "흥, 나도 하고 싶었는데.", "img": "그림/37.jpg", "audio": {"a": "소리/37-a.m4a", "b": "소리/37-b.m4a", "c": "소리/37-c.m4a", "d": "소리/37-d.m4a"}}, {"no": 38, "group": "화", "word": "샘나다", "haeyo": "샘나요", "situation": "동생만 새 장난감을 받았어요.", "s1": "콩이가 동생만 장난감을 받아서 샘나요.", "s2": "나도 갖고 싶어요.", "img": "그림/38.jpg", "audio": {"a": "소리/38-a.m4a", "b": "소리/38-b.m4a", "c": "소리/38-c.m4a", "d": "소리/38-d.m4a"}}, {"no": 39, "group": "화", "word": "얄밉다", "haeyo": "얄미워요", "situation": "친구가 메롱 하고 놀렸어요.", "s1": "콩이가 친구가 놀려서 얄미워요.", "s2": "놀리지 마!", "img": "그림/39.jpg", "audio": {"a": "소리/39-a.m4a", "b": "소리/39-b.m4a", "c": "소리/39-c.m4a", "d": "소리/39-d.m4a"}}, {"no": 40, "group": "화", "word": "분하다", "haeyo": "분해요", "situation": "게임에서 아깝게 졌어요.", "s1": "콩이가 게임에서 아깝게 져서 분해요.", "s2": "아깝다! 다시 해!", "img": "그림/40.jpg", "audio": {"a": "소리/40-a.m4a", "b": "소리/40-b.m4a", "c": "소리/40-c.m4a", "d": "소리/40-d.m4a"}}, {"no": 41, "group": "화", "word": "귀찮다", "haeyo": "귀찮아요", "situation": "방 정리를 해야 해요.", "s1": "콩이가 방 정리를 해야 해서 귀찮아요.", "s2": "아, 하기 싫어요.", "img": "그림/41.jpg", "audio": {"a": "소리/41-a.m4a", "b": "소리/41-b.m4a", "c": "소리/41-c.m4a", "d": "소리/41-d.m4a"}}, {"no": 42, "group": "두려움", "word": "무섭다", "haeyo": "무서워요", "situation": "천둥이 쳐요.", "s1": "콩이가 천둥소리가 무서워요.", "s2": "으악, 무서워요!", "img": "그림/42.jpg", "audio": {"a": "소리/42-a.m4a", "b": "소리/42-b.m4a", "c": "소리/42-c.m4a", "d": "소리/42-d.m4a"}}, {"no": 43, "group": "두려움", "word": "걱정되다", "haeyo": "걱정돼요", "situation": "친구가 넘어져서 다쳤어요.", "s1": "콩이가 친구가 다쳐서 걱정돼요.", "s2": "괜찮아? 많이 아파?", "img": "그림/43.jpg", "audio": {"a": "소리/43-a.m4a", "b": "소리/43-b.m4a", "c": "소리/43-c.m4a", "d": "소리/43-d.m4a"}}, {"no": 44, "group": "두려움", "word": "긴장되다", "haeyo": "긴장돼요", "situation": "곧 발표를 해요.", "s1": "콩이가 발표하기 전이라 긴장돼요.", "s2": "떨리지만 해 볼게요.", "img": "그림/44.jpg", "audio": {"a": "소리/44-a.m4a", "b": "소리/44-b.m4a", "c": "소리/44-c.m4a", "d": "소리/44-d.m4a"}}, {"no": 45, "group": "두려움", "word": "떨리다", "haeyo": "떨려요", "situation": "곧 주사를 맞아요.", "s1": "콩이가 주사를 맞기 전이라 떨려요.", "s2": "조금 떨려요.", "img": "그림/45.jpg", "audio": {"a": "소리/45-a.m4a", "b": "소리/45-b.m4a", "c": "소리/45-c.m4a", "d": "소리/45-d.m4a"}}, {"no": 46, "group": "두려움", "word": "겁나다", "haeyo": "겁나요", "situation": "큰 개가 짖어요.", "s1": "콩이가 큰 개가 짖어서 겁나요.", "s2": "가까이 오지 마...", "img": "그림/46.jpg", "audio": {"a": "소리/46-a.m4a", "b": "소리/46-b.m4a", "c": "소리/46-c.m4a", "d": "소리/46-d.m4a"}}, {"no": 47, "group": "두려움", "word": "불안하다", "haeyo": "불안해요", "situation": "엄마가 데리러 늦게 와요.", "s1": "콩이가 엄마가 늦게 와서 불안해요.", "s2": "엄마 언제 와요?", "img": "그림/47.jpg", "audio": {"a": "소리/47-a.m4a", "b": "소리/47-b.m4a", "c": "소리/47-c.m4a", "d": "소리/47-d.m4a"}}, {"no": 48, "group": "두려움", "word": "조마조마하다", "haeyo": "조마조마해요", "situation": "높이 쌓은 컵이 흔들려요.", "s1": "콩이가 컵이 넘어질까 봐 조마조마해요.", "s2": "넘어지면 안 돼...", "img": "그림/48.jpg", "audio": {"a": "소리/48-a.m4a", "b": "소리/48-b.m4a", "c": "소리/48-c.m4a", "d": "소리/48-d.m4a"}}, {"no": 49, "group": "두려움", "word": "당황하다", "haeyo": "당황했어요", "situation": "우유를 쏟았어요.", "s1": "콩이가 우유를 쏟아서 당황했어요.", "s2": "어? 어떡하지?", "img": "그림/49.jpg", "audio": {"a": "소리/49-a.m4a", "b": "소리/49-b.m4a", "c": "소리/49-c.m4a", "d": "소리/49-d.m4a"}}, {"no": 50, "group": "놀람", "word": "놀라다", "haeyo": "놀랐어요", "situation": "상자에서 장난감이 튀어나왔어요.", "s1": "콩이가 깜짝 상자를 열어서 놀랐어요.", "s2": "깜짝이야!", "img": "그림/50.jpg", "audio": {"a": "소리/50-a.m4a", "b": "소리/50-b.m4a", "c": "소리/50-c.m4a", "d": "소리/50-d.m4a"}}, {"no": 51, "group": "놀람", "word": "깜짝 놀라다", "haeyo": "깜짝 놀랐어요", "situation": "풍선이 펑 터졌어요.", "s1": "콩이가 풍선이 터져서 깜짝 놀랐어요.", "s2": "펑! 깜짝 놀랐어요!", "img": "그림/51.jpg", "audio": {"a": "소리/51-a.m4a", "b": "소리/51-b.m4a", "c": "소리/51-c.m4a", "d": "소리/51-d.m4a"}}, {"no": 52, "group": "놀람", "word": "신기하다", "haeyo": "신기해요", "situation": "돋보기로 개미를 봐요.", "s1": "콩이가 돋보기로 보니 신기해요.", "s2": "우와, 신기하다!", "img": "그림/52.jpg", "audio": {"a": "소리/52-a.m4a", "b": "소리/52-b.m4a", "c": "소리/52-c.m4a", "d": "소리/52-d.m4a"}}, {"no": 53, "group": "놀람", "word": "궁금하다", "haeyo": "궁금해요", "situation": "흔들면 소리 나는 상자가 있어요.", "s1": "콩이가 상자 안이 궁금해요.", "s2": "이 안에 뭐가 있을까?", "img": "그림/53.jpg", "audio": {"a": "소리/53-a.m4a", "b": "소리/53-b.m4a", "c": "소리/53-c.m4a", "d": "소리/53-d.m4a"}}, {"no": 54, "group": "놀람", "word": "어리둥절하다", "haeyo": "어리둥절해요", "situation": "갑자기 불이 꺼졌어요.", "s1": "콩이가 갑자기 불이 꺼져서 어리둥절해요.", "s2": "어? 무슨 일이지?", "img": "그림/54.jpg", "audio": {"a": "소리/54-a.m4a", "b": "소리/54-b.m4a", "c": "소리/54-c.m4a", "d": "소리/54-d.m4a"}}, {"no": 55, "group": "놀람", "word": "황당하다", "haeyo": "황당해요", "situation": "신발을 짝짝이로 신었어요.", "s1": "콩이가 신발을 짝짝이로 신어서 황당해요.", "s2": "이게 뭐야?", "img": "그림/55.jpg", "audio": {"a": "소리/55-a.m4a", "b": "소리/55-b.m4a", "c": "소리/55-c.m4a", "d": "소리/55-d.m4a"}}, {"no": 56, "group": "부끄러움", "word": "부끄럽다", "haeyo": "부끄러워요", "situation": "친구들 앞에서 칭찬받았어요.", "s1": "콩이가 칭찬을 받아서 부끄러워요.", "s2": "헤헤, 고마워요.", "img": "그림/56.jpg", "audio": {"a": "소리/56-a.m4a", "b": "소리/56-b.m4a", "c": "소리/56-c.m4a", "d": "소리/56-d.m4a"}}, {"no": 57, "group": "부끄러움", "word": "쑥스럽다", "haeyo": "쑥스러워요", "situation": "처음 보는 친구에게 인사해요.", "s1": "콩이가 새 친구에게 인사하려니 쑥스러워요.", "s2": "아, 안녕...", "img": "그림/57.jpg", "audio": {"a": "소리/57-a.m4a", "b": "소리/57-b.m4a", "c": "소리/57-c.m4a", "d": "소리/57-d.m4a"}}, {"no": 58, "group": "부끄러움", "word": "창피하다", "haeyo": "창피해요", "situation": "사람들 앞에서 넘어졌어요.", "s1": "콩이가 사람들 앞에서 넘어져서 창피해요.", "s2": "아, 창피해...", "img": "그림/58.jpg", "audio": {"a": "소리/58-a.m4a", "b": "소리/58-b.m4a", "c": "소리/58-c.m4a", "d": "소리/58-d.m4a"}}, {"no": 59, "group": "부끄러움", "word": "민망하다", "haeyo": "민망해요", "situation": "틀린 답을 크게 말했어요.", "s1": "콩이가 틀린 답을 말해서 민망해요.", "s2": "아, 틀렸네요. 헤헤.", "img": "그림/59.jpg", "audio": {"a": "소리/59-a.m4a", "b": "소리/59-b.m4a", "c": "소리/59-c.m4a", "d": "소리/59-d.m4a"}}, {"no": 60, "group": "지루함", "word": "지루하다", "haeyo": "지루해요", "situation": "오래 기다려야 해요.", "s1": "콩이가 오래 기다려서 지루해요.", "s2": "언제 끝나요?", "img": "그림/60.jpg", "audio": {"a": "소리/60-a.m4a", "b": "소리/60-b.m4a", "c": "소리/60-c.m4a", "d": "소리/60-d.m4a"}}, {"no": 61, "group": "지루함", "word": "심심하다", "haeyo": "심심해요", "situation": "비 오는 날, 할 일이 없어요.", "s1": "콩이가 할 일이 없어서 심심해요.", "s2": "뭐 하고 놀지?", "img": "그림/61.jpg", "audio": {"a": "소리/61-a.m4a", "b": "소리/61-b.m4a", "c": "소리/61-c.m4a", "d": "소리/61-d.m4a"}}, {"no": 62, "group": "몸의 느낌", "word": "졸리다", "haeyo": "졸려요", "situation": "밤늦게까지 잠을 안 잤어요.", "s1": "콩이가 밤이 늦어서 졸려요.", "s2": "하암~ 졸려요.", "img": "그림/62.jpg", "audio": {"a": "소리/62-a.m4a", "b": "소리/62-b.m4a", "c": "소리/62-c.m4a", "d": "소리/62-d.m4a"}}, {"no": 63, "group": "몸의 느낌", "word": "피곤하다", "haeyo": "피곤해요", "situation": "운동장을 많이 뛰었어요.", "s1": "콩이가 많이 뛰어서 피곤해요.", "s2": "아, 힘이 하나도 없어요.", "img": "그림/63.jpg", "audio": {"a": "소리/63-a.m4a", "b": "소리/63-b.m4a", "c": "소리/63-c.m4a", "d": "소리/63-d.m4a"}}, {"no": 64, "group": "몸의 느낌", "word": "배고프다", "haeyo": "배고파요", "situation": "곧 점심시간이에요.", "s1": "콩이가 점심 전이라 배고파요.", "s2": "꼬르륵, 배고파요.", "img": "그림/64.jpg", "audio": {"a": "소리/64-a.m4a", "b": "소리/64-b.m4a", "c": "소리/64-c.m4a", "d": "소리/64-d.m4a"}}, {"no": 65, "group": "몸의 느낌", "word": "배부르다", "haeyo": "배불러요", "situation": "밥을 많이 먹었어요.", "s1": "콩이가 밥을 많이 먹어서 배불러요.", "s2": "아, 배불러요.", "img": "그림/65.jpg", "audio": {"a": "소리/65-a.m4a", "b": "소리/65-b.m4a", "c": "소리/65-c.m4a", "d": "소리/65-d.m4a"}}, {"no": 66, "group": "몸의 느낌", "word": "아프다", "haeyo": "아파요", "situation": "넘어져서 무릎을 다쳤어요.", "s1": "콩이가 넘어져서 무릎이 아파요.", "s2": "아야, 아파요.", "img": "그림/66.jpg", "audio": {"a": "소리/66-a.m4a", "b": "소리/66-b.m4a", "c": "소리/66-c.m4a", "d": "소리/66-d.m4a"}}, {"no": 67, "group": "몸의 느낌", "word": "덥다", "haeyo": "더워요", "situation": "한여름, 해가 쨍쨍해요.", "s1": "콩이가 햇볕이 뜨거워서 더워요.", "s2": "아이, 더워!", "img": "그림/67.jpg", "audio": {"a": "소리/67-a.m4a", "b": "소리/67-b.m4a", "c": "소리/67-c.m4a", "d": "소리/67-d.m4a"}}, {"no": 68, "group": "몸의 느낌", "word": "춥다", "haeyo": "추워요", "situation": "눈 오는 겨울날이에요.", "s1": "콩이가 눈이 와서 추워요.", "s2": "으~ 추워요.", "img": "그림/68.jpg", "audio": {"a": "소리/68-a.m4a", "b": "소리/68-b.m4a", "c": "소리/68-c.m4a", "d": "소리/68-d.m4a"}}, {"no": 69, "group": "몸의 느낌", "word": "목마르다", "haeyo": "목말라요", "situation": "달리기를 했어요.", "s1": "콩이가 달리기를 해서 목말라요.", "s2": "물 마시고 싶어요.", "img": "그림/69.jpg", "audio": {"a": "소리/69-a.m4a", "b": "소리/69-b.m4a", "c": "소리/69-c.m4a", "d": "소리/69-d.m4a"}}, {"no": 70, "group": "몸의 느낌", "word": "시원하다", "haeyo": "시원해요", "situation": "더운 날 선풍기 바람을 쐬요.", "s1": "콩이가 선풍기 바람을 쐬어서 시원해요.", "s2": "아, 시원해요!", "img": "그림/70.jpg", "audio": {"a": "소리/70-a.m4a", "b": "소리/70-b.m4a", "c": "소리/70-c.m4a", "d": "소리/70-d.m4a"}}, {"no": 71, "group": "몸의 느낌", "word": "힘들다", "haeyo": "힘들어요", "situation": "무거운 상자를 들어요.", "s1": "콩이가 무거운 상자를 들어서 힘들어요.", "s2": "끙차! 힘들어요.", "img": "그림/71.jpg", "audio": {"a": "소리/71-a.m4a", "b": "소리/71-b.m4a", "c": "소리/71-c.m4a", "d": "소리/71-d.m4a"}}];
+const VOICE = {"q0": "소리/q0.m4a", "q1": "소리/q1.m4a"};   // 공통 조각: q0 질문, q1 힌트 1 (선생님 목소리)
+const GROUPS = [
+  ["기쁨", "😊"], ["슬픔", "😢"], ["화", "😠"], ["두려움", "😨"],
+  ["놀람", "😲"], ["부끄러움", "😳"], ["지루함", "😑"], ["몸의 느낌", "🧍"],
+];
+const icon = g => (GROUPS.find(x => x[0] === g) || [, ""])[1];
+const $ = id => document.getElementById(id);
+
+let mode = "read";      // read: 읽어요, guess: 맞혀요
+let i = 0;              // 지금 카드 번호(0부터)
+let hints = 0;          // 맞혀요: 0 질문, 1 얼굴, 2 상황, 3 첫 글자, 4 답
+let showSay = false;    // 읽어요: 콩이 말을 보이는지
+const stars = {};       // 갈래별 별
+const 기록 = [];
+
+function show(id) {
+  document.querySelectorAll(".screen").forEach(s => s.classList.toggle("on", s.id === id));
+  stopAll();
+}
+
+// ── 차례 ──
+function drawToc() {
+  $("tocTitle").textContent = mode === "read" ? "📖 어떤 마음을 읽을까요?" : "🤔 어떤 마음을 맞혀 볼까요?";
+  $("groups").innerHTML = "";
+  for (const [g, ic] of GROUPS) {
+    const list = CARDS.filter(c => c.group === g);
+    const b = document.createElement("button");
+    b.innerHTML = `<img src="${list[0].img}" alt=""><span>${ic} ${g} <small>${list.length}장</small></span>`;
+    b.onclick = () => go(CARDS.indexOf(list[0]));
+    $("groups").appendChild(b);
+  }
+}
+
+// ── 카드 ──
+function go(n) {
+  i = Math.max(0, Math.min(CARDS.length - 1, n));
+  hints = 0; showSay = false;
+  show("card"); draw();
+}
+
+function firstLetters(w) {   // 기쁘다 → 기 ◯ ◯
+  return [...w].map((ch, k) => k === 0 || ch === " " ? ch : "◯").join("");
+}
+
+function draw() {
+  const c = CARDS[i];
+  const inGroup = CARDS.filter(x => x.group === c.group);
+  $("where").textContent = `${icon(c.group)} ${c.group} ${inGroup.indexOf(c) + 1} / ${inGroup.length}`;
+  $("stars").textContent = mode === "guess" ? `⭐ ${stars[c.group] || 0}` : "";
+  $("modeBtn").textContent = mode === "read" ? "🤔 맞혀요로" : "📖 읽어요로";
+  $("pic").src = c.img;
+  $("pic").alt = mode === "guess" && hints < 4 ? "콩이와 뭉치 그림" : `콩이와 뭉치가 ${c.haeyo}`;
+  $("prev").disabled = i === 0;
+  $("next").disabled = i === CARDS.length - 1;
+
+  const T = $("text"), B = $("tools");
+  if (mode === "read" || hints >= 4) {
+    T.innerHTML = `<div class="word ${hints >= 4 ? "ok" : ""}">${c.word}</div>` +
+      (showSay ? `<div class="line say">${c.s2}</div>` : `<div class="line">${c.s1}</div>`);
+    B.innerHTML = "";
+    B.append(btn("🔊 듣기", speakCard), btn(showSay ? "📝 문장 보기" : "💬 콩이 말", () => { showSay = !showSay; draw(); }));
+    if (mode === "guess") B.append(btn("🔁 다시", () => { hints = 0; draw(); }));
+  } else {
+    const lines = [
+      "콩이 마음은 어떨까요?",
+      "콩이 얼굴을 봐요. 눈과 입은 어때요?",
+      `무슨 일이 있었나요?<div class="line">${c.situation}</div>`,
+      `첫 글자는 「${firstLetters(c.word)}」`,
+    ];
+    T.innerHTML = `<div class="line ${hints ? "hint" : ""}">${hints ? "💡 " : ""}${lines[hints]}</div>`;
+    B.innerHTML = "";
+    if (hints < 3) B.append(btn(`💡 힌트 ${hints + 1}`, () => { hints++; draw(); }));
+    const src = [VOICE.q0, VOICE.q1, c.audio && c.audio.c, c.audio && c.audio.d][hints];
+    B.append(btn("🔊 듣기", () => play(src, lines[hints].replace(/<[^>]+>/g, " ").replace(/[「」◯]/g, " "))));
+    B.append(btn("🗣 말했어요 ⭐", () => reveal("말했어요")));
+    B.append(btn("👀 답 보기", () => reveal("답 보기")));
+  }
+}
+
+function reveal(how) {
+  const c = CARDS[i];
+  if (how === "말했어요") stars[c.group] = (stars[c.group] || 0) + 1;
+  남기기({ 번호: c.no, 낱말: c.word, 힌트: hints, 어떻게: how });
+  hints = 4; draw();
+}
+
+function btn(label, fn) {
+  const b = document.createElement("button");
+  b.textContent = label; b.onclick = fn; return b;
+}
+
+// ── 소리 (누를 때만, 자동 재생 없음) ──
+// 선생님 목소리 파일이 있으면 그것을, 없거나 안 열리면 브라우저 목소리로 읽는다.
+let playing = null;
+function stopAll() {
+  if (playing) { playing.pause(); playing = null; }
+  speechSynthesis.cancel();
+  document.querySelectorAll(".speaking").forEach(b => b.classList.remove("speaking"));
+}
+function play(src, text) {
+  const b = document.activeElement;
+  stopAll();
+  if (!src) return say(text, b);
+  const a = new Audio(src); playing = a;
+  if (b && b.tagName === "BUTTON") b.classList.add("speaking");
+  a.onended = () => b && b.classList.remove("speaking");
+  a.onerror = () => { b && b.classList.remove("speaking"); say(text, b); };
+  a.play().catch(() => say(text, b));
+}
+function say(text, el) {
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = "ko-KR"; u.rate = 0.85;
+  const v = speechSynthesis.getVoices().find(v => v.lang.startsWith("ko"));
+  if (v) u.voice = v;
+  const b = el || document.activeElement;
+  if (b && b.tagName === "BUTTON") { b.classList.add("speaking"); u.onend = u.onerror = () => b.classList.remove("speaking"); }
+  speechSynthesis.speak(u);
+}
+function speakCard() {
+  const c = CARDS[i];
+  const text = showSay ? c.s2 : `${c.word}. ${c.s1}`;
+  play(c.audio && (showSay ? c.audio.b : c.audio.a), text);
+}
+
+// ── 기록 ──
+function 남기기(항목) {
+  기록.push({ ...항목, 모드: mode, 때: new Date().toISOString() });
+  $("log").value = JSON.stringify(기록, null, 1);
+}
+$("copy").onclick = async () => {
+  const t = $("log");
+  try { await navigator.clipboard.writeText(t.value); } catch { t.select(); document.execCommand("copy"); }
+};
+
+// ── 이동 ──
+document.querySelectorAll("[data-mode]").forEach(b => b.onclick = () => { mode = b.dataset.mode; drawToc(); show("toc"); });
+$("toCover").onclick = () => show("cover");
+$("toToc").onclick = () => { drawToc(); show("toc"); };
+$("modeBtn").onclick = () => { mode = mode === "read" ? "guess" : "read"; hints = 0; showSay = false; draw(); };
+$("prev").onclick = () => go(i - 1);
+$("next").onclick = () => go(i + 1);
+document.addEventListener("keydown", e => {
+  if (!$("card").classList.contains("on")) return;
+  if (e.key === "ArrowRight" || e.key === "PageDown") go(i + 1);
+  if (e.key === "ArrowLeft" || e.key === "PageUp") go(i - 1);
+  if (e.key === "Escape") { drawToc(); show("toc"); }
+});
+let x0 = null;   // 태블릿 밀기
+$("card").addEventListener("touchstart", e => { x0 = e.touches[0].clientX; }, { passive: true });
+$("card").addEventListener("touchend", e => {
+  if (x0 === null) return;
+  const dx = e.changedTouches[0].clientX - x0; x0 = null;
+  if (Math.abs(dx) > 80) go(i + (dx < 0 ? 1 : -1));
+});
+speechSynthesis.getVoices();
+</script>
+<!-- mak-home --><a href="../../" style="position:fixed;left:12px;bottom:12px;z-index:2147483000;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:22px;background:#232320;color:#efe6d6;font:14px/1 'Apple SD Gothic Neo','Noto Sans KR',sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.35);opacity:.92" title="나눔터 첫 화면으로" aria-label="나눔터 첫 화면으로">⌂ 나눔터</a><style>@media print{a[href="../../"]{display:none!important}}</style>
+<!--gc--><script>window.goatcounter={path:function(p){try{return decodeURIComponent(p)}catch(e){return p}}}</script><script data-goatcounter="https://mak.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body></html>
