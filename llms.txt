@@ -51,8 +51,8 @@
 - [1학년 1학기 7단원 「알맞은 낱말을 찾아요」 — 쉬운 영상 (1분 28초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-1-1-7-easy-v1.html): 새가 날아요 ○, 강아지가 날아요? ✕ 짧고 천천히.
 - [1학년 2학기 1단원 「기분을 말해요」 — 단원 전체 영상 (12분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-1-2-1-v1.html): 멍멍 · 깡충깡충, 그리고 내 기분을 세 걸음으로 말해요. 12분 영상, 자막이 있어요.
 - [1학년 2학기 1단원 「기분을 말해요」 — 쉬운 영상 (1분 31초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-1-2-1-easy-v1.html): 기뻐요 · 속상해요 · 화나요. 왜 그런지 말해요. 짧고 천천히.
-- [1학년 2학기 3단원 「그림일기를 써요」 — 단원 전체 영상 (11분 52초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-1-2-3-v1.html): 바르게 서서 또박또박 발표하고, 기억에 남는 일 하나를 그림일기로 써요. 12분 영상, 자막이 있어요.
-- [1학년 2학기 3단원 「그림일기를 써요」 — 쉬운 영상 (1분 40초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-1-2-3-easy-v1.html): 기억에 남는 일 하나를 그림과 글로! 짧고 천천히.
+- [1학년 2학기 3단원 「그림일기를 써요」 — 단원 전체 영상 (11분 43초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-1-2-3-v2.html): 바르게 서서 또박또박 발표하고, 기억에 남는 일 하나를 그림일기로 써요. 12분 영상, 자막이 있어요.
+- [1학년 2학기 3단원 「그림일기를 써요」 — 쉬운 영상 (1분 37초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-1-2-3-easy-v2.html): 기억에 남는 일 하나를 그림과 글로! 짧고 천천히.
 - [1학년 2학기 5단원 「생각을 키워요」 — 단원 전체 영상 (8분 57초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-1-2-5-v1.html): 한글을 아끼는 법을 알고, 글자 하나를 바꾸어 새 낱말을 만들고, 책을 읽고 마음에 남은 부분을 말해요. 9분 영상, 자막이 있어요.
 - [1학년 2학기 5단원 「생각을 키워요」 — 쉬운 영상 (1분 25초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-1-2-5-easy-v1.html): 글자 하나를 바꾸면 새 낱말! 짧고 천천히.
 - [누가 · 무엇 · 어디 — 문제를 읽고 답을 찾는 네 걸음 영상 (11분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-qa-sped-kor-1-v2.html): 문제를 읽으면 네 걸음! 누가 · 무엇 · 어디를 묻는지 찾고 답에 동그라미 해요. 11분 영상, 자막이 있어요.
