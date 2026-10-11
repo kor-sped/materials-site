@@ -1,0 +1,246 @@
+# MAK 나눔터
+
+> 특수교사가 만든 무료 수업 자료 나눔터. 국어·수학·과학·사회 교과서 단원별 쉬운 영상과 짝 학습지, 한글 자음모음·받침, 시계·자릿값, 감정 조절·사회성 기술 자료를 2022 개정 교육과정 성취기준과 이어 두었습니다.
+
+모든 자료는 무료입니다. 다시 올리거나 팔지 말아 주세요. 학생 정보는 담겨 있지 않습니다.
+
+- [첫 화면](https://kor-sped.github.io/materials-site/): 범주·학년·단원별 자료 목록과 검색
+- [자료 지도](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C-%EC%A7%80%EB%8F%84.html): 2022 개정 교육과정 성취기준 ↔ 자료
+- [사이트맵](https://kor-sped.github.io/materials-site/sitemap.xml)
+
+## 국어
+
+- [획순 따라쓰기 — 자음·모음·글자](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%ED%9A%8D%EC%88%9C/%ED%9A%8D%EC%88%9C-%EB%94%B0%EB%9D%BC%EC%93%B0%EA%B8%B0-v1.html): 글자를 쓰는 순서를 보고, 손가락으로 따라 써요.
+- [획순 따라쓰기 학습지 — 자음 14·모음 10 (3장)](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%ED%9A%8D%EC%88%9C/%ED%9A%8D%EC%88%9C-%EB%94%B0%EB%9D%BC%EC%93%B0%EA%B8%B0-%ED%95%99%EC%8A%B5%EC%A7%80-v1.html): 자음과 모음을 쓰는 순서가 화살표로 있어요. 인쇄해서 따라 써요.
+- [획순 따라쓰기 — 글자 168자 (속이 빈 글자, 12장)](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%ED%9A%8D%EC%88%9C/%ED%9A%8D%EC%88%9C-%EB%94%B0%EB%9D%BC%EC%93%B0%EA%B8%B0-%EA%B8%80%EC%9E%90-v1.html): 가, 나, 다… 글자 속을 화살표 따라 채우며 써요. 12장.
+- [요약의 사다리 — 한 문장에서 책 한 권까지](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EA%B8%80%EC%93%B0%EA%B8%B0/%EA%B8%80%EC%93%B0%EA%B8%B0-%EC%9A%94%EC%95%BD%EC%9D%98-%EC%82%AC%EB%8B%A4%EB%A6%AC-v1.html): 긴 글을 짧게 줄이는 방법을 다섯 단계로 배워요.
+- [그대로 옮길까, 내 말로 바꿀까 — 6학년 글쓰기 안내](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EA%B8%80%EC%93%B0%EA%B8%B0/%EA%B8%80%EC%93%B0%EA%B8%B0-%EC%9D%B8%EC%9A%A9%EA%B3%BC-%EB%B0%94%EA%BF%94%EC%93%B0%EA%B8%B0-%EC%95%88%EB%82%B4-v1.html): 남의 글을 그대로 쓸 때와 내 말로 바꿔 쓸 때를 알려 줘요.
+- [모음 1단계(ㅓ) 세트 — 절차 카드·낱자 카드·가려내기판·조립판·기록지](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EC%9E%90%EC%9D%8C%EB%AA%A8%EC%9D%8C/%EB%AA%A8%EC%9D%8C-1%EB%8B%A8%EA%B3%84-%E3%85%93-%EC%84%B8%ED%8A%B8-v2.html): 모음 ㅓ를 배우는 자료예요. 카드, 소리 듣고 짚기, 자음과 붙여 읽기.
+- [자음 + 모음 합성 세트 — 회기 5장 · 자음 카드 · 측정지 2장](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EC%9E%90%EC%9D%8C%EB%AA%A8%EC%9D%8C/%EC%9E%90%EC%9D%8C%EB%AA%A8%EC%9D%8C-%ED%95%A9%EC%84%B1-%EC%84%B8%ED%8A%B8-v2.html): 자음과 모음을 붙여서 글자를 읽는 연습이에요. "그 — 아 → 가!"
+- [자음 + 모음 1 — 두 박자로 읽어요 (2분 10초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/jamo-1-two-beats-v2.html): 자음 한 박자, 모음 한 박자. 므 — 어 → 머!
+- [자음 + 모음 2 — 새 소리와 섞어서 (2분 6초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/jamo-2-new-sounds-v2.html): 새 소리 ㅍ, ㅎ, ㅐ, ㅚ도 두 박자로 읽어요. 두 글자도 읽어요.
+- [5~6학년군 7단원 「글자를 만들어요」 — 영상 (3분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/sped-kor-5-7-v1.html): 자음자와 모음자를 붙여 글자를 만들어요. 3분 영상, 자막이 있어요.
+- [5~6학년군 7단원 「글자를 만들어요」 — 쉬운 영상 (1분 30초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/sped-kor-5-7-easy-v1.html): ㄱ ㄴ ㅁ과 ㅏ ㅗ로만 글자를 만들어요. 짧고 천천히.
+- [겹받침 읽기 — 측정판과 지도 4단계](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EA%B2%B9%EB%B0%9B%EC%B9%A8/%EA%B2%B9%EB%B0%9B%EC%B9%A8-%EC%B8%A1%EC%A0%95%EA%B3%BC-%EC%A7%80%EB%8F%84-4%EB%8B%A8%EA%B3%84-v2.html): 받침이 두 개인 글자를 읽는 연습이에요. 먼저 얼마나 읽는지 재고, 4단계로 가르쳐요.
+- [겹받침 1 — 받침 둘 중 하나만 (2분 2초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gyeop-1-one-of-two-v2.html): 받침이 두 개여도 소리는 하나만 나요. 앉다는 [안따]!
+- [겹받침 2 — 앞 ㄹ, 그리고 이사 (1분 55초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gyeop-2-front-r-move-v2.html): ㄹ이 남는 받침, 그리고 모음 앞에서 받침이 이사 가요.
+- [문장 쓰기 — 가을이 왔어요 (10문장, 3단계)](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EB%AC%B8%EC%9E%A5-%EC%93%B0%EA%B8%B0/%EB%AC%B8%EC%9E%A5-%EC%93%B0%EA%B8%B0-%EA%B0%80%EC%9D%84-v1.html): 가을에 하는 일을 보고 문장을 써요. 보고 쓰기부터 혼자 쓰기까지 3단계.
+- [5학년 2학기 1단원 「작품에 대한 의견을 나누어요」 — 인상적인 부분 골라 말하기 영상 (4분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-5-2-1-v3.html): 이야기를 듣고 마음에 남는 부분을 골라 '왜냐하면'을 붙여 말해요. 4분 영상, 자막이 있어요.
+- [5학년 2학기 1단원 「작품에 대한 의견을 나누어요」 — 쉬운 영상 (1분 34초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-5-2-1-easy-v3.html): 하나 고르고, 왜냐하면! 짧고 천천히.
+- [5학년 2학기 2단원 「올바른 문장으로 글을 써요」 — 문장의 자리 · 짝이 맞는 문장 · 매체에 맞게 쓰기 영상 (20분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-5-2-2-v2.html): '누가? 무엇을? 어찌했다?' 하고 물으면 문장의 자리를 찾아요. 앞말과 뒷말의 짝을 맞춰요. 20분 영상, 자막이 있어요.
+- [5학년 2학기 2단원 「올바른 문장으로 글을 써요」 — 쉬운 영상 (2분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-5-2-2-easy-v1.html): 어제는 '했어요', 내일은 '할 거예요'. 짧고 천천히.
+- [3학년 1학기 4단원 「중요한 내용을 찾아요」 — 중심 문장 찾기와 간추리기 영상 (17분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-3-1-4-v1.html): 글에서 빼면 안 되는 문장을 찾아요. 우산처럼 다 덮는 문장이 중심 문장! 17분 영상, 자막이 있어요.
+- [3학년 1학기 4단원 「중요한 내용을 찾아요」 — 쉬운 영상 (2분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-3-1-4-easy-v1.html): 다 덮는 우산 문장을 찾아요. 짧고 천천히.
+- [2학년 1학기 3단원 「겪은 일을 나타내요」 — 꾸며 주는 말과 일기 쓰기 영상 (14분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-2-1-3-v1.html): '어떤?' '어떻게?' 하고 물으면 꾸며 주는 말을 찾아요. 오늘 한 일 하나를 네 칸 일기로 써요. 14분 영상, 자막이 있어요.
+- [2학년 1학기 3단원 「겪은 일을 나타내요」 — 쉬운 영상 (2분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-2-1-3-easy-v1.html): 오늘 한 일을 두 문장으로 써요. 짧고 천천히.
+- [6학년 2학기 1단원 「깊이 있게 감상해요」 — 작가의 의도 짐작하기 · 줄거리 간추리기 · 작품 소개 영상 (15분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-6-2-1-v1.html): 제목, 두 번 나오는 말, 작가 이야기를 단서로 작가가 하고 싶었던 말을 짐작해요. 이야기는 네 걸음으로 짧게 줄여요. 15분 영상, 자막이 있어요.
+- [6학년 2학기 1단원 「깊이 있게 감상해요」 — 쉬운 영상 (2분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-6-2-1-easy-v1.html): 두 번 나오는 말은 중요한 말! 작가가 하고 싶었던 말을 찾아요. 짧고 천천히.
+- [1학년 1학기 2단원 「받침이 있는 글자를 읽어요」 — 단원 전체 영상 (14분 53초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-1-1-2-v1.html): 읽기 전에 글자 아래를 먼저 봐요! 받침 일곱 가지를 입 모양으로 읽고, 바르게 발표하고 들어요. 15분 영상, 자막이 있어요.
+- [1학년 1학기 2단원 「받침이 있는 글자를 읽어요」 — 쉬운 영상 (2분 5초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-1-1-2-easy-v1.html): 글자 아래를 봐요! 입술을 닫는 받침, 코로 울리는 받침. 짧고 천천히.
+- [1학년 2학기 2단원 「낱말을 정확하게 읽어요」 — 단원 전체 영상 (15분 31초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-1-2-2-v1.html): 닭이는 '달기'로 읽어요! 받침 뒤에 이응이 오면 받침이 이사 가요. 쓸 때는 글자대로. 15분 영상, 자막이 있어요.
+- [1학년 2학기 2단원 「낱말을 정확하게 읽어요」 — 쉬운 영상 (2분 5초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-1-2-2-easy-v1.html): 받침 뒤에 이응이 오면 받침이 이사 가요! 닭이 → 달기. 짧고 천천히.
+- [1학년 1학기 1단원 「글자를 만들어요」 — 단원 전체 영상 (12분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-1-1-1-v1.html): 자음자와 모음자가 짝을 지으면 글자가 돼요! 그, 아, 가! 12분 영상, 자막이 있어요.
+- [1학년 1학기 1단원 「글자를 만들어요」 — 쉬운 영상 (1분 51초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-1-1-1-easy-v1.html): 자음자 + 모음자 = 글자! 그, 아, 가! 짧고 천천히.
+- [1학년 1학기 3단원 「낱말과 친해져요」 — 단원 전체 영상 (11분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-1-1-3-v1.html): 받침 글자는 자음자 → 모음자 → 받침 순서로 써요! 고 · 음 → 곰. 11분 영상, 자막이 있어요.
+- [1학년 1학기 3단원 「낱말과 친해져요」 — 쉬운 영상 (1분 58초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-1-1-3-easy-v1.html): 받침은 맨 마지막에, 맨 아래에! 고 · 음 → 곰. 짧고 천천히.
+- [1학년 1학기 5단원 「반갑게 인사해요」 — 단원 전체 영상 (11분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-1-1-5-v1.html): 친구에게는 안녕, 어른께는 안녕하세요! 눈을 보고 웃으며 인사해요. 11분 영상, 자막이 있어요.
+- [1학년 1학기 5단원 「반갑게 인사해요」 — 쉬운 영상 (1분 29초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-1-1-5-easy-v1.html): 친구에게는 안녕, 어른께는 안녕하세요! 짧고 천천히.
+- [1학년 1학기 6단원 「또박또박 읽어요」 — 단원 전체 영상 (13분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-1-1-6-v1.html): 마침표는 내리고, 물음표는 올리고, 느낌표는 힘 있게! 짚으며 또박또박 읽어요. 13분 영상, 자막이 있어요.
+- [1학년 1학기 6단원 「또박또박 읽어요」 — 쉬운 영상 (1분 33초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-1-1-6-easy-v1.html): 마침표는 내리고, 물음표는 올려요! 짧고 천천히.
+- [1학년 1학기 7단원 「알맞은 낱말을 찾아요」 — 단원 전체 영상 (11분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-1-1-7-v1.html): 빈칸에 넣고 소리 내어 읽어요. 말이 되나? 11분 영상, 자막이 있어요.
+- [1학년 1학기 7단원 「알맞은 낱말을 찾아요」 — 쉬운 영상 (1분 28초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-1-1-7-easy-v1.html): 새가 날아요 ○, 강아지가 날아요? ✕ 짧고 천천히.
+- [1학년 2학기 1단원 「기분을 말해요」 — 단원 전체 영상 (12분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-1-2-1-v1.html): 멍멍 · 깡충깡충, 그리고 내 기분을 세 걸음으로 말해요. 12분 영상, 자막이 있어요.
+- [1학년 2학기 1단원 「기분을 말해요」 — 쉬운 영상 (1분 31초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-1-2-1-easy-v1.html): 기뻐요 · 속상해요 · 화나요. 왜 그런지 말해요. 짧고 천천히.
+- [1학년 2학기 3단원 「그림일기를 써요」 — 단원 전체 영상 (11분 52초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-1-2-3-v1.html): 바르게 서서 또박또박 발표하고, 기억에 남는 일 하나를 그림일기로 써요. 12분 영상, 자막이 있어요.
+- [1학년 2학기 3단원 「그림일기를 써요」 — 쉬운 영상 (1분 40초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-1-2-3-easy-v1.html): 기억에 남는 일 하나를 그림과 글로! 짧고 천천히.
+- [누가 · 무엇 · 어디 — 문제를 읽고 답을 찾는 네 걸음 영상 (11분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-qa-sped-kor-1-v2.html): 문제를 읽으면 네 걸음! 누가 · 무엇 · 어디를 묻는지 찾고 답에 동그라미 해요. 11분 영상, 자막이 있어요.
+- [누가 · 무엇 · 어디 — 쉬운 영상: 답을 찾는 네 걸음 (1분 40초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-qa-sped-kor-1-easy-v2.html): 짚어요, 찾아요, 동그라미, 다시 읽어요! 짧고 천천히.
+- [언제 · 왜 · 하라는 말 — 문제를 읽고 답을 찾는 네 걸음 영상 (12분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-qa-sped-kor-2-v1.html): 언제는 때, 왜는 까닭! 문제의 하라는 말(동그라미 · 선 잇기 · 쓰기)도 찾아요. 12분 영상, 자막이 있어요.
+- [언제 · 왜 · 하라는 말 — 쉬운 영상: 왜는 까닭을 찾아요 (1분 30초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-qa-sped-kor-2-easy-v1.html): 왜는 까닭! 해서를 붙여 답해요. 짧고 천천히.
+- [무엇에 대한 글이에요? — 제목과 여러 번 나오는 낱말 · 간추리기 · 신호등 영상 (17분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-qa-gen-1-v2.html): 이 글은 무엇에 대한 글일까? 제목과 여러 번 나오는 낱말을 봐요. 모르면 신호등! 17분 영상, 자막이 있어요.
+- [무엇에 대한 글이에요? — 쉬운 영상: 여러 번 나오는 낱말을 찾아요 (1분 36초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-qa-gen-1-easy-v1.html): 제목을 보고, 여러 번 나오는 낱말을 세어요. 짧은 영상.
+- [답은 어디에 있어요? — 보고 찾아요 · 물어봐요 · 내 생각 · 어떻게 · 달라요 영상 (20분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-qa-integ-v2.html): 답은 글 속에만 있지 않아요! 보고 찾고, 물어보고, 내 생각을 말해요. 20분 영상, 자막이 있어요.
+- [답은 어디에 있어요? — 쉬운 영상: 글에 없으면 물어봐요 (1분 31초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-qa-integ-easy-v1.html): 글에 없으면 누구에게 물어볼까요? 짧은 영상.
+- [답은 어디에 있어요? 학습지 — 답 자리 고르기 · 차례 · 조사 기록장 · 두 칸 판 (14장)](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EA%B5%90%EA%B3%BC%EC%84%9C-%EC%A3%BC%EC%A0%9C-%EA%B5%AD%EC%96%B4/%EC%A7%88%EB%AC%B8-%EC%9D%B4%ED%95%B4%ED%95%98%EC%97%AC-%EB%8B%B5-%EC%B0%BE%EA%B8%B0-5-%EB%8B%B5%EC%9D%80-%EC%96%B4%EB%94%94%EC%97%90-%EC%9E%88%EC%96%B4%EC%9A%94-%ED%95%99%EC%8A%B5%EC%A7%80-v2.html): 답이 어디에 있는지 고르고, 실제로 물어보고, 두 쪽을 견줘요.
+- [독해 연습 1 「불과 전기」 — 쉬운 글 셋 · 문제 · 교사용 정답 (10쪽)](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EA%B5%90%EA%B3%BC%EC%84%9C-%EC%A3%BC%EC%A0%9C-%EA%B5%AD%EC%96%B4/%EB%8F%85%ED%95%B4-%EC%97%B0%EC%8A%B5-1-%EB%B6%88%EA%B3%BC-%EC%A0%84%EA%B8%B0-%ED%95%99%EC%8A%B5%EC%A7%80-v1.html): 짧은 글을 읽고 묻는 말의 답을 글에서 찾아요. 글 한 편이 종이 한 장(앞 글 · 뒤 문제).
+- [독해 연습 2 「시장과 동네」 — 쉬운 글 셋 · 문제 · 교사용 정답 (10쪽)](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EA%B5%90%EA%B3%BC%EC%84%9C-%EC%A3%BC%EC%A0%9C-%EA%B5%AD%EC%96%B4/%EB%8F%85%ED%95%B4-%EC%97%B0%EC%8A%B5-2-%EC%8B%9C%EC%9E%A5%EA%B3%BC-%EB%8F%99%EB%84%A4-%ED%95%99%EC%8A%B5%EC%A7%80-v1.html): 짧은 글을 읽고 묻는 말의 답을 글에서 찾아요. 시장 · 가격표 · 도서관 이야기.
+- [독해 연습 3 「하루와 계절」 — 쉬운 글 셋 · 문제 · 교사용 정답 (10쪽)](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EA%B5%90%EA%B3%BC%EC%84%9C-%EC%A3%BC%EC%A0%9C-%EA%B5%AD%EC%96%B4/%EB%8F%85%ED%95%B4-%EC%97%B0%EC%8A%B5-3-%ED%95%98%EB%A3%A8%EC%99%80-%EA%B3%84%EC%A0%88-%ED%95%99%EC%8A%B5%EC%A7%80-v1.html): 짧은 글을 읽고 묻는 말의 답을 글에서 찾아요. 저녁 준비 · 시계 · 여름 해와 겨울 해 이야기.
+- [독해 연습 4 「길과 세계와 나누기」 — 쉬운 글 셋 · 문제 · 교사용 정답 (10쪽)](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EA%B5%90%EA%B3%BC%EC%84%9C-%EC%A3%BC%EC%A0%9C-%EA%B5%AD%EC%96%B4/%EB%8F%85%ED%95%B4-%EC%97%B0%EC%8A%B5-4-%EA%B8%B8%EA%B3%BC-%EC%84%B8%EA%B3%84%EC%99%80-%EB%82%98%EB%88%84%EA%B8%B0-%ED%95%99%EC%8A%B5%EC%A7%80-v1.html): 짧은 글을 읽고 묻는 말의 답을 글에서 찾아요. 횡단보도 · 더운 곳과 추운 곳 · 똑같이 나누기 이야기.
+- [독해 연습 5 「버스와 손과 겨울」 — 쉬운 글 셋 · 문제 · 교사용 정답 (10쪽)](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EA%B5%90%EA%B3%BC%EC%84%9C-%EC%A3%BC%EC%A0%9C-%EA%B5%AD%EC%96%B4/%EB%8F%85%ED%95%B4-%EC%97%B0%EC%8A%B5-5-%EB%B2%84%EC%8A%A4%EC%99%80-%EC%86%90%EA%B3%BC-%EA%B2%A8%EC%9A%B8-%ED%95%99%EC%8A%B5%EC%A7%80-v1.html): 짧은 글을 읽고 묻는 말의 답을 글에서 찾아요. 버스 타기 · 동물의 겨울나기 · 손 씻기 이야기.
+- [독해 연습 6 「마트와 식물과 급식」 — 쉬운 글 둘 + 처음 5문단 글 · 문제 · 교사용 정답 (10쪽)](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EA%B5%90%EA%B3%BC%EC%84%9C-%EC%A3%BC%EC%A0%9C-%EA%B5%AD%EC%96%B4/%EB%8F%85%ED%95%B4-%EC%97%B0%EC%8A%B5-6-%EB%A7%88%ED%8A%B8%EC%99%80-%EC%8B%9D%EB%AC%BC%EA%B3%BC-%EA%B8%89%EC%8B%9D-%ED%95%99%EC%8A%B5%EC%A7%80-v1.html): 짧은 글을 읽고 묻는 말의 답을 글에서 찾아요. 마트 장보기 · 식물 · 급식 이야기, 처음으로 다섯 문단 글도 있어요.
+- [글 탐정 — 글 읽고 추론·비판하기 영상 (11분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-read-infer-v1.html): 글 탐정이 되어 단서를 모아 숨은 것을 찾고, 글을 믿기 전에 한 번 물어봐요. 11분 영상, 자막이 있어요.
+- [글 탐정 — 쉬운 영상: 단서를 모으면 보여요 (1분 50초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-read-infer-easy-v1.html): 단서를 모으면 보여요! 짧고 천천히.
+- [세 문장 기차 — 쉬운 영상: 주말 이야기를 세 문장으로 (1분 50초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-three-sentences-easy-v1.html): 한 칸에 한 문장씩, 세 칸이면 끝! 짧고 천천히.
+- [세 문장 기차 — 겪은 일과 내 생각을 세 문장으로 말하기 영상 (14분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-three-sentences-v2.html): 세 문장 기차에 한 칸에 한 문장씩! 겪은 일과 내 생각을 세 문장으로 말해요. 14분 영상, 자막이 있어요.
+- [이유 다리 — '왜냐하면'으로 이유 붙이기 영상 (14분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-because-v2.html): "그냥요" 말고 이유를 붙여요! 생각과 이유 사이에 왜냐하면 다리를 놓아요. 14분 영상, 자막이 있어요.
+- [이유 다리 — 쉬운 영상: 왜냐하면 ~ 때문이에요 (1분 52초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-because-easy-v2.html): 왜냐하면 다리를 건너 이유를 말해요! 짧고 천천히.
+- [이유 다리 학습지 — 이유 카드 · 다리 닫기 · 이유일까요 · 글 읽고 왜 · 뒷받침 문장 (11장)](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EA%B5%90%EA%B3%BC%EC%84%9C-%EC%A3%BC%EC%A0%9C-%EA%B5%AD%EC%96%B4/%EC%99%9C%EB%83%90%ED%95%98%EB%A9%B4%EC%9C%BC%EB%A1%9C-%EC%9D%B4%EC%9C%A0-%EB%B6%99%EC%9D%B4%EA%B8%B0-%ED%95%99%EC%8A%B5%EC%A7%80-v1.html): 이유 카드를 골라 다리에 놓고, 끝을 '때문이에요'로 닫아요. 오려 쓰는 이유 카드도 있어요.
+- [소리 내어 읽기 세 가지 — ㄹ 받침 · 바와 빠 · 넘어가는 소리 영상 (13분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-read-sounds-v1.html): 혀끝 멈추기, 살살과 꽉, 이사 가는 받침! 세 가지 비밀로 또박또박 소리 내어 읽어요. 13분 영상, 자막이 있어요.
+- [받침이 이사 가요 — 쉬운 영상: 넘어가는 소리 (1분 34초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-read-sounds-easy-v1.html): 받침이 옆 칸으로 이사 가요! 짧고 천천히.
+- [소리 내어 읽기 세 가지 학습지 — ㄹ 받침 · 바와 빠 · 넘어가는 소리 · 섞어 읽기 · 날마다 읽기 판 · 카드 (25장)](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EA%B5%90%EA%B3%BC%EC%84%9C-%EC%A3%BC%EC%A0%9C-%EA%B5%AD%EC%96%B4/%EC%86%8C%EB%A6%AC-%EB%82%B4%EC%96%B4-%EC%9D%BD%EA%B8%B0-%EC%84%B8-%EA%B0%80%EC%A7%80-%ED%95%99%EC%8A%B5%EC%A7%80-v1.html): 낱말 230개쯤을 여러 번 소리 내어 읽어요. 짝 카드 · 이사 카드로 놀이도 하고, 날마다 읽기 판에 별을 칠해요.
+- [서술형 답 쓰기 ① — 핵심어를 넣어 '~할수록 ~해요'로 쓰기 영상 (13분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-written-1-v1.html): "짧아져요." 말고, 무엇이 짧아지는지 배운 낱말을 넣어 끝까지 써요! 13분 영상, 자막이 있어요.
+- [서술형 답 쓰기 ① — 쉬운 영상: 해가 높으면 그림자가 짧아요 (1분 42초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-written-1-easy-v1.html): '그림자'를 넣어서 끝까지 써요! 짧고 천천히.
+- [관계를 한 문장으로 학습지 — 밑줄 둘 · 핵심어 · 같이? 반대로? · ~할수록 · 점검 세 칸 (12장)](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EA%B5%90%EA%B3%BC%EC%84%9C-%EC%A3%BC%EC%A0%9C-%EA%B5%AD%EC%96%B4/%EC%84%9C%EC%88%A0%ED%98%95-%EB%8B%B5-%EC%93%B0%EA%B8%B0-1-%ED%95%A0%EC%88%98%EB%A1%9D-%ED%95%99%EC%8A%B5%EC%A7%80-v1.html): 핵심어 카드를 틀 칸에 놓고 한 문장으로 써요. 다 쓰면 점검 세 칸을 세어요.
+- [서술형 답 쓰기 ② — 까닭을 '~해서 ~해요'로, 까닭 둘 쓰기 영상 (14분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-written-2-v1.html): "비가 와서요." 말고, 그래서 어떻게 했는지까지 이어서 써요! 까닭이 둘이면 첫째 · 둘째로. 14분 영상, 자막이 있어요.
+- [서술형 답 쓰기 ② — 쉬운 영상: 추워서 두꺼운 옷을 입어요 (1분 35초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-written-2-easy-v1.html): '추워서'를 앞에 넣어서 끝까지 써요! 짧고 천천히.
+- [까닭을 한 문장으로 학습지 — 밑줄과 동그라미 · 자연 핵심어 · 까닭 사슬 · ~해서 · 까닭 둘 · 점검 네 칸 (12장)](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EA%B5%90%EA%B3%BC%EC%84%9C-%EC%A3%BC%EC%A0%9C-%EA%B5%AD%EC%96%B4/%EC%84%9C%EC%88%A0%ED%98%95-%EB%8B%B5-%EC%93%B0%EA%B8%B0-2-%EA%B9%8C%EB%8B%AD-%ED%95%99%EC%8A%B5%EC%A7%80-v1.html): 까닭 카드를 틀 앞 칸에 놓고 한 문장으로 써요. 까닭이 둘이면 첫째 · 둘째. 다 쓰면 점검 네 칸을 세어요.
+- [서술형 답 쓰기 ③ — 그래프 · 표에서 근거 찾아 쓰기 영상 (13분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-written-3-v1.html): 맞는 답에 그래프의 숫자와 단위를 더해요! "그래프를 보면 ~예요. 그래서 ~해요." 13분 영상, 자막이 있어요.
+- [서술형 답 쓰기 ③ — 쉬운 영상: 그래프를 보면 여름 낮이 더 길어요 (1분 41초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-written-3-easy-v1.html): 막대를 짚고, '그래프를 보면'을 앞에 넣어서 끝까지 써요! 짧고 천천히.
+- [그래프 · 표에서 근거 찾기 학습지 — 밑줄 · 동그라미 · 네모 · 이름 읽기 · 두 곳 짚기 · 그래프를 보면 틀 · 점검 다섯 칸 (12장)](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EA%B5%90%EA%B3%BC%EC%84%9C-%EC%A3%BC%EC%A0%9C-%EA%B5%AD%EC%96%B4/%EC%84%9C%EC%88%A0%ED%98%95-%EB%8B%B5-%EC%93%B0%EA%B8%B0-3-%EA%B7%B8%EB%9E%98%ED%94%84-%ED%91%9C-%ED%95%99%EC%8A%B5%EC%A7%80-v1.html): 그래프 점을 손가락으로 짚고 숫자와 단위를 읽어요. '그래프를 보면' 카드로 근거를 쓰고, 점검 다섯 칸을 세어요.
+- [서술형 답 쓰기 ④ — 내 생각 + 근거 둘(논술 맛보기) 영상 (16분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-written-4-v1.html): 내 생각에 이유 둘, 이유마다 사실 근거를 붙여요! 주장 집을 지어 봐요. 16분 영상, 자막이 있어요.
+- [서술형 답 쓰기 ④ — 쉬운 영상: 과속 방지 턱을 만들어야 해요. 왜냐하면 (1분 41초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-written-4-easy-v1.html): '~해야 해요'로 하자는 말을 하고, '왜냐하면'으로 이유를 붙여요! 짧고 천천히.
+- [내 생각 + 근거 둘 학습지 — 좋아요 · 해야 해요 · 이유와 근거 짝 · 사실 · 의견 · 조사표 짚기 · 출처 · 문단 틀 · 점검 다섯 칸 (12장)](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EA%B5%90%EA%B3%BC%EC%84%9C-%EC%A3%BC%EC%A0%9C-%EA%B5%AD%EC%96%B4/%EC%84%9C%EC%88%A0%ED%98%95-%EB%8B%B5-%EC%93%B0%EA%B8%B0-4-%EB%82%B4-%EC%83%9D%EA%B0%81-%EA%B7%BC%EA%B1%B0-%ED%95%99%EC%8A%B5%EC%A7%80-v1.html): 주장 집을 채우고, 조사표에서 근거를 짚어 '~을 보면'으로 써요. 입장은 내가 골라요.
+- [서술형 답 쓰기 ⑤ — 다 썼나 세어 보기(할 일 번호 · 두 쪽 다 · 내 말로) 영상 (18분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-written-5-v1.html): 묻는 말은 주문서! 할 일마다 번호를 달고, 다 썼는지 세어 봐요. 18분 영상, 자막이 있어요.
+- [서술형 답 쓰기 ⑤ — 쉬운 영상: 일자리가 많아요. 그런데 연기가 나와요. (1분 43초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-written-5-easy-v1.html): 손가락 두 개를 펴고, 하나씩 접으며 좋은 점과 나쁜 점을 다 말해요! 짧고 천천히.
+- [다 썼나 세어 보기 학습지 — 할 일 번호 · 할 일을 늘리는 말 · 두 쪽 가르기 · 덮고 말하기 · 질문에 맞는 끝 · 세 답 점검 · 빠진 할 일 고쳐 쓰기 (12장)](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EA%B5%90%EA%B3%BC%EC%84%9C-%EC%A3%BC%EC%A0%9C-%EA%B5%AD%EC%96%B4/%EC%84%9C%EC%88%A0%ED%98%95-%EB%8B%B5-%EC%93%B0%EA%B8%B0-5-%EB%8B%A4-%EC%8D%BC%EB%82%98-%EC%84%B8%EC%96%B4-%EB%B3%B4%EA%B8%B0-%ED%95%99%EC%8A%B5%EC%A7%80-v1.html): 묻는 말에 번호를 달고, 다 쓰면 번호와 체크를 세어요. 자료 글은 덮고 내 말로 써요. 시리즈 한 장 정리 카드도 있어요.
+- [문단 읽기 ① 다람쥐의 볼주머니 — 혼자 읽기 · 여러 번 나오는 낱말 · 한 줄로 · 신호등 영상 (5분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-para2-01-v1.html): 막대가 줄어드는 동안 혼자 먼저 읽고, 여러 번 나오는 낱말을 세어 봐요. 7분 영상, 자막이 있어요.
+- [다람쥐의 볼주머니 학습지 — 글 장(문단 끝 신호등) · 묻는 말 만들기 · 낱말 세기 · 한 줄로 · 무엇에 대한 글 · 답 찾기 · 교사용 (3장)](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EA%B5%90%EA%B3%BC%EC%84%9C-%EC%A3%BC%EC%A0%9C-%EA%B5%AD%EC%96%B4/%EB%AC%B8%EB%8B%A8-%EC%9D%BD%EA%B8%B0-%EB%91%90-%EB%AC%B8%EB%8B%A8-01-%EB%8B%A4%EB%9E%8C%EC%A5%90%EC%9D%98-%EB%B3%BC%EC%A3%BC%EB%A8%B8%EB%8B%88-%ED%95%99%EC%8A%B5%EC%A7%80-v1.html): 글 한 장, 활동 한 장, 교사용 한 장. 아이가 직접 묻는 말을 만들고 낱말을 세요. 교사용 쪽에 힌트 2 · 3단계가 있어요.
+- [문단 읽기 ② 얼음이 녹아요 — 혼자 읽기 · 여러 번 나오는 낱말 · 한 줄로 · 신호등 영상 (5분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-para2-02-v1.html): 막대가 줄어드는 동안 혼자 먼저 읽고, 여러 번 나오는 낱말을 세어 봐요. 7분 영상, 자막이 있어요.
+- [얼음이 녹아요 학습지 — 글 장(문단 끝 신호등) · 묻는 말 만들기 · 낱말 세기 · 한 줄로 · 무엇에 대한 글 · 답 찾기 · 교사용 (3장)](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EA%B5%90%EA%B3%BC%EC%84%9C-%EC%A3%BC%EC%A0%9C-%EA%B5%AD%EC%96%B4/%EB%AC%B8%EB%8B%A8-%EC%9D%BD%EA%B8%B0-%EB%91%90-%EB%AC%B8%EB%8B%A8-02-%EC%96%BC%EC%9D%8C%EC%9D%B4-%EB%85%B9%EC%95%84%EC%9A%94-%ED%95%99%EC%8A%B5%EC%A7%80-v1.html): 글 한 장, 활동 한 장, 교사용 한 장. 아이가 직접 묻는 말을 만들고 낱말을 세요. 교사용 쪽에 힌트 2 · 3단계가 있어요.
+- [문단 읽기 ③ 콩나물이 자라요 — 혼자 읽기 · 여러 번 나오는 낱말 · 한 줄로 · 신호등 영상 (5분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-para2-03-v1.html): 막대가 줄어드는 동안 혼자 먼저 읽고, 여러 번 나오는 낱말을 세어 봐요. 7분 영상, 자막이 있어요.
+- [콩나물이 자라요 학습지 — 글 장(문단 끝 신호등) · 묻는 말 만들기 · 낱말 세기 · 한 줄로 · 무엇에 대한 글 · 답 찾기 · 교사용 (3장)](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EA%B5%90%EA%B3%BC%EC%84%9C-%EC%A3%BC%EC%A0%9C-%EA%B5%AD%EC%96%B4/%EB%AC%B8%EB%8B%A8-%EC%9D%BD%EA%B8%B0-%EB%91%90-%EB%AC%B8%EB%8B%A8-03-%EC%BD%A9%EB%82%98%EB%AC%BC%EC%9D%B4-%EC%9E%90%EB%9D%BC%EC%9A%94-%ED%95%99%EC%8A%B5%EC%A7%80-v1.html): 글 한 장, 활동 한 장, 교사용 한 장. 아이가 직접 묻는 말을 만들고 낱말을 세요. 교사용 쪽에 힌트 2 · 3단계가 있어요.
+- [문단 읽기 ④ 손을 씻어요 — 혼자 읽기 · 여러 번 나오는 낱말 · 한 줄로 · 신호등 영상 (5분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-para2-04-v1.html): 막대가 줄어드는 동안 혼자 먼저 읽고, 여러 번 나오는 낱말을 세어 봐요. 7분 영상, 자막이 있어요.
+- [손을 씻어요 학습지 — 글 장(문단 끝 신호등) · 묻는 말 만들기 · 낱말 세기 · 한 줄로 · 무엇에 대한 글 · 답 찾기 · 교사용 (3장)](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EA%B5%90%EA%B3%BC%EC%84%9C-%EC%A3%BC%EC%A0%9C-%EA%B5%AD%EC%96%B4/%EB%AC%B8%EB%8B%A8-%EC%9D%BD%EA%B8%B0-%EB%91%90-%EB%AC%B8%EB%8B%A8-04-%EC%86%90%EC%9D%84-%EC%94%BB%EC%96%B4%EC%9A%94-%ED%95%99%EC%8A%B5%EC%A7%80-v1.html): 글 한 장, 활동 한 장, 교사용 한 장. 아이가 직접 묻는 말을 만들고 낱말을 세요. 교사용 쪽에 힌트 2 · 3단계가 있어요.
+- [문단 읽기 평가 ① 혼자 해 봐요 — 민들레 씨앗 · 우산, 글 두 편 문제 여덟 영상 (11분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-para2-test1-v1.html): 글 두 편을 혼자 읽고 문제 여덟 개를 풀어요. 모르면 기다리면 힌트가 나와요. 11분 영상, 자막이 있어요.
+- [평가 ① 학습지 — 글 장 2 · 답 쓰는 장(문제 여덟) · 교사 기록장(혼자 · 힌트 1 · 힌트 2 · 함께) (4장)](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EA%B5%90%EA%B3%BC%EC%84%9C-%EC%A3%BC%EC%A0%9C-%EA%B5%AD%EC%96%B4/%EB%AC%B8%EB%8B%A8-%EC%9D%BD%EA%B8%B0-%EB%91%90-%EB%AC%B8%EB%8B%A8-%ED%8F%89%EA%B0%80-01-%ED%95%99%EC%8A%B5%EC%A7%80-v1.html): 글 두 장, 답 쓰는 장 한 장, 교사 기록장 한 장. 교사 기록장에 문제마다 아이가 언제 답했는지 체크해요.
+- [문단 읽기 ⑤ 거꾸로 자는 박쥐 — 혼자 읽기 · 여러 번 나오는 낱말 · 한 줄로 · 신호등 영상 (5분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-para2-05-v1.html): 막대가 줄어드는 동안 혼자 먼저 읽고, 여러 번 나오는 낱말을 세어 봐요. 7분 영상, 자막이 있어요.
+- [거꾸로 자는 박쥐 학습지 — 글 장(문단 끝 신호등) · 묻는 말 만들기 · 낱말 세기 · 한 줄로 · 무엇에 대한 글 · 답 찾기 · 교사용 (3장)](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EA%B5%90%EA%B3%BC%EC%84%9C-%EC%A3%BC%EC%A0%9C-%EA%B5%AD%EC%96%B4/%EB%AC%B8%EB%8B%A8-%EC%9D%BD%EA%B8%B0-%EB%91%90-%EB%AC%B8%EB%8B%A8-05-%EA%B1%B0%EA%BE%B8%EB%A1%9C-%EC%9E%90%EB%8A%94-%EB%B0%95%EC%A5%90-%ED%95%99%EC%8A%B5%EC%A7%80-v1.html): 글 한 장, 활동 한 장, 교사용 한 장. 아이가 직접 묻는 말을 만들고 낱말을 세요. 교사용 쪽에 힌트 2 · 3단계가 있어요.
+- [문단 읽기 ⑥ 버스를 타요 — 혼자 읽기 · 여러 번 나오는 낱말 · 한 줄로 · 신호등 영상 (5분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-para2-06-v1.html): 막대가 줄어드는 동안 혼자 먼저 읽고, 여러 번 나오는 낱말을 세어 봐요. 7분 영상, 자막이 있어요.
+- [버스를 타요 학습지 — 글 장(문단 끝 신호등) · 묻는 말 만들기 · 낱말 세기 · 한 줄로 · 무엇에 대한 글 · 답 찾기 · 교사용 (3장)](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EA%B5%90%EA%B3%BC%EC%84%9C-%EC%A3%BC%EC%A0%9C-%EA%B5%AD%EC%96%B4/%EB%AC%B8%EB%8B%A8-%EC%9D%BD%EA%B8%B0-%EB%91%90-%EB%AC%B8%EB%8B%A8-06-%EB%B2%84%EC%8A%A4%EB%A5%BC-%ED%83%80%EC%9A%94-%ED%95%99%EC%8A%B5%EC%A7%80-v1.html): 글 한 장, 활동 한 장, 교사용 한 장. 아이가 직접 묻는 말을 만들고 낱말을 세요. 교사용 쪽에 힌트 2 · 3단계가 있어요.
+- [문단 읽기 ⑦ 불을 끄는 소방차 — 혼자 읽기 · 여러 번 나오는 낱말 · 한 줄로 · 신호등 영상 (5분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-para2-07-v1.html): 막대가 줄어드는 동안 혼자 먼저 읽고, 여러 번 나오는 낱말을 세어 봐요. 5분 영상, 자막이 있어요.
+- [불을 끄는 소방차 학습지 — 글 장(문단 끝 신호등) · 묻는 말 만들기 · 낱말 세기 · 한 줄로 · 무엇에 대한 글 · 답 찾기 · 교사용 (3장)](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EA%B5%90%EA%B3%BC%EC%84%9C-%EC%A3%BC%EC%A0%9C-%EA%B5%AD%EC%96%B4/%EB%AC%B8%EB%8B%A8-%EC%9D%BD%EA%B8%B0-%EB%91%90-%EB%AC%B8%EB%8B%A8-07-%EB%B6%88%EC%9D%84-%EB%81%84%EB%8A%94-%EC%86%8C%EB%B0%A9%EC%B0%A8-%ED%95%99%EC%8A%B5%EC%A7%80-v1.html): 글 한 장, 활동 한 장, 교사용 한 장. 아이가 직접 묻는 말을 만들고 낱말을 세요. 교사용 쪽에 힌트 2 · 3단계가 있어요.
+- [유창하게 읽기 — 덩어리로 · 쉬며 · 말투 살려 · 알맞게 · 다시 영상 (12분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-fluent-v1.html): 덩어리로, 쉬며, 말하듯이! 같은 글을 세 번 읽으면 점점 술술 읽혀요. 12분 영상, 자막이 있어요.
+- [덩어리로 읽어요 — 쉬운 영상: 유창하게 읽기 (1분 35초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-fluent-easy-v1.html): 글자 하나씩 말고 덩어리로! 짧고 천천히.
+- [받침 낱말 연습판 — 주제 14개, 누르고 듣기 · 나누기 놀이 · 듣고 찾기](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EB%B0%9B%EC%B9%A8-%EB%8B%A8%EC%96%B4/%EB%B0%9B%EC%B9%A8-%EB%8B%A8%EC%96%B4-%EC%97%B0%EC%8A%B5%ED%8C%90-v1.html): 그림을 누르면 소리가 나요. 받침이 있는지 보고 바구니에 넣어요.
+- [받침 낱말 학습지 — 추석 (6장)](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EB%B0%9B%EC%B9%A8-%EB%8B%A8%EC%96%B4/%EB%B0%9B%EC%B9%A8-%EB%8B%A8%EC%96%B4-%EC%B6%94%EC%84%9D-%ED%95%99%EC%8A%B5%EC%A7%80-v1.html): 추석 낱말로 색칠하고, 오려 붙이고, 이어요.
+- [받침 낱말 학습지 — 가족 (6장)](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EB%B0%9B%EC%B9%A8-%EB%8B%A8%EC%96%B4/%EB%B0%9B%EC%B9%A8-%EB%8B%A8%EC%96%B4-%EA%B0%80%EC%A1%B1-%ED%95%99%EC%8A%B5%EC%A7%80-v1.html): 가족 낱말로 색칠하고, 오려 붙이고, 이어요.
+- [받침 낱말 학습지 — 교실 (6장)](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EB%B0%9B%EC%B9%A8-%EB%8B%A8%EC%96%B4/%EB%B0%9B%EC%B9%A8-%EB%8B%A8%EC%96%B4-%EA%B5%90%EC%8B%A4-%ED%95%99%EC%8A%B5%EC%A7%80-v1.html): 교실 물건 낱말로 색칠하고, 오려 붙이고, 이어요.
+
+## 수학
+
+- [자릿값 올려 보기 — 짚으면 자리 값, 천조까지](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EC%9E%90%EB%A6%BF%EA%B0%92/%EC%9E%90%EB%A6%BF%EA%B0%92-%EC%98%AC%EB%A0%A4-%EB%B3%B4%EA%B8%B0-v2.html): 큰 수에서 숫자 하나를 누르면 그 자리의 값이 나와요. 5992의 5는 5000이에요. 천조까지 돼요.
+- [십몇 — 1은 십!](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EC%88%98-%EC%9D%BD%EA%B8%B0/%EC%88%98-%EC%9D%BD%EA%B8%B0-%EC%8B%AD%EB%AA%87-1%EC%9D%80%EC%8B%AD-v2.html): 11, 12, 13을 읽는 연습이에요. 앞의 1은 '십'이라고 읽어요.
+- [숫자 낱개 읽기 1~12 — 시계 앞 단계](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EC%88%98-%EC%9D%BD%EA%B8%B0/%EC%88%98-%EC%9D%BD%EA%B8%B0-%EC%88%AB%EC%9E%90-%EB%82%B1%EA%B0%9C-%EC%9D%BD%EA%B8%B0-1to12-v2.html): 1부터 12까지 숫자 하나씩 이름을 말하는 연습이에요.
+- [하나 둘 셋 — 고유어 수 세기 1~12](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EC%88%98-%EC%9D%BD%EA%B8%B0/%EC%88%98-%EC%9D%BD%EA%B8%B0-%EA%B3%A0%EC%9C%A0%EC%96%B4-%EC%88%98-%EC%84%B8%EA%B8%B0-1to12-v2.html): 하나, 둘, 셋… 열둘까지 세는 연습이에요. 시계 읽기 전에 해요.
+- [시계 앞 단계 1 — 하나 둘 셋 (1분 42초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/clock-pre-1-counting-v2.html): 하나, 둘, 셋… 열둘까지 세어요. 하나는 한 시!
+- [시계 앞 단계 2 — 숫자 하나만 보고 (1분 25초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/clock-pre-2-single-digits-v2.html): 숫자 하나를 딱 보고 이름을 말해요.
+- [시계 앞 단계 3 — 십몇, 1은 십! (1분 37초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/clock-pre-3-teens-v2.html): 11, 12, 13… 앞의 1은 '십'이라고 읽어요.
+- [긴바늘 5분 화면판 — 긴바늘이 1이면 5분 (13장)](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EC%8B%9C%EA%B3%84/%EC%8B%9C%EA%B3%84-%EA%B8%B4%EB%B0%94%EB%8A%98-5%EB%B6%84-%ED%99%94%EB%A9%B4%ED%8C%90-v1.html): 긴바늘이 한 칸 가면 5분이에요. 한 장씩 넘기며 0분부터 60분까지 봐요.
+- [시계 읽기 연습판](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EC%8B%9C%EA%B3%84/%EC%8B%9C%EA%B3%84-%EC%9D%BD%EA%B8%B0-%EC%97%B0%EC%8A%B5%ED%8C%90-v1.html): 시계 바늘을 돌리고 몇 시인지 소리로 들어요.
+- [시계 무한 연습판 — 시각 읽기 무한 문제](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EC%8B%9C%EA%B3%84/%EC%8B%9C%EA%B3%84-%EB%AC%B4%ED%95%9C-%EC%97%B0%EC%8A%B5%ED%8C%90-v2.html): 시계 문제가 계속 나와요. 맞히면 별을 모아요. 긴바늘만 보는 단계도 있어요.
+- [시계 읽기 본편 — 약속 세 가지 (8분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/clock-reading-main-v1.html): 시계 읽는 약속 세 가지를 8분 영상으로 배워요.
+- [시계 전체 연습 — 분 60개 · 시 60개 (20분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/clock-practice-all-v1.html): 시계 문제 120개를 멈추고 말해 보며 연습해요. 자막이 있어요.
+- [0 낀 뺄셈·덧뺄 혼합 세트 — 자기 점검 카드 포함](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EC%97%B0%EC%82%B0/%EC%97%B0%EC%82%B0-0-%EB%82%80-%EB%BA%84%EC%85%88-%ED%98%BC%ED%95%A9-v2.html): 0이 있는 뺄셈 연습이에요. 계산하기 전에 확인할 것 4가지가 있어요.
+- [0 낀 뺄셈 1 — 0을 만나면 옆에서 빌려요 (1분 57초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/zero-sub-1-borrow-next-v2.html): 0이 있어서 못 빼면, 옆으로 한 칸 더 가서 빌려요.
+- [0 낀 뺄셈 2 — 부호 먼저, 끝 맞추기 (2분 7초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/zero-sub-2-sign-first-align-v2.html): 계산하기 전에 부호를 먼저 보고, 오른쪽 끝을 맞춰 써요.
+- [나눗셈의 비밀 무기 — 배수표 전략](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EC%97%B0%EC%82%B0/%EC%97%B0%EC%82%B0-%EB%82%98%EB%88%97%EC%85%88-%EB%B0%B0%EC%88%98%ED%91%9C-%EC%A0%84%EB%9E%B5-v2.html): 나눗셈을 배수표로 쉽게 푸는 방법이에요.
+- [나눗셈 배수표 1 — 적고, 고르고, 빼기 (2분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/baesu-1-write-pick-subtract-v2.html): 배수표를 적고, 고르고, 빼면 나눗셈이 풀려요.
+- [나눗셈 배수표 2 — 어림하고, 검산하기 (1분 58초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/baesu-2-estimate-check-v2.html): 어림으로 몫을 짐작하고, 검산으로 맞았는지 확인해요.
+- [몇 개 · 모두 몇 — 수학 문제도 네 걸음으로 (13분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-qa-sped-math-1-v1.html): 몇은 수를 찾아요! 모두 몇이면 바둑돌을 놓고 모아서 세요. 13분 영상, 자막이 있어요.
+- [몇 개 · 모두 몇 — 쉬운 영상: 모두 몇은 모아서 세요 (1분 36초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-qa-sped-math-1-easy-v1.html): 모두 몇은 바둑돌로 모아서 세요. 짧고 천천히.
+- [남은 것 · 하라는 말 — 덜어 내고 세요 (13분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-qa-sped-math-2-v1.html): 남은 것은 몇이면 바둑돌을 덜어 내고 세요! 하라는 말에도 밑줄. 13분 영상, 자막이 있어요.
+- [남은 것 · 하라는 말 — 쉬운 영상: 남은 것은 덜어 내고 세요 (1분 35초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-qa-sped-math-2-easy-v1.html): 남은 것은 바둑돌을 빼고 세요. 짧고 천천히.
+- [얼마예요? 몇 시예요? — 표지 · 가격표 · 일과표에서 답 찾기 (12분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-qa-sped-life-1-v1.html): 열쇠 낱말을 찾고 그 줄을 따라가면 답이 있어요! 얼마는 원, 몇 시는 시. 12분 영상, 자막이 있어요.
+- [얼마예요? 몇 시예요? — 쉬운 영상: 가격표에서 줄을 따라가요 (1분 30초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-qa-sped-life-1-easy-v1.html): 가격표에서 열쇠 낱말의 줄을 따라가요. 짧고 천천히.
+- [시간표 · 급식표 · 안내문 — 줄과 칸이 만나는 곳에서 답 찾기 (13분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-qa-sped-life-2-v1.html): 요일 줄과 교시 칸이 만나는 곳에 답이 있어요! 안내문에서는 언제 · 어디 · 무엇을 찾아요. 13분 영상, 자막이 있어요.
+- [시간표 · 급식표 · 안내문 — 쉬운 영상: 줄과 칸이 만나는 곳 (1분 33초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-qa-sped-life-2-easy-v1.html): 시간표에서 줄과 칸이 만나는 곳을 찾아요. 짧고 천천히.
+- [수가 같아도 묻는 말이 달라요 — 짝 짓기 · 접시 · 고리 · 약 영상 (19분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-qa-gen-2-v2.html): 수가 같아도 묻는 말이 다르면 답이 달라요! 짝을 짓고, 접시에 나누고, 고리로 묶어요. 19분 영상, 자막이 있어요.
+- [수가 같아도 묻는 말이 달라요 — 쉬운 영상: 몇 개 더 많아요? 짝을 지어요 (1분 33초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-qa-gen-2-easy-v1.html): 몇 개 더 많아요? 두 줄로 놓고 짝을 지어요. 짧은 영상.
+- [6학년 2학기 2단원 「공간과 입체」 — 쌓기나무 단원 전체 영상 (7분 41초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-6-2-2-v2.html): 쌓기나무를 여러 방향에서 보고, 숨은 것까지 세고, 보고 쌓아요. 7분 41초 영상, 자막이 있어요.
+- [6학년 2학기 2단원 「공간과 입체」 — 쉬운 영상 (1분 25초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-6-2-2-easy-v1.html): 위에서 보고, 칸에 쓰고, 더해요. 짧고 천천히.
+- [5학년 1학기 2단원 「약수와 배수」 — 단원 전체 영상 (14분 43초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-5-1-2-v1.html): 약수와 배수, 최대공약수와 최소공배수를 차근차근 배우고 같이 풀어 봐요. 14분 영상, 자막이 있어요.
+- [5학년 1학기 2단원 「약수와 배수」 — 쉬운 영상 (2분 6초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-5-1-2-easy-v1.html): 같이 있는 약수, 그중 가장 큰 수. 짧고 천천히.
+- [5학년 2학기 6단원 「평균과 가능성」 — 단원 전체 영상 (17분 26초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-5-2-6-v1.html): 들쭉날쭉한 수를 고르게 하면 평균. 일어날 것 같은 정도는 다섯 칸의 말로. 17분 영상, 자막이 있어요.
+- [5학년 2학기 6단원 「평균과 가능성」 — 쉬운 영상 (2분 23초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-5-2-6-easy-v1.html): 일어날 것 같은 정도를 다섯 칸으로 말해요. 짧고 천천히.
+- [1학년 2학기 4단원 「덧셈과 뺄셈 (2)」 — 단원 전체 영상 (16분 8초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-1-2-4-v1.html): 10을 채워 더하고, 못 빼면 10에서 빼요. 16분 영상, 자막이 있어요.
+- [1학년 2학기 4단원 「덧셈과 뺄셈 (2)」 — 쉬운 영상 (1분 39초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-1-2-4-easy-v1.html): 못 빼면 10에서 빼고, 남은 것을 모아요. 짧고 천천히.
+- [5학년 2학기 1단원 「수의 범위와 어림하기」 — 단원 전체 영상 (20분 24초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-5-2-1-v1.html): 그 수가 들어가면 ●, 빠지면 ○. 대강의 수는 올림·버림·반올림으로. 20분 영상, 자막이 있어요.
+- [5학년 2학기 1단원 「수의 범위와 어림하기」 — 쉬운 영상 (2분 43초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-5-2-1-easy-v1.html): 모자라면 올림, 다 채운 것만 버림, 가까운 수는 반올림. 짧고 천천히.
+- [3학년 1학기 1단원 「덧셈과 뺄셈」 — 단원 전체 영상 (25분 2초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-3-1-1-v1.html): 같은 자리끼리, 일의 자리부터. 10이 되면 올리고, 못 빼면 빌려 와요. 25분 영상, 자막이 있어요.
+- [3학년 1학기 1단원 「덧셈과 뺄셈」 — 쉬운 영상 (2분 33초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-3-1-1-easy-v1.html): 못 빼면 윗자리에서 열을 빌려 와요. 짧고 천천히.
+- [3학년 1학기 4단원 「곱셈」 — 단원 전체 영상 (19분 56초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-3-1-4-v1.html): 몇씩 몇 묶음은 곱셈. 일의 자리부터 곱하고, 10이 넘으면 작게 올려 써요. 20분 영상, 자막이 있어요.
+- [3학년 1학기 4단원 「곱셈」 — 쉬운 영상 (2분 7초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-3-1-4-easy-v1.html): 곱하기 먼저, 더하기는 나중. 올린 수는 꼭 더해요. 짧고 천천히.
+- [2학년 1학기 3단원 「덧셈과 뺄셈」 — 단원 전체 영상 (25분 42초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-2-1-3-v1.html): 일의 자리부터 더하고, 10이 넘으면 작게 올려 써요. 뺄 수 없으면 십에서 받아 내려요. 26분 영상, 자막이 있어요.
+- [2학년 1학기 3단원 「덧셈과 뺄셈」 — 쉬운 영상 (1분 57초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-2-1-3-easy-v1.html): 일의 자리부터, 열이 넘으면 작게 올려요. 올렸으면 꼭 더해요. 짧고 천천히.
+- [1학년 1학기 3단원 「덧셈과 뺄셈」 — 단원 전체 영상 (19분 54초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-1-1-3-v1.html): 모르겠으면 동그라미를 그려요. 더할 때는 더 그리고, 뺄 때는 빗금을 그어요. 20분 영상, 자막이 있어요.
+- [1학년 1학기 3단원 「덧셈과 뺄셈」 — 쉬운 영상 (1분 47초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-1-1-3-easy-v1.html): 더할 때는 더 그리고, 뺄 때는 지워요. 짧고 천천히.
+- [5학년 1학기 4단원 「약분과 통분」 — 단원 전체 영상 (14분 37초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-5-1-4-v1.html): 크기가 같은 분수, 약분, 통분, 크기 비교를 차근차근 배우고 같이 풀어 봐요. 14분 영상, 자막이 있어요.
+- [5학년 1학기 4단원 「약분과 통분」 — 쉬운 영상 (1분 56초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-5-1-4-easy-v1.html): 위에 하면 아래도, 같은 수로! 짧고 천천히.
+- [3학년 2학기 4단원 「분수」 — 단원 전체 영상 (15분 35초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-3-2-4-v1.html): 묶어서 분수, 분수만큼, 여러 가지 분수, 크기 비교를 차근차근 배우고 같이 풀어 봐요. 15분 영상, 자막이 있어요.
+- [3학년 2학기 4단원 「분수」 — 쉬운 영상 (1분 59초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-3-2-4-easy-v1.html): 진분수, 가분수, 대분수! 분모가 같으면 분자가 큰 쪽. 짧고 천천히.
+- [1학년 2학기 1단원 「100까지의 수」 — 단원 전체 영상 (15분 4초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-1-2-1-v1.html): 10개씩 묶어 세고, 두 가지로 읽고, 순서와 크기, 짝수와 홀수를 차근차근 배우고 같이 풀어 봐요. 15분 영상, 자막이 있어요.
+- [1학년 2학기 1단원 「100까지의 수」 — 쉬운 영상 (2분 2초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-1-2-1-easy-v1.html): 묶음은 앞에, 낱개는 뒤에! 짧고 천천히.
+
+## 사회
+
+- [6학년 1학기 3단원 「지구, 대륙 그리고 국가들」 — 영상 (27분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-soc-6-1-3-v2.html): 지구본과 세계지도로 세계를 보고, 위도와 경도로 위치를 말하고, 여섯 대륙과 다섯 대양, 여러 나라를 찾아봐요. 자막이 있어요.
+- [6학년 1학기 3단원 「지구, 대륙 그리고 국가들」 — 쉬운 영상 (2분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-soc-6-1-3-easy-v2.html): 지구본과 세계지도를 봐요. 대륙과 대양, 우리나라를 찾아요. 짧고 천천히.
+- [6학년 1학기 2단원 「민주주의와 시민 참여」 — 영상 (24분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-soc-6-1-2-v1.html): 선거로 대표를 뽑고, 국회 · 정부 · 법원이 나라 일을 나누어 하고, 미디어 소식을 따져 보는 방법을 알아봐요. 자막이 있어요.
+- [6학년 1학기 2단원 「민주주의와 시민 참여」 — 쉬운 영상 (2분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-soc-6-1-2-easy-v1.html): 우리가 대표를 뽑아요. 나라 일은 세 곳이 나누어 해요. 짧고 천천히.
+- [6학년 1학기 1단원 「평화 통일을 위한 노력, 민주화와 산업화」 — 영상 (25분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-soc-6-1-1-v1.html): 우리나라가 왜 나뉘었고 평화를 위해 무엇을 하는지, 민주화와 산업화로 생활이 어떻게 달라졌는지 알아봐요. 자막이 있어요.
+- [6학년 1학기 1단원 「평화 통일을 위한 노력, 민주화와 산업화」 — 쉬운 영상 (2분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-soc-6-1-1-easy-v1.html): 평화를 위해 함께 노력해요. 우리 생활은 크게 달라졌어요. 짧고 천천히.
+- [6학년 2학기 1단원 「세계의 자연환경」 — 영상 (4분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-soc-6-2-1-v2.html): 땅 모양과 날씨가 다르면 옷과 집도 달라요. 4분 영상, 자막이 있어요.
+- [6학년 2학기 1단원 「세계의 자연환경」 — 쉬운 영상 (1분 30초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-soc-6-2-1-easy-v2.html): 더운 곳, 마른 곳, 추운 곳의 옷과 집을 알아봐요. 짧고 천천히.
+- [6학년 2학기 2단원 「시장경제와 국가 간 거래」 — 영상 (29분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-soc-6-2-2-v1.html): 우리 집과 회사가 무엇을 주고받는지, 우리나라가 어떻게 자랐는지, 나라끼리 왜 사고파는지 알아봐요. 자막이 있어요.
+- [6학년 2학기 2단원 「시장경제와 국가 간 거래」 — 쉬운 영상 (2분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-soc-6-2-2-easy-v1.html): 우리 집과 회사, 나라와 나라가 서로 주고받아요. 짧고 천천히.
+- [6학년 2학기 3단원 「지구촌 사람들」 — 영상 (25분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-soc-6-2-3-v1.html): 사람은 어디에 모여 살고, 나라마다 인구가 어떻게 다른지, 지구촌 문제를 어떻게 함께 풀지 알아봐요. 자막이 있어요.
+- [6학년 2학기 3단원 「지구촌 사람들」 — 쉬운 영상 (3분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-soc-6-2-3-easy-v1.html): 사람은 살기 좋은 곳에 모여 살아요. 지구촌 문제는 함께 풀어요. 짧고 천천히.
+
+## 과학
+
+- [6학년 2학기 1단원 「계절의 변화」 — 영상 (23분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-sci-6-2-1-v1.html): 해가 높고 낮음에 따라 계절이 바뀌는 까닭을 실험으로 알아봐요. 자막이 있어요.
+- [6학년 2학기 1단원 「계절의 변화」 — 쉬운 영상 (2분 30초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-sci-6-2-1-easy-v1.html): 해가 높으면 여름, 낮으면 겨울. 짧고 천천히.
+- [6학년 2학기 2단원 「물질의 연소」 — 영상 (25분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-sci-6-2-2-v1.html): 불이 타려면 무엇이 필요하고, 타고 나면 무엇이 생기는지 실험으로 알아봐요. 자막이 있어요.
+- [6학년 2학기 2단원 「물질의 연소」 — 쉬운 영상 (2분 19초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-sci-6-2-2-easy-v1.html): 불이 타려면 세 가지가 필요해요. 불은 선생님과 함께만. 짧고 천천히.
+- [6학년 2학기 2단원 「물질의 연소」 — 개념 영상 · 불이 타는 세 가지 조건 (9분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-sci-6-2-2-c-fire-conditions-v1.html): 불이 타려면 탈 것 · 산소 · 높은 온도 세 가지가 필요해요. 하나씩 자세히 알아봐요. 자막이 있어요.
+- [6학년 2학기 2단원 「물질의 연소」 — 개념 영상 · 불 끄기 = 조건 하나 없애기 (9분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-sci-6-2-2-c-put-out-fire-v1.html): 불을 끄려면 탈 것 · 산소 · 높은 온도 중 하나를 없애요. 불이 나면 먼저 알리고 피해요. 자막이 있어요.
+- [6학년 2학기 2단원 「물질의 연소」 — 개념 영상 · 초는 어디로 갔을까? 연소 뒤 물 · 이산화 탄소 (11분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-sci-6-2-2-c-after-burning-v1.html): 초는 타면 사라지지 않고 물과 이산화 탄소가 되어 날아가요. 종이 색과 석회수로 알 수 있어요. 자막이 있어요.
+- [6학년 2학기 3단원 「전기의 이용」 — 영상 (28분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-sci-6-2-3-v1.html): 전구에 불을 켜고, 전지로 자석을 만들어 봐요. 전기를 안전하게 쓰는 법도 알아봐요. 자막이 있어요.
+- [6학년 2학기 3단원 「전기의 이용」 — 쉬운 영상 (2분 19초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-sci-6-2-3-easy-v1.html): 한 바퀴 이어져야 불이 켜져요. 젖은 손은 안 돼요. 짧고 천천히.
+- [6학년 2학기 3단원 「전기의 이용」 — 개념 영상 · 불은 왜 켜질까? 한 바퀴 이어진 길 (12분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-sci-6-2-3-c-circuit-on-v1.html): 전기는 한 바퀴 이어진 길을 돌 때 불을 켜요. 금속으로 잇고, 스위치를 닫으면 켜져요. 자막이 있어요.
+- [6학년 2학기 3단원 「전기의 이용」 — 개념 영상 · 전지 두 개를 한 줄로, 왜 더 밝을까? (11분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-sci-6-2-3-c-series-v1.html): 전지를 한 줄로 이으면 함께 밀어서 불이 더 밝아져요. 거꾸로 넣으면 서로 맞서요. 자막이 있어요.
+- [6학년 2학기 4단원 「과학과 나의 진로」 — 영상 (24분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-sci-6-2-4-v1.html): 미래의 문제를 과학이 어떻게 돕는지, 여러 직업에 어떤 과학이 있는지 알아봐요. 내가 좋아하는 것에서 나의 진로를 찾아요. 자막이 있어요.
+- [6학년 2학기 4단원 「과학과 나의 진로」 — 쉬운 영상 (2분 20초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-sci-6-2-4-easy-v1.html): 모든 일에 과학이 있어요. 좋아하는 것에서 과학을 찾아요. 짧고 천천히.
+- [계절은 왜 바뀔까? — 쉽게 읽는 설명](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EA%B3%84%EC%A0%88/%EA%B3%84%EC%A0%88-%EC%99%9C-%EB%B0%94%EB%80%94%EA%B9%8C-%EC%89%BD%EA%B2%8C-%EC%9D%BD%EA%B8%B0-v1.html): 여름은 왜 덥고 겨울은 왜 추운지 그림으로 설명해요.
+- [남중고도 3D — 카메라를 돌려 보는 지구와 태양](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EA%B3%84%EC%A0%88/%EA%B3%84%EC%A0%88-%EB%82%A8%EC%A4%91%EA%B3%A0%EB%8F%84-3D-v2.html): 지구와 해를 돌려 보면서 계절이 왜 바뀌는지 봐요.
+- [남중고도 쉽게 보기 — 움직이는 그림](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EA%B3%84%EC%A0%88/%EA%B3%84%EC%A0%88-%EB%82%A8%EC%A4%91%EA%B3%A0%EB%8F%84-%EC%89%BD%EA%B2%8C-%EB%B3%B4%EA%B8%B0-v1.html): 해가 얼마나 높이 뜨는지 움직이는 그림으로 봐요.
+- [계절은 왜 바뀔까? 1편+2편 합본 (5분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/seasons-change-1-2-v1.html): 계절이 왜 바뀌는지 5분 영상으로 봐요. 자막이 있어요.
+- [세계지도 — 대륙 7개, 바다 5개 (3분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/continents-oceans-v2.html): 세계지도에서 큰 땅 7개와 큰 바다 5개를 알아봐요. 3분 영상, 자막이 있어요.
+- [대륙 이동 — 2억 년 타임랩스 (2분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/continental-drift-v2.html): 아주 옛날부터 지금까지 땅이 움직인 모습을 2분 영상으로 봐요. 자막이 있어요.
+
+## 영상자료
+
+- [「우산 하나」 — 국어 5-2 · 1단원 (3D 애니메이션 영화, 100초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/film-kor-5-2-1-umbrella-v1.html): 비 오는 날, 두 친구가 우산 하나를 같이 써요. 어떤 장면이 기억에 남나요?
+- [「우산 하나」 예고편 — 국어 5-2 · 1단원 (34초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/film-kor-5-2-1-umbrella-trailer-v1.html): 비 오는 날, 우산이 없는 친구가 있어요. 어떤 일이 생길까요?
+
+## 일상생활
+
+- [생활 속 위험 요소 — 위험을 알아봐요 (3분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/sped-daily-safe-7-v1.html): 위험한 소리와 표시를 알고, 위험할 때 멈춰요·봐요·말해요. 3분 영상, 자막이 있어요.
+- [생활 속 위험 요소 — 쉬운 영상 (1분 20초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/sped-daily-safe-7-easy-v1.html): 위험하면 멈춰요! 짧고 천천히.
+- [「선생님 춤」 — 춤추기·몸풀기 (3D 애니메이션, 8초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/film-teacher-dance-a-v1.html): 선생님이 춤을 춰요. 따라 해 볼까요?
+- [「몸을 숙여 인사해요」 — 인사하기 (3D 애니메이션, 7초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/greeting-bow-puppy-v1.html): 몸을 숙여 "안녕하세요" 해요. 따라 해 볼까요?
+
+## 행동수정 지원
+
+- [행동지원 기초 양식 4장 — ABC 기록지·기록표·BIP 틀·목표 문장](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%ED%96%89%EB%8F%99%EC%A7%80%EC%9B%90-%EA%B8%B0%EC%B4%88%EC%96%91%EC%8B%9D/%ED%96%89%EB%8F%99%EC%A7%80%EC%9B%90-%EA%B8%B0%EC%B4%88%EC%96%91%EC%8B%9D-v1.html): 아이의 행동을 기록하고 도울 계획을 세우는 선생님용 종이예요.
+- [「화를 바르게 내기」 — 영상 (10분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/bhv-anger-say-it-v2.html): 화가 나는 건 괜찮아요. 몸을 보고, 마음에 이름을 붙이고, 숨을 쉬고, 말로 알려 줘요. 자막이 있어요.
+- [「화를 바르게 내기」 — 쉬운 영상 (2분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/bhv-anger-say-it-easy-v1.html): 몸, 이름, 숨, 그리고 말. 짧고 천천히.
+- [「착한 척보다 솔직하게」 — 영상 (10분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/bhv-honest-me-v1.html): 싫다고 말해도 괜찮아요. 친구 마음도, 내 마음도 챙겨요. 화 뒤에 숨은 마음에게 먼저 말을 걸어요. 자막이 있어요.
+- [「착한 척보다 솔직하게」 — 쉬운 영상 (2분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/bhv-honest-me-easy-v1.html): 참지 말고 부드럽게, "미안, 이번에는 어려워." 짧고 천천히.
+- [「콩이와 뭉치의 마음 낱말」 — 그림책 (낱말 71개)](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EB%A7%88%EC%9D%8C-%EB%82%B1%EB%A7%90-%EA%B7%B8%EB%A6%BC%EC%B1%85/%EC%BD%A9%EC%9D%B4%EC%99%80-%EB%AD%89%EC%B9%98%EC%9D%98-%EB%A7%88%EC%9D%8C-%EB%82%B1%EB%A7%90-v1.html): 콩이와 뭉치의 얼굴을 보고 마음 낱말을 맞혀요. 힌트가 세 번 있어요. 🔊 누르면 선생님이 읽어 줘요.
+- [「콩이와 뭉치의 마음 낱말」 — 영상 (10분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/kongi-feeling-words-video-v1.html): 콩이와 뭉치의 얼굴을 보고 마음 낱말을 들어요. 마지막에 내 마음도 말해 봐요. 자막이 있어요.
+
+## 학급운영 지원
+
+- [IEP 작성 지원 — 일반·특수 교육과정 성취기준·평가기준, 학생별 IEP 모으기](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/IEP/IEP-%EC%9E%91%EC%84%B1-%EC%A7%80%EC%9B%90-%EA%B5%AD%EC%96%B4-%EC%88%98%ED%95%99-%EC%84%B1%EC%B7%A8%EA%B8%B0%EC%A4%80-v3.html): IEP를 쓸 때 쓰는 프로그램이에요. 국어·수학·사회·과학·통합교과 목표 문장을 고르고 학생별로 모을 수 있어요.
+- [성취기준 · 단원 계보도 — 성취기준 하나가 어느 학년 어느 단원으로 이어지나](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/IEP/IEP-%EC%84%B1%EC%B7%A8%EA%B8%B0%EC%A4%80-%EB%8B%A8%EC%9B%90-%EA%B3%84%EB%B3%B4%EB%8F%84-v2.html): 목표 하나가 몇 학년 어느 단원에 있는지 보여 줘요.
+
+## 앱·웹
+
+- [「내 말로!」 앱 소개 — 덮고, 기억으로, 내 문장](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EC%95%B1-%EC%9B%B9/%EC%95%B1-%EB%82%B4%EB%A7%90%EB%A1%9C-%EC%86%8C%EA%B0%9C-v1.html): 교과서 문장을 가리고, 기억해서 내 말로 쓰는 앱이에요.
+- [「독서 카드함」 소개 — 읽고, 덮고, 내 말로 한 장](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EB%8F%85%EC%84%9C%EC%B9%B4%EB%93%9C%ED%95%A8/%EC%95%B1-%EB%8F%85%EC%84%9C%EC%B9%B4%EB%93%9C%ED%95%A8-%EC%86%8C%EA%B0%9C-v1.html): 책을 읽고, 덮고, 내 말로 카드 한 장에 정리하는 웹앱이에요.
+
+## 장애이해교육
+
+- [「그냥 물어봐」 + 「꼭 그런 건 아니야」 — 5학년 장애이해 수업 영상 (5분 32초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/disability-5th-just-ask-v5.html): 나와 다른 친구가 궁금하면? 그냥 물어봐요! 겉만 보고 정하지 않아요. 5분 영상, 자막이 있어요.
+- [장애이해교육 교직원 연수 영상 (17분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/disability-awareness-2026-v1.html): 선생님들을 위한 장애 이해 영상이에요. 17분.
