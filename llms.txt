@@ -210,6 +210,11 @@
 - [세계지도 — 대륙 7개, 바다 5개 (3분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/continents-oceans-v2.html): 세계지도에서 큰 땅 7개와 큰 바다 5개를 알아봐요. 3분 영상, 자막이 있어요.
 - [대륙 이동 — 2억 년 타임랩스 (2분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/continental-drift-v2.html): 아주 옛날부터 지금까지 땅이 움직인 모습을 2분 영상으로 봐요. 자막이 있어요.
 
+## 통합교과
+
+- [1학년 1학기 「학교」 — 단원 전체 영상 (7분 47초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-1-1-school-v1.html): 학교에 어떤 곳이 있는지, 학교에서 지킬 약속, 친구와 즐겁게 노는 법을 알아요. 8분 영상, 자막이 있어요.
+- [1학년 1학기 「학교」 — 쉬운 영상 (1분 18초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-1-1-school-easy-v1.html): 아플 때는 보건실, 배고플 때는 급식실! 짧고 천천히.
+
 ## 영상자료
 
 - [「우산 하나」 — 국어 5-2 · 1단원 (3D 애니메이션 영화, 100초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/film-kor-5-2-1-umbrella-v1.html): 비 오는 날, 두 친구가 우산 하나를 같이 써요. 어떤 장면이 기억에 남나요?
