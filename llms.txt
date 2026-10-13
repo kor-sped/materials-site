@@ -218,6 +218,8 @@
 - [1학년 1학기 「학교」 — 쉬운 영상 (1분 18초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-1-1-school-easy-v1.html): 아플 때는 보건실, 배고플 때는 급식실! 짧고 천천히.
 - [1학년 1학기 「사람들」 — 단원 전체 영상 (8분 18초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-1-1-people-v1.html): 내 둘레의 사람들을 알고, 마음을 알아 배려하고, 함께 어울리는 법을 알아요. 8분 영상, 자막이 있어요.
 - [1학년 1학기 「사람들」 — 쉬운 영상 (1분 34초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-1-1-people-easy-v1.html): 친구가 슬퍼 보이면 "괜찮아?" 웃으면 "멋지다!" 짧고 천천히.
+- [1학년 1학기 「우리나라」 — 단원 전체 영상 (8분 4초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-1-1-korea-v1.html): 우리나라의 모습을 알고, 우리 문화를 즐기고, 소중히 여겨요. 8분 영상, 자막이 있어요.
+- [1학년 1학기 「우리나라」 — 쉬운 영상 (1분 31초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-1-1-korea-easy-v1.html): 태극기는 빨강과 파랑, 우리나라 꽃은 무궁화. 짧고 천천히.
 
 ## 영상자료
 
