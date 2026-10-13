@@ -243,8 +243,8 @@
 
 ## 학급운영 지원
 
-- [IEP 작성 지원 — 일반·특수 교육과정 성취기준·평가기준, 학생별 IEP 모으기](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/IEP/IEP-%EC%9E%91%EC%84%B1-%EC%A7%80%EC%9B%90-%EA%B5%AD%EC%96%B4-%EC%88%98%ED%95%99-%EC%84%B1%EC%B7%A8%EA%B8%B0%EC%A4%80-v3.html): IEP를 쓸 때 쓰는 프로그램이에요. 국어·수학·사회·과학·통합교과 목표 문장을 고르고 학생별로 모을 수 있어요.
-- [성취기준 · 단원 계보도 — 성취기준 하나가 어느 학년 어느 단원으로 이어지나](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/IEP/IEP-%EC%84%B1%EC%B7%A8%EA%B8%B0%EC%A4%80-%EB%8B%A8%EC%9B%90-%EA%B3%84%EB%B3%B4%EB%8F%84-v2.html): 목표 하나가 몇 학년 어느 단원에 있는지 보여 줘요.
+- [IEP 작성 지원 — 일반·특수 교육과정 성취기준·평가기준, 학생별 IEP 모으기](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/IEP/IEP-%EC%9E%91%EC%84%B1-%EC%A7%80%EC%9B%90-%EA%B5%AD%EC%96%B4-%EC%88%98%ED%95%99-%EC%84%B1%EC%B7%A8%EA%B8%B0%EC%A4%80-v4.html): IEP를 쓸 때 쓰는 프로그램이에요. 목표 문장을 고르고 학생별로 모아요. 사회·과학 단원 설명이 더 생겼어요.
+- [성취기준 · 단원 계보도 — 성취기준 하나가 어느 학년 어느 단원으로 이어지나](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/IEP/IEP-%EC%84%B1%EC%B7%A8%EA%B8%B0%EC%A4%80-%EB%8B%A8%EC%9B%90-%EA%B3%84%EB%B3%B4%EB%8F%84-v3.html): 목표 하나가 몇 학년 어느 단원에 있는지 보여 줘요.
 
 ## 앱·웹
 
