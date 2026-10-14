@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="문서열쇠" content="학급-받침7-학습-03어">
+<meta name="버전" content="3">
+<meta name="양식" content="MAK 학습지 새 양식 2026-09-16">
+<title>받침 7개 읽기 — 03 어 학습</title>
+<style>
+  :root{--ink:#16323D;--ink2:#4A6272;--ink3:#8799A5;--rule:#C6D5DD;--rule2:#E3ECF0;--blue:#1F5D8C;--blue-tint:#E4EFF6;--amber:#BF860F;--amber-tint:#FAF0D9;--tint:#EFF4F7;--red:#B5432F;--red-tint:#FBEAE6;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#DFE8ED;color:var(--ink);font-family:'Gothic A1','Apple SD Gothic Neo','Malgun Gothic',sans-serif;font-size:13pt;line-height:1.6;-webkit-font-smoothing:antialiased;padding:0 10px 60px;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .bar{position:sticky;top:0;z-index:50;background:rgba(223,232,237,.95);border-bottom:1px solid var(--rule);display:flex;gap:6px;align-items:center;justify-content:center;padding:8px 10px;margin:0 -10px 20px;flex-wrap:wrap;}
+  .bar button{font-family:inherit;font-size:10pt;font-weight:500;color:var(--ink);background:#fff;border:1px solid var(--rule);border-radius:2px;padding:5px 13px;cursor:pointer;}
+  .bar button:hover{background:var(--ink);color:#fff;}
+  .bar .tag{font-size:8.5pt;letter-spacing:.14em;font-weight:800;color:var(--ink3);}
+  .page{position:relative;background:#fff;width:210mm;max-width:100%;margin:0 auto 18px;padding:11mm 13mm 9mm;border:1px solid var(--rule);box-shadow:0 2px 12px rgba(22,50,61,.10);min-height:297mm;display:flex;flex-direction:column;}
+  .head{border-bottom:2px solid var(--ink);padding-bottom:5px;margin-bottom:8px;}
+  .head .eyebrow{font-size:9pt;letter-spacing:.16em;font-weight:800;color:var(--blue);}
+  .head h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:19pt;line-height:1.22;letter-spacing:-.02em;margin:4px 0 4px;}
+  .head .lede{font-size:9.5pt;color:var(--ink2);}
+  .phead{display:flex;align-items:baseline;gap:8px;border-bottom:1.5px solid var(--ink);padding-bottom:3px;margin:4px 0 6px;}
+  .phead .n{font-family:'IBM Plex Mono',monospace;font-size:8.5pt;font-weight:700;letter-spacing:.1em;color:#fff;background:var(--blue);padding:2px 8px;flex:none;}
+  .phead.m .n{background:var(--red);}
+  .phead h2{font-family:'Gowun Batang',serif;font-weight:700;font-size:13pt;letter-spacing:-.01em;}
+  .phead small{font-size:8.5pt;color:var(--ink3);font-weight:500;}
+  .rule{background:var(--tint);border-left:4px solid var(--blue);padding:6px 12px;margin:4px 0 8px;}
+  .rule.c{text-align:center;}
+  .rule .big{font-family:'Gowun Batang',serif;font-size:14pt;font-weight:700;line-height:1.4;}
+  .rule .big .one{font-size:22pt;color:var(--blue);vertical-align:-3px;}
+  .rule .ex{font-size:11pt;margin-top:3px;color:var(--ink2);}
+  .rule b{color:var(--blue);}
+  .say{color:var(--blue);font-weight:800;}
+  .note{background:var(--amber-tint);border-left:4px solid var(--amber);padding:5px 10px;margin:4px 0 6px;font-size:10pt;line-height:1.5;}
+  .note b:first-child{color:var(--amber);}
+  .warn{background:var(--red-tint);border-left:4px solid var(--red);padding:5px 10px;margin:4px 0 6px;font-size:10pt;font-weight:700;color:#7a2d20;}
+  .steps{list-style:none;counter-reset:s;margin:4px 0 8px;}
+  .steps li{counter-increment:s;position:relative;padding-left:34px;margin:0 0 6px;font-size:12pt;line-height:1.55;}
+  .steps li::before{content:counter(s);position:absolute;left:0;top:3px;width:24px;height:24px;border:2px solid var(--blue);color:var(--blue);border-radius:50%;font-size:10pt;font-weight:800;display:flex;align-items:center;justify-content:center;}
+  .meta{font-size:14pt;font-weight:700;color:var(--ink);margin:2px 0 8px;display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 28px;}
+  .meta .line{display:inline-block;border-bottom:2px solid var(--ink);min-width:80px;height:26px;vertical-align:bottom;}
+  .meta .line.name{min-width:150px;}
+  .cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:10px 0 4px;}
+  .card{border:1.5px solid var(--rule);padding:10px 8px 12px;text-align:center;}
+  .card .num{font-family:'Gowun Batang',serif;font-size:44pt;font-weight:700;line-height:1;letter-spacing:.02em;}
+  .card .num .one{color:var(--blue);font-size:54pt;}
+  .card .read{font-size:20pt;font-weight:800;margin-top:6px;}
+  .card .read b{background:var(--amber-tint);padding:0 6px;}
+  .items{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 10px;}
+  .items.c1{grid-template-columns:1fr;}
+  .items.c2{grid-template-columns:repeat(2,1fr);gap:0 24px;}
+  .items.c3{grid-template-columns:repeat(3,minmax(0,1fr));gap:0 14px;}
+  .items.c5{grid-template-columns:repeat(5,1fr);gap:0 8px;}
+  .item{border-bottom:1.5px solid var(--rule);padding:8px 4px 8px;}
+  .item .no{font-family:'IBM Plex Mono',monospace;font-size:10pt;color:var(--ink3);display:block;}
+  .item .num{font-family:'Gowun Batang',serif;font-size:44pt;font-weight:700;line-height:1.05;display:block;letter-spacing:.02em;}
+  .item .num.s{font-size:24pt;white-space:nowrap;letter-spacing:0;}
+  .item .num .one{color:var(--blue);}
+  .item .mk{display:block;font-size:20pt;letter-spacing:.18em;color:var(--ink2);margin-top:2px;white-space:nowrap;}
+  .item .mk.x{letter-spacing:.3em;}
+  .item .hint{display:block;font-size:10pt;color:var(--ink3);}
+  .item .sub2{display:block;font-size:12pt;color:var(--ink2);}
+  .item .work{display:grid;grid-template-columns:.55fr 1fr 1fr 1fr;grid-template-rows:repeat(3,12mm);margin-top:5px;border:1.5px solid var(--rule);}
+  .item .work i{display:block;border-right:1px solid var(--rule2);border-bottom:1px solid var(--rule2);}
+  .item .work i:nth-child(4n){border-right:0;}
+  .item .work i:nth-child(n+9){border-bottom:0;border-top:1.5px solid var(--ink2);margin-top:-1px;}
+  .item .work i:nth-child(4n+1){background:var(--bg);}
+  .item .num.s.w{letter-spacing:.03em;font-size:20pt;}
+  .items.c3 .num.s.w{font-size:24pt;}
+  .item .ans{display:block;font-size:11pt;margin-top:6px;color:var(--ink2);}
+  .item .ans u{display:inline-block;border-bottom:1.5px solid var(--ink);min-width:38px;height:16px;text-decoration:none;}
+  .item .mul{display:block;font-size:10.5pt;margin-top:4px;color:var(--ink2);}
+  .item .mul span{display:inline-block;border-bottom:1.5px solid var(--ink);min-width:30px;text-align:center;margin:0 2px;}
+  .item.dv{padding:12px 4px 16px;}
+  .item.dv .mul{font-size:13pt;margin-top:12px;line-height:1.6;display:flex;align-items:flex-end;gap:5px;white-space:nowrap;}
+  .item.dv .mul span{flex:1 1 0;min-width:0;height:26px;margin:0;}
+  .item.dv.nm{padding:24px 4px 28px;}
+  .item.dv .ans .chk{display:flex;align-items:flex-end;gap:4px;margin-top:10px;font-size:12.5pt;white-space:nowrap;}
+  .item.dv .ans .chk u{flex:1 1 0;min-width:0;height:24px;margin:0;}
+  .item.dv .ans{font-size:14pt;margin-top:10px;line-height:2.1;}
+  .item.dv .ans u{min-width:80px;height:26px;vertical-align:bottom;margin:0 6px 0 2px;}
+  .item .sent{font-size:20pt;font-weight:700;line-height:1.4;display:block;}
+  .item .sent u{text-decoration-color:var(--blue);text-decoration-thickness:2.5px;text-underline-offset:4px;}
+  .tbl{width:100%;border-collapse:collapse;margin:6px 0 10px;font-size:11.5pt;}
+  .tbl th,.tbl td{border:1.5px solid var(--rule);padding:6px 8px;text-align:center;vertical-align:middle;}
+  .tbl th{background:var(--tint);font-size:10pt;font-weight:800;color:var(--ink2);letter-spacing:.04em;}
+  .tbl td.l{text-align:left;}
+  .tbl td.w{font-family:'Gowun Batang',serif;font-size:26pt;font-weight:700;}
+  .tbl td.j{font-family:'Gowun Batang',serif;font-size:20pt;font-weight:700;color:var(--blue);}
+  .tbl td.mk{font-size:15pt;letter-spacing:.25em;color:var(--ink2);white-space:nowrap;}
+  .tbl td.faint{color:#DCE5EA;font-size:9pt;}
+  .tbl td.cell{height:34px;}
+  .tbl td.flash{font-family:'Gowun Batang',serif;font-size:18pt;font-weight:700;}
+  .bigcards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:10px;}
+  .bigcard{border:2.5px dashed var(--ink3);border-radius:6px;height:290px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+  .bigcard .l{font-family:'Gowun Batang',serif;font-size:140px;font-weight:700;line-height:1;}
+  .bigcard .hint{font-size:11pt;margin-top:8px;color:var(--ink2);}
+  .cut{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+  .cut div{border:2.5px dashed var(--ink3);border-radius:6px;padding:16px 6px;text-align:center;}
+  .cut .g{font-family:'Gowun Batang',serif;font-size:84pt;line-height:1.05;font-weight:700;}
+  .cut .h{font-size:11pt;border-top:1px solid var(--rule);margin-top:8px;padding-top:4px;color:var(--ink2);}
+  .clocks{display:grid;grid-template-columns:repeat(3,1fr);gap:10px 14px;}
+  .clock{border:1.5px solid var(--rule);padding:8px;text-align:center;}
+  .clock svg{width:100%;max-width:150px;height:auto;}
+  .clock .ans{font-size:15pt;margin-top:4px;}
+  .clock .blank{display:inline-block;border-bottom:1.5px solid var(--ink);min-width:56px;height:22px;}
+  .nc{display:grid;grid-template-columns:1fr;gap:8px;}
+  .nc>div{border:1.5px solid var(--rule);padding:6px 14px;display:flex;align-items:center;gap:16px;}
+  .nc .d{font-family:'Gowun Batang',serif;font-size:40pt;font-weight:700;min-width:64px;text-align:center;color:var(--blue);}
+  .nc .k{font-size:24pt;font-weight:800;min-width:110px;}
+  .nc .dots{font-size:16pt;letter-spacing:3px;min-width:150px;color:var(--ink2);}
+  .nc .t{font-size:13pt;color:var(--ink2);} .nc .t b{color:var(--ink);}
+  .check{border:2px solid var(--ink);padding:6px 12px;margin:8px 0;}
+  .check .it{font-size:13pt;font-weight:800;margin:5px 0;}
+  .check .it small{font-size:10.5pt;font-weight:400;color:var(--ink2);display:block;}
+  .sc{border:1.5px solid var(--rule);background:var(--tint);padding:6px 12px;margin-top:8px;font-size:10.5pt;}
+  /* 자유롭게 연습하기 — 장의 남는 여백을 채우는 흐릿한 가로줄(2026-09-17 사용자). 여백이 28mm보다 작으면 저절로 숨는다 */
+  .free{flex:1 1 0;min-height:0;position:relative;margin-top:6mm;container-type:size;}
+  .free .fl{position:absolute;left:0;right:0;top:0;height:9mm;background:var(--amber-tint);border-left:4px solid var(--amber);padding:0 10px;font-size:10pt;font-weight:800;color:var(--amber);display:flex;align-items:center;}   /* 메모 상자와 같은 노란 띠 */
+  .free .lines{position:absolute;left:0;right:0;top:9mm;bottom:2mm;background:repeating-linear-gradient(to bottom,transparent 0 16mm,#D3DDE3 16mm 16.5mm);-webkit-print-color-adjust:exact;print-color-adjust:exact;}   /* 띠 아래 한 줄 띄고 시작, 줄 간격 16.5mm(아이들 큰 글씨) */
+  @container (max-height:32mm){.free .fl,.free .lines{display:none;}}
+  .foot{margin-top:auto;padding-top:6mm;border-top:1px solid var(--rule);padding-top:5px;font-size:9pt;color:var(--ink3);display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;}
+  .foot .brand{letter-spacing:.06em;}
+  .foot b{color:var(--ink2);}
+  @media print{body{background:#fff;padding:0}.bar{display:none}.page{border:none;box-shadow:none;margin:0;width:auto;min-height:276mm;padding:0;break-after:page;height:auto}   /* min-height: 종이를 채워야 '자유롭게 연습하기'가 남는 여백만큼 늘어난다 */.page:last-child{break-after:auto}
+    .item{padding:5px 4px}.item .num{font-size:40pt}.item .num.s{font-size:22pt}.item .num.s.w{font-size:19pt}.items.c3 .num.s.w{font-size:22pt}.item .mk{font-size:18pt}.card .num{font-size:40pt}.card .num .one{font-size:48pt}.card .read{font-size:18pt}.rule .big{font-size:18pt}.rule .big .one{font-size:28pt}.head h1{font-size:23pt}.bigcard{height:250px}.bigcard .l{font-size:120px}.cut .g{font-size:72pt}
+    @page{size:A4;margin:9mm 11mm}}
+
+  .b7-row{display:grid;grid-template-columns:20mm 7mm 1fr 24mm;align-items:center;border-bottom:1.5px solid var(--rule);min-height:44mm;padding:3mm 0 2mm;row-gap:3mm;}
+  .b7-wd{grid-column:1/-1;font-size:24pt;color:var(--ink2);text-align:center;line-height:1.35;}   /* 사용자 10/14: 낱말 두 배, 쉼표로 */
+  .b7-base{font-size:34pt;font-weight:800;text-align:center;color:var(--blue);border:2px solid var(--blue);border-radius:6px;line-height:1.3;}
+  .b7-ar{text-align:center;font-size:16pt;color:var(--ink3);}
+  .b7-gs{display:grid;grid-template-columns:repeat(7,1fr);}
+  .b7-gs span{font-size:33pt;font-weight:800;text-align:center;line-height:1.3;}
+  .b7-mix{display:grid;grid-template-columns:repeat(7,1fr) 24mm;border-bottom:1.5px solid var(--rule);min-height:30mm;align-items:center;}
+  .b7-mix span{font-size:33pt;font-weight:800;text-align:center;}
+  .b7-say{font-size:12pt;font-weight:700;color:var(--ink2);margin:0 0 4px;}
+  .b7-test{display:grid;grid-template-columns:repeat(7,1fr);row-gap:10mm;margin-top:10mm;}
+  .b7-test span{font-size:40pt;font-weight:800;text-align:center;line-height:1.3;}
+  .b7-date{font-size:20pt;font-weight:800;margin:0 0 6px;}
+  .b7-date .line{display:inline-block;border-bottom:2.5px solid var(--ink);min-width:28mm;height:30px;vertical-align:bottom;}
+  .b7-rec{display:grid;grid-template-columns:repeat(7,1fr);border-top:1.5px solid var(--rule);border-left:1.5px solid var(--rule);margin:6px 0;}
+  .b7-rec div{border-right:1.5px solid var(--rule);border-bottom:1.5px solid var(--rule);text-align:center;padding:3px 2px 0;}
+  .b7-rec b{display:block;font-size:22pt;line-height:1.3;}
+  .b7-rec i{display:block;font-style:normal;font-size:10pt;color:var(--ink3);letter-spacing:.3em;height:9mm;}
+  .b7-sum{font-size:12pt;line-height:2.4;margin-top:8px;}
+  .b7-sum u{display:inline-block;border-bottom:1.5px solid var(--ink);min-width:24mm;text-decoration:none;}
+  .b7-key{font-size:9.5pt;color:var(--ink2);margin-top:8px;line-height:1.5;}
+  @media print{.b7-row{min-height:42mm}.b7-mix{min-height:29mm}}
+</style>
+<!--seo-->
+<meta name="description" content="글자를 하나씩 소리 내어 읽어요. 괄호 안 낱말도 읽어요. ○△✕ 칸이 없어 교사가 옆에서 체크해요.">
+<link rel="canonical" href="https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EA%B5%90%EA%B3%BC%EC%84%9C-%EC%A3%BC%EC%A0%9C-%EA%B5%AD%EC%96%B4/%EB%B0%9B%EC%B9%A8-7%EA%B0%9C-%EC%9D%BD%EA%B8%B0-%ED%95%99%EC%8A%B5-03-%EC%96%B4-v1.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MAK 나눔터">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="받침 7개 읽기 학습 03 어">
+<meta property="og:description" content="글자를 하나씩 소리 내어 읽어요. 괄호 안 낱말도 읽어요. ○△✕ 칸이 없어 교사가 옆에서 체크해요.">
+<meta property="og:url" content="https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EA%B5%90%EA%B3%BC%EC%84%9C-%EC%A3%BC%EC%A0%9C-%EA%B5%AD%EC%96%B4/%EB%B0%9B%EC%B9%A8-7%EA%B0%9C-%EC%9D%BD%EA%B8%B0-%ED%95%99%EC%8A%B5-03-%EC%96%B4-v1.html">
+<meta property="og:image" content="https://kor-sped.github.io/materials-site/assets/logo-full.png">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "받침 7개 읽기 학습 03 어", "description": "글자를 하나씩 소리 내어 읽어요. 괄호 안 낱말도 읽어요. ○△✕ 칸이 없어 교사가 옆에서 체크해요.", "url": "https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EA%B5%90%EA%B3%BC%EC%84%9C-%EC%A3%BC%EC%A0%9C-%EA%B5%AD%EC%96%B4/%EB%B0%9B%EC%B9%A8-7%EA%B0%9C-%EC%9D%BD%EA%B8%B0-%ED%95%99%EC%8A%B5-03-%EC%96%B4-v1.html", "inLanguage": "ko", "isAccessibleForFree": true, "learningResourceType": "학습지(인쇄용 HTML)", "educationalLevel": "1~3학년 · 특수학급 공통", "datePublished": "2026-10-14"}</script>
+<!--/seo-->
+</head>
+<body>
+<div class="bar"><span class="tag">받침 7개 읽기 — 03 어 학습</span><button onclick="document.body.style.fontSize=(parseFloat(getComputedStyle(document.body).fontSize)*1.1)+'px'">글자 크게</button><button onclick="document.body.style.fontSize=(parseFloat(getComputedStyle(document.body).fontSize)/1.1)+'px'">글자 작게</button><button onclick="window.print()">인쇄하기</button><span class="tag">A4 6장</span></div>
+<div class="page"><div class="head"><div class="eyebrow">받침 7개 읽기 · 학습 · 03</div><h1>어 <small style='font-size:12pt;color:var(--ink3);font-weight:500'>18줄</small></h1></div><div class="meta"><span>날짜 <span class="line"></span> 월 <span class="line"></span> 일</span><span>이름 <span class="line name"></span></span></div><div class="b7-say">글자를 하나씩 소리 내어 읽어요. 괄호 안 낱말도 읽어요.</div><div class="b7-row"><div class="b7-base">거</div><div class="b7-ar">→</div><div class="b7-gs"><span>건</span><span>걱</span><span>겁</span><span>걷</span><span>걸</span><span>검</span></div><div></div><div class="b7-wd">( 건강, 걱정, 겁, 걷기, 걸레, 검정 )</div></div><div class="b7-row"><div class="b7-base">꺼</div><div class="b7-ar">→</div><div class="b7-gs"><span>껍</span><span>껑</span><span>껌</span></div><div></div><div class="b7-wd">( 껍질, 뚜껑, 껌 )</div></div><div class="b7-row"><div class="b7-base">너</div><div class="b7-ar">→</div><div class="b7-gs"><span>널</span><span>넘</span><span>넝</span><span>넉</span></div><div></div><div class="b7-wd">( 널뛰기, 넘어지다, 넝쿨, 넉넉해요 )</div></div><div class="b7-row"><div class="b7-base">더</div><div class="b7-ar">→</div><div class="b7-gs"><span>덜</span><span>덕</span><span>던</span><span>덥</span><span>덩</span><span>덤</span></div><div></div><div class="b7-wd">( 덜, 덕분, 던지다, 덥다, 덩어리, 덤 )</div></div><div class="b7-row"><div class="b7-base">떠</div><div class="b7-ar">→</div><div class="b7-gs"><span>떤</span><span>떨</span><span>떡</span></div><div></div><div class="b7-wd">( 어떤, 떨어지다, 떡볶이 )</div></div><div class="foot"><span>한글 읽기 · 「받침 7개 읽기」</span><span class="brand">MAK · 모든 아이들과 함께</span><span>03 어 · 학습 1/6</span></div></div><div class="page"><div class="head"><div class="eyebrow">받침 7개 읽기 · 학습 · 03</div><h1>어 <small style='font-size:12pt;color:var(--ink3);font-weight:500'>18줄</small></h1></div><div class="meta"><span>날짜 <span class="line"></span> 월 <span class="line"></span> 일</span><span>이름 <span class="line name"></span></span></div><div class="b7-say">글자를 하나씩 소리 내어 읽어요. 괄호 안 낱말도 읽어요.</div><div class="b7-row"><div class="b7-base">러</div><div class="b7-ar">→</div><div class="b7-gs"><span>렁</span><span>럼</span><span>럭</span><span>럽</span><span>런</span></div><div></div><div class="b7-wd">( 출렁, 처럼, 트럭, 어지럽다, 이런 )</div></div><div class="b7-row"><div class="b7-base">머</div><div class="b7-ar">→</div><div class="b7-gs"><span>멀</span><span>멈</span><span>멍</span><span>먼</span><span>먹</span></div><div></div><div class="b7-wd">( 멀미, 멈추다, 멍멍, 먼지, 먹이 )</div></div><div class="b7-row"><div class="b7-base">버</div><div class="b7-ar">→</div><div class="b7-gs"><span>범</span><span>번</span><span>벌</span><span>법</span></div><div></div><div class="b7-wd">( 범, 번개, 벌, 방법 )</div></div><div class="b7-row"><div class="b7-base">뻐</div><div class="b7-ar">→</div><div class="b7-gs"><span>뻥</span><span>뻔</span><span>뻗</span></div><div></div><div class="b7-wd">( 뻥튀기, 뻔뻔해요, 뻗다 )</div></div><div class="b7-row"><div class="b7-base">서</div><div class="b7-ar">→</div><div class="b7-gs"><span>설</span><span>섭</span><span>석</span><span>선</span><span>성</span><span>섬</span></div><div></div><div class="b7-wd">( 설탕, 섭섭해요, 출석, 선생님, 성, 섬 )</div></div><div class="foot"><span>한글 읽기 · 「받침 7개 읽기」</span><span class="brand">MAK · 모든 아이들과 함께</span><span>03 어 · 학습 2/6</span></div></div><div class="page"><div class="head"><div class="eyebrow">받침 7개 읽기 · 학습 · 03</div><h1>어 <small style='font-size:12pt;color:var(--ink3);font-weight:500'>18줄</small></h1></div><div class="meta"><span>날짜 <span class="line"></span> 월 <span class="line"></span> 일</span><span>이름 <span class="line name"></span></span></div><div class="b7-say">글자를 하나씩 소리 내어 읽어요. 괄호 안 낱말도 읽어요.</div><div class="b7-row"><div class="b7-base">써</div><div class="b7-ar">→</div><div class="b7-gs"><span>썹</span><span>썩</span><span>썰</span></div><div></div><div class="b7-wd">( 눈썹, 썩다, 썰매 )</div></div><div class="b7-row"><div class="b7-base">어</div><div class="b7-ar">→</div><div class="b7-gs"><span>엄</span><span>업</span><span>억</span><span>엉</span><span>언</span><span>얼</span><span>얻</span></div><div></div><div class="b7-wd">( 엄마, 수업, 기억, 엉덩이, 언니, 얼굴, 얻다 )</div></div><div class="b7-row"><div class="b7-base">저</div><div class="b7-ar">→</div><div class="b7-gs"><span>점</span><span>전</span><span>접</span><span>정</span><span>적</span><span>절</span></div><div></div><div class="b7-wd">( 점심, 전화, 접시, 정답, 적다, 절 )</div></div><div class="b7-row"><div class="b7-base">처</div><div class="b7-ar">→</div><div class="b7-gs"><span>첩</span><span>첨</span><span>천</span><span>청</span><span>철</span><span>척</span></div><div></div><div class="b7-wd">( 수첩, 첨벙, 천천히, 청소, 철봉, 척척 )</div></div><div class="foot"><span>한글 읽기 · 「받침 7개 읽기」</span><span class="brand">MAK · 모든 아이들과 함께</span><span>03 어 · 학습 3/6</span></div></div><div class="page"><div class="head"><div class="eyebrow">받침 7개 읽기 · 학습 · 03</div><h1>어 <small style='font-size:12pt;color:var(--ink3);font-weight:500'>18줄</small></h1></div><div class="meta"><span>날짜 <span class="line"></span> 월 <span class="line"></span> 일</span><span>이름 <span class="line name"></span></span></div><div class="b7-say">글자를 하나씩 소리 내어 읽어요. 괄호 안 낱말도 읽어요.</div><div class="b7-row"><div class="b7-base">커</div><div class="b7-ar">→</div><div class="b7-gs"><span>컵</span><span>컴</span><span>컨</span><span>컹</span></div><div></div><div class="b7-wd">( 컵, 컴퓨터, 에어컨, 컹컹 )</div></div><div class="b7-row"><div class="b7-base">터</div><div class="b7-ar">→</div><div class="b7-gs"><span>턴</span><span>턱</span><span>털</span><span>텅</span></div><div></div><div class="b7-wd">( 배드민턴, 턱, 털, 텅텅 )</div></div><div class="b7-row"><div class="b7-base">퍼</div><div class="b7-ar">→</div><div class="b7-gs"><span>펄</span><span>펑</span></div><div></div><div class="b7-wd">( 펄펄, 펑펑 )</div></div><div class="b7-row"><div class="b7-base">허</div><div class="b7-ar">→</div><div class="b7-gs"><span>헐</span><span>헉</span><span>험</span><span>헌</span><span>헝</span></div><div></div><div class="b7-wd">( 헐렁해요, 헉헉, 모험, 헌책, 헝겊 )</div></div><div class="foot"><span>한글 읽기 · 「받침 7개 읽기」</span><span class="brand">MAK · 모든 아이들과 함께</span><span>03 어 · 학습 4/6</span></div></div><div class="page"><div class="head"><div class="eyebrow">받침 7개 읽기 · 학습 · 03</div><h1>어 <small style='font-size:12pt;color:var(--ink3);font-weight:500'>섞어 읽기</small></h1></div><div class="meta"><span>날짜 <span class="line"></span> 월 <span class="line"></span> 일</span><span>이름 <span class="line name"></span></span></div><div class="b7-say">섞인 글자를 소리 내어 읽어요.</div><div class="b7-mix"><span>헉</span><span>엄</span><span>얻</span><span>걱</span><span>멀</span><span>컴</span><span>펑</span><div></div></div><div class="b7-mix"><span>던</span><span>런</span><span>벌</span><span>펄</span><span>억</span><span>철</span><span>렁</span><div></div></div><div class="b7-mix"><span>썹</span><span>컹</span><span>선</span><span>검</span><span>업</span><span>헝</span><span>럭</span><div></div></div><div class="b7-mix"><span>멈</span><span>뻔</span><span>껑</span><span>떡</span><span>넝</span><span>컵</span><span>절</span><div></div></div><div class="b7-mix"><span>적</span><span>덩</span><span>걷</span><span>덤</span><span>덥</span><span>먹</span><span>럽</span><div></div></div><div class="b7-mix"><span>걸</span><span>겁</span><span>뻥</span><span>번</span><span>석</span><span>험</span><span>텅</span><div></div></div><div class="b7-mix"><span>첨</span><span>엉</span><span>먼</span><span>덜</span><span>척</span><span>헌</span><span>섬</span><div></div></div><div class="foot"><span>한글 읽기 · 「받침 7개 읽기」</span><span class="brand">MAK · 모든 아이들과 함께</span><span>03 어 · 학습 5/6 섞어 읽기</span></div></div><div class="page"><div class="head"><div class="eyebrow">받침 7개 읽기 · 학습 · 03</div><h1>어 <small style='font-size:12pt;color:var(--ink3);font-weight:500'>섞어 읽기</small></h1></div><div class="meta"><span>날짜 <span class="line"></span> 월 <span class="line"></span> 일</span><span>이름 <span class="line name"></span></span></div><div class="b7-say">섞인 글자를 소리 내어 읽어요.</div><div class="b7-mix"><span>럭</span><span>펑</span><span>절</span><span>멈</span><span>엄</span><span>럽</span><span>덕</span><div></div></div><div class="b7-mix"><span>껑</span><span>넉</span><span>점</span><span>벌</span><span>철</span><span>먼</span><span>첨</span><div></div></div><div class="b7-mix"><span>법</span><span>덜</span><span>섭</span><span>접</span><span>런</span><span>얼</span><span>걸</span><div></div></div><div class="b7-mix"><span>헝</span><span>청</span><span>던</span><span>번</span><span>펄</span><span>설</span><span>멍</span><div></div></div><div class="b7-mix"><span>언</span><span>떤</span><span>성</span><span>컨</span><span>떨</span><span>섬</span><span>억</span><div></div></div><div class="b7-mix"><span>턱</span><span>껍</span><span>텅</span><span>업</span><span>선</span><span>헉</span><span>털</span><div></div></div><div class="b7-mix"><span>덤</span><span>덥</span><span>얻</span><span>헌</span><span>넝</span><span>컹</span><span>컵</span><div></div></div><div class="foot"><span>한글 읽기 · 「받침 7개 읽기」</span><span class="brand">MAK · 모든 아이들과 함께</span><span>03 어 · 학습 6/6 섞어 읽기</span></div></div>
+<!--gc--><script>window.goatcounter={path:function(p){try{return decodeURIComponent(p)}catch(e){return p}}}</script><script data-goatcounter="https://mak.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<!-- mak-home --><a href="../../" style="position:fixed;left:12px;bottom:12px;z-index:2147483000;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:22px;background:#232320;color:#efe6d6;font:14px/1 'Apple SD Gothic Neo','Noto Sans KR',sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.35);opacity:.92" title="나눔터 첫 화면으로" aria-label="나눔터 첫 화면으로">⌂ 나눔터</a><style>@media print{a[href="../../"]{display:none!important}}</style>
+</body>
+</html>
