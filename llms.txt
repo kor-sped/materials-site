@@ -8,6 +8,10 @@
 - [자료 지도](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C-%EC%A7%80%EB%8F%84.html): 2022 개정 교육과정 성취기준 ↔ 자료
 - [사이트맵](https://kor-sped.github.io/materials-site/sitemap.xml)
 
+## 쇼츠
+
+- [「요약의 사다리」 쇼츠 — 요약하는 법 5단계 (5~6학년 국어 글쓰기, 79초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-kor-summary-ladder-v1.html): 긴 글을 줄이는 다섯 계단을 짧은 영상으로 봐요.
+
 ## 국어
 
 - [획순 따라쓰기 — 자음·모음·글자](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%ED%9A%8D%EC%88%9C/%ED%9A%8D%EC%88%9C-%EB%94%B0%EB%9D%BC%EC%93%B0%EA%B8%B0-v1.html): 글자를 쓰는 순서를 보고, 손가락으로 따라 써요.
