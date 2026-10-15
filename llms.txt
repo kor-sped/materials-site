@@ -8,10 +8,6 @@
 - [자료 지도](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C-%EC%A7%80%EB%8F%84.html): 2022 개정 교육과정 성취기준 ↔ 자료
 - [사이트맵](https://kor-sped.github.io/materials-site/sitemap.xml)
 
-## 쇼츠
-
-- [「요약의 사다리」 쇼츠 — 요약하는 법 5단계 (5~6학년 국어 글쓰기, 79초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-kor-summary-ladder-v1.html): 긴 글을 줄이는 다섯 계단을 짧은 영상으로 봐요.
-
 ## 국어
 
 - [획순 따라쓰기 — 자음·모음·글자](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%ED%9A%8D%EC%88%9C/%ED%9A%8D%EC%88%9C-%EB%94%B0%EB%9D%BC%EC%93%B0%EA%B8%B0-v1.html): 글자를 쓰는 순서를 보고, 손가락으로 따라 써요.
@@ -265,6 +261,8 @@
 - [1학년 1학기 「탐험」 — 쉬운 영상 (1분 36초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-1-1-explore-easy-v1.html): 우주선을 타고, 우주복을 입고, 가방을 메면 준비 끝. 짧고 천천히.
 - [1학년 2학기 「하루」 — 단원 전체 영상 (10분 38초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-1-2-day-v1.html): 해가 뜨고 지는 하루를 알고, 건강하게 보내고, 오늘을 소중히 여겨요. 10분 영상, 자막이 있어요.
 - [1학년 2학기 「하루」 — 쉬운 영상 (1분 29초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-1-2-day-easy-v1.html): 아침, 낮, 저녁, 밤. 하루의 차례를 짧고 천천히.
+- [1학년 2학기 「약속」 — 단원 전체 영상 (11분 46초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-1-2-promise-v1.html): 지구를 위한 약속과 어린이를 위한 약속을 찾아 약속 나무를 채워요. 12분 영상, 자막이 있어요.
+- [1학년 2학기 「약속」 — 쉬운 영상 (1분 50초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-1-2-promise-easy-v1.html): 물을 잠가요, 불을 꺼요, 내 물병을 써요. 약속 셋을 짧고 천천히.
 
 ## 영상자료
 
