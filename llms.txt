@@ -257,6 +257,8 @@
 - [1학년 1학기 「사람들」 — 쉬운 영상 (1분 34초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-1-1-people-easy-v1.html): 친구가 슬퍼 보이면 "괜찮아?" 웃으면 "멋지다!" 짧고 천천히.
 - [1학년 1학기 「우리나라」 — 단원 전체 영상 (8분 4초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-1-1-korea-v1.html): 우리나라의 모습을 알고, 우리 문화를 즐기고, 소중히 여겨요. 8분 영상, 자막이 있어요.
 - [1학년 1학기 「우리나라」 — 쉬운 영상 (1분 31초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-1-1-korea-easy-v1.html): 태극기는 빨강과 파랑, 우리나라 꽃은 무궁화. 짧고 천천히.
+- [1학년 1학기 「탐험」 — 단원 전체 영상 (9분 10초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-1-1-explore-v1.html): 궁금한 곳을 상상하고, 책에서 찾아보고, 그리고 만들어서 나타내요. 9분 영상, 자막이 있어요.
+- [1학년 1학기 「탐험」 — 쉬운 영상 (1분 36초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-1-1-explore-easy-v1.html): 우주선을 타고, 우주복을 입고, 가방을 메면 준비 끝. 짧고 천천히.
 
 ## 영상자료
 
