@@ -267,6 +267,8 @@
 - [1학년 2학기 「하루」 — 쉬운 영상 (1분 29초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-1-2-day-easy-v1.html): 아침, 낮, 저녁, 밤. 하루의 차례를 짧고 천천히.
 - [1학년 2학기 「약속」 — 단원 전체 영상 (11분 46초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-1-2-promise-v1.html): 지구를 위한 약속과 어린이를 위한 약속을 찾아 약속 나무를 채워요. 12분 영상, 자막이 있어요.
 - [1학년 2학기 「약속」 — 쉬운 영상 (1분 50초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-1-2-promise-easy-v1.html): 물을 잠가요, 불을 꺼요, 내 물병을 써요. 약속 셋을 짧고 천천히.
+- [1학년 2학기 「상상」 — 단원 전체 영상 (13분 41초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-1-2-imagine-v1.html): 감각으로 느끼고, 다르게 보고, "만약에!" 상상하고, 여러 가지로 나타내고, 친구 생각도 좋아해요. 14분 영상, 자막이 있어요.
+- [1학년 2학기 「상상」 — 쉬운 영상 (1분 42초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-1-2-imagine-easy-v1.html): 컵 하나로 모자, 망원경, 꽃병을 상상해요. 짧고 천천히.
 
 ## 영상자료
 
