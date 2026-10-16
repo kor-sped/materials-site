@@ -269,6 +269,8 @@
 - [1학년 2학기 「약속」 — 쉬운 영상 (1분 50초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-1-2-promise-easy-v1.html): 물을 잠가요, 불을 꺼요, 내 물병을 써요. 약속 셋을 짧고 천천히.
 - [1학년 2학기 「상상」 — 단원 전체 영상 (13분 41초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-1-2-imagine-v1.html): 감각으로 느끼고, 다르게 보고, "만약에!" 상상하고, 여러 가지로 나타내고, 친구 생각도 좋아해요. 14분 영상, 자막이 있어요.
 - [1학년 2학기 「상상」 — 쉬운 영상 (1분 42초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-1-2-imagine-easy-v1.html): 컵 하나로 모자, 망원경, 꽃병을 상상해요. 짧고 천천히.
+- [1학년 2학기 「이야기」 — 단원 전체 영상 (13분 56초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-1-2-story-v1.html): 내가 겪은 일을 떠올리고, 알아보고, 함께 만들고, 발표회에서 보여 줘요. 14분 영상, 자막이 있어요.
+- [1학년 2학기 「이야기」 — 쉬운 영상 (1분 45초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-1-2-story-easy-v1.html): 기억에 남는 일 하나를 세 마디로 들려줘요. 짧고 천천히.
 
 ## 영상자료
 
