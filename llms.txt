@@ -10,6 +10,7 @@
 
 ## 쇼츠
 
+- [「인용과 바꿔 쓰기」 쇼츠 — 사실·정의·비유, 그대로 옮길까 내 말로 바꿀까 (5~6학년 국어 글쓰기, 2분 31초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-kor-citation-paraphrase-v1.html): 남의 글을 그대로 쓸 때와 내 말로 바꿀 때를 짧은 영상으로 봐요.
 - [「요약하기」 쇼츠 — 읽고·덮고·말하고·쓰기, 요약의 네 걸음 (6학년 2학기 국어 독서 단원, 2분 37초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-kor-reading-summary-v1.html): 글을 읽고 덮은 뒤 짧게 줄여 쓰는 네 걸음을 봐요.
 - [「요약의 사다리」 쇼츠 — 요약하는 법 5단계 (5~6학년 국어 글쓰기, 1분 41초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-kor-summary-ladder-v2.html): 긴 글을 줄이는 다섯 계단을 짧은 영상으로 봐요.
 
