@@ -10,6 +10,7 @@
 
 ## 쇼츠
 
+- [「이야기 요약하기」 쇼츠 — 발단·전개·절정·결말로 줄거리 쓰기 (6학년 2학기 국어 1단원, 1분 54초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-kor-story-summary-v1.html): 이야기를 발단·전개·절정·결말 네 줄로 줄여 쓰는 법을 봐요.
 - [「인용과 바꿔 쓰기」 쇼츠 — 사실·정의·비유, 그대로 옮길까 내 말로 바꿀까 (5~6학년 국어 글쓰기, 2분 31초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-kor-citation-paraphrase-v1.html): 남의 글을 그대로 쓸 때와 내 말로 바꿀 때를 짧은 영상으로 봐요.
 - [「요약하기」 쇼츠 — 읽고·덮고·말하고·쓰기, 요약의 네 걸음 (6학년 2학기 국어 독서 단원, 2분 37초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-kor-reading-summary-v1.html): 글을 읽고 덮은 뒤 짧게 줄여 쓰는 네 걸음을 봐요.
 - [「요약의 사다리」 쇼츠 — 요약하는 법 5단계 (5~6학년 국어 글쓰기, 1분 41초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-kor-summary-ladder-v2.html): 긴 글을 줄이는 다섯 계단을 짧은 영상으로 봐요.
@@ -75,8 +76,6 @@
 - [2학년 1학기 2단원 「말의 재미가 솔솔」 — 쉬운 영상 (1분 59초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-2-1-2-easy-v1.html): 끝 글자로 시작하는 낱말을 말하면 말 기차가 길어져요! 짧고 천천히.
 - [2학년 1학기 4단원 「분위기를 살려 읽어요」 — 단원 전체 영상 (14분 19초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-2-1-4-v1.html): 겹받침 낱말을 바르게 쓰고 읽어요. 시를 읽고 분위기를 찾아 빠르기와 크기를 바꿔 읽어요. 14분 영상, 자막이 있어요.
 - [2학년 1학기 4단원 「분위기를 살려 읽어요」 — 쉬운 영상 (1분 51초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-2-1-4-easy-v1.html): 신나는 시는 빠르게, 조용한 시는 천천히 작게! 짧고 천천히.
-- [2학년 1학기 5단원 「마음을 짐작해요」 — 단원 전체 영상 (14분 12초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-2-1-5-v1.html): 말 · 행동 · 얼굴을 보고 친구의 마음을 짐작해요. 소리가 같은 낱말은 뜻을 보고 골라요. 14분 영상, 자막이 있어요.
-- [2학년 1학기 5단원 「마음을 짐작해요」 — 쉬운 영상 (1분 55초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-2-1-5-easy-v1.html): 말, 행동, 얼굴을 보면 마음이 보여요! 짧고 천천히.
 - [누가 · 무엇 · 어디 — 문제를 읽고 답을 찾는 네 걸음 영상 (11분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-qa-sped-kor-1-v2.html): 문제를 읽으면 네 걸음! 누가 · 무엇 · 어디를 묻는지 찾고 답에 동그라미 해요. 11분 영상, 자막이 있어요.
 - [누가 · 무엇 · 어디 — 쉬운 영상: 답을 찾는 네 걸음 (1분 40초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-qa-sped-kor-1-easy-v2.html): 짚어요, 찾아요, 동그라미, 다시 읽어요! 짧고 천천히.
 - [언제 · 왜 · 하라는 말 — 문제를 읽고 답을 찾는 네 걸음 영상 (12분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-qa-sped-kor-2-v1.html): 언제는 때, 왜는 까닭! 문제의 하라는 말(동그라미 · 선 잇기 · 쓰기)도 찾아요. 12분 영상, 자막이 있어요.
