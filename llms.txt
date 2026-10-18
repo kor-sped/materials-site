@@ -10,6 +10,15 @@
 
 ## 쇼츠
 
+- [마음 낱말 쇼츠 1 — 기쁨① (기쁨 낱말 10개, 1분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-feel-joy1-v1.html): 콩이와 뭉치를 보고 기쁨 마음 낱말을 들어요. 끝에 맞혀 봐요.
+- [마음 낱말 쇼츠 2 — 기쁨② (기쁨 낱말 10개, 1분 5초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-feel-joy2-v1.html): 콩이와 뭉치를 보고 기쁨 마음 낱말을 들어요. 끝에 맞혀 봐요.
+- [마음 낱말 쇼츠 3 — 슬픔 (슬픔 낱말 12개, 1분 10초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-feel-sadness-v1.html): 콩이와 뭉치를 보고 슬픔 마음 낱말을 들어요. 끝에 맞혀 봐요.
+- [마음 낱말 쇼츠 4 — 화 (화 낱말 9개, 1분 1초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-feel-anger-v1.html): 콩이와 뭉치를 보고 화 마음 낱말을 들어요. 끝에 맞혀 봐요.
+- [마음 낱말 쇼츠 5 — 두려움 (두려움 낱말 8개, 54초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-feel-fear-v1.html): 콩이와 뭉치를 보고 두려움 마음 낱말을 들어요. 끝에 맞혀 봐요.
+- [마음 낱말 쇼츠 6 — 놀람 (놀람 낱말 6개, 45초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-feel-surprise-v1.html): 콩이와 뭉치를 보고 놀람 마음 낱말을 들어요. 끝에 맞혀 봐요.
+- [마음 낱말 쇼츠 7 — 부끄러움 (부끄러움 낱말 4개, 38초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-feel-shy-v1.html): 콩이와 뭉치를 보고 부끄러움 마음 낱말을 들어요. 끝에 맞혀 봐요.
+- [마음 낱말 쇼츠 8 — 지루함 (지루함 낱말 2개, 20초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-feel-bored-v1.html): 콩이와 뭉치를 보고 지루함 마음 낱말을 들어요. 끝에 맞혀 봐요.
+- [마음 낱말 쇼츠 9 — 몸의 느낌 (몸의 느낌 낱말 10개, 1분 3초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-feel-body-v1.html): 콩이와 뭉치를 보고 몸의 느낌 마음 낱말을 들어요. 끝에 맞혀 봐요.
 - [「이야기 요약하기」 쇼츠 — 발단·전개·절정·결말로 줄거리 쓰기 (6학년 2학기 국어 1단원, 1분 54초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-kor-story-summary-v1.html): 이야기를 발단·전개·절정·결말 네 줄로 줄여 쓰는 법을 봐요.
 - [「인용과 바꿔 쓰기」 쇼츠 — 사실·정의·비유, 그대로 옮길까 내 말로 바꿀까 (5~6학년 국어 글쓰기, 2분 31초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-kor-citation-paraphrase-v1.html): 남의 글을 그대로 쓸 때와 내 말로 바꿀 때를 짧은 영상으로 봐요.
 - [「요약하기」 쇼츠 — 읽고·덮고·말하고·쓰기, 요약의 네 걸음 (6학년 2학기 국어 독서 단원, 2분 37초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-kor-reading-summary-v1.html): 글을 읽고 덮은 뒤 짧게 줄여 쓰는 네 걸음을 봐요.
@@ -317,7 +326,7 @@
 - [「착한 척보다 솔직하게」 — 영상 (10분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/bhv-honest-me-v1.html): 싫다고 말해도 괜찮아요. 친구 마음도, 내 마음도 챙겨요. 화 뒤에 숨은 마음에게 먼저 말을 걸어요. 자막이 있어요.
 - [「착한 척보다 솔직하게」 — 쉬운 영상 (2분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/bhv-honest-me-easy-v1.html): 참지 말고 부드럽게, "미안, 이번에는 어려워." 짧고 천천히.
 - [「콩이와 뭉치의 마음 낱말」 — 그림책 (낱말 71개)](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EB%A7%88%EC%9D%8C-%EB%82%B1%EB%A7%90-%EA%B7%B8%EB%A6%BC%EC%B1%85/%EC%BD%A9%EC%9D%B4%EC%99%80-%EB%AD%89%EC%B9%98%EC%9D%98-%EB%A7%88%EC%9D%8C-%EB%82%B1%EB%A7%90-v1.html): 콩이와 뭉치의 얼굴을 보고 마음 낱말을 맞혀요. 힌트가 세 번 있어요. 🔊 누르면 선생님이 읽어 줘요.
-- [「콩이와 뭉치의 마음 낱말」 — 영상 (10분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/kongi-feeling-words-video-v1.html): 콩이와 뭉치의 얼굴을 보고 마음 낱말을 들어요. 마지막에 내 마음도 말해 봐요. 자막이 있어요.
+- [「콩이와 뭉치의 마음 낱말」 — 영상 (10분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/kongi-feeling-words-video-v2.html): 콩이와 뭉치의 얼굴을 보고 마음 낱말을 들어요. 마지막에 내 마음도 말해 봐요. 자막이 있어요.
 
 ## 학급운영 지원
 
