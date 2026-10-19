@@ -17,13 +17,17 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.7;font-size:16px;word-break:keep-all;overflow-wrap:break-word}
+body{margin:0;font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.7;font-size:var(--fs,16px);word-break:keep-all;overflow-wrap:break-word}
 a{color:var(--acc)}
 /* 위 띠 */
 .top{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:12px;height:52px;padding:0 16px;border-bottom:1px solid var(--line);background:var(--bg)}
 .top .brand{font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .top .brand small{font-weight:400;color:var(--mute);margin-left:8px}
 .top .menu-btn{display:none;border:1px solid var(--line);background:#fff;border-radius:6px;width:36px;height:36px;font-size:18px;cursor:pointer;flex:none}
+.top .pos{font-size:12.5px;color:var(--mute);white-space:nowrap;flex:none}
+.top .fs{display:flex;gap:4px;flex:none}
+.top .fs button{border:1px solid var(--line);background:#fff;border-radius:6px;height:30px;padding:0 8px;font-size:13px;cursor:pointer;color:var(--ink)}
+.top .fs button:hover{border-color:var(--acc);color:var(--acc)}
 .search{margin-left:auto;position:relative;width:min(320px,45vw);flex:none}
 .search input{width:100%;height:34px;border:1px solid var(--line);border-radius:6px;padding:0 10px;font-size:14px;background:var(--side)}
 .search .hits{position:absolute;top:38px;left:0;right:0;background:#fff;border:1px solid var(--line);border-radius:6px;max-height:60vh;overflow:auto;display:none;box-shadow:0 2px 8px rgba(0,0,0,.08)}
@@ -34,7 +38,15 @@ a{color:var(--acc)}
 /* 세 칸 */
 .wrap{display:grid;grid-template-columns:240px minmax(0,1fr) 200px;min-height:calc(100vh - 52px)}
 .side{border-right:1px solid var(--line);background:var(--side);padding:16px 0;position:sticky;top:52px;height:calc(100vh - 52px);overflow:auto}
-.side .grp{font-size:12px;font-weight:700;color:var(--mute);padding:14px 20px 4px;letter-spacing:.02em}
+.side .grp{display:flex;align-items:center;width:100%;border:0;background:none;text-align:left;font:inherit;font-size:12px;font-weight:700;color:var(--mute);padding:14px 20px 4px;letter-spacing:.02em;cursor:pointer}
+.side .grp::before{content:"▸";font-size:11px;width:14px;flex:none}
+.side .g.open>.grp::before{content:"▾"}
+.side .grp:hover{color:var(--ink)}
+.side .g .item{display:none}
+.side .g.open .item{display:block}
+.side.flat .grp{cursor:default;pointer-events:none}
+.side.flat .grp::before{content:none}
+.side.flat .g .item{display:block}
 .side a{display:block;padding:6px 20px;color:var(--ink);text-decoration:none;font-size:14.5px;border-left:3px solid transparent}
 .side a:hover{background:#eceff2}
 .side a.on{color:var(--acc);border-left-color:var(--acc);background:#fff;font-weight:600}
@@ -80,6 +92,14 @@ li{margin:3px 0}
 .pn a small{display:block;color:var(--mute);font-size:12px}
 .pn a.next{text-align:right}
 .pn a:hover{border-color:var(--acc)}
+.pn .key{display:inline-block;font-size:11px;color:var(--mute);border:1px solid var(--line);border-radius:3px;padding:0 5px;margin:0 4px;line-height:1.5;vertical-align:middle}
+@media (hover:none){.pn .key{display:none}}
+@media (hover:hover){.pn .arr{display:none}}
+/* 맨 위로(스크립트가 만든다) · 휴대폰 메뉴 뒤 어둡게 */
+.totop{position:fixed;right:18px;bottom:18px;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.12);cursor:pointer;font-size:18px;color:var(--ink);display:none;z-index:18}
+.totop.show{display:block}
+body.nav-open .totop{display:none}
+.scrim{display:none;position:fixed;left:0;right:0;bottom:0;top:52px;background:rgba(0,0,0,.35);z-index:14}
 .upd{font-size:12.5px;color:var(--mute);margin-top:14px}
 /* 표 */
 .tw{overflow-x:auto;margin:0 0 16px}
@@ -121,7 +141,7 @@ code{font-size:.92em;background:var(--side);padding:1px 5px;border-radius:4px}
 pre code{background:none;padding:0}
 /* 용어 */
 a.term{color:var(--acc);text-decoration:none;border-bottom:1px dotted var(--acc);position:relative}
-a.term:hover::after{content:attr(data-tip);position:absolute;left:0;top:1.6em;background:var(--ink);color:#fff;font-size:12.5px;line-height:1.5;padding:6px 10px;border-radius:6px;width:max-content;max-width:280px;z-index:30;font-weight:400}
+a.term:hover::after,a.term.tip::after{content:attr(data-tip);position:absolute;left:0;top:1.6em;background:var(--ink);color:#fff;font-size:12.5px;line-height:1.5;padding:6px 10px;border-radius:6px;width:max-content;max-width:min(280px,calc(100vw - 48px));z-index:30;font-weight:400}
 dl.glossary dt{font-weight:700;margin-top:10px}
 dl.glossary dd{margin:0 0 6px}
 /* 인쇄용 차례(화면에서는 숨김, 스크립트가 만든다) */
@@ -132,14 +152,16 @@ dl.glossary dd{margin:0 0 6px}
   .wrap{grid-template-columns:1fr}
   .side{position:fixed;left:0;top:52px;width:260px;transform:translateX(-100%);transition:transform .2s;z-index:15;box-shadow:2px 0 8px rgba(0,0,0,.1)}
   body.nav-open .side{transform:none}
+  body.nav-open .scrim{display:block}
   .top .menu-btn{display:block}
+  .top .pos,.top .fs{display:none}
   .search{width:min(220px,50vw)}
   main{padding:20px 16px 48px}
   h1{font-size:24px}
 }
 /* 인쇄: 첫 쪽에 차례, 그 뒤 모든 쪽을 순서대로 */
 @media print{
-  .top,.side,.onpage,.pn,.menu-btn{display:none!important}
+  .top,.side,.onpage,.pn,.menu-btn,.totop,.scrim{display:none!important}
   .wrap{display:block}
   main{max-width:none;padding:0}
   .print-toc{display:block;page-break-after:always}
@@ -430,6 +452,11 @@ body.f-done .row.empty,body.f-empty .row.done{display:none}
 document.documentElement.classList.remove('nojs');
   var pages=[].slice.call(document.querySelectorAll('.page'));
   var side=document.getElementById('side'), onpage=document.getElementById('onpage'), main=document.getElementById('main');
+  // 0. 본문 글씨 크기(가⁻ 가⁺): 14~22px, 브라우저가 기억
+  var fss=[14,16,18,20,22], fsi=1; try{var fv=+localStorage.getItem('gb-fs');if(fss.indexOf(fv)>=0)fsi=fss.indexOf(fv);}catch(x){}
+  function fs(){document.documentElement.style.setProperty('--fs',fss[fsi]+'px');try{localStorage.setItem('gb-fs',fss[fsi])}catch(x){}}
+  fs();
+  [].forEach.call(document.querySelectorAll('.fs button'),function(b){b.onclick=function(){fsi=Math.max(0,Math.min(fss.length-1,fsi+(+b.dataset.d)));fs();}});
   // 1. 왼쪽 메뉴 + 인쇄용 차례
   //    길이 규칙: 쪽이 화면 3개를 넘고 h2가 2개 이상이면 ▸ 하위 항목(h2). 하위 쪽(data-parent)이 있으면 그것이 하위 항목.
   var limit=3*(window.innerHeight||800), long={};
@@ -437,25 +464,30 @@ document.documentElement.classList.remove('nojs');
   function h2links(p){var h2s=p.querySelectorAll('h2'),o='';if(h2s.length<2)return '';[].forEach.call(h2s,function(h,k){if(!h.id)h.id=p.id+'-h'+k;o+='<a href="#'+h.id+'">'+(h.firstChild&&h.firstChild.nodeType===3?h.firstChild.nodeValue:h.textContent)+'</a>';});return o;}
   function label(p){return p.dataset.title+(p.dataset.sub?'<small>'+p.dataset.sub+'</small>':'');}
   var tops=pages.filter(function(p){return !p.dataset.parent});
-  var grp=null, html='', toc='<h1>'+document.title.split(' — ')[0]+'</h1><ol>';
+  var grp=null, html='', toc='<h1>'+document.title.split(' — ')[0]+'</h1><ol>', ngrp=0;
   tops.forEach(function(p,i){
-    if(p.dataset.grp!==grp){grp=p.dataset.grp;html+='<div class="grp">'+grp+'</div>';toc+='<li class="g">'+grp+'</li>';}
+    var g=p.dataset.grp||'';
+    if(g!==grp){grp=g;ngrp++;html+=(ngrp>1?'</div>':'')+'<div class="g"><button class="grp" type="button" aria-expanded="false">'+grp+'</button>';toc+='<li class="g">'+grp+'</li>';}
     var kids=pages.filter(function(c){return c.dataset.parent===p.id}), subs='';
     if(kids.length){kids.forEach(function(c){subs+='<a href="#'+c.id+'" data-page="'+c.id+'">'+label(c)+'</a>';});}
     else if(long[p.id]) subs=h2links(p);
-    html+='<div class="item" data-p="'+p.id+'"><a href="#'+p.id+'">'+label(p)+'</a>'
+    html+='<div class="item'+(kids.length?' kids':'')+'" data-p="'+p.id+'"><a href="#'+p.id+'">'+label(p)+'</a>'
       +(subs?'<button class="tg" type="button" aria-label="하위 항목 펼치기"></button><div class="subs">'+subs+'</div>':'')+'</div>';
     toc+='<li>'+p.dataset.title+(p.dataset.sub?' ('+p.dataset.sub+')':'')+(kids.length?'<ol>'+kids.map(function(c){return '<li>'+c.dataset.title+(c.dataset.sub?' ('+c.dataset.sub+')':'')+'</li>'}).join('')+'</ol>':'')+'</li>';
   });
-  side.innerHTML=html;
-  side.addEventListener('click',function(e){var t=e.target.closest('.tg');if(!t)return;t.parentNode.classList.toggle('open');});
+  side.innerHTML=html+(ngrp?'</div>':'');
+  if(ngrp<2)side.classList.add('flat');
+  side.addEventListener('click',function(e){
+    var t=e.target.closest('.tg'); if(t){t.parentNode.classList.toggle('open');return;}
+    var b=e.target.closest('.grp'); if(b){var on=b.parentNode.classList.toggle('open');b.setAttribute('aria-expanded',on);}
+  });
   var pt=document.createElement('div');pt.className='print-toc';pt.innerHTML=toc+'</ol>';main.insertBefore(pt,main.firstChild);
   // 2. 쪽 끝 이전/다음
   pages.forEach(function(p,i){
     var pn=document.createElement('div');pn.className='pn';
     var prev=pages[i-1],next=pages[i+1];
-    pn.innerHTML=(prev?'<a href="#'+prev.id+'"><small>← 이전</small>'+prev.dataset.title+'</a>':'<span style="flex:1"></span>')
-      +(next?'<a class="next" href="#'+next.id+'"><small>다음 →</small>'+next.dataset.title+'</a>':'<span style="flex:1"></span>');
+    pn.innerHTML=(prev?'<a href="#'+prev.id+'"><small><span class="key" title="키보드 ← 로도 이전 쪽">←</span><span class="arr">← </span>이전</small>'+prev.dataset.title+'</a>':'<span style="flex:1"></span>')
+      +(next?'<a class="next" href="#'+next.id+'"><small>다음<span class="arr"> →</span><span class="key" title="키보드 → 로도 다음 쪽">→</span></small>'+next.dataset.title+'</a>':'<span style="flex:1"></span>');
     p.appendChild(pn);
   });
   // 3. 쪽 보이기
@@ -463,12 +495,15 @@ document.documentElement.classList.remove('nojs');
     var p=document.getElementById(id); if(!p||!p.classList.contains('page')) p=pages[0];
     pages.forEach(function(x){x.classList.toggle('on',x===p)});
     var top=p.dataset.parent||p.id;
-    [].forEach.call(side.querySelectorAll('.item'),function(it){var on=it.dataset.p===top;it.classList.toggle('on',on);it.classList.toggle('open',on);
+    [].forEach.call(side.querySelectorAll('.item'),function(it){var on=it.dataset.p===top;it.classList.toggle('on',on);it.classList.toggle('open',on&&(!!p.dataset.parent||it.classList.contains('kids')||it.classList.contains('open')));
+      if(on){var g=it.closest('.g');if(g&&!g.classList.contains('open')){g.classList.add('open');g.querySelector('.grp').setAttribute('aria-expanded','true');}}
       var a=it.querySelector(':scope>a');if(on&&!p.dataset.parent)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
     [].forEach.call(side.querySelectorAll('.subs a'),function(a){var on=a.dataset.page===p.id;a.classList.toggle('on',on);if(on)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
     var hs=p.querySelectorAll('h2,h3'), t='';
     if(hs.length>1){t='<div class="t">이 쪽 안</div>';[].forEach.call(hs,function(h,k){if(!h.id)h.id=p.id+'-h'+k;t+='<a class="'+h.tagName.toLowerCase()+'" href="#'+h.id+'">'+(h.firstChild&&h.firstChild.nodeType===3?h.firstChild.nodeValue:h.textContent)+'</a>';});}
     onpage.innerHTML=t;
+    var posEl=document.getElementById('pos'); if(posEl)posEl.textContent=(pages.indexOf(p)+1)+'/'+pages.length;
+    var cur=side.querySelector('.item.on'); if(cur){var ct=cur.offsetTop,ch=cur.offsetHeight,st=side.scrollTop,sh=side.clientHeight;if(ct<st+16||ct+ch>st+sh-16)side.scrollTop=Math.max(0,ct-sh/2);}
     document.body.classList.remove('nav-open');
     if(sub){var el=document.getElementById(sub);if(el){window.scrollTo(0,el.getBoundingClientRect().top+window.pageYOffset-64);}}else{window.scrollTo(0,0);}
   }
@@ -495,8 +530,17 @@ document.documentElement.classList.remove('nojs');
     if(e.key==='ArrowRight'&&pages[cur+1])go(pages[cur+1].id);
     if(e.key==='ArrowLeft'&&pages[cur-1])go(pages[cur-1].id);
   });
-  // 7. 휴대폰 메뉴
-  document.getElementById('menuBtn').onclick=function(){document.body.classList.toggle('nav-open')};
+  // 7. 휴대폰 메뉴(바깥을 누르면 닫힘) · 용어는 탭으로 풀이, 다시 탭하면 용어집 · ↑ 맨 위로
+  var mb=document.getElementById('menuBtn'); if(mb)mb.onclick=function(){document.body.classList.toggle('nav-open')};
+  var scrim=document.getElementById('scrim'); if(scrim)scrim.onclick=function(){document.body.classList.remove('nav-open')};
+  if(window.matchMedia&&matchMedia('(hover:none)').matches)document.addEventListener('click',function(e){
+    var t=e.target.closest('a.term'), open=[].slice.call(document.querySelectorAll('a.term.tip'));
+    open.forEach(function(x){x.classList.remove('tip')});
+    if(t&&open.indexOf(t)<0){e.preventDefault();e.stopPropagation();t.classList.add('tip');}
+  },true);
+  var tt=document.createElement('button');tt.className='totop';tt.type='button';tt.title='맨 위로';tt.setAttribute('aria-label','맨 위로');tt.textContent='↑';document.body.appendChild(tt);
+  tt.onclick=function(){window.scrollTo(0,0)};
+  window.addEventListener('scroll',function(){tt.classList.toggle('show',window.pageYOffset>400)},{passive:true});
   // 6. 검색: 2글자부터. 쪽 안의 덩이(소제목·문단·항목·줄)를 훑어 맞는 자리로 바로 간다
   var q=document.getElementById('q'), hits=document.getElementById('hits');
   function esc(s){return s.replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
