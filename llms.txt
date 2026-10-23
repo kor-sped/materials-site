@@ -121,6 +121,8 @@
 - [2학년 2학기 7단원 「내 생각은 이래요」 — 쉬운 영상 (1분 43초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-2-2-7-easy-v1.html): 제목과 끝 문장을 보고 글을 쓴 사람의 생각을 찾아요. 짧고 천천히.
 - [2학년 2학기 8단원 「나도 작가」 — 단원 전체 영상 (12분 22초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-2-2-8-v1.html): 내가 겪은 일로 시를 바꾸어 쓰고, 이야기 뒤를 성격과 까닭으로 상상해 세 칸에 그려요. 영상, 자막이 있어요.
 - [2학년 2학기 8단원 「나도 작가」 — 쉬운 영상 (1분 47초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-2-2-8-easy-v1.html): 본보기 시의 칸 두 개를 내 낱말로 바꿔 내 시를 지어요. 짧고 천천히.
+- [3학년 1학기 6단원 「자신 있게 읽고 써요」 — 단원 전체 영상 (14분 58초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-3-1-6-v1.html): 사실은 확인할 수 있고, 의견은 사람마다 달라요. 글을 쓸 때는 쓰기 길 다섯 정류장을 따라가요. 영상, 자막이 있어요.
+- [3학년 1학기 6단원 「자신 있게 읽고 써요」 — 쉬운 영상 (1분 45초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-3-1-6-easy-v1.html): 확인할 수 있으면 사실(도장), 사람마다 다르면 의견(풍선). 짧고 천천히.
 - [누가 · 무엇 · 어디 — 문제를 읽고 답을 찾는 네 걸음 영상 (11분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-qa-sped-kor-1-v2.html): 문제를 읽으면 네 걸음! 누가 · 무엇 · 어디를 묻는지 찾고 답에 동그라미 해요. 11분 영상, 자막이 있어요.
 - [누가 · 무엇 · 어디 — 쉬운 영상: 답을 찾는 네 걸음 (1분 40초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-qa-sped-kor-1-easy-v2.html): 짚어요, 찾아요, 동그라미, 다시 읽어요! 짧고 천천히.
 - [언제 · 왜 · 하라는 말 — 문제를 읽고 답을 찾는 네 걸음 영상 (12분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-qa-sped-kor-2-v1.html): 언제는 때, 왜는 까닭! 문제의 하라는 말(동그라미 · 선 잇기 · 쓰기)도 찾아요. 12분 영상, 자막이 있어요.
