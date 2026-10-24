@@ -225,9 +225,6 @@
 ## 수학
 
 - [자릿값 올려 보기 — 짚으면 자리 값, 천조까지](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EC%9E%90%EB%A6%BF%EA%B0%92/%EC%9E%90%EB%A6%BF%EA%B0%92-%EC%98%AC%EB%A0%A4-%EB%B3%B4%EA%B8%B0-v2.html): 큰 수에서 숫자 하나를 누르면 그 자리의 값이 나와요. 5992의 5는 5000이에요. 천조까지 돼요.
-- [십몇 — 1은 십!](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EC%88%98-%EC%9D%BD%EA%B8%B0/%EC%88%98-%EC%9D%BD%EA%B8%B0-%EC%8B%AD%EB%AA%87-1%EC%9D%80%EC%8B%AD-v2.html): 11, 12, 13을 읽는 연습이에요. 앞의 1은 '십'이라고 읽어요.
-- [숫자 낱개 읽기 1~12 — 시계 앞 단계](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EC%88%98-%EC%9D%BD%EA%B8%B0/%EC%88%98-%EC%9D%BD%EA%B8%B0-%EC%88%AB%EC%9E%90-%EB%82%B1%EA%B0%9C-%EC%9D%BD%EA%B8%B0-1to12-v2.html): 1부터 12까지 숫자 하나씩 이름을 말하는 연습이에요.
-- [하나 둘 셋 — 고유어 수 세기 1~12](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EC%88%98-%EC%9D%BD%EA%B8%B0/%EC%88%98-%EC%9D%BD%EA%B8%B0-%EA%B3%A0%EC%9C%A0%EC%96%B4-%EC%88%98-%EC%84%B8%EA%B8%B0-1to12-v2.html): 하나, 둘, 셋… 열둘까지 세는 연습이에요. 시계 읽기 전에 해요.
 - [시계 앞 단계 1 — 하나 둘 셋 (1분 42초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/clock-pre-1-counting-v2.html): 하나, 둘, 셋… 열둘까지 세어요. 하나는 한 시!
 - [시계 앞 단계 2 — 숫자 하나만 보고 (1분 25초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/clock-pre-2-single-digits-v2.html): 숫자 하나를 딱 보고 이름을 말해요.
 - [시계 앞 단계 3 — 십몇, 1은 십! (1분 37초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/clock-pre-3-teens-v2.html): 11, 12, 13… 앞의 1은 '십'이라고 읽어요.
@@ -236,10 +233,8 @@
 - [시계 무한 연습판 — 시각 읽기 무한 문제](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EC%8B%9C%EA%B3%84/%EC%8B%9C%EA%B3%84-%EB%AC%B4%ED%95%9C-%EC%97%B0%EC%8A%B5%ED%8C%90-v2.html): 시계 문제가 계속 나와요. 맞히면 별을 모아요. 긴바늘만 보는 단계도 있어요.
 - [시계 읽기 본편 — 약속 세 가지 (8분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/clock-reading-main-v1.html): 시계 읽는 약속 세 가지를 8분 영상으로 배워요.
 - [시계 전체 연습 — 분 60개 · 시 60개 (20분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/clock-practice-all-v1.html): 시계 문제 120개를 멈추고 말해 보며 연습해요. 자막이 있어요.
-- [0 낀 뺄셈·덧뺄 혼합 세트 — 자기 점검 카드 포함](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EC%97%B0%EC%82%B0/%EC%97%B0%EC%82%B0-0-%EB%82%80-%EB%BA%84%EC%85%88-%ED%98%BC%ED%95%A9-v2.html): 0이 있는 뺄셈 연습이에요. 계산하기 전에 확인할 것 4가지가 있어요.
 - [0 낀 뺄셈 1 — 0을 만나면 옆에서 빌려요 (1분 57초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/zero-sub-1-borrow-next-v2.html): 0이 있어서 못 빼면, 옆으로 한 칸 더 가서 빌려요.
 - [0 낀 뺄셈 2 — 부호 먼저, 끝 맞추기 (2분 7초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/zero-sub-2-sign-first-align-v2.html): 계산하기 전에 부호를 먼저 보고, 오른쪽 끝을 맞춰 써요.
-- [나눗셈의 비밀 무기 — 배수표 전략](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EC%97%B0%EC%82%B0/%EC%97%B0%EC%82%B0-%EB%82%98%EB%88%97%EC%85%88-%EB%B0%B0%EC%88%98%ED%91%9C-%EC%A0%84%EB%9E%B5-v2.html): 나눗셈을 배수표로 쉽게 푸는 방법이에요.
 - [나눗셈 배수표 1 — 적고, 고르고, 빼기 (2분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/baesu-1-write-pick-subtract-v2.html): 배수표를 적고, 고르고, 빼면 나눗셈이 풀려요.
 - [나눗셈 배수표 2 — 어림하고, 검산하기 (1분 58초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/baesu-2-estimate-check-v2.html): 어림으로 몫을 짐작하고, 검산으로 맞았는지 확인해요.
 - [몇 개 · 모두 몇 — 수학 문제도 네 걸음으로 (13분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-qa-sped-math-1-v1.html): 몇은 수를 찾아요! 모두 몇이면 바둑돌을 놓고 모아서 세요. 13분 영상, 자막이 있어요.
