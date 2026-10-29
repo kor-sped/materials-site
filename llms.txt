@@ -174,6 +174,8 @@
 - [5학년 1학기 3단원 「발표하고 질문해요」 — 쉬운 영상 (1분 16초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-5-1-3-easy-v1.html): 질문에는 몰라서, 확인하려고, 더 알고 싶어서 세 가지 까닭이 있어요. 짧고 천천히.
 - [5학년 1학기 매체 단원 「필요한 정보를 찾아요」 — 단원 전체 영상 (13분 25초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-5-1-m-v1.html): 궁금한 것을 알맞은 도구로 찾고, 필요한 정보만 골라 출처와 함께 글에 쓰는 법을 배워요. 영상, 자막이 있어요.
 - [5학년 1학기 매체 단원 「필요한 정보를 찾아요」 — 쉬운 영상 (1분 14초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-5-1-m-easy-v1.html): 찾은 정보를 다 담지 않아요. 내 질문의 답이고 믿을 만한 것만 담아요. 짧고 천천히.
+- [5학년 1학기 4단원 「대상을 설명해요」 — 단원 전체 영상 (14분 39초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-5-1-4-v1.html): 설명하는 글의 뼈대(구조)를 찾아 짧게 요약하고, 알맞은 구조로 설명하는 글을 짓는 법을 배워요. 영상, 자막이 있어요.
+- [5학년 1학기 4단원 「대상을 설명해요」 — 쉬운 영상 (1분 19초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-5-1-4-easy-v1.html): 첫째 · 둘째는 나열, 먼저 · 그다음은 순서, 같은 점 · 다른 점은 비교와 대조. 짧고 천천히.
 - [누가 · 무엇 · 어디 — 문제를 읽고 답을 찾는 네 걸음 영상 (11분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-qa-sped-kor-1-v2.html): 문제를 읽으면 네 걸음! 누가 · 무엇 · 어디를 묻는지 찾고 답에 동그라미 해요. 11분 영상, 자막이 있어요.
 - [누가 · 무엇 · 어디 — 쉬운 영상: 답을 찾는 네 걸음 (1분 40초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-qa-sped-kor-1-easy-v2.html): 짚어요, 찾아요, 동그라미, 다시 읽어요! 짧고 천천히.
 - [언제 · 왜 · 하라는 말 — 문제를 읽고 답을 찾는 네 걸음 영상 (12분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-qa-sped-kor-2-v1.html): 언제는 때, 왜는 까닭! 문제의 하라는 말(동그라미 · 선 잇기 · 쓰기)도 찾아요. 12분 영상, 자막이 있어요.
