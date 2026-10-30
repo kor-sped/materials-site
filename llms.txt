@@ -34,8 +34,8 @@
 - [5~6학년군 7단원 「글자를 만들어요」 — 영상 (3분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/sped-kor-5-7-v1.html): 자음자와 모음자를 붙여 글자를 만들어요. 3분 영상, 자막이 있어요.
 - [5~6학년군 7단원 「글자를 만들어요」 — 쉬운 영상 (1분 30초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/sped-kor-5-7-easy-v1.html): ㄱ ㄴ ㅁ과 ㅏ ㅗ로만 글자를 만들어요. 짧고 천천히.
 - [문장 쓰기 — 가을이 왔어요 (10문장, 3단계)](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EB%AC%B8%EC%9E%A5-%EC%93%B0%EA%B8%B0/%EB%AC%B8%EC%9E%A5-%EC%93%B0%EA%B8%B0-%EA%B0%80%EC%9D%84-v1.html): 가을에 하는 일을 보고 문장을 써요. 보고 쓰기부터 혼자 쓰기까지 3단계.
-- [5학년 2학기 1단원 「작품에 대한 의견을 나누어요」 — 인상적인 부분 골라 말하기 영상 (4분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-5-2-1-v3.html): 이야기를 듣고 마음에 남는 부분을 골라 '왜냐하면'을 붙여 말해요. 4분 영상, 자막이 있어요.
-- [5학년 2학기 1단원 「작품에 대한 의견을 나누어요」 — 쉬운 영상 (1분 34초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-5-2-1-easy-v3.html): 하나 고르고, 왜냐하면! 짧고 천천히.
+- [5학년 2학기 1단원 「작품에 대한 의견을 나누어요」 — 단원 전체 영상 (12분 29초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-5-2-1-v4.html): 시와 이야기에서 마음에 남는 곳에 별을 붙이고, 친구와 의견을 나누고, 서평을 만들어요. 12분 영상, 자막이 있어요.
+- [5학년 2학기 1단원 「작품에 대한 의견을 나누어요」 — 쉬운 영상 (1분 25초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-5-2-1-easy-v4.html): 친구 말을 끝까지 듣고 따라 말해요. 달라도 괜찮아요. 짧고 천천히.
 - [5학년 2학기 2단원 「올바른 문장으로 글을 써요」 — 문장의 자리 · 짝이 맞는 문장 · 매체에 맞게 쓰기 영상 (20분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-5-2-2-v2.html): '누가? 무엇을? 어찌했다?' 하고 물으면 문장의 자리를 찾아요. 앞말과 뒷말의 짝을 맞춰요. 20분 영상, 자막이 있어요.
 - [5학년 2학기 2단원 「올바른 문장으로 글을 써요」 — 쉬운 영상 (2분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-5-2-2-easy-v1.html): 어제는 '했어요', 내일은 '할 거예요'. 짧고 천천히.
 - [3학년 1학기 독서 단원 「읽은 책을 소개해요」 — 단원 전체 영상 (16분 1초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-kor-3-1-0-v1.html): 책을 살피고 짐작해서 고르고, 읽은 책을 네 가지로 소개해요. 끝은 비밀! 영상, 자막이 있어요.
