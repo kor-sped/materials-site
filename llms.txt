@@ -19,6 +19,19 @@
 - [마음 낱말 쇼츠 7 — 부끄러움 (부끄러움 낱말 4개, 38초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-feel-shy-v1.html): 콩이와 뭉치를 보고 부끄러움 마음 낱말을 들어요. 끝에 맞혀 봐요.
 - [마음 낱말 쇼츠 8 — 지루함 (지루함 낱말 2개, 20초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-feel-bored-v1.html): 콩이와 뭉치를 보고 지루함 마음 낱말을 들어요. 끝에 맞혀 봐요.
 - [마음 낱말 쇼츠 9 — 몸의 느낌 (몸의 느낌 낱말 10개, 1분 3초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-feel-body-v1.html): 콩이와 뭉치를 보고 몸의 느낌 마음 낱말을 들어요. 끝에 맞혀 봐요.
+- [낱말에서 문단까지 0 — 한눈에 보기 (자음·모음에서 문단까지) (쇼츠, 1분 17초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-wordpara-00-overview-v1.html): 우리말이 자음·모음에서 문단까지 쌓이는 차례를 한 번에 봐요.
+- [낱말에서 문단까지 1 — 글자 만들기 (첫소리·가운뎃소리·받침) (쇼츠, 1분 5초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-wordpara-01-letters-v1.html): 글자를 세 조각으로 쪼개 봐요.
+- [낱말에서 문단까지 2 — 받침 소리 일곱 가지 (쇼츠, 41초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-wordpara-02-final-sounds-v1.html): 받침 소리 일곱 가지를 들어요.
+- [낱말에서 문단까지 3 — 낱말 세 가족 (고유어·한자어·외래어) (쇼츠, 1분 6초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-wordpara-03-word-families-v1.html): 고유어, 한자어, 외래어를 나눠 봐요.
+- [낱말에서 문단까지 4 — 외래어와 외국어 (쇼츠, 55초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-wordpara-04-loanwords-v1.html): 외래어와 외국어를 가려 봐요.
+- [낱말에서 문단까지 5 — 비슷한 말 (쇼츠, 1분 1초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-wordpara-05-synonyms-v1.html): 바꿔 넣어도 되는 비슷한 말을 찾아요.
+- [낱말에서 문단까지 6 — 반대말 (쇼츠, 54초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-wordpara-06-antonyms-v1.html): 한 가지만 거꾸로인 반대말을 찾아요.
+- [낱말에서 문단까지 7 — 포함하는 말 (쇼츠, 51초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-wordpara-07-hypernyms-v1.html): 큰 낱말 안에 작은 낱말을 넣어요.
+- [낱말에서 문단까지 8 — 사전 찾기 (쇼츠, 50초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-wordpara-08-dictionary-v1.html): 사전에서 낱말을 찾는 차례를 배워요.
+- [낱말에서 문단까지 9 — 소리가 같은 한자 '동' (쇼츠, 49초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-wordpara-09-homophone-dong-v1.html): 소리는 같고 뜻이 다른 '동'을 알아봐요.
+- [낱말에서 문단까지 10 — 한자 '식'으로 낱말 만들기 (한식·분식·간식) (쇼츠, 1분 6초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-wordpara-10-hanja-sik-v1.html): '식'이 들어간 낱말을 만들어요.
+- [낱말에서 문단까지 11 — 문장의 중심 낱말 (쇼츠, 1분 13초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-wordpara-11-sentence-core-v1.html): 문장의 중심 낱말을 찾아요.
+- [낱말에서 문단까지 12 — 문단 (중심 문장·뒷받침 문장) (쇼츠, 1분 15초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-wordpara-12-paragraph-v1.html): 문단의 중심 문장을 찾아요.
 - [「이야기 요약하기」 쇼츠 — 발단·전개·절정·결말로 줄거리 쓰기 (6학년 2학기 국어 1단원, 1분 54초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-kor-story-summary-v2.html): 이야기를 발단·전개·절정·결말 네 줄로 줄여 쓰는 법을 봐요.
 - [「인용과 바꿔 쓰기」 쇼츠 — 사실·정의·비유, 그대로 옮길까 내 말로 바꿀까 (5~6학년 국어 글쓰기, 2분 31초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-kor-citation-paraphrase-v1.html): 남의 글을 그대로 쓸 때와 내 말로 바꿀 때를 짧은 영상으로 봐요.
 - [「요약하기」 쇼츠 — 읽고·덮고·말하고·쓰기, 요약의 네 걸음 (6학년 2학기 국어 독서 단원, 2분 37초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-kor-reading-summary-v1.html): 글을 읽고 덮은 뒤 짧게 줄여 쓰는 네 걸음을 봐요.
