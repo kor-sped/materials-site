@@ -374,6 +374,8 @@
 - [1학년 2학기 4단원 「덧셈과 뺄셈 (2)」 — 쉬운 영상 (1분 39초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-1-2-4-easy-v1.html): 못 빼면 10에서 빼고, 남은 것을 모아요. 짧고 천천히.
 - [1학년 2학기 6단원 「덧셈과 뺄셈 (3)」 — 단원 전체 영상 (16분 20초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-1-2-6-v1.html): 묶음은 묶음끼리, 낱개는 낱개끼리! 두 자리 수를 더하고 빼는 여러 방법을 차근차근 배우고 같이 풀어 봐요. 16분 영상, 자막이 있어요.
 - [1학년 2학기 6단원 「덧셈과 뺄셈 (3)」 — 쉬운 영상 (2분 12초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-1-2-6-easy-v1.html): 낱개 먼저, 그다음 묶음! 짧고 천천히.
+- [2학년 1학기 1단원 「세 자리 수」 — 단원 전체 영상 (13분 54초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-2-1-1-v1.html): 백 먼저, 그다음 십, 마지막에 일! 세 자리 수를 읽고 쓰고, 자리의 값과 크기 비교까지 차근차근 배워요. 14분 영상, 자막이 있어요.
+- [2학년 1학기 1단원 「세 자리 수」 — 쉬운 영상 (2분 9초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-2-1-1-easy-v1.html): 칸은 셋, 숫자도 셋! 짧고 천천히.
 - [5학년 2학기 1단원 「수의 범위와 어림하기」 — 단원 전체 영상 (20분 24초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-5-2-1-v1.html): 그 수가 들어가면 ●, 빠지면 ○. 대강의 수는 올림·버림·반올림으로. 20분 영상, 자막이 있어요.
 - [5학년 2학기 1단원 「수의 범위와 어림하기」 — 쉬운 영상 (2분 43초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-5-2-1-easy-v1.html): 모자라면 올림, 다 채운 것만 버림, 가까운 수는 반올림. 짧고 천천히.
 - [3학년 1학기 1단원 「덧셈과 뺄셈」 — 단원 전체 영상 (25분 2초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-3-1-1-v1.html): 같은 자리끼리, 일의 자리부터. 10이 되면 올리고, 못 빼면 빌려 와요. 25분 영상, 자막이 있어요.
