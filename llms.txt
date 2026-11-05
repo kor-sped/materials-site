@@ -394,6 +394,8 @@
 - [3학년 2학기 4단원 「분수」 — 쉬운 영상 (1분 59초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-3-2-4-easy-v1.html): 진분수, 가분수, 대분수! 분모가 같으면 분자가 큰 쪽. 짧고 천천히.
 - [1학년 2학기 1단원 「100까지의 수」 — 단원 전체 영상 (15분 4초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-1-2-1-v1.html): 10개씩 묶어 세고, 두 가지로 읽고, 순서와 크기, 짝수와 홀수를 차근차근 배우고 같이 풀어 봐요. 15분 영상, 자막이 있어요.
 - [1학년 2학기 1단원 「100까지의 수」 — 쉬운 영상 (2분 2초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-1-2-1-easy-v1.html): 묶음은 앞에, 낱개는 뒤에! 짧고 천천히.
+- [2학년 1학기 2단원 「여러 가지 도형」 — 단원 전체 영상 (16분 18초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-2-1-2-v1.html): 곧은 선을 세면 이름을 알 수 있어요! 삼각형, 사각형, 원을 찾고 칠교판과 쌓기나무로 만들어 봐요. 16분 영상, 자막이 있어요.
+- [2학년 1학기 2단원 「여러 가지 도형」 — 쉬운 영상 (1분 59초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-2-1-2-easy-v1.html): 곧은 선을 세어요! 짧고 천천히.
 
 ## 사회
 
