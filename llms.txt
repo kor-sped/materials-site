@@ -370,6 +370,8 @@
 - [5학년 1학기 2단원 「약수와 배수」 — 쉬운 영상 (2분 6초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-5-1-2-easy-v1.html): 같이 있는 약수, 그중 가장 큰 수. 짧고 천천히.
 - [5학년 2학기 6단원 「평균과 가능성」 — 단원 전체 영상 (17분 26초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-5-2-6-v1.html): 들쭉날쭉한 수를 고르게 하면 평균. 일어날 것 같은 정도는 다섯 칸의 말로. 17분 영상, 자막이 있어요.
 - [5학년 2학기 6단원 「평균과 가능성」 — 쉬운 영상 (2분 23초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-5-2-6-easy-v1.html): 일어날 것 같은 정도를 다섯 칸으로 말해요. 짧고 천천히.
+- [1학년 1학기 5단원 「50까지의 수」 — 단원 전체 영상 (15분 6초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-1-1-5-v1.html): 10개씩 묶어 세면 빨라요! 앞 숫자는 묶음, 뒤 숫자는 낱개. 15분 영상, 자막이 있어요.
+- [1학년 1학기 5단원 「50까지의 수」 — 쉬운 영상 (2분 2초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-1-1-5-easy-v1.html): 앞에는 묶음 수, 뒤에는 낱개 수! 짧고 천천히.
 - [1학년 2학기 4단원 「덧셈과 뺄셈 (2)」 — 단원 전체 영상 (16분 8초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-1-2-4-v1.html): 10을 채워 더하고, 못 빼면 10에서 빼요. 16분 영상, 자막이 있어요.
 - [1학년 2학기 4단원 「덧셈과 뺄셈 (2)」 — 쉬운 영상 (1분 39초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-1-2-4-easy-v1.html): 못 빼면 10에서 빼고, 남은 것을 모아요. 짧고 천천히.
 - [1학년 2학기 6단원 「덧셈과 뺄셈 (3)」 — 단원 전체 영상 (16분 20초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-1-2-6-v1.html): 묶음은 묶음끼리, 낱개는 낱개끼리! 두 자리 수를 더하고 빼는 여러 방법을 차근차근 배우고 같이 풀어 봐요. 16분 영상, 자막이 있어요.
