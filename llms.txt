@@ -400,6 +400,8 @@
 - [2학년 1학기 4단원 「길이 재기」 — 쉬운 영상 (1분 51초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-2-1-4-easy-v1.html): 0에 맞춰요! 짧고 천천히.
 - [2학년 1학기 5단원 「분류하기」 — 단원 전체 영상 (13분 11초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-2-1-5-v1.html): 단추가 뒤죽박죽! 기준을 정해 나누고, 세어서 표에 쓰고, 결과를 말해 봐요. 13분 영상, 자막이 있어요.
 - [2학년 1학기 5단원 「분류하기」 — 쉬운 영상 (2분 13초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-2-1-5-easy-v1.html): 같은 것끼리 나눠요! 짧고 천천히.
+- [2학년 1학기 6단원 「곱셈」 — 단원 전체 영상 (18분 2초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-2-1-6-v1.html): 구슬을 묶어서 세고, 곱셈으로 짧게 써 봐요. 18분 영상, 자막이 있어요.
+- [2학년 1학기 6단원 「곱셈」 — 쉬운 영상 (1분 55초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-2-1-6-easy-v1.html): 똑같은 수로 묶어요! 짧고 천천히.
 
 ## 사회
 
