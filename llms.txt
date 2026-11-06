@@ -409,6 +409,15 @@
 - [2학년 2학기 1단원 「네 자리 수」 — 단원 전체 영상 (15분 21초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-2-2-1-v1.html): 천 모형으로 큰 수를 세고 읽어 봐요. 15분 영상, 자막이 있어요.
 - [2학년 2학기 1단원 「네 자리 수」 — 쉬운 영상 (2분 27초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-2-2-1-easy-v1.html): 칸은 넷, 숫자도 넷! 짧고 천천히.
 
+## 영어
+
+- [알파벳 대문자 · 소문자 ① A ~ F (4분 28초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-abc-1-v1.html): A부터 F까지, 영어 글자를 보고 같이 써요. 자막이 있어요.
+- [알파벳 대문자 · 소문자 ② G ~ M (4분 39초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-abc-2-v1.html): G부터 M까지, 영어 글자를 보고 같이 써요. 자막이 있어요.
+- [알파벳 대문자 · 소문자 ③ N ~ T (4분 31초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-abc-3-v1.html): N부터 T까지, 영어 글자를 보고 같이 써요. 자막이 있어요.
+- [알파벳 대문자 · 소문자 ④ U ~ Z (4분 3초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-abc-4-v1.html): U부터 Z까지, 영어 글자를 보고 같이 써요. 자막이 있어요.
+- [알파벳 대문자 · 소문자 ⑤ 쉬운 낱말 12 (4분 14초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-abc-5-v1.html): 쉬운 낱말 12개, 영어 글자를 보고 같이 써요. 자막이 있어요.
+- [알파벳 대문자 · 소문자 쉬운 영상: c · a · t (1분 6초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/topic-abc-easy-v1.html): c · a · t 세 글자로 cat, 영어 글자를 보고 같이 써요. 자막이 있어요.
+
 ## 사회
 
 - [6학년 1학기 3단원 「지구, 대륙 그리고 국가들」 — 영상 (27분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-soc-6-1-3-v2.html): 지구본과 세계지도로 세계를 보고, 위도와 경도로 위치를 말하고, 여섯 대륙과 다섯 대양, 여러 나라를 찾아봐요. 자막이 있어요.
