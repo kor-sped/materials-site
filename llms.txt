@@ -408,6 +408,8 @@
 - [2학년 1학기 6단원 「곱셈」 — 쉬운 영상 (1분 55초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-2-1-6-easy-v1.html): 똑같은 수로 묶어요! 짧고 천천히.
 - [2학년 2학기 1단원 「네 자리 수」 — 단원 전체 영상 (15분 21초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-2-2-1-v1.html): 천 모형으로 큰 수를 세고 읽어 봐요. 15분 영상, 자막이 있어요.
 - [2학년 2학기 1단원 「네 자리 수」 — 쉬운 영상 (2분 27초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-2-2-1-easy-v1.html): 칸은 넷, 숫자도 넷! 짧고 천천히.
+- [2학년 2학기 2단원 「곱셈구구」 — 단원 전체 영상 (23분 53초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-2-2-2-v1.html): 구슬과 컵으로 곱셈구구를 내 손으로 만들어 봐요. 24분 영상, 자막이 있어요.
+- [2학년 2학기 2단원 「곱셈구구」 — 쉬운 영상 (2분 9초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-2-2-2-easy-v1.html): 앞의 곱에 더하면 다음 곱! 짧고 천천히.
 
 ## 영어
 
