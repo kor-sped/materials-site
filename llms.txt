@@ -414,6 +414,8 @@
 - [2학년 2학기 3단원 「길이 재기」 — 쉬운 영상 (2분 11초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-2-2-3-easy-v1.html): 100cm는 1m! 짧고 천천히.
 - [2학년 2학기 4단원 「시각과 시간」 — 단원 전체 영상 (22분 48초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-2-2-4-v1.html): 짧은바늘은 시, 긴바늘은 분! 시계를 읽고 하루와 달력도 살펴봐요. 23분 영상, 자막이 있어요.
 - [2학년 2학기 4단원 「시각과 시간」 — 쉬운 영상 (2분 30초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-2-2-4-easy-v1.html): 짧은바늘 먼저, 긴바늘은 다섯씩! 짧고 천천히.
+- [2학년 2학기 5단원 「표와 그래프」 — 단원 전체 영상 (17분 3초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-2-2-5-v1.html): 세어서 표에 쓰고, 동그라미를 쌓아 그래프로! 17분 영상, 자막이 있어요.
+- [2학년 2학기 5단원 「표와 그래프」 — 쉬운 영상 (2분 43초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-2-2-5-easy-v1.html): 세어서 표에, 쌓아서 그래프로! 짧고 천천히.
 
 ## 영어
 
