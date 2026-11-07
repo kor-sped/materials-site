@@ -418,6 +418,8 @@
 - [2학년 2학기 5단원 「표와 그래프」 — 쉬운 영상 (2분 43초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-2-2-5-easy-v1.html): 세어서 표에, 쌓아서 그래프로! 짧고 천천히.
 - [2학년 2학기 6단원 「규칙 찾기」 — 단원 전체 영상 (21분 1초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-2-2-6-v1.html): 되풀이되는 묶음을 찾으면 다음 것을 맞혀요! 21분 영상, 자막이 있어요.
 - [2학년 2학기 6단원 「규칙 찾기」 — 쉬운 영상 (2분 16초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-2-2-6-easy-v1.html): 묶음을 찾아 다음 구슬을 맞혀요! 짧고 천천히.
+- [3학년 1학기 2단원 「평면도형」 — 단원 전체 영상 (25분 49초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-3-1-2-v1.html): 끝을 보면 선의 이름을 알고, 직각 자를 대면 직각을 찾아요! 25분 영상, 자막이 있어요.
+- [3학년 1학기 2단원 「평면도형」 — 쉬운 영상 (2분 20초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-3-1-2-easy-v1.html): 종이를 접어 직각을 찾아요! 짧고 천천히.
 
 ## 영어
 
