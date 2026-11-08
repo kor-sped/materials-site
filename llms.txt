@@ -432,6 +432,8 @@
 - [3학년 2학기 2단원 「나눗셈」 — 쉬운 영상 (2분 29초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-3-2-2-easy-v1.html): 큰 자리부터 나누고, 남은 십 모형은 바꿔요. 짧고 천천히.
 - [3학년 2학기 3단원 「원」 — 단원 전체 영상 (24분 18초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-3-2-3-v1.html): 가운데 점은 원의 중심, 지름은 반지름의 두 배! 24분 영상, 자막이 있어요.
 - [3학년 2학기 3단원 「원」 — 쉬운 영상 (2분 17초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-3-2-3-easy-v1.html): 중심, 반지름, 지름. 짧고 천천히.
+- [3학년 2학기 5단원 「들이와 무게」 — 단원 전체 영상 (30분 6초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-3-2-5-v1.html): 1 L는 1000 mL, 1 kg은 1000 g! 30분 영상, 자막이 있어요.
+- [3학년 2학기 5단원 「들이와 무게」 — 쉬운 영상 (2분 20초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-3-2-5-easy-v1.html): 큰 단위 하나는 작은 단위 천. 짧고 천천히.
 
 ## 영어
 
