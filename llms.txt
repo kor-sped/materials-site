@@ -430,6 +430,8 @@
 - [3학년 2학기 1단원 「곱셈」 — 쉬운 영상 (2분 20초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-3-2-1-easy-v1.html): 일의 자리부터 곱하고, 올린 수는 나중에 더해요. 짧고 천천히.
 - [3학년 2학기 2단원 「나눗셈」 — 단원 전체 영상 (23분 3초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-3-2-2-v1.html): 큰 자리부터 나누고, 남은 십은 바꿔서 또 나눠요! 23분 영상, 자막이 있어요.
 - [3학년 2학기 2단원 「나눗셈」 — 쉬운 영상 (2분 29초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-3-2-2-easy-v1.html): 큰 자리부터 나누고, 남은 십 모형은 바꿔요. 짧고 천천히.
+- [3학년 2학기 3단원 「원」 — 단원 전체 영상 (24분 18초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-3-2-3-v1.html): 가운데 점은 원의 중심, 지름은 반지름의 두 배! 24분 영상, 자막이 있어요.
+- [3학년 2학기 3단원 「원」 — 쉬운 영상 (2분 17초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-3-2-3-easy-v1.html): 중심, 반지름, 지름. 짧고 천천히.
 
 ## 영어
 
