@@ -438,6 +438,8 @@
 - [3학년 2학기 6단원 「자료의 정리」 — 쉬운 영상 (2분 40초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-3-2-6-easy-v1.html): 큰 그림부터 세고, 작은 그림을 더해요. 짧고 천천히.
 - [4학년 1학기 1단원 「큰 수」 — 단원 전체 영상 (22분 40초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-4-1-1-v1.html): 큰 수는 오른쪽부터 네 자리씩 끊어 읽어요! 일 · 만 · 억 · 조. 23분 영상, 자막이 있어요.
 - [4학년 1학기 1단원 「큰 수」 — 쉬운 영상 (2분 30초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-4-1-1-easy-v1.html): 천 원 열 장은 만 원! 돈을 자리 칸에 하나씩 써요. 짧고 천천히.
+- [4학년 1학기 2단원 「각도」 — 단원 전체 영상 (24분 40초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-4-1-2-v1.html): 각도기는 중심은 꼭짓점에, 밑금은 변에, 0부터 읽어요! 25분 영상, 자막이 있어요.
+- [4학년 1학기 2단원 「각도」 — 쉬운 영상 (2분 28초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-4-1-2-easy-v1.html): 각도기로 각을 재요. 작으면 예각, 크면 둔각! 짧고 천천히.
 
 ## 영어
 
