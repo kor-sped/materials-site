@@ -529,7 +529,7 @@
 - [「콩이와 뭉치의 마음 낱말」 — 영상 (10분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/kongi-feeling-words-video-v2.html): 콩이와 뭉치의 얼굴을 보고 마음 낱말을 들어요. 마지막에 내 마음도 말해 봐요. 자막이 있어요.
 - [「콩이와 뭉치의 마음 낱말」 컷아웃 영상 — 기쁨 낱말 20개 (3분 11초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/kongi-cutout-joy-v1.html): 콩이와 뭉치가 움직여요. 기쁨 낱말 20개를 보고 들어요. 내 마음과 같은 낱말을 찾아봐요.
 - [「콩이와 뭉치의 마음 낱말」 컷아웃 영상 — 슬픔 낱말 12개 (1분 55초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/kongi-cutout-sadness-v1.html): 콩이와 뭉치가 움직여요. 슬픔 낱말 12개를 보고 들어요. 내 마음과 같은 낱말을 찾아봐요.
-- [「콩이와 뭉치의 마음 낱말」 컷아웃 영상 — 화 낱말 9개 (1분 26초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/kongi-cutout-anger-v1.html): 콩이와 뭉치가 움직여요. 화 낱말 9개를 보고 들어요. 내 마음과 같은 낱말을 찾아봐요.
+- [「콩이와 뭉치의 마음 낱말」 컷아웃 영상 — 화 낱말 9개 (1분 26초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/kongi-cutout-anger-v2.html): 콩이와 뭉치가 움직여요. 화 낱말 9개를 보고 들어요. 내 마음과 같은 낱말을 찾아봐요.
 
 ## 학급운영 지원
 
