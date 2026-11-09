@@ -521,7 +521,7 @@
 ## 행동수정 지원
 
 - [행동지원 기초 양식 4장 — ABC 기록지·기록표·BIP 틀·목표 문장](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%ED%96%89%EB%8F%99%EC%A7%80%EC%9B%90-%EA%B8%B0%EC%B4%88%EC%96%91%EC%8B%9D/%ED%96%89%EB%8F%99%EC%A7%80%EC%9B%90-%EA%B8%B0%EC%B4%88%EC%96%91%EC%8B%9D-v1.html): 아이의 행동을 기록하고 도울 계획을 세우는 선생님용 종이예요.
-- [「화를 바르게 내기」 — 영상 (10분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/bhv-anger-say-it-v2.html): 화가 나는 건 괜찮아요. 몸을 보고, 마음에 이름을 붙이고, 숨을 쉬고, 말로 알려 줘요. 자막이 있어요.
+- [「화를 바르게 내기」 — 영상 (10분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/bhv-anger-say-it-v3.html): 화가 나는 건 괜찮아요. 몸을 보고, 마음에 이름을 붙이고, 숨을 쉬고, 말로 알려 줘요. 자막이 있어요.
 - [「화를 바르게 내기」 — 쉬운 영상 (2분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/bhv-anger-say-it-easy-v1.html): 몸, 이름, 숨, 그리고 말. 짧고 천천히.
 - [「착한 척보다 솔직하게」 — 영상 (10분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/bhv-honest-me-v1.html): 싫다고 말해도 괜찮아요. 친구 마음도, 내 마음도 챙겨요. 화 뒤에 숨은 마음에게 먼저 말을 걸어요. 자막이 있어요.
 - [「착한 척보다 솔직하게」 — 쉬운 영상 (2분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/bhv-honest-me-easy-v1.html): 참지 말고 부드럽게, "미안, 이번에는 어려워." 짧고 천천히.
