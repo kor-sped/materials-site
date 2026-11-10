@@ -446,6 +446,8 @@
 - [4학년 1학기 4단원 「평면도형의 이동」 — 쉬운 영상 (2분 11초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-4-1-4-easy-v1.html): 시계 방향으로 돌려요. 빨간 변이 위, 오른쪽, 아래, 왼쪽! 짧고 천천히.
 - [4학년 1학기 5단원 「막대그래프」 — 단원 전체 영상 (21분 50초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-4-1-5-v1.html): 막대가 길수록 수가 커요. 눈금 한 칸을 먼저 봐요! 22분 영상, 자막이 있어요.
 - [4학년 1학기 5단원 「막대그래프」 — 쉬운 영상 (2분 15초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-4-1-5-easy-v1.html): 막대 끝을 짚고, 옆으로 가서 눈금을 읽어요. 짧고 천천히.
+- [4학년 1학기 6단원 「규칙 찾기」 — 단원 전체 영상 (27분 16초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-4-1-6-v1.html): 옆 칸과 견주어 얼마씩 변하는지 찾아요. = 는 양쪽이 같다는 뜻! 27분 영상, 자막이 있어요.
+- [4학년 1학기 6단원 「규칙 찾기」 — 쉬운 영상 (2분 7초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-4-1-6-easy-v1.html): 옆 칸과 견주어요. 얼마씩 커지는지 찾아요. 짧고 천천히.
 
 ## 영어
 
