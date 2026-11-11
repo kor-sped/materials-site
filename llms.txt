@@ -450,6 +450,8 @@
 - [4학년 1학기 6단원 「규칙 찾기」 — 쉬운 영상 (2분 7초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-4-1-6-easy-v1.html): 옆 칸과 견주어요. 얼마씩 커지는지 찾아요. 짧고 천천히.
 - [4학년 2학기 1단원 「분수의 덧셈과 뺄셈」 — 단원 전체 영상 (22분 55초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-4-2-1-v1.html): 분모는 그대로, 분자끼리 계산해요. 1이 넘으면 올리고, 모자라면 빌려요! 23분 영상, 자막이 있어요.
 - [4학년 2학기 1단원 「분수의 덧셈과 뺄셈」 — 쉬운 영상 (1분 58초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-4-2-1-easy-v1.html): 분모는 그대로, 분자만 더해요. 짧고 천천히.
+- [4학년 2학기 2단원 「삼각형」 — 단원 전체 영상 (19분 52초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-4-2-2-v1.html): 같은 길이를 찾고, 가장 큰 각을 봐요. 이름이 두 개 붙어요! 20분 영상, 자막이 있어요.
+- [4학년 2학기 2단원 「삼각형」 — 쉬운 영상 (1분 45초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-4-2-2-easy-v1.html): 두 변이 같으면 이등변, 세 변이 같으면 정삼각형. 짧고 천천히.
 
 ## 영어
 
