@@ -144,6 +144,7 @@
   .tag{display:inline-block;border:2px solid;border-radius:20px;padding:0 8px;font-size:12pt;font-weight:900;vertical-align:middle;margin:0 1mm;}
   .tag.o{border-color:#BE6410;} .tag.b{border-color:#1F5D8C;}
   .bar{display:block;margin:3px 0;}
+  @media print{body>.bar{display:none} .bar+.page .free{display:none} .bar+.page .rule .big{font-size:12pt}}   /* 위 .bar(svg 띠)가 인쇄 때 위 단추 줄을 되살려 1쪽이 넘쳤다 · 교사 머리가 긴 1쪽은 인쇄 때 자유 연습 칸을 빼고 방법 글을 줄임(11-11) */
   .ox{display:grid;grid-template-columns:1fr;gap:2px;font-size:14pt;font-weight:700;margin:6px 0;}
   .ox div{border-bottom:1.5px solid var(--rule);padding:6px 4px;display:flex;justify-content:space-between;align-items:center;}
   .gugu{border-collapse:collapse;margin:4px auto 0;font-size:10pt;}
