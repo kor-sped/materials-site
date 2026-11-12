@@ -454,6 +454,8 @@
 - [4학년 2학기 2단원 「삼각형」 — 쉬운 영상 (1분 45초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-4-2-2-easy-v1.html): 두 변이 같으면 이등변, 세 변이 같으면 정삼각형. 짧고 천천히.
 - [4학년 2학기 3단원 「소수의 덧셈과 뺄셈」 — 단원 전체 영상 (24분 38초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-4-2-3-v1.html): 소수도 자리마다 값이 달라요. 소수점을 맞춰서 더하고 빼요! 25분 영상, 자막이 있어요.
 - [4학년 2학기 3단원 「소수의 덧셈과 뺄셈」 — 쉬운 영상 (1분 58초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-4-2-3-easy-v1.html): 소수점을 세로로 맞춰서 더해요. 짧고 천천히.
+- [4학년 2학기 4단원 「사각형」 — 단원 전체 영상 (22분 11초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-4-2-4-v1.html): 직각으로 만나면 수직, 만나지 않으면 평행! 평행한 변을 세어 사각형 이름을 붙여요. 22분 영상, 자막이 있어요.
+- [4학년 2학기 4단원 「사각형」 — 쉬운 영상 (1분 50초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-4-2-4-easy-v1.html): 직각으로 만나면 수직, 만나지 않으면 평행. 짧고 천천히.
 
 ## 영어
 
