@@ -458,6 +458,8 @@
 - [4학년 2학기 4단원 「사각형」 — 쉬운 영상 (1분 50초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-4-2-4-easy-v1.html): 직각으로 만나면 수직, 만나지 않으면 평행. 짧고 천천히.
 - [4학년 2학기 5단원 「꺾은선그래프」 — 단원 전체 영상 (20분 53초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-4-2-5-v1.html): 점을 짚고 옆으로 가서 읽어요. 올라가면 늘고, 내려가면 줄어요! 21분 영상, 자막이 있어요.
 - [4학년 2학기 5단원 「꺾은선그래프」 — 쉬운 영상 (2분 11초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-4-2-5-easy-v1.html): 점을 짚고 옆으로, 올라가면 늘어요. 짧고 천천히.
+- [4학년 2학기 6단원 「다각형」 — 단원 전체 영상 (18분 59초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-4-2-6-v1.html): 선분으로만 둘러싸이면 다각형, 변도 각도 모두 같으면 정다각형! 19분 영상, 자막이 있어요.
+- [4학년 2학기 6단원 「다각형」 — 쉬운 영상 (2분 2초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-4-2-6-easy-v1.html): 선분으로만, 변도 각도 모두 같게. 짧고 천천히.
 
 ## 영어
 
