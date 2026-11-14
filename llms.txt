@@ -468,6 +468,8 @@
 - [5학년 1학기 5단원 「분수의 덧셈과 뺄셈」 — 쉬운 영상 (2분 3초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-5-1-5-easy-v1.html): 먼저 통분, 그리고 분자만 더해요. 짧고 천천히.
 - [5학년 1학기 6단원 「다각형의 둘레와 넓이」 — 단원 전체 영상 (18분 40초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-5-1-6-v1.html): 넓이는 1 cm² 칸의 수. 모르는 도형은 잘라 옮기거나 두 개 붙여 아는 도형으로 바꿔요. 18분 영상, 자막이 있어요.
 - [5학년 1학기 6단원 「다각형의 둘레와 넓이」 — 쉬운 영상 (1분 49초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-5-1-6-easy-v1.html): 칸을 세면 가로 × 세로. 짧고 천천히.
+- [5학년 2학기 2단원 「분수의 곱셈」 — 단원 전체 영상 (21분 32초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-5-2-2-v1.html): 분수 × 자연수는 분자에만, 분수 × 분수는 분자는 분자와 분모는 분모와 곱해요. 21분 영상, 자막이 있어요.
+- [5학년 2학기 2단원 「분수의 곱셈」 — 쉬운 영상 (2분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-5-2-2-easy-v1.html): 같은 분수를 여러 번 더하면 분자에만 곱해요. 짧고 천천히.
 
 ## 영어
 
