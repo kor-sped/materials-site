@@ -13,6 +13,7 @@
 - [과학 과목 쪽](https://kor-sped.github.io/materials-site/%EA%B3%BC%ED%95%99.html): 특수교육·초등 과학 자료를 교과서 단원 · 기술(성취기준) · 생활로 찾기
 - [통합교과 과목 쪽](https://kor-sped.github.io/materials-site/%ED%86%B5%ED%95%A9%EA%B5%90%EA%B3%BC.html): 특수교육·초등 통합교과 자료를 교과서 단원 · 기술(성취기준) · 생활로 찾기
 - [영어 과목 쪽](https://kor-sped.github.io/materials-site/%EC%98%81%EC%96%B4.html): 특수교육·초등 영어 자료를 교과서 단원 · 기술(성취기준) · 생활로 찾기
+- [생활·행동 쪽](https://kor-sped.github.io/materials-site/%EC%83%9D%ED%99%9C.html): 감정 조절·안전·사회성·장애이해·IEP·행동 기록 자료를 「이럴 때」(쓰임)로 찾기
 
 ## 쇼츠
 
