@@ -502,6 +502,8 @@
 - [5학년 1학기 6단원 「다각형의 둘레와 넓이」 — 쉬운 영상 (1분 49초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-5-1-6-easy-v1.html): 칸을 세면 가로 × 세로. 짧고 천천히.
 - [5학년 2학기 2단원 「분수의 곱셈」 — 단원 전체 영상 (21분 32초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-5-2-2-v1.html): 분수 × 자연수는 분자에만, 분수 × 분수는 분자는 분자와 분모는 분모와 곱해요. 21분 영상, 자막이 있어요.
 - [5학년 2학기 2단원 「분수의 곱셈」 — 쉬운 영상 (2분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-5-2-2-easy-v1.html): 같은 분수를 여러 번 더하면 분자에만 곱해요. 짧고 천천히.
+- [5학년 2학기 3단원 「합동과 대칭」 — 단원 전체 영상 (16분 57초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-5-2-3-v1.html): 포개면 합동, 접으면 선대칭, 반 바퀴 돌리면 점대칭이에요. 17분 영상, 자막이 있어요.
+- [5학년 2학기 3단원 「합동과 대칭」 — 쉬운 영상 (1분 49초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-5-2-3-easy-v1.html): 포개었을 때 꼭 겹치면 합동이에요. 짧고 천천히.
 
 ## 영어
 
