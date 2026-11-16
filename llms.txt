@@ -7,6 +7,12 @@
 - [첫 화면](https://kor-sped.github.io/materials-site/): 범주·학년·단원별 자료 목록과 검색
 - [자료 지도](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C-%EC%A7%80%EB%8F%84.html): 2022 개정 교육과정 성취기준 ↔ 자료
 - [사이트맵](https://kor-sped.github.io/materials-site/sitemap.xml)
+- [수학 과목 쪽](https://kor-sped.github.io/materials-site/%EC%88%98%ED%95%99.html): 특수교육·초등 수학 자료를 교과서 단원 · 기술(성취기준) · 생활로 찾기
+- [국어 과목 쪽](https://kor-sped.github.io/materials-site/%EA%B5%AD%EC%96%B4.html): 특수교육·초등 국어 자료를 교과서 단원 · 기술(성취기준) · 생활로 찾기
+- [사회 과목 쪽](https://kor-sped.github.io/materials-site/%EC%82%AC%ED%9A%8C.html): 특수교육·초등 사회 자료를 교과서 단원 · 기술(성취기준) · 생활로 찾기
+- [과학 과목 쪽](https://kor-sped.github.io/materials-site/%EA%B3%BC%ED%95%99.html): 특수교육·초등 과학 자료를 교과서 단원 · 기술(성취기준) · 생활로 찾기
+- [통합교과 과목 쪽](https://kor-sped.github.io/materials-site/%ED%86%B5%ED%95%A9%EA%B5%90%EA%B3%BC.html): 특수교육·초등 통합교과 자료를 교과서 단원 · 기술(성취기준) · 생활로 찾기
+- [영어 과목 쪽](https://kor-sped.github.io/materials-site/%EC%98%81%EC%96%B4.html): 특수교육·초등 영어 자료를 교과서 단원 · 기술(성취기준) · 생활로 찾기
 
 ## 쇼츠
 
