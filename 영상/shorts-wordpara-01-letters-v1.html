@@ -18,17 +18,49 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "VideoObject", "name": "낱말에서 문단까지 1 — 글자 만들기 (첫소리·가운뎃소리·받침) (쇼츠, 1분 5초)", "description": "글자를 세 조각으로 쪼개 봐요. 글자는 첫소리·가운뎃소리·받침 세 조각으로 만들어요. 막, 수, 국을 쪼개 봐요. 문제 → 힌트 → 정답 순서로 스스로 생각할 틈을 준다. 「낱말에서 문단까지」 쇼츠 13편 중 1편. 화면 자막·대본 있음.", "url": "https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-wordpara-01-letters-v1.html", "inLanguage": "ko", "isAccessibleForFree": true, "contentUrl": "https://github.com/kor-sped/materials-site/releases/download/videos-v2/shorts-wordpara-01-letters-v1-720p.mp4", "thumbnailUrl": "https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/shorts-wordpara-01-letters-v1.jpg", "uploadDate": "2026-10-31T09:00:00+09:00", "duration": "PT1M5S", "embedUrl": "https://www.youtube-nocookie.com/embed/fAlS590D848", "transcript": "막국수의 막, 이 글자는 몇 조각으로 쪼개질까요? 글자는 세 조각으로 만들어요. 첫소리, 가운뎃소리, 받침이에요. 첫소리는 자음, 가운뎃소리는 모음이에요. 막을 쪼개 볼까요? 첫소리 미음, 가운뎃소리 아, 받침 기역. 모으면 막이 돼요. 이번에는 수를 쪼개 볼까요? 첫소리 시옷, 가운뎃소리 우. 받침은 없어요. 받침이 없어도 글자가 돼요. 이제 여러분 차례예요. 국을 쪼개면 어떻게 될까요? 힌트, 첫소리부터 찾아봐요. 정답! 첫소리 기역, 가운뎃소리 우, 받침 기역, 국이에요. 오늘은 글자를 쪼개 봤어요. 글자는 첫소리, 가운뎃소리, 받침으로 만들어요. 받침이 없는 글자도 있어요. 잘했어요!"}</script>
 <!--/seo-->
 <style>
-  :root { --ink:#2a2a26; --bg:#faf6ef; --line:#e6ded0; --dark:#232320; --terra:#c8703f; --cream:#efe6d6; --muted:#6f6a60; }
+  :root { --ink:#1F2A30; --bg:#FBF7F0; --line:#E2D9C8; --dark:#16323D; --terra:#B5541B; --cream:#EFE6D6; --muted:#5A6870; }
   * { box-sizing:border-box; }
-  body { margin:0; background:var(--bg); color:var(--ink); line-height:1.65; font-family:"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif; }
+  body { margin:0; background:var(--bg); color:var(--ink); line-height:1.65; word-break:keep-all; overflow-wrap:break-word; font-family:"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif; }
   .skip { position:absolute; left:-999px; top:8px; background:#fff; color:#000; padding:8px 12px; z-index:100; }
   .skip:focus { left:8px; }
-  header { background:var(--dark); }
-  header .wrap { display:flex; align-items:center; justify-content:space-between; min-height:64px; }
-  header img { height:44px; display:block; }
-  header a.back { color:var(--cream); text-decoration:none; font-size:1em; padding:8px 0; }
+.mak-head { background:#16323D; color:#EFE6D6; }
+.mak-head .mh-wrap { max-width:1160px; margin:0 auto; padding:0 20px; display:flex; align-items:center; justify-content:space-between; gap:12px; min-height:60px; position:relative; }
+.mak-head img { height:40px; width:auto; display:block; }
+.mak-head .hbtns { display:flex; gap:8px; align-items:center; }
+.mak-head .tool { background:transparent; color:#EFE6D6; border:1px solid rgba(239,230,214,.4); border-radius:9px; padding:7px 12px; font:inherit; font-size:.9em; cursor:pointer; white-space:nowrap; text-decoration:none; line-height:1.3; }
+.mak-head .tool:hover { background:rgba(255,255,255,.08); }
+.mak-head .tool[aria-current="page"] { background:#EFE6D6; color:#16323D; border-color:#EFE6D6; font-weight:700; }
+#view { position:absolute; right:20px; top:100%; background:#fff; color:#1F2A30; border:1px solid #E2D9C8; border-radius:12px; padding:14px 16px; width:min(340px, calc(100vw - 40px)); box-shadow:0 10px 24px rgba(0,0,0,.25); z-index:30; line-height:1.6; }
+#view[hidden] { display:none; }
+#view h2 { font-size:1.05em; margin:0 0 10px; padding:0; border:0; }
+#view small { font-weight:400; color:#5A6870; }
+#view .row { margin:8px 0; display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+#view label { display:flex; align-items:center; gap:8px; cursor:pointer; }
+#view input { width:20px; height:20px; }
+#view .seg { display:flex; gap:4px; }
+#view .seg button, #view .reset { font:inherit; border:1px solid #E2D9C8; background:#fff; color:#1F2A30; border-radius:8px; padding:5px 10px; cursor:pointer; }
+#view .seg button[aria-pressed="true"] { background:#16323D; color:#fff; border-color:#16323D; }
+.subjnav { background:#EFE6D6; border-bottom:1px solid #E2D9C8; }
+.subjnav ul { max-width:1160px; margin:0 auto; list-style:none; padding:6px 20px; display:flex; gap:2px; overflow-x:auto; scrollbar-width:thin; }
+.subjnav li { flex:none; }
+.subjnav a { display:block; text-decoration:none; padding:5px 12px; border-radius:999px; color:#16323D; font-weight:600; white-space:nowrap; }
+.subjnav a:hover { background:rgba(22,50,61,.08); }
+.subjnav a.hot { color:#B5541B; }
+.subjnav a[aria-current="page"] { background:#16323D; color:#fff; }
+.mak-head a:focus-visible, .mak-head button:focus-visible, .subjnav a:focus-visible, #view :focus-visible { outline:3px solid #1f5d8c; outline-offset:2px; }
+html[data-font="lg"] { font-size:112%; }
+html[data-font="xl"] { font-size:130%; }
+body.contrast { --ink:#000; --muted:#222; --line:#333; }
+body.contrast a { text-decoration:underline; }
+body.still *, body.still *::before, body.still *::after { transition:none !important; animation:none !important; scroll-behavior:auto !important; }
+@media (max-width:640px) { .mak-head img { height:34px; } .mak-head .tool .lbl { display:none; } }
+@media print { .mak-head, .subjnav { display:none !important; } }
+
   .wrap { max-width:960px; margin:0 auto; padding:0 20px; }
-  main { padding:28px 0 48px; }
+  main { padding:14px 0 48px; }
+  .crumb { font-size:.92em; color:var(--muted); margin:0 0 12px; }
+  .crumb a { color:var(--dark); }
+  .crumb span { color:var(--ink); }
   video { width:100%; max-height:70vh; background:#000; border-radius:12px; display:block; }
   .yt { position:relative; width:100%; aspect-ratio:16/9; background:#000; border-radius:12px; overflow:hidden; }
   .yt iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
@@ -52,8 +84,25 @@
 </head>
 <body>
 <a class="skip" href="#main">본문으로 건너뛰기</a>
-<header><div class="wrap"><a href="../"><img src="../assets/logo-full.png" alt="MAK 나눔터 첫 화면"></a><a class="back" href="../">← 나눔터로</a></div></header>
+<header class="mak-head"><div class="mh-wrap">
+  <a href="../" class="logo" aria-label="MAK 나눔터 첫 화면"><img src="../assets/logo-mark.png" alt="MAK 나눔터"></a>
+  <div class="hbtns">
+    <a class="tool" href="../자료-지도.html">자료 지도</a>
+    <a class="tool" href="../#ask">의견·요구</a>
+    <button type="button" class="tool" id="viewBtn" aria-expanded="false" aria-controls="view" title="글자 크기·고대비·움직임 줄이기">⚙<span class="lbl"> 보기 설정</span></button>
+  </div>
+  <div id="view" role="region" aria-label="보기 설정" hidden>
+    <h2>보기 설정 <small>— 이 기기에 저장돼요</small></h2>
+    <div class="row"><span>글자 크기</span><div class="seg" role="group" aria-label="글자 크기"><button type="button" data-font="">보통</button><button type="button" data-font="lg">크게</button><button type="button" data-font="xl">아주 크게</button></div></div>
+    <div class="row"><label><input type="checkbox" id="opt-contrast"> 고대비 <small>(진한 글자·테두리)</small></label></div>
+    <div class="row"><label><input type="checkbox" id="opt-still"> 움직임 줄이기</label></div>
+    <button type="button" class="reset" id="viewReset">처음 설정으로</button>
+  </div>
+</div></header>
+<nav class="subjnav" aria-label="자료 범주"><ul><li><a href="../">전체</a></li><li><a href="../쇼츠.html" class="hot" aria-current="page">⚡ 쇼츠</a></li><li><a href="../국어.html">국어</a></li><li><a href="../수학.html">수학</a></li><li><a href="../영어.html">영어</a></li><li><a href="../사회.html">사회</a></li><li><a href="../과학.html">과학</a></li><li><a href="../통합교과.html">통합교과</a></li><li><a href="../생활.html">생활·행동</a></li></ul></nav>
+
 <main class="wrap" id="main">
+  <nav class="crumb" aria-label="지금 있는 곳"><a href="../">나눔터</a> › <a href="../쇼츠.html">쇼츠</a> › <span aria-current="page">낱말에서 문단까지 1 — 글자 만들기 (첫소리·가운뎃소리·받침) (쇼츠, 1분 5초)</span></nav>
   <div class="yt tall"><iframe src="https://www.youtube-nocookie.com/embed/fAlS590D848?rel=0&cc_lang_pref=ko" title="낱말에서 문단까지 1 — 글자 만들기 (첫소리·가운뎃소리·받침) (쇼츠, 1분 5초)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe></div><details class="alt"><summary>자막 있는 영상으로 보기 (유튜브가 안 열릴 때)</summary><video class="tall" controls preload="metadata" poster="shorts-wordpara-01-letters-v1.jpg" src="https://github.com/kor-sped/materials-site/releases/download/videos-v2/shorts-wordpara-01-letters-v1-720p.mp4"><track kind="captions" srclang="ko" label="한국어 자막" src="shorts-wordpara-01-letters-v1.vtt" default>브라우저가 영상을 재생하지 못하면 아래 다운로드를 눌러 주세요.</video><p class="note">재생기 오른쪽 아래 자막(CC) 단추를 켜세요.</p></details>
   <h1>낱말에서 문단까지 1 — 글자 만들기 (첫소리·가운뎃소리·받침) (쇼츠, 1분 5초)</h1>
   <p class="tags">쇼츠 · 초등 국어 · 낱말·문장·문단 기초 다지기, 휴대폰·TV로 함께 보기 · 1분 5초 · 720p · 1.6MB · 자막 있음</p>
@@ -64,6 +113,28 @@
   <details class="script" open><summary>영상 내용 글로 읽기 (대본 19줄)</summary><ol><li><span class="t">00:00</span> 막국수의 막, 이 글자는 몇 조각으로 쪼개질까요?</li><li><span class="t">00:04</span> 글자는 세 조각으로 만들어요.</li><li><span class="t">00:07</span> 첫소리, 가운뎃소리, 받침이에요.</li><li><span class="t">00:10</span> 첫소리는 자음, 가운뎃소리는 모음이에요.</li><li><span class="t">00:14</span> 막을 쪼개 볼까요?</li><li><span class="t">00:17</span> 첫소리 미음, 가운뎃소리 아, 받침 기역.</li><li><span class="t">00:21</span> 모으면 막이 돼요.</li><li><span class="t">00:23</span> 이번에는 수를 쪼개 볼까요?</li><li><span class="t">00:25</span> 첫소리 시옷, 가운뎃소리 우.</li><li><span class="t">00:28</span> 받침은 없어요.</li><li><span class="t">00:30</span> 받침이 없어도 글자가 돼요.</li><li><span class="t">00:32</span> 이제 여러분 차례예요.</li><li><span class="t">00:34</span> 국을 쪼개면 어떻게 될까요?</li><li><span class="t">00:40</span> 힌트, 첫소리부터 찾아봐요.</li><li><span class="t">00:46</span> 정답! 첫소리 기역, 가운뎃소리 우, 받침 기역, 국이에요.</li><li><span class="t">00:53</span> 오늘은 글자를 쪼개 봤어요.</li><li><span class="t">00:56</span> 글자는 첫소리, 가운뎃소리, 받침으로 만들어요.</li><li><span class="t">01:00</span> 받침이 없는 글자도 있어요.</li><li><span class="t">01:03</span> 잘했어요!</li></ol></details>
   <p class="note">수업에서는 다운로드해 두고 트는 편이 안정적입니다. 영상은 무료로 쓰되, 다시 올리거나 팔지 말아 주세요.</p>
 </main>
+<script>
+(function(){
+  var b=document.getElementById('viewBtn'), p=document.getElementById('view'); if(!b||!p) return;
+  var KEY='mak-view', st={font:'',easy:false,speak:false,contrast:false,still:false};
+  try{ var s=JSON.parse(localStorage.getItem(KEY)||'{}'); for(var k in s) st[k]=s[k]; }catch(e){}
+  if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) st.still=true;
+  function apply(){
+    document.documentElement.setAttribute('data-font',st.font||'');
+    ['easy','speak','contrast','still'].forEach(function(k){ document.body.classList.toggle(k,!!st[k]); var c=document.getElementById('opt-'+k); if(c) c.checked=!!st[k]; });
+    [].forEach.call(p.querySelectorAll('.seg button'),function(x){ x.setAttribute('aria-pressed',(x.getAttribute('data-font')||'')===(st.font||'')?'true':'false'); });
+    try{ localStorage.setItem(KEY,JSON.stringify(st)); }catch(e){}
+  }
+  function show(o){ p.hidden=!o; b.setAttribute('aria-expanded',o?'true':'false'); if(o){ var f=p.querySelector('button'); f&&f.focus(); } }
+  b.addEventListener('click',function(e){ e.stopPropagation(); show(p.hidden); });
+  document.addEventListener('click',function(e){ if(!p.hidden && !p.contains(e.target)) show(false); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape' && !p.hidden){ show(false); b.focus(); } });
+  [].forEach.call(p.querySelectorAll('.seg button'),function(x){ x.addEventListener('click',function(){ st.font=x.getAttribute('data-font')||''; apply(); }); });
+  ['contrast','still'].forEach(function(k){ var c=document.getElementById('opt-'+k); c&&c.addEventListener('change',function(){ st[k]=c.checked; apply(); }); });
+  document.getElementById('viewReset').addEventListener('click',function(){ st={font:'',easy:false,speak:false,contrast:false,still:false}; apply(); });
+  apply();
+})();
+</script>
 <script>
 document.getElementById('say').addEventListener('click',function(){try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance("낱말에서 문단까지 1 — 글자 만들기 (첫소리·가운뎃소리·받침) (쇼츠, 1분 5초). 글자를 세 조각으로 쪼개 봐요.");u.lang='ko-KR';u.rate=.95;speechSynthesis.speak(u);}catch(e){}});
 </script>
