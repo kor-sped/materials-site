@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>무늬 사다리 23 — ㄹ이 ㄴ으로 (학습지 v3)</title>
+<!--
+  교사용 메모
+  독자: 아이들(확인 두 장 + 연습 1~3쪽) + 교사(교사면). v3, 2026-11-12(v3 틀로 처음 만듦). 교사 확인 전 초안.
+  v2의 뜻: 측정을 앞세운다(무늬 1 v2와 같은 구조). 맨 앞 '확인(연습 전)'은 따로 떼어 인쇄할 수 있는 한 장이다(새 낱말 10개, 도움 없이, 기록 칸).
+  9개 이상이면 그 무늬는 넘기고, 8개 이하일 때만 1~3쪽을 연습한다(기준은 가설). 맨 뒤 '확인(연습 뒤)'은 같은 10개.
+  확인 낱말 10개는 연습 쪽(1~3쪽)에 나오지 않는다. 1쪽 그림 아래에 무늬 한 줄.
+  인쇄: A4 세로 6장. 확인 장은 따로 뽑아도 된다.
+  아이 쪽에는 지시문 · 이름 칸 · 정답 소리가 없다. 순서 · 힌트 · 소리는 교사면에 있다.
+  낱말 · 문장 · 글은 v1과 같다. 지어낸 것이고 측정 글 15편과 겹치지 않는다. 글 속 이름은 지어낸 인물.
+-->
+<style>
+@page{size:A4;margin:0}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#e9e9e9;color:#111;
+  font-family:"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif}
+.sheet{width:210mm;height:297mm;margin:8mm auto;padding:16mm 18mm 14mm;background:#fff;
+  position:relative;overflow:hidden;page-break-after:always;break-after:page}
+.sheet:last-child{page-break-after:auto;break-after:auto}
+.tag{display:flex;align-items:center;gap:4mm;margin-bottom:6mm}
+.tag .n{width:13mm;height:13mm;border:1.2mm solid #111;border-radius:50%;display:flex;align-items:center;
+  justify-content:center;font-size:20pt;font-weight:700}
+.tag .t{font-size:26pt;font-weight:700}
+.foot{position:absolute;left:18mm;right:18mm;bottom:10mm;display:flex;justify-content:space-between;
+  align-items:center;font-size:9pt;color:#777}
+.stars{font-size:30pt;letter-spacing:4mm;color:#111;line-height:1}
+.model{border:1mm solid #111;border-radius:4mm;padding:3mm 4mm;margin-bottom:7mm}
+.model svg{display:block;width:100%;height:auto}
+.words{display:grid;grid-template-columns:1fr 1fr;column-gap:10mm}
+.words div{font-size:46pt;font-weight:700;height:27mm;display:flex;align-items:center;justify-content:center;
+  border-bottom:.4mm dashed #999;letter-spacing:1mm}
+.sent div{font-size:38pt;font-weight:700;height:40mm;display:flex;align-items:center;
+  border-bottom:.4mm dashed #999;letter-spacing:.5mm}
+.sent div span{display:inline-block;width:12mm;font-size:16pt;color:#777;font-weight:400}
+.story{margin-top:4mm}
+.story p{font-size:34pt;font-weight:700;margin:0;height:36mm;display:flex;align-items:center;letter-spacing:.5mm}
+.rule{font-size:20pt;font-weight:700;text-align:center;margin-top:2mm;padding-top:2.5mm;border-top:.4mm dashed #999}
+.rec{position:absolute;left:18mm;right:18mm;bottom:22mm;border:.8mm solid #111;border-radius:3mm;padding:3mm 5mm;font-size:14pt}
+.rec .h{font-size:11pt;color:#333;margin-bottom:2mm}
+.rec .r{display:flex;gap:6mm;align-items:center;height:11mm}
+.rec .r small{width:18mm}
+.rec .m{flex:1;display:inline-block;border-bottom:.4mm solid #111}
+.rec small{font-size:11pt;color:#555}
+.rec b{display:inline-block;width:32mm;border-bottom:.4mm solid #111}
+.rec i{font-style:normal;display:inline-block;width:18mm;border-bottom:.4mm solid #111}
+.t5{font-size:9.6pt;line-height:1.42;padding-top:12mm}
+.t5 h1{font-size:17pt;margin:0 0 2mm}
+.t5 h2{font-size:11pt;margin:3mm 0 1.2mm;border-bottom:.3mm solid #111;padding-bottom:1mm}
+.t5 p{margin:0 0 1.2mm}
+.t5 ol,.t5 ul{margin:0 0 2mm;padding-left:6mm}
+.t5 table{border-collapse:collapse;width:100%;margin:1mm 0 2mm}
+.t5 th,.t5 td{border:.3mm solid #555;padding:.8mm 2mm;text-align:left;vertical-align:top}
+.t5 th{background:#eee}
+.t5 .draft{border:.5mm solid #111;padding:2mm 3mm;margin-bottom:3mm}
+@media print{html,body{background:#fff}.sheet{margin:0}}
+</style>
+<style>.t5{font-size:9pt!important;line-height:1.3!important;padding-bottom:10mm}.t5 h2{margin-top:1.6mm}.t5 ul.qs{margin:0;padding-left:5mm}</style>
+<!--seo-->
+<meta name="description" content="미음, 이응, 기역, 비읍 받침 뒤에서는 리을이 니은 소리로 바뀌어요. 낱말 · 문장 · 짧은 글을 듣고 따라 읽어요. 약 3분, 자막이 있어요. 미음, 이응, 기역, 비읍 받침 뒤에서는 리을이 니은 소리로 바뀌어요. 낱말 10개(공룡 · 정리 · 음료수 · 승리 …) → 문장 5개…">
+<link rel="canonical" href="https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EC%9D%BD%EA%B8%B0-%EA%B8%B0%EC%B4%88/%EC%9D%BD%EA%B8%B0%EA%B8%B0%EC%B4%88-%EB%A6%AC%EC%9D%84%EC%9D%B4%EB%8B%88%EC%9D%80%EC%9C%BC%EB%A1%9C-%ED%95%99%EC%8A%B5%EC%A7%80-v3.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MAK 나눔터">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="읽기 기초 ②-15 ㄹ이 ㄴ으로 — 공룡 → [공뇽] 영상 (3분) — 학습지">
+<meta property="og:description" content="미음, 이응, 기역, 비읍 받침 뒤에서는 리을이 니은 소리로 바뀌어요. 낱말 · 문장 · 짧은 글을 듣고 따라 읽어요. 약 3분, 자막이 있어요. 미음, 이응, 기역, 비읍 받침 뒤에서는 리을이 니은 소리로 바뀌어요. 낱말 10개(공룡 · 정리 · 음료수 · 승리 …) → 문장 5개…">
+<meta property="og:url" content="https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EC%9D%BD%EA%B8%B0-%EA%B8%B0%EC%B4%88/%EC%9D%BD%EA%B8%B0%EA%B8%B0%EC%B4%88-%EB%A6%AC%EC%9D%84%EC%9D%B4%EB%8B%88%EC%9D%80%EC%9C%BC%EB%A1%9C-%ED%95%99%EC%8A%B5%EC%A7%80-v3.html">
+<meta property="og:image" content="https://kor-sped.github.io/materials-site/assets/logo-full.png">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "읽기 기초 ②-15 ㄹ이 ㄴ으로 — 공룡 → [공뇽] 영상 (3분) — 학습지", "description": "미음, 이응, 기역, 비읍 받침 뒤에서는 리을이 니은 소리로 바뀌어요. 낱말 · 문장 · 짧은 글을 듣고 따라 읽어요. 약 3분, 자막이 있어요. 미음, 이응, 기역, 비읍 받침 뒤에서는 리을이 니은 소리로 바뀌어요. 낱말 10개(공룡 · 정리 · 음료수 · 승리 …) → 문장 5개 → 짧은 글 다섯 줄을 차례로 읽는다. 낱말마다 보기 → 힌트(점선 동그라미) → 선생님 목소리로 듣기 → 따라 읽기. 글은 한 번 듣고, 같이 한 번 더 읽는다(보람이는 국립 박물관에 가요. …). 짝 학습지(A4 6장)로 먼저 재고 연습한 뒤 복습으로 본다. 낱말 · 글은 새로 지은 초안(교사 확인 전). 학습지 속 이름: 무늬 사다리 23.", "url": "https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EC%9D%BD%EA%B8%B0-%EA%B8%B0%EC%B4%88/%EC%9D%BD%EA%B8%B0%EA%B8%B0%EC%B4%88-%EB%A6%AC%EC%9D%84%EC%9D%B4%EB%8B%88%EC%9D%80%EC%9C%BC%EB%A1%9C-%ED%95%99%EC%8A%B5%EC%A7%80-v3.html", "inLanguage": "ko", "isAccessibleForFree": true, "learningResourceType": "학습지", "educationalLevel": "글자는 읽는데 소리가 바뀌는 낱말에서 막히는 아이(1~2학년 · 특수학급)", "datePublished": "2026-11-16"}</script>
+<!--/seo-->
+</head>
+<body>
+
+<!-- 확인(연습 전): 따로 떼어 인쇄하는 한 장 -->
+<section class="sheet">
+<div class="tag"><div class="n">전</div><div class="t">확인</div></div>
+<div class="words" style="margin-top:14mm">
+<div>대통령</div><div>백로</div>
+<div>등록</div><div>격려</div>
+<div>명령</div><div>압력</div>
+<div>능력</div><div>법률</div>
+<div>염려</div><div>급류</div>
+</div>
+<div class="rec"><div class="h">도움 없이 읽기 · 바르게 ㄴ으로 읽은 수</div><div class="r"><small>연습 전</small><span>날짜 <b></b></span><span><i></i> / 10</span><span>메모</span><span class="m"></span></div></div>
+<div class="foot"><span></span><span>무늬 사다리 23 · ㄹ이 ㄴ으로 · 확인(연습 전)</span></div>
+</section>
+
+<!-- 1쪽: 낱말 -->
+<section class="sheet">
+<div class="tag"><div class="n">1</div><div class="t">낱말</div></div>
+<div class="model">
+<svg viewBox="0 0 640 210" xmlns="http://www.w3.org/2000/svg" font-family="'Apple SD Gothic Neo','Malgun Gothic',sans-serif" role="img" aria-label="정리: 받침 ㅇ 뒤의 ㄹ이 ㄴ 소리로 바뀐다">
+<rect x="40" y="20" width="120" height="130" rx="10" fill="#fff" stroke="#111" stroke-width="3"/>
+<rect x="170" y="20" width="120" height="130" rx="10" fill="#fff" stroke="#111" stroke-width="3"/>
+<text x="100" y="118" text-anchor="middle" font-size="96" font-weight="700">정</text>
+<text x="230" y="118" text-anchor="middle" font-size="96" font-weight="700">리</text>
+<ellipse cx="203" cy="61" rx="23" ry="30" fill="none" stroke="#111" stroke-width="4" stroke-dasharray="7 5"/>
+<path d="M100 141 C 105 200, 165 205, 165 120 L 165 84 Q 165 66, 178 66" fill="none" stroke="#fff" stroke-width="11"/>
+<path d="M100 141 C 105 200, 165 205, 165 120 L 165 84 Q 165 66, 178 66" fill="none" stroke="#111" stroke-width="5"/>
+<polygon points="176,55 195,66 176,77" fill="#111" stroke="#fff" stroke-width="2"/>
+<circle cx="134" cy="185" r="21" fill="#fff" stroke="#111" stroke-width="3"/>
+<text x="134" y="199" text-anchor="middle" font-size="36" font-weight="700">ㄴ</text>
+<path d="M330 85 h60" stroke="#111" stroke-width="6"/><polygon points="390,72 414,85 390,98" fill="#111"/>
+<path d="M450 40 h150 a12 12 0 0 1 12 12 v76 a12 12 0 0 1 -12 12 h-96 l-22 26 v-26 h-32 a12 12 0 0 1 -12 -12 v-76 a12 12 0 0 1 12 -12z" fill="#fff" stroke="#111" stroke-width="3"/>
+<text x="525" y="112" text-anchor="middle" font-size="64" font-weight="700">정니</text>
+</svg>
+<div class="rule">ㅁ · ㅇ · ㄱ · ㅂ 받침 뒤에서 ㄹ이 ㄴ 소리로 바뀌어요.</div>
+</div>
+<div class="words">
+<div>공룡</div><div>독립</div>
+<div>정리</div><div>국립</div>
+<div>음료수</div><div>목련</div>
+<div>승리</div><div>착륙</div>
+<div>종류</div><div>협력</div>
+</div>
+<div class="foot"><span class="stars">☆☆☆</span><span>무늬 사다리 23 · ㄹ이 ㄴ으로</span></div>
+</section>
+
+<!-- 2쪽: 문장 -->
+<section class="sheet">
+<div class="tag"><div class="n">2</div><div class="t">문장</div></div>
+<div class="sent">
+<div><span>①</span>비행기가 착륙해요.</div>
+<div><span>②</span>목련은 봄에 피어요.</div>
+<div><span>③</span>우리 팀이 승리했어요.</div>
+<div><span>④</span>음료수가 시원해요.</div>
+<div><span>⑤</span>필통을 정리해요.</div>
+</div>
+<div class="foot"><span class="stars">☆☆☆</span><span>무늬 사다리 23 · ㄹ이 ㄴ으로</span></div>
+</section>
+
+<!-- 3쪽: 글 -->
+<section class="sheet">
+<div class="tag"><div class="n">3</div><div class="t">글</div></div>
+<div class="story">
+<p>보람이는 국립 박물관에 가요.</p>
+<p>큰 공룡 뼈가 서 있어요.</p>
+<p>공룡 종류가 참 많아요.</p>
+<p>엄마와 음료수를 마셔요.</p>
+<p>집에서 공룡 그림을 정리해요.</p>
+</div>
+<div class="foot"><span class="stars">☆☆☆</span><span>무늬 사다리 23 · ㄹ이 ㄴ으로</span></div>
+</section>
+
+<!-- 확인(연습 뒤 · 며칠 뒤): 따로 떼어 인쇄하는 한 장, 앞 확인과 같은 낱말 -->
+<section class="sheet">
+<div class="tag"><div class="n">뒤</div><div class="t">확인</div></div>
+<div class="words" style="margin-top:14mm">
+<div>대통령</div><div>백로</div>
+<div>등록</div><div>격려</div>
+<div>명령</div><div>압력</div>
+<div>능력</div><div>법률</div>
+<div>염려</div><div>급류</div>
+</div>
+<div class="rec"><div class="h">도움 없이 읽기 · 바르게 ㄴ으로 읽은 수</div><div class="r"><small>연습 뒤</small><span>날짜 <b></b></span><span><i></i> / 10</span><span>메모</span><span class="m"></span></div><div class="r"><small>며칠 뒤</small><span>날짜 <b></b></span><span><i></i> / 10</span><span>메모</span><span class="m"></span></div></div>
+<div class="foot"><span></span><span>무늬 사다리 23 · ㄹ이 ㄴ으로 · 확인(연습 뒤)</span></div>
+</section>
+
+<!-- 교사면 -->
+<section class="sheet t5" style="font-size:9pt;line-height:1.36">
+<h1>교사면 — 무늬 사다리 23: ㄹ이 ㄴ으로</h1>
+<div class="draft"><strong>v3 (2026-11-12) · 초안.</strong> 이 학습지는 <strong>재는 것이 먼저</strong>입니다. 맨 앞 확인 장으로 이 무늬가 필요한지 정하고, 필요할 때만 1~3쪽을 연습합니다. 무늬 · 낱말 · 글 · 기준은 교사가 확인하기 전입니다.</div>
+
+<h2>무늬</h2>
+<p>받침 ㅁ · ㅇ 뒤에 ㄹ이 오면 ㄹ이 ㄴ으로 납니다(공룡 → 공뇽, 음료수 → 음뇨수). 받침 ㄱ · ㅂ 뒤에 ㄹ이 와도 ㄹ이 ㄴ으로 나고, 그 ㄴ 때문에 앞 받침도 콧소리(ㅇ · ㅁ)로 바뀝니다(독립 → 동닙, 협력 → 혐녁 — 무늬 3). 1쪽 왼쪽 줄은 받침 ㅁ · ㅇ 뒤(ㄹ만 바뀜), 오른쪽 줄은 받침 ㄱ · ㅂ 뒤(받침도 바뀜)입니다. 박물관(→ 방물관)에는 무늬 3, 착륙해요(→ 창뉴캐요)에는 무늬 4, 많아요(→ 마나요)에는 무늬 8, 조사 자리에는 무늬 1이 섞여 있습니다. 받침 ㄴ · ㄹ 뒤의 ㄹ(난로 → 날로, 무늬 11)과 ㄴ + ㄹ인데 ㄴㄴ으로 나는 낱말(생산량 → 생산냥, 의견란 → 의견난)은 넣지 않았습니다. 1쪽 그림 아래에도 아이 말로 한 줄 적었습니다: "ㅁ · ㅇ · ㄱ · ㅂ 받침 뒤에서 ㄹ이 ㄴ 소리로 바뀌어요."</p>
+
+<h2>쓰는 법 — 재고, 필요할 때만 연습</h2>
+<ol>
+<li><strong>확인(연습 전)</strong>: 맨 앞 장. 새 낱말 10개를 <strong>도움 없이</strong> 읽게 합니다(2분 안팎). 교사는 소리를 들려주지 않습니다. 장 아래 칸에 날짜 · 바르게 ㄴ으로 읽은 수 · 메모를 적습니다.</li>
+<li><strong>9개 이상이면 이 무늬는 넘깁니다.</strong> 8개 이하일 때만 1~3쪽을 연습합니다.<br>※ 9/10과 2분은 가설입니다. 몇 번 써 본 뒤 정합니다.</li>
+<li><strong>1쪽 낱말</strong>: 맨 위 그림(정리)과 그 아래 한 줄을 같이 봅니다. 낱말마다 교사가 읽고 → 아이가 따라 읽고 → 아이 혼자 읽습니다.</li>
+<li><strong>2쪽 문장</strong>, <strong>3쪽 글</strong>도 같은 차례로 합니다. 글은 전체 듣기 → 한 줄씩 따라 읽기 → 혼자 읽기. 한 번(10~15분)에 1~3쪽.</li>
+<li>한 번 다 읽을 때마다 아이가 별 하나를 색칠합니다(쪽마다 세 번까지).</li>
+<li><strong>복습</strong>: 다음 날이나 집에서 영상을 틀고, 학습지를 앞에 놓고 따라 읽습니다.</li>
+<li><strong>확인(연습 뒤)</strong>: 맨 뒤 장. 앞 확인과 <strong>같은 10개</strong>를 도움 없이 읽게 하고 '연습 뒤' 줄에 적습니다. <strong>며칠 뒤 한 번 더</strong> 읽게 하고 '며칠 뒤' 줄에 적습니다.</li>
+</ol>
+
+<h2>3쪽 글 뒤 — 말로 묻기 (답이 안 나오면 글을 다시 보게 함 · 물음은 초안)</h2>
+<ul class="qs">
+<li><strong>누가</strong>: "누가 박물관에 가요?" → 보람 &nbsp; ○ · ✕</li>
+<li><strong>무엇을</strong>: "집에서 무엇을 정리해요?" → 공룡 그림 &nbsp; ○ · ✕</li>
+</ul>
+
+<h2>막힐 때 힌트 — 차례대로, 답은 맨 나중에</h2>
+<ol>
+<li>"ㄹ 앞의 받침을 봐요." (아이가 받침과 ㄹ에 동그라미)</li>
+<li>"ㄹ이 ㄴ으로 바뀌어요." (아이가 ㄹ 위에 ㄴ을 씀)</li>
+<li>"같이 읽어요." (교사와 함께 소리 냄)</li>
+</ol>
+<p>틀리면 "다시 해 봐요"만 말합니다. 글자대로 읽어도(공-룡 · 독-립) 낱자가 맞으면 틀렸다고 하지 않고, ㄴ으로 나는 소리를 한 번 더 들려줍니다.</p>
+
+<h2>소리 (교사만 봄)</h2>
+<table>
+<tr><th style="width:16%">쪽</th><th>글자 → 소리</th></tr>
+<tr><td>1 낱말</td><td>공룡[공뇽] 정리[정니] 음료수[음뇨수] 승리[승니] 종류[종뉴] 독립[동닙] 국립[궁닙] 목련[몽년] 착륙[창뉵] 협력[혐녁]</td></tr>
+<tr><td>2 문장</td><td>비행기가 착륙해요[창뉴캐요] 목련은[몽녀는] 봄에[보메] 피어요 팀이[티미] 승리했어요[승니해써요] 음료수가[음뇨수가] 시원해요 필통을 정리해요[정니해요]</td></tr>
+<tr><td>3 글</td><td>보람이는[보라미는] 국립[궁닙] 박물관에[방물과네] 공룡[공뇽] 있어요[이써요] 종류가[종뉴가] 많아요[마나요] 음료수를[음뇨수를] 집에서[지베서] 그림을[그리믈] 정리해요[정니해요] · 52음절</td></tr>
+<tr><td>확인 (앞 · 뒤)</td><td>대통령[대통녕] 등록[등녹] 명령[명녕] 능력[능녁] 염려[염녀] 백로[뱅노] 격려[경녀] 압력[암녁] 법률[범뉼] 급류[금뉴]</td></tr>
+</table>
+
+<h2>확인 기록 (확인 장 아래 칸을 옮겨 적기, 10개 가운데)</h2>
+<table>
+<tr><th style="width:28%"></th><th>날짜</th><th>바르게 ㄴ으로 읽은 수</th><th>본 것(메모)</th></tr>
+<tr><td>연습 전</td><td>&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;/ 10</td><td>9개 이상 → 넘김 · 8개 이하 → 연습</td></tr>
+<tr><td>연습 뒤</td><td>&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;/ 10</td><td></td></tr>
+<tr><td>며칠 뒤</td><td>&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;/ 10</td><td></td></tr>
+</table>
+<p>이 종이에는 아이 이름을 적지 않습니다. 기록을 옮길 때는 학급 기록 폴더에 둡니다. 숫자가 올랐다고 "효과가 있다"고 적지 않습니다. 교사가 본 뒤에 판단합니다.</p>
+
+<h2>써 보고 알려 주세요</h2>
+<p>① 낱말 10개 · 문장 5개 · 글 5줄이 많았나요, 적었나요? ② 글씨 크기와 줄 사이는 어땠나요? ③ 왼쪽 줄(ㄹ만 바뀜)과 오른쪽 줄(받침도 바뀜)을 섞은 것이 헷갈렸나요? 아이가 ㄹ 위에 ㄴ을 썼나요? 별 색칠을 좋아했나요? ④ 이 무늬가 정말 아이가 막히는 자리였나요? 9/10 넘김 기준 · 2분이 맞았나요? ⑤ 글 뒤 물음 둘이 뜻을 아는지 보는 데 쓸모 있었나요?</p>
+</section>
+
+<!--gc--><script>window.goatcounter={path:function(p){try{return decodeURIComponent(p)}catch(e){return p}}}</script><script data-goatcounter="https://mak.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

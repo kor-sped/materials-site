@@ -345,6 +345,30 @@
 - [받침 낱말 학습지 — 추석 (6장)](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EB%B0%9B%EC%B9%A8-%EB%8B%A8%EC%96%B4/%EB%B0%9B%EC%B9%A8-%EB%8B%A8%EC%96%B4-%EC%B6%94%EC%84%9D-%ED%95%99%EC%8A%B5%EC%A7%80-v1.html): 추석 낱말로 색칠하고, 오려 붙이고, 이어요.
 - [받침 낱말 학습지 — 가족 (6장)](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EB%B0%9B%EC%B9%A8-%EB%8B%A8%EC%96%B4/%EB%B0%9B%EC%B9%A8-%EB%8B%A8%EC%96%B4-%EA%B0%80%EC%A1%B1-%ED%95%99%EC%8A%B5%EC%A7%80-v1.html): 가족 낱말로 색칠하고, 오려 붙이고, 이어요.
 - [받침 낱말 학습지 — 교실 (6장)](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EB%B0%9B%EC%B9%A8-%EB%8B%A8%EC%96%B4/%EB%B0%9B%EC%B9%A8-%EB%8B%A8%EC%96%B4-%EA%B5%90%EC%8B%A4-%ED%95%99%EC%8A%B5%EC%A7%80-v1.html): 교실 물건 낱말로 색칠하고, 오려 붙이고, 이어요.
+- [읽기 기초 ①-1 쉬운 받침 ㄴ · ㄹ · ㅁ · ㅇ — 산 · 곰 영상 (3분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/kor-ladder-13-v1.html): 받침 니은, 리을, 미음, 이응은, 끝에 붙여 읽어요. 낱말 · 문장 · 짧은 글을 듣고 따라 읽어요. 약 3분, 자막이 있어요.
+- [읽기 기초 ①-2 받침 ㄱ · ㄷ · ㅂ — 국 · 밥 영상 (3분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/kor-ladder-14-v1.html): 받침 기역, 디귿, 비읍은, 끝에서 짧게 닫아요. 낱말 · 문장 · 짧은 글을 듣고 따라 읽어요. 약 3분, 자막이 있어요.
+- [읽기 기초 ①-3 이중 모음 ㅑ · ㅕ · ㅛ · ㅠ — 야구 · 여우 영상 (3분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/kor-ladder-15-v1.html): 야, 여, 요, 유는, 이를 빨리 붙여 읽어요. 낱말 · 문장 · 짧은 글을 듣고 따라 읽어요. 약 3분, 자막이 있어요.
+- [읽기 기초 ①-4 이중 모음 ㅘ · ㅝ — 과자 · 병원 영상 (3분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/kor-ladder-16-v1.html): 와, 워는, 두 소리를 빨리 붙여 읽어요. 낱말 · 문장 · 짧은 글을 듣고 따라 읽어요. 약 3분, 자막이 있어요.
+- [읽기 기초 ①-5 모음 ㅐ · ㅔ — 개 · 게 영상 (3분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/kor-ladder-17-v1.html): 애와 에는, 막대가 둘인 모음이에요. 한 소리로 읽어요. 낱말 · 문장 · 짧은 글을 듣고 따라 읽어요. 약 3분, 자막이 있어요.
+- [읽기 기초 ①-6 모음 ㅚ · ㅟ · ㅢ — 회사 · 귀 · 의자 영상 (3분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/kor-ladder-18-v1.html): 외, 위, 의는, 이가 붙은 모음이에요. 빨리 붙여 한 소리로 읽어요. 낱말 · 문장 · 짧은 글을 듣고 따라 읽어요. 약 3분, 자막이 있어요.
+- [읽기 기초 ①-7 된소리 글자 ㄲ · ㄸ · ㅃ · ㅆ · ㅉ — 꿀 · 딸기 영상 (3분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/kor-ladder-19-v1.html): 기역이 둘이면, 쌍기역이에요. 세게 읽어요. 낱말 · 문장 · 짧은 글을 듣고 따라 읽어요. 약 3분, 자막이 있어요.
+- [읽기 기초 ①-8 거센소리 글자 ㅋ · ㅌ · ㅍ · ㅊ — 쿠키 · 기차 영상 (3분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/kor-ladder-20-v1.html): 기역에 획을 하나 더하면, 키읔이에요. 바람을 내며 읽어요. 낱말 · 문장 · 짧은 글을 듣고 따라 읽어요. 약 3분, 자막이 있어요.
+- [읽기 기초 ②-1 받침 뒤 이어 읽기 — 옷이 → [오시] 영상 (2분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/kor-ladder-1-v1.html): 받침 뒤에 이응이 오면, 받침이 이응 자리로 가요. 낱말 · 문장 · 짧은 글을 듣고 따라 읽어요. 약 2분, 자막이 있어요.
+- [읽기 기초 ②-2 된소리 되기 — 학교 → [학꾜] 영상 (3분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/kor-ladder-2-v1.html): 기역, 비읍 받침 뒤에서는 뒤 소리가 세져요. 낱말 · 문장 · 짧은 글을 듣고 따라 읽어요. 약 3분, 자막이 있어요.
+- [읽기 기초 ②-3 콧소리 되기 — 국물 → [궁물] 영상 (3분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/kor-ladder-3-v1.html): 받침 뒤에 니은, 미음이 오면, 받침이 콧소리가 돼요. 낱말 · 문장 · 짧은 글을 듣고 따라 읽어요. 약 3분, 자막이 있어요.
+- [읽기 기초 ②-4 거센소리 되기 — 축하 → [추카] 영상 (3분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/kor-ladder-4-v1.html): 히읗이 기역, 디귿, 비읍, 지읒을 만나면, 거센소리가 돼요. 낱말 · 문장 · 짧은 글을 듣고 따라 읽어요. 약 3분, 자막이 있어요.
+- [읽기 기초 ②-5 ㅎ 사라짐 — 좋아요 → [조아요] 영상 (3분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/kor-ladder-5-v1.html): 히읗 받침 뒤에 이응이 오면, 히읗은 소리가 안 나요. 낱말 · 문장 · 짧은 글을 듣고 따라 읽어요. 약 3분, 자막이 있어요.
+- [읽기 기초 ②-6 받침 대표 소리 — 옷 · 꽃 → [옫 · 꼳] 영상 (3분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/kor-ladder-6-v1.html): 치읓 받침은 디귿 소리로 나요. 낱말 · 문장 · 짧은 글을 듣고 따라 읽어요. 약 3분, 자막이 있어요.
+- [읽기 기초 ②-7 대표 소리 뒤 된소리 · 콧소리 — 옷장 → [옫짱] 영상 (3분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/kor-ladder-7-v1.html): 받침이 대표 소리로 바뀐 다음, 뒤 소리가 세지거나 받침이 콧소리가 돼요. 낱말 · 문장 · 짧은 글을 듣고 따라 읽어요. 약 3분, 자막이 있어요.
+- [읽기 기초 ②-8 겹받침 이어 읽기 — 읽어요 → [일거요] 영상 (2분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/kor-ladder-8-v3.html): 받침이 둘이면, 하나가 옆 글자로 가요. 낱말 · 문장 · 짧은 글을 듣고 따라 읽어요. 약 2분, 자막이 있어요.
+- [읽기 기초 ②-9 겹받침 끝소리 — 값 → [갑] 영상 (3분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/kor-ladder-9-v1.html): 받침이 둘이면, 하나만 소리 나요. 낱말 · 문장 · 짧은 글을 듣고 따라 읽어요. 약 3분, 자막이 있어요.
+- [읽기 기초 ②-10 같이 · 굳이 — 같이 → [가치] 영상 (3분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/kor-ladder-10-v1.html): 받침이 이를 만나면, 지, 치가 돼요. 낱말 · 문장 · 짧은 글을 듣고 따라 읽어요. 약 3분, 자막이 있어요.
+- [읽기 기초 ②-11 ㄹ 소리 되기 — 설날 → [설랄] 영상 (3분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/kor-ladder-11-v1.html): 니은과 리을이 만나면, 둘 다 리을 소리가 나요. 낱말 · 문장 · 짧은 글을 듣고 따라 읽어요. 약 3분, 자막이 있어요.
+- [읽기 기초 ②-12 소리 덧나기 — 색연필 → [생년필] 영상 (3분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/kor-ladder-12-v1.html): 받침 뒤에 이, 여, 요가 오면, 니은 소리가 덧나요. 낱말 · 문장 · 짧은 글을 듣고 따라 읽어요. 약 3분, 자막이 있어요.
+- [읽기 기초 ②-13 받침 ㄴ · ㅁ 뒤 된소리 — 신고 → [신꼬] 영상 (3분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/kor-ladder-21-v1.html): 움직이는 말의 니은, 미음 받침 뒤에서는 뒤 소리가 세져요. 낱말 · 문장 · 짧은 글을 듣고 따라 읽어요. 약 3분, 자막이 있어요.
+- [읽기 기초 ②-14 받침 ㄹ 뒤 된소리 — 일등 → [일뜽] 영상 (3분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/kor-ladder-22-v1.html): 리을 받침 뒤에서는 뒤 소리가 세져요. 낱말 · 문장 · 짧은 글을 듣고 따라 읽어요. 약 3분, 자막이 있어요.
+- [읽기 기초 ②-15 ㄹ이 ㄴ으로 — 공룡 → [공뇽] 영상 (3분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/kor-ladder-23-v1.html): 미음, 이응, 기역, 비읍 받침 뒤에서는 리을이 니은 소리로 바뀌어요. 낱말 · 문장 · 짧은 글을 듣고 따라 읽어요. 약 3분, 자막이 있어요.
+- [읽기 기초 ②-16 ㅢ 소리 바뀜 — 희망 → [히망] 영상 (3분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/kor-ladder-24-v1.html): 이응이 아닌 글자 옆에 있는 의는, 이 소리가 나요. 낱말 · 문장 · 짧은 글을 듣고 따라 읽어요. 약 3분, 자막이 있어요.
 
 ## 수학
 
