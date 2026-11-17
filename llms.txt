@@ -504,6 +504,8 @@
 - [5학년 2학기 2단원 「분수의 곱셈」 — 쉬운 영상 (2분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-5-2-2-easy-v1.html): 같은 분수를 여러 번 더하면 분자에만 곱해요. 짧고 천천히.
 - [5학년 2학기 3단원 「합동과 대칭」 — 단원 전체 영상 (16분 57초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-5-2-3-v1.html): 포개면 합동, 접으면 선대칭, 반 바퀴 돌리면 점대칭이에요. 17분 영상, 자막이 있어요.
 - [5학년 2학기 3단원 「합동과 대칭」 — 쉬운 영상 (1분 49초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-5-2-3-easy-v1.html): 포개었을 때 꼭 겹치면 합동이에요. 짧고 천천히.
+- [5학년 2학기 4단원 「소수의 곱셈」 — 단원 전체 영상 (18분 41초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-5-2-4-v1.html): 자연수처럼 곱하고, 소수점 아래 자리 수를 더해서 소수점을 찍어요. 19분 영상, 자막이 있어요.
+- [5학년 2학기 4단원 「소수의 곱셈」 — 쉬운 영상 (1분 54초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-5-2-4-easy-v1.html): 0.1이 몇 개인지 세면 소수의 곱셈을 할 수 있어요. 짧고 천천히.
 
 ## 영어
 
