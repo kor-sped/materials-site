@@ -506,6 +506,8 @@
 - [5학년 2학기 3단원 「합동과 대칭」 — 쉬운 영상 (1분 49초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-5-2-3-easy-v1.html): 포개었을 때 꼭 겹치면 합동이에요. 짧고 천천히.
 - [5학년 2학기 4단원 「소수의 곱셈」 — 단원 전체 영상 (18분 41초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-5-2-4-v1.html): 자연수처럼 곱하고, 소수점 아래 자리 수를 더해서 소수점을 찍어요. 19분 영상, 자막이 있어요.
 - [5학년 2학기 4단원 「소수의 곱셈」 — 쉬운 영상 (1분 54초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-5-2-4-easy-v1.html): 0.1이 몇 개인지 세면 소수의 곱셈을 할 수 있어요. 짧고 천천히.
+- [5학년 2학기 5단원 「직육면체와 정육면체」 — 단원 전체 영상 (18분 3초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-5-2-5-v1.html): 직사각형 6개면 직육면체, 정사각형 6개면 정육면체예요. 전개도를 펼치고 접어 봐요. 18분 영상, 자막이 있어요.
+- [5학년 2학기 5단원 「직육면체와 정육면체」 — 쉬운 영상 (2분 2초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-5-2-5-easy-v1.html): 면은 6개, 모서리는 12개, 꼭짓점은 8개예요. 짧고 천천히.
 
 ## 영어
 
