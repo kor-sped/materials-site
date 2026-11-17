@@ -510,6 +510,8 @@
 - [5학년 2학기 5단원 「직육면체와 정육면체」 — 쉬운 영상 (2분 2초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-5-2-5-easy-v1.html): 면은 6개, 모서리는 12개, 꼭짓점은 8개예요. 짧고 천천히.
 - [6학년 1학기 1단원 「분수의 나눗셈」 — 단원 전체 영상 (17분 5초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-6-1-1-v1.html): 자연수 ÷ 자연수의 몫은 분수로 써요. 나누어지는 수는 위, 나누는 수는 아래. 17분 영상, 자막이 있어요.
 - [6학년 1학기 1단원 「분수의 나눗셈」 — 쉬운 영상 (1분 50초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-6-1-1-easy-v1.html): 2 ÷ 3 = 2/3. 나누어지는 수는 분자, 나누는 수는 분모예요. 짧고 천천히.
+- [6학년 1학기 2단원 「각기둥과 각뿔」 — 단원 전체 영상 (19분 20초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-6-1-2-v1.html): 밑면이 두 개이고 옆면이 직사각형이면 각기둥, 밑면이 하나이고 옆면이 삼각형이면 각뿔. 19분 영상, 자막이 있어요.
+- [6학년 1학기 2단원 「각기둥과 각뿔」 — 쉬운 영상 (1분 57초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-6-1-2-easy-v1.html): 밑면이 둘이면 각기둥, 하나면 각뿔. 이름은 밑면 모양으로 지어요. 짧고 천천히.
 
 ## 영어
 
