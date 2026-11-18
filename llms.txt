@@ -518,6 +518,8 @@
 - [6학년 1학기 4단원 「비와 비율」 — 쉬운 영상 (1분 38초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-6-1-4-easy-v1.html): 기준량은 오른쪽, 비율은 나눠서. 짧고 천천히.
 - [6학년 1학기 5단원 「여러 가지 그래프」 — 단원 전체 영상 (16분 28초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-6-1-5-v1.html): 부분을 백분율로 바꾸고, 띠나 원을 그만큼 나누면 띠그래프 · 원그래프. 16분 영상, 자막이 있어요.
 - [6학년 1학기 5단원 「여러 가지 그래프」 — 쉬운 영상 (1분 37초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-6-1-5-easy-v1.html): 백분율로 바꿔 띠를 나눠요. 짧고 천천히.
+- [6학년 1학기 6단원 「직육면체의 겉넓이와 부피」 — 단원 전체 영상 (16분 53초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-6-1-6-v1.html): 겉넓이는 여섯 면을 다 더하고, 부피는 쌓기나무 개수(가로 × 세로 × 높이)로 구해요. 16분 영상, 자막이 있어요.
+- [6학년 1학기 6단원 「직육면체의 겉넓이와 부피」 — 쉬운 영상 (1분 31초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-6-1-6-easy-v1.html): 쌓기나무를 세어 부피를 구해요. 짧고 천천히.
 
 ## 영어
 
