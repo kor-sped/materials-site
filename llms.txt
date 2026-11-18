@@ -514,6 +514,8 @@
 - [6학년 1학기 2단원 「각기둥과 각뿔」 — 쉬운 영상 (1분 57초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-6-1-2-easy-v1.html): 밑면이 둘이면 각기둥, 하나면 각뿔. 이름은 밑면 모양으로 지어요. 짧고 천천히.
 - [6학년 1학기 3단원 「소수의 나눗셈」 — 단원 전체 영상 (18분 7초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-6-1-3-v1.html): 자연수처럼 나누고, 몫의 소수점은 위로 그대로. 나머지가 있으면 0을 내려요. 18분 영상, 자막이 있어요.
 - [6학년 1학기 3단원 「소수의 나눗셈」 — 쉬운 영상 (1분 52초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-6-1-3-easy-v1.html): 자연수처럼 나누고 소수점을 위로 올려요. 짧고 천천히.
+- [6학년 1학기 4단원 「비와 비율」 — 단원 전체 영상 (19분 49초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-6-1-4-v1.html): 두 양을 나눠서 견주면 비. 기준량은 기호 오른쪽, 비율은 비교하는 양 ÷ 기준량, 100으로 하면 백분율. 20분 영상, 자막이 있어요.
+- [6학년 1학기 4단원 「비와 비율」 — 쉬운 영상 (1분 38초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-6-1-4-easy-v1.html): 기준량은 오른쪽, 비율은 나눠서. 짧고 천천히.
 
 ## 영어
 
