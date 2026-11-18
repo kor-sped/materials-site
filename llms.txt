@@ -522,6 +522,8 @@
 - [6학년 1학기 6단원 「직육면체의 겉넓이와 부피」 — 쉬운 영상 (1분 31초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-6-1-6-easy-v1.html): 쌓기나무를 세어 부피를 구해요. 짧고 천천히.
 - [6학년 2학기 1단원 「분수의 나눗셈」 — 단원 전체 영상 (16분 53초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-6-2-1-v1.html): 분수 ÷ 분수는 몇 번 들어가는지 세요. 분모가 같으면 분자끼리, 아니면 나누는 분수를 바꿔 곱해요. 16분 영상, 자막이 있어요.
 - [6학년 2학기 1단원 「분수의 나눗셈」 — 쉬운 영상 (1분 49초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-6-2-1-easy-v1.html): 띠를 묶어 세며 분수 ÷ 분수를 해요. 짧고 천천히.
+- [6학년 2학기 3단원 「소수의 나눗셈」 — 단원 전체 영상 (16분 43초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-6-2-3-v1.html): 소수 ÷ 소수는 두 수의 소수점을 똑같이 옮겨 자연수 나눗셈으로 풀어요. 16분 영상, 자막이 있어요.
+- [6학년 2학기 3단원 「소수의 나눗셈」 — 쉬운 영상 (1분 50초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-6-2-3-easy-v1.html): 띠를 묶어 세며 소수 ÷ 소수를 해요. 짧고 천천히.
 
 ## 영어
 
