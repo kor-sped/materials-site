@@ -526,6 +526,8 @@
 - [6학년 2학기 3단원 「소수의 나눗셈」 — 쉬운 영상 (1분 50초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-6-2-3-easy-v1.html): 띠를 묶어 세며 소수 ÷ 소수를 해요. 짧고 천천히.
 - [6학년 2학기 4단원 「비례식과 비례배분」 — 단원 전체 영상 (20분 17초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-6-2-4-v1.html): 비율이 같은 두 비는 비례식, 외항의 곱과 내항의 곱은 같아요. 20분 영상, 자막이 있어요.
 - [6학년 2학기 4단원 「비례식과 비례배분」 — 쉬운 영상 (1분 49초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-6-2-4-easy-v1.html): 주스 컵으로 비례식을 알아봐요. 짧고 천천히.
+- [6학년 2학기 5단원 「원의 둘레와 넓이」 — 단원 전체 영상 (17분 34초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-6-2-5-v1.html): 원주는 지름 × 원주율, 원의 넓이는 반지름 × 반지름 × 원주율. 17분 영상, 자막이 있어요.
+- [6학년 2학기 5단원 「원의 둘레와 넓이」 — 쉬운 영상 (1분 43초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-6-2-5-easy-v1.html): 굴러가는 바퀴로 원주와 원주율을 알아봐요. 짧고 천천히.
 
 ## 영어
 
