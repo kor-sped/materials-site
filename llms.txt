@@ -528,6 +528,8 @@
 - [6학년 2학기 4단원 「비례식과 비례배분」 — 쉬운 영상 (1분 49초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-6-2-4-easy-v1.html): 주스 컵으로 비례식을 알아봐요. 짧고 천천히.
 - [6학년 2학기 5단원 「원의 둘레와 넓이」 — 단원 전체 영상 (17분 34초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-6-2-5-v1.html): 원주는 지름 × 원주율, 원의 넓이는 반지름 × 반지름 × 원주율. 17분 영상, 자막이 있어요.
 - [6학년 2학기 5단원 「원의 둘레와 넓이」 — 쉬운 영상 (1분 43초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-6-2-5-easy-v1.html): 굴러가는 바퀴로 원주와 원주율을 알아봐요. 짧고 천천히.
+- [6학년 2학기 6단원 「원기둥, 원뿔, 구」 — 단원 전체 영상 (14분 52초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-6-2-6-v1.html): 원기둥은 밑면 2개, 원뿔은 꼭짓점 1개, 구는 어디서 보아도 원. 15분 영상, 자막이 있어요.
+- [6학년 2학기 6단원 「원기둥, 원뿔, 구」 — 쉬운 영상 (1분 30초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-6-2-6-easy-v1.html): 캔 · 고깔 · 공으로 원기둥 · 원뿔 · 구를 알아봐요. 짧고 천천히.
 
 ## 영어
 
