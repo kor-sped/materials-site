@@ -524,6 +524,8 @@
 - [6학년 2학기 1단원 「분수의 나눗셈」 — 쉬운 영상 (1분 49초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-6-2-1-easy-v1.html): 띠를 묶어 세며 분수 ÷ 분수를 해요. 짧고 천천히.
 - [6학년 2학기 3단원 「소수의 나눗셈」 — 단원 전체 영상 (16분 43초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-6-2-3-v1.html): 소수 ÷ 소수는 두 수의 소수점을 똑같이 옮겨 자연수 나눗셈으로 풀어요. 16분 영상, 자막이 있어요.
 - [6학년 2학기 3단원 「소수의 나눗셈」 — 쉬운 영상 (1분 50초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-6-2-3-easy-v1.html): 띠를 묶어 세며 소수 ÷ 소수를 해요. 짧고 천천히.
+- [6학년 2학기 4단원 「비례식과 비례배분」 — 단원 전체 영상 (20분 17초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-6-2-4-v1.html): 비율이 같은 두 비는 비례식, 외항의 곱과 내항의 곱은 같아요. 20분 영상, 자막이 있어요.
+- [6학년 2학기 4단원 「비례식과 비례배분」 — 쉬운 영상 (1분 49초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-math-6-2-4-easy-v1.html): 주스 컵으로 비례식을 알아봐요. 짧고 천천히.
 
 ## 영어
 
