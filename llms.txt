@@ -571,6 +571,8 @@
 
 ## 과학
 
+- [6학년 1학기 1단원 「산과 염기」 — 영상 (25분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-sci-6-1-1-v1.html): 지시약 색으로 산성과 염기성을 나누고, 두 용액의 성질과 생활 속 쓰임을 실험으로 알아봐요. 자막이 있어요.
+- [6학년 1학기 1단원 「산과 염기」 — 쉬운 영상 (1분 52초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-sci-6-1-1-easy-v1.html): 붉게 바뀌면 산성, 푸르게 바뀌면 염기성. 짧고 천천히.
 - [6학년 2학기 1단원 「계절의 변화」 — 영상 (23분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-sci-6-2-1-v1.html): 해가 높고 낮음에 따라 계절이 바뀌는 까닭을 실험으로 알아봐요. 자막이 있어요.
 - [6학년 2학기 1단원 「계절의 변화」 — 쉬운 영상 (2분 30초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-sci-6-2-1-easy-v1.html): 해가 높으면 여름, 낮으면 겨울. 짧고 천천히.
 - [6학년 2학기 2단원 「물질의 연소」 — 영상 (25분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-sci-6-2-2-v1.html): 불이 타려면 무엇이 필요하고, 타고 나면 무엇이 생기는지 실험으로 알아봐요. 자막이 있어요.
