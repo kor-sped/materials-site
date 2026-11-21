@@ -152,7 +152,8 @@
     "4수01-05",
     "4수01-08"
    ],
-   "유튜브": "https://youtu.be/f1k-rYIlbDs"
+   "유튜브": "https://youtu.be/f1k-rYIlbDs",
+   "교육과정": "일반"
   },
   {
    "세부 범주": "연산",
@@ -171,7 +172,8 @@
    "성취기준": [
     "2수01-05"
    ],
-   "유튜브": "https://youtu.be/omyyA_bhfFA"
+   "유튜브": "https://youtu.be/omyyA_bhfFA",
+   "교육과정": "일반"
   },
   {
    "세부 범주": "연산",
@@ -187,7 +189,11 @@
    "파일 URL": "https://github.com/kor-sped/materials-site/releases/download/videos-v2/topic-add-zero-v1-720p.mp4",
    "쉬운 설명": "10개면 0을 붙여요! 머리로 곱셈까지 풀어요. 9분 영상, 자막이 있어요.",
    "학습지": "10개면-0-붙이기-학습",
-   "유튜브": "https://youtu.be/bplKpPcGoR0"
+   "유튜브": "https://youtu.be/bplKpPcGoR0",
+   "교육과정": "일반",
+   "성취기준": [
+    "4수01-04"
+   ]
   },
   {
    "세부 범주": "연산",
@@ -203,7 +209,11 @@
    "파일 URL": "https://github.com/kor-sped/materials-site/releases/download/videos-v2/topic-add-zero-easy-v1-720p.mp4",
    "쉬운 설명": "10개면 한 칸 가요! 짧고 천천히.",
    "학습지": "10개면-0-붙이기-학습",
-   "유튜브": "https://youtu.be/VzZN_Rg25cg"
+   "유튜브": "https://youtu.be/VzZN_Rg25cg",
+   "교육과정": "일반",
+   "성취기준": [
+    "4수01-04"
+   ]
   }
  ]
 }
