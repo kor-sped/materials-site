@@ -600,6 +600,8 @@
 
 ## 과학
 
+- [6학년 1학기 4단원 「지구의 운동」 — 영상 (16분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-sci-6-1-4-v1.html): 해와 별이 동쪽에서 서쪽으로 움직여 보이는 까닭, 낮과 밤, 계절마다 다른 별자리를 지구의 움직임으로 알아봐요. 자막이 있어요.
+- [6학년 1학기 4단원 「지구의 운동」 — 쉬운 영상 (1분 41초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-sci-6-1-4-easy-v1.html): 지구는 하루에 한 바퀴 돌아요. 그래서 해는 동쪽에서 떠서 서쪽으로 져요.
 - [6학년 1학기 3단원 「식물의 구조와 기능」 — 영상 (24분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-sci-6-1-3-v1.html): 세포를 보고, 뿌리 · 줄기 · 잎 · 꽃이 하는 일을 실험으로 알아봐요. 물과 양분이 가는 길도 따라가요. 자막이 있어요.
 - [6학년 1학기 3단원 「식물의 구조와 기능」 — 쉬운 영상 (1분 44초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-sci-6-1-3-easy-v1.html): 뿌리는 물을 마시고, 줄기는 물을 올려요. 잎은 양분을, 꽃은 씨를 만들어요.
 - [6학년 1학기 2단원 「물체의 운동」 — 영상 (24분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-sci-6-1-2-v1.html): 위치가 바뀌는 운동을 나타내고, 빠르기를 견주고, 속력을 구해 봐요. 속력과 교통안전도 알아봐요. 자막이 있어요.
