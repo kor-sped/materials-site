@@ -60,7 +60,7 @@ svg{width:min(70vw,460px);height:auto}
 </div>
 <div class="band" id="band"></div>
 </div>
-<div class="rec"><div class="row"><b id="tally" style="font-size:26px">별을 모아요 ⭐</b><span id="msg" style="font-size:24px;font-weight:800;color:var(--accent)"></span></div>
+<div class="rec"><div class="row"><b id="tally" style="font-size:26px">별을 모아요</b><span id="msg" style="font-size:24px;font-weight:800;color:var(--accent)"></span></div>
 <div id="stars" style="font-size:30px;letter-spacing:2px;margin-top:4px;min-height:40px"></div></div>
 <div class="foot">⓪ 긴바늘만: 짧은 바늘을 숨기고 5분 단위로 "몇 분"만 묻습니다(긴바늘 5분 화면판 다음 단계). ⑤ 55~59분: 짧은 바늘이 다음 숫자에 거의 닿은 시각만 — 정답 보기에서 "아직 안 넘은" 숫자를 파랗게, 다음 숫자를 연하게 표시합니다. 시 12개는 12번에 한 번씩, 분은 단계별로 한 바퀴 다 나온 뒤 다시 섞여요. 0분 정답은 흐리게(읽지 않아요). 스페이스 = 정답/새 시계. 점수는 저장하지 않아요 — 아이를 바꾸거나 새로 열면 0부터.</div>
 </div>
@@ -120,11 +120,11 @@ judge.querySelectorAll('button').forEach(b=>b.onclick=()=>{
 });
 function renderTally(){
   const who=kid?kid+' ':'';
-  $('tally').textContent = score.n? `${who}맞은 것 ${score.ok} / ${score.n}` : `${who}별을 모아요 ⭐`;
-  $('stars').textContent = '⭐'.repeat(Math.min(score.ok,20)) + (score.ok>20?` +${score.ok-20}`:'');
+  $('tally').textContent = score.n? `${who}맞은 것 ${score.ok} / ${score.n}` : `${who}별을 모아요`;
+  $('stars').textContent = '★'.repeat(Math.min(score.ok,20)) + (score.ok>20?` +${score.ok-20}`:'');
   let m='';
   if(score.last.length>=3){const r=score.last.filter(x=>x).length/score.last.length;
-    m = r>=0.8?'잘하고 있어요! 🎉' : r>=0.5?'좋아요, 조금만 더!' : '조금 더 연습하세요 💪';}
+    m = r>=0.8?'잘하고 있어요!' : r>=0.5?'좋아요, 조금만 더!' : '조금 더 연습하세요';}
   $('msg').textContent=m;
 }
 document.querySelectorAll('.modes button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.modes button').forEach(x=>x.classList.remove('on'));b.classList.add('on');mode=+b.dataset.m;minDeck=[];pick();});

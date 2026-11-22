@@ -89,8 +89,8 @@
 <canvas id="c"></canvas>
 
 <div id="topbar" class="panel">
-  <button id="tabRev" class="on" title="지구가 태양 둘레를 도는 것">🌍 공전</button>
-  <button id="tabSpin" class="on" title="지구가 제자리에서 도는 것">🔄 자전</button>
+  <button id="tabRev" class="on" title="지구가 태양 둘레를 도는 것">공전</button>
+  <button id="tabSpin" class="on" title="지구가 제자리에서 도는 것">자전</button>
   <button id="btnPlay" class="play">⏸ 멈추기</button>
   <label>빠르기 <select id="speed"><option value="0.5" selected>느리게</option><option value="1">보통</option><option value="2">빠르게</option></select></label>
   <label>날짜 <input type="range" id="dateSl" min="0" max="364" value="171"> <b id="dateLbl" style="min-width:5em"></b></label>
@@ -99,9 +99,9 @@
     <button data-n="79">춘분</button><button data-n="171">하지</button><button data-n="265">추분</button><button data-n="355">동지</button>
   </span>
   <span style="flex:1"></span>
-  <button id="btnNow" title="실제 지금 날짜·시각으로 맞춰요">🕒 지금<span class="lg"> 시각</span></button>
-  <button id="btnSchool">🔍 <span class="lg">우리 </span>학교<span class="lg"> 찾기</span></button>
-  <button id="btnCam" class="on">📷 카메라</button>
+  <button id="btnNow" title="실제 지금 날짜·시각으로 맞춰요">지금<span class="lg"> 시각</span></button>
+  <button id="btnSchool"><span class="lg">우리 </span>학교<span class="lg"> 찾기</span></button>
+  <button id="btnCam" class="on">카메라</button>
   <button id="btnSet">⚙ 설정</button>
   <button id="btnHelp">? 도움말</button>
   <button id="btnFull">⛶ 전체 화면</button>
@@ -110,7 +110,7 @@
 <div id="left" class="panel show">
   <h4>카메라 — 어디서 볼까?</h4>
   <button id="btnReset">↺ 처음 보기</button>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px" title="마우스로 끌 때"><button data-drag="rotate" class="on" style="padding:6px 4px">🔄 돌리기</button><button data-drag="pan" style="padding:6px 4px">✋ 옮기기</button></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px" title="마우스로 끌 때"><button data-drag="rotate" class="on" style="padding:6px 4px">돌리기</button><button data-drag="pan" style="padding:6px 4px">옮기기</button></div>
   <button data-cam="top">⬆ 위에서 (북극 쪽)</button>
   <button data-cam="bottom">⬇ 아래에서 (남극 쪽)</button>
   <button data-cam="front">▶ 앞에서</button>
@@ -118,8 +118,8 @@
   <button data-cam="left">◀ 왼쪽에서</button>
   <button data-cam="right">▶ 오른쪽에서</button>
   <button data-cam="tilt" class="on">↗ 비스듬히</button>
-  <button data-cam="near">🌍 지구 가까이</button>
-  <button data-cam="fp">🧍 내가 선 곳에서</button>
+  <button data-cam="near">지구 가까이</button>
+  <button data-cam="fp">내가 선 곳에서</button>
   <h4 style="margin-top:6px">가운데에 둘 것</h4>
   <div style="display:flex;gap:4px"><button data-target="sun" class="on" style="flex:1">태양</button><button data-target="earth" style="flex:1">지구</button></div>
   <div class="tiny">끌기: 돌리기/옮기기 선택(오른쪽 단추나 Shift로 끌면 언제나 옮기기). 휠(트랙패드 두 손가락)로 가까이·멀리, 두 손가락으로 끌면 옮기기. 이상해지면 [↺ 처음 보기] 또는 두 번 클릭.</div>
@@ -129,16 +129,16 @@
   <h4>보기 설정</h4>
   <label>내가 선 곳 <select id="place"><option id="placeSchool" value="37.5|126.7|우리 학교" hidden>우리 학교</option><option value="37.5|126.7|인천·서울" selected>인천·서울 37.5°</option><option value="33.5|126.5|제주">제주 33.5°</option><option value="55.8|37.6|모스크바">모스크바 55.8°</option><option value="1.3|103.8|싱가포르">싱가포르 1.3°</option><option value="-33.9|151.2|시드니">시드니 −33.9°</option></select></label>
   <label style="margin-top:6px"><input type="checkbox" id="exag"> 거리 차이 크게 보이기<br><span class="tiny">(실제 차이는 3%뿐이라 눈에 안 보여요)</span></label>
-  <label style="margin-top:6px"><input type="checkbox" id="realEarth" checked> 🌏 실사 지구·달 (NASA 사진)</label>
+  <label style="margin-top:6px"><input type="checkbox" id="realEarth" checked> 실사 지구·달 (NASA 사진)</label>
   <label style="margin-top:6px"><input type="checkbox" id="showAxis" checked> 자전축·적도 보이기</label>
   <label style="margin-top:6px"><input type="checkbox" id="showLabels" checked> 이름표 보이기</label>
   <label style="margin-top:6px"><input type="checkbox" id="showInset" checked> 작은 지도(내 눈 위치) 보이기</label>
   <label style="margin-top:6px"><input type="checkbox" id="showPlanets" checked> 달과 다른 행성 보이기</label>
-  <h4 style="margin-top:10px">🏫 우리 학교 정하기</h4>
+  <h4 style="margin-top:10px">우리 학교 정하기</h4>
   <input id="schoolName" placeholder="학교 이름" style="width:100%;font:inherit;font-size:14px;padding:4px 6px;border-radius:6px;border:1px solid #6c7fb0;background:#0f1a2e;color:#fff">
-  <button id="schoolGeo" style="width:100%;margin-top:4px">📍 지금 내 위치를 학교로</button>
-  <div style="display:flex;gap:4px;margin-top:4px"><input id="schoolQuery" placeholder="이름으로 찾기(인터넷)" style="flex:1;min-width:0;font:inherit;font-size:13px;padding:4px 6px;border-radius:6px;border:1px solid #6c7fb0;background:#0f1a2e;color:#fff"><button id="schoolSearch">🔎</button></div>
-  <button id="schoolPick" style="width:100%;margin-top:4px">🗺 지도에서 눌러 정하기</button>
+  <button id="schoolGeo" style="width:100%;margin-top:4px">지금 내 위치를 학교로</button>
+  <div style="display:flex;gap:4px;margin-top:4px"><input id="schoolQuery" placeholder="이름으로 찾기(인터넷)" style="flex:1;min-width:0;font:inherit;font-size:13px;padding:4px 6px;border-radius:6px;border:1px solid #6c7fb0;background:#0f1a2e;color:#fff"><button id="schoolSearch">찾기</button></div>
+  <button id="schoolPick" style="width:100%;margin-top:4px">지도에서 눌러 정하기</button>
   <div class="tiny" id="schoolInfo" style="margin-top:4px"></div>
   <div class="tiny" style="margin-top:8px">크기와 거리는 실제 비율이 아니에요. 태양은 지구보다 109배 크고, 훨씬 멀리 있어요.</div>
 </div>
@@ -146,11 +146,11 @@
 <div id="help" class="panel">
   <h3>이렇게 보세요</h3>
   <ul>
-    <li><b>🌍 공전</b> 단추를 켜면 지구가 태양 둘레를 돌아요(날짜가 흘러요). <b>🔄 자전</b> 단추를 켜면 지구가 제자리에서 돌아요(시각이 흘러요). 둘 다 켜거나, 하나만 켜거나, 둘 다 끄고 슬라이더로 맞출 수 있어요.</li>
+    <li><b>공전</b> 단추를 켜면 지구가 태양 둘레를 돌아요(날짜가 흘러요). <b>자전</b> 단추를 켜면 지구가 제자리에서 돌아요(시각이 흘러요). 둘 다 켜거나, 하나만 켜거나, 둘 다 끄고 슬라이더로 맞출 수 있어요.</li>
     <li>자전을 끄고 시각을 12시 30분에 두면 매일 <b>남중 순간</b>만 보여요. 빨간 사람이 선 곳에서 햇빛이 들어오는 각도(주황 화살표와 초록 땅 사이)가 <b>남중고도</b>예요. 자전을 켜면 사람이 태양 쪽으로 돌아올 때 해가 뜨고, 똑바로 마주 볼 때 '남중!', 돌아 나가면 해가 져요.</li>
     <li><b>위에서</b> 보면 공전 길과 거리가 잘 보이고, <b>옆에서</b> 보면 자전축 기울기가 잘 보여요. <b>내가 선 곳에서</b>를 누르면 그 자리에서 하늘을 올려다봐요.</li>
-    <li><b>🏫 우리 학교 정하기</b>(⚙ 설정): 학교 이름을 쓰고, 학교에서 📍 지금 내 위치를 누르거나, 이름으로 찾거나, 지도에서 눌러 정해요. 한 번 정하면 이 기기에 저장돼요. 정한 학교의 위도로 남중고도를 계산해요.</li>
-    <li><b>🔍 우리 학교 찾기</b>: 지구에서 출발해 한반도 → 대한민국 → 서울과 인천 → 인천 → 우리 학교까지 확대해 들어가요. 지구본과 지도는 실제 해안선 자료(Natural Earth)로 그렸어요.</li>
+    <li><b>우리 학교 정하기</b>(⚙ 설정): 학교 이름을 쓰고, 학교에서 지금 내 위치를 누르거나, 이름으로 찾거나, 지도에서 눌러 정해요. 한 번 정하면 이 기기에 저장돼요. 정한 학교의 위도로 남중고도를 계산해요.</li>
+    <li><b>우리 학교 찾기</b>: 지구에서 출발해 한반도 → 대한민국 → 서울과 인천 → 인천 → 우리 학교까지 확대해 들어가요. 지구본과 지도는 실제 해안선 자료(Natural Earth)로 그렸어요.</li>
     <li><b>달</b>은 지구 둘레를 한 달에 한 바퀴 돌아요(크기·거리는 과장). <b>수성·금성·화성·목성·토성</b>도 실제 속도 비율로 돌아요(가까운 별부터 빠르게). 일 년 모드의 자전은 실제(365바퀴)보다 훨씬 느리게 보여 줘요.</li>
     <li>지구와 달의 사진은 NASA 것(퍼블릭 도메인)이에요. 밤 쪽에는 도시의 불빛이 보여요. 설정에서 격자 있는 지도 지구로 바꿀 수 있어요.</li>
     <li>흰 막대는 자전축. 어느 쪽에서 봐도 1년 내내 <b>같은 쪽으로 기울어져</b> 있어요. 노란 점선은 태양과 지구를 잇는 선, 그 위 숫자가 거리예요.</li>
@@ -160,11 +160,11 @@
 <div id="map" hidden>
   <canvas id="mapc"></canvas>
   <div id="mapTitle"></div><div id="mapSub"></div>
-  <div id="mapSchoolCtl" hidden><label>시각 <input type="range" id="schoolTime" min="5" max="20" step="0.1" value="12.5"></label> <b id="schoolTimeLbl"></b> <button data-sn="171">하지</button><button data-sn="79">춘분·추분</button><button data-sn="355">동지</button> <button id="schoolPlay" class="on">⏸ 하루 멈추기</button> <button id="schoolNow">🕒 지금 시각</button></div>
-  <div id="mapCtl"><button id="mapPrev">◀ 이전</button><button id="mapPlay">⏸ 멈추기</button><button id="mapNext">다음 ▶</button><button id="mapClose">🌍 지구로 돌아가기</button></div>
+  <div id="mapSchoolCtl" hidden><label>시각 <input type="range" id="schoolTime" min="5" max="20" step="0.1" value="12.5"></label> <b id="schoolTimeLbl"></b> <button data-sn="171">하지</button><button data-sn="79">춘분·추분</button><button data-sn="355">동지</button> <button id="schoolPlay" class="on">⏸ 하루 멈추기</button> <button id="schoolNow">지금 시각</button></div>
+  <div id="mapCtl"><button id="mapPrev">◀ 이전</button><button id="mapPlay">⏸ 멈추기</button><button id="mapNext">다음 ▶</button><button id="mapClose">지구로 돌아가기</button></div>
   <div id="mapSrc">지도 자료: Natural Earth · 지구·달 사진: NASA (퍼블릭 도메인)</div>
 </div>
-<div id="inset"><span class="t">📷 내 눈이 있는 곳</span></div>
+<div id="inset"><span class="t">내 눈이 있는 곳</span></div>
 <div id="story"></div>
 
 <div id="bottom" class="panel">
@@ -388,7 +388,7 @@ const TEX={"day": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/4QBMRXhpZg
     {t:'③ 우리 시·도', s:'우리 학교가 있는 시·도', c:null, span:1.2, kind:'prov'},
     {t:'④ 학교 근처', s:'우리 학교 둘레', c:null, span:0.4},
     {t:'⑤ 우리 학교', s:'여기가 우리 학교!', c:null, span:0.045},
-    {t:'⑥ 우리 학교 교실', s:'창문으로 햇빛이 얼마나 들어올까? [🕒 지금 시각]을 누르고 진짜 창문의 해와 비교해 봐요', c:null, span:0.045, kind:'school'},
+    {t:'⑥ 우리 학교 교실', s:'창문으로 햇빛이 얼마나 들어올까? [지금 시각]을 누르고 진짜 창문의 해와 비교해 봐요', c:null, span:0.045, kind:'school'},
   ];
   let schoolT=12.5, schoolLive=false, schoolPlay=true;
   function syncSchoolPlay(){ $('schoolPlay').textContent=schoolPlay?'⏸ 하루 멈추기':'▶ 하루 돌리기'; $('schoolPlay').classList.toggle('on',schoolPlay); }
@@ -415,7 +415,7 @@ const TEX={"day": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/4QBMRXhpZg
   function openMap(stage){ mapOpen=true; mapStage=stage||0; schoolT=6; $('schoolTime').value=schoolT; schoolPlay=!schoolLive; syncSchoolPlay(); mapPlaying=true; mapHold=0; findProv(); const c=stageCenter(mapStage); mapView={cx:c[0],cy:c[1],span:stage?stageSpan(stage):40}; $('map').hidden=false; resizeMap(); void $('map').offsetWidth; $('map').classList.add('show'); setMapTitle(); }
   function closeMap(){ mapOpen=false; pickMode=false; $('map').classList.remove('show'); setTimeout(()=>{ $('map').hidden=true; },650); setTarget('sun'); setCam('tilt'); }
   function setMapTitle(){ const st=MAPSTAGES[mapStage]; let t=st.t, sub=st.s; if(st.kind==='prov'){ t=schoolProv?`③ ${schoolProv.n}`:'③ 우리 학교 근처 넓게'; sub=schoolProv?`${schoolProv.n}에 ${S.school.name}가 있어요`:'학교가 있는 곳을 넓게 봐요'; }
-    if(!S.school.set&&mapStage>=4) sub='아직 학교를 정하지 않았어요 — ⚙ 설정에서 우리 학교를 정해요'; if(pickMode){ t='🗺 지도를 눌러 학교 자리를 찍어요'; sub='휠·두 손가락으로 확대하고, 끌어서 옮긴 뒤 학교 자리를 한 번 눌러요'; }
+    if(!S.school.set&&mapStage>=4) sub='아직 학교를 정하지 않았어요 — ⚙ 설정에서 우리 학교를 정해요'; if(pickMode){ t='지도를 눌러 학교 자리를 찍어요'; sub='휠·두 손가락으로 확대하고, 끌어서 옮긴 뒤 학교 자리를 한 번 눌러요'; }
     $('mapTitle').textContent=t.replace('우리 학교',S.school.name); $('mapSub').textContent=sub.replace('우리 학교',S.school.name); $('mapPlay').textContent=mapPlaying?'⏸ 멈추기':'▶ 계속'; $('mapSchoolCtl').hidden=st.kind!=='school'; $('mapNext').hidden=mapStage>=MAPSTAGES.length-1; }
   function gotoStage(i){ mapStage=Math.max(0,Math.min(MAPSTAGES.length-1,i)); mapHold=0; setMapTitle(); }
   function resizeMap(){ const c=$('mapc'); const pr=Math.min(devicePixelRatio,2); c.width=Math.round(innerWidth*pr); c.height=Math.round(innerHeight*pr); }
@@ -475,7 +475,7 @@ const TEX={"day": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/4QBMRXhpZg
       ctx.fillStyle='#1a1a2e'; ctx.font=`${10*pr}px sans-serif`; ctx.textAlign='center'; ctx.fillText('학교(창은 남쪽)',cx,cy+R*0.05);
       if(day){ const ang=rad(az); const sx=cx+R*0.95*Math.sin(ang), sy=cy-R*0.95*Math.cos(ang); ctx.strokeStyle='#ffd55a'; ctx.lineWidth=3*pr; ctx.beginPath(); ctx.moveTo(cx,cy); ctx.lineTo(sx,sy); ctx.stroke(); ctx.fillStyle='#ffd55a'; ctx.beginPath(); ctx.arc(sx,sy,7*pr,0,Math.PI*2); ctx.fill(); }
       ctx.fillStyle='#ffe9b0'; ctx.font=`bold ${14*pr}px sans-serif`; ctx.textAlign='center'; ctx.fillText(day?`해의 방향: ${dirName(az)}쪽 (${Math.round(az)}°)`:'해가 없어요', cx, cy+R*1.35+20*pr); }
-    if(schoolLive){ ctx.fillStyle='#ffd55a'; ctx.font=`bold ${16*pr}px sans-serif`; ctx.textAlign='center'; ctx.fillText('🕒 지금 이 시각이에요. 진짜 창문으로 해가 어디 있는지 봐요!',W/2,H*0.30); }
+    if(schoolLive){ ctx.fillStyle='#ffd55a'; ctx.font=`bold ${16*pr}px sans-serif`; ctx.textAlign='center'; ctx.fillText('지금 이 시각이에요. 진짜 창문으로 해가 어디 있는지 봐요!',W/2,H*0.30); }
   }
   function drawMap(){
     const c=$('mapc'), ctx=c.getContext('2d'), W=c.width, H=c.height, pr=Math.min(devicePixelRatio,2);
@@ -506,12 +506,12 @@ const TEX={"day": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/4QBMRXhpZg
     const o=$('placeSchool'); o.hidden=false; o.value=`${lat}|${lon}|${S.school.name}`; o.textContent=`${S.school.name} ${lat.toFixed(1)}°`; $('place').value=o.value; S.phi=lat; S.lon=lon; S.place=S.school.name; placeObserver();
     if(save){ try{ localStorage.setItem('namjung-school',JSON.stringify({lon,lat,name:S.school.name})); }catch(e){} } schoolInfo(); if(mapOpen) setMapTitle(); }
   $('schoolName').onchange=e=>{ const n=e.target.value.trim()||'우리 학교'; S.school.name=n; if(S.school.set) applySchool(S.school.lon,S.school.lat,n); else schoolInfo(); };
-  $('schoolGeo').onclick=()=>{ if(!navigator.geolocation){ alert('이 기기에서는 위치를 알 수 없어요.'); return; } $('schoolGeo').textContent='📍 위치 찾는 중…';
-    navigator.geolocation.getCurrentPosition(pos=>{ applySchool(pos.coords.longitude,pos.coords.latitude,$('schoolName').value.trim()||'우리 학교'); $('schoolGeo').textContent='📍 지금 내 위치를 학교로 ✔'; },
-      err=>{ $('schoolGeo').textContent='📍 지금 내 위치를 학교로'; alert('위치를 못 받았어요. 위치 사용을 허용했는지 확인하거나, 지도에서 눌러 정해요.'); },{enableHighAccuracy:true,timeout:15000}); };
+  $('schoolGeo').onclick=()=>{ if(!navigator.geolocation){ alert('이 기기에서는 위치를 알 수 없어요.'); return; } $('schoolGeo').textContent='위치 찾는 중…';
+    navigator.geolocation.getCurrentPosition(pos=>{ applySchool(pos.coords.longitude,pos.coords.latitude,$('schoolName').value.trim()||'우리 학교'); $('schoolGeo').textContent='지금 내 위치를 학교로 ✔'; },
+      err=>{ $('schoolGeo').textContent='지금 내 위치를 학교로'; alert('위치를 못 받았어요. 위치 사용을 허용했는지 확인하거나, 지도에서 눌러 정해요.'); },{enableHighAccuracy:true,timeout:15000}); };
   $('schoolSearch').onclick=async()=>{ const q=$('schoolQuery').value.trim(); if(!q) return; $('schoolSearch').textContent='…';
-    try{ const r=await fetch('https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=kr&q='+encodeURIComponent(q)); const d=await r.json(); if(d&&d[0]){ applySchool(+d[0].lon,+d[0].lat,$('schoolName').value.trim()||q); $('schoolSearch').textContent='✔'; } else { alert('못 찾았어요. 이름을 조금 바꿔 보거나 지도에서 눌러 정해요.'); $('schoolSearch').textContent='🔎'; } }
-    catch(e){ alert('인터넷에 연결되지 않았거나 이 화면에서는 찾기를 쓸 수 없어요. 📍 내 위치 또는 지도에서 눌러 정해요.'); $('schoolSearch').textContent='🔎'; } };
+    try{ const r=await fetch('https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=kr&q='+encodeURIComponent(q)); const d=await r.json(); if(d&&d[0]){ applySchool(+d[0].lon,+d[0].lat,$('schoolName').value.trim()||q); $('schoolSearch').textContent='✔'; } else { alert('못 찾았어요. 이름을 조금 바꿔 보거나 지도에서 눌러 정해요.'); $('schoolSearch').textContent='찾기'; } }
+    catch(e){ alert('인터넷에 연결되지 않았거나 이 화면에서는 찾기를 쓸 수 없어요. 내 위치 또는 지도에서 눌러 정해요.'); $('schoolSearch').textContent='찾기'; } };
   $('schoolPick').onclick=()=>{ pickMode=true; ['left','right','help'].forEach(k=>$(k).classList.remove('show')); if(!mapOpen){ openMap(1); } mapPlaying=false; mapStage=1; mapView={cx:127.8,cy:36.2,span:5.2}; setMapTitle(); };
   const mc=$('mapc');
   function mapToLonLat(px,py){ const c=$('mapc'); const pr=Math.min(devicePixelRatio,2); const W=c.width,H=c.height; const k=H/mapView.span, cosc=Math.cos(rad(mapView.cy)); return [mapView.cx+(px*pr-W/2)/(k*cosc), mapView.cy-(py*pr-H/2)/k]; }
@@ -626,7 +626,7 @@ const TEX={"day": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/4QBMRXhpZg
     let s;
     { let seas=dl>15?'여름 쪽: 북쪽 반이 태양 쪽으로 기울어 햇빛을 똑바로 받아요 → 남중고도가 높아요' : dl<-15?'겨울 쪽: 북쪽 반이 태양 반대쪽으로 기울어 햇빛을 비스듬히 받아요 → 남중고도가 낮아요' : '봄·가을: 기울기가 옆을 향해요 → 남중고도가 중간이에요'; if(S.phi<0) seas=seas.replace('북쪽 반','남쪽 반(시드니)').replace('높아요','낮아요(남반구는 반대!)');
       const dayS= !day?'밤이에요. 내 자리가 태양 반대쪽을 보고 있어요.' : isNoon?`남중! 내 자리가 태양을 똑바로 마주 봐요. 지금 각도 = 오늘의 남중고도 ${f1(alt)}°` : eastness>0?'오전: 지구가 돌아 내 자리가 태양 쪽으로 다가가요 → 해가 올라가요':'오후: 내 자리가 태양에서 멀어져요 → 해가 내려가요';
-      s = S.spin ? (S.rev ? dayS+'  ·  '+seas.split(':')[0] : dayS) : seas; if(S.live) s='🕒 지금 이 시각(진짜 속도라 거의 안 움직여요. 🌍 공전·🔄 자전을 누르면 다시 돌아요) — '+dayS; }
+      s = S.spin ? (S.rev ? dayS+'  ·  '+seas.split(':')[0] : dayS) : seas; if(S.live) s='지금 이 시각(진짜 속도라 거의 안 움직여요. 공전·자전을 누르면 다시 돌아요) — '+dayS; }
     $('story').textContent=s;
   }
 

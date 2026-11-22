@@ -78,7 +78,7 @@
   <div class="grp"><input type="text" id="typed" inputmode="numeric" pattern="[0-9]*" maxlength="5" placeholder="직접 입력"><button id="setBtn">보기</button></div>
   <div class="grp"><label>크기</label><span class="seg" id="sizeSeg"><button data-v="1">1</button><button data-v="2">2</button><button data-v="3">3</button><button data-v="4">4</button><button data-v="5">5</button></span><input type="hidden" id="sizeR" value="3"></div>
   <div class="grp"><label>간격</label><button id="gapMinus" title="숫자를 붙여요">◀ 좁게</button><span class="val" id="gapV">0</span><button id="gapPlus" title="숫자를 벌려요">넓게 ▶</button><input type="hidden" id="gapR" value="0"><button id="lookReset" title="크기 3, 간격 0으로">↺</button></div>
-  <div class="grp"><button id="zeroBtn" title="0이 든 숫자를 자주 내요">0 섞기</button><button id="soundBtn" class="on">🔊 소리</button><button id="detailBtn" title="한글 읽기와 더하기 식을 아래에 보여 줘요">읽기·식 보기</button><button id="resetBtn">처음부터</button></div>
+  <div class="grp"><button id="zeroBtn" title="0이 든 숫자를 자주 내요">0 섞기</button><button id="soundBtn" class="on">소리</button><button id="detailBtn" title="한글 읽기와 더하기 식을 아래에 보여 줘요">읽기·식 보기</button><button id="resetBtn">처음부터</button></div>
 </header>
 
 <main>
@@ -214,7 +214,7 @@
   $("typed").addEventListener("keydown", function(e){ if (e.key==="Enter") $("setBtn").click(); });
   $("zeroBtn").addEventListener("click", function(){ state.zeroMode = !state.zeroMode; this.classList.toggle("on", state.zeroMode); newNumber(); });
   $("detailBtn").addEventListener("click", function(){ document.body.classList.toggle("detail"); this.classList.toggle("on", document.body.classList.contains("detail")); });
-  $("soundBtn").addEventListener("click", function(){ state.sound = !state.sound; this.classList.toggle("on", state.sound); this.textContent = state.sound ? "🔊 소리" : "🔇 소리 없음"; });
+  $("soundBtn").addEventListener("click", function(){ state.sound = !state.sound; this.classList.toggle("on", state.sound); this.textContent = state.sound ? "소리" : "소리 없음"; });
   $("resetBtn").addEventListener("click", function(){ setNumber(state.digits.slice()); });
   document.addEventListener("keydown", function(e){
     if (e.target.tagName === "INPUT") return;
