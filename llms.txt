@@ -735,6 +735,8 @@
 
 ## 통합교과
 
+- [2학년 1학기 「자연」 — 단원 전체 영상 (13분 10초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-2-1-nature-v1.html): 느껴요, 알아봐요, 함께 살아요 — 세 길로 우리 둘레의 자연을 만나요. 자막이 있어요.
+- [2학년 1학기 「자연」 — 쉬운 영상 (1분 30초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-2-1-nature-easy-v1.html): 꽃을 만나면 느껴요, 알아봐요, 함께 살아요. 꽃은 꺾지 않고 눈으로 봐요.
 - [2학년 1학기 「나」 — 단원 전체 영상 (15분 5초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-2-1-me-v1.html): 내 몸, 내 마음, 내 습관, 좋아하는 것, 꿈 — 다섯 열쇠로 나를 찾아봐요. 자막이 있어요.
 - [2학년 1학기 「나」 — 쉬운 영상 (1분 38초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-2-1-me-easy-v1.html): 좋아하는 것, 잘하는 것, 하고 싶은 것. 세 마디로 나를 소개해요.
 - [1학년 1학기 「학교」 — 단원 전체 영상 (7분 47초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-1-1-school-v1.html): 학교에 어떤 곳이 있는지, 학교에서 지킬 약속, 친구와 즐겁게 노는 법을 알아요. 8분 영상, 자막이 있어요.
