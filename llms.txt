@@ -735,6 +735,8 @@
 
 ## 통합교과
 
+- [2학년 1학기 「세계」 — 단원 전체 영상 (15분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-2-1-world-v1.html): 알아봐요, 즐겨요, 존중해요 — 세 길로 세계를 만나요. 다른 것은 틀린 것이 아니에요. 자막이 있어요.
+- [2학년 1학기 「세계」 — 쉬운 영상 (1분 35초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-2-1-world-easy-v1.html): 나라마다 인사말이 달라요. 친구 나라 말로 인사해요.
 - [2학년 1학기 「마을」 — 단원 전체 영상 (13분 42초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-2-1-village-v1.html): 살펴봐요, 함께해요, 즐겨요 — 세 길로 우리 마을을 만나요. 자막이 있어요.
 - [2학년 1학기 「마을」 — 쉬운 영상 (1분 35초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-2-1-village-easy-v1.html): 도서관에서 살펴봐요, 함께해요, 즐겨요. 도서관에서는 조용히 말해요.
 - [2학년 1학기 「자연」 — 단원 전체 영상 (13분 10초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-2-1-nature-v1.html): 느껴요, 알아봐요, 함께 살아요 — 세 길로 우리 둘레의 자연을 만나요. 자막이 있어요.
