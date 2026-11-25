@@ -64,6 +64,8 @@ body.still *, body.still *::before, body.still *::after { transition:none !impor
   video { width:100%; max-height:70vh; background:#000; border-radius:12px; display:block; }
   .yt { position:relative; width:100%; aspect-ratio:16/9; background:#000; border-radius:12px; overflow:hidden; }
   .yt iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+  .chaps { display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin:10px 0 0; }
+  .chaps b { margin-right:4px; }
   .yt.tall, video.tall { aspect-ratio:9/16; width:min(100%, 360px); max-height:none; margin:0 auto; }
   h1 { font-size:1.4em; margin:18px 0 6px; }
   .tags { color:var(--muted); font-size:.92em; margin:0 0 12px; }
@@ -104,6 +106,7 @@ body.still *, body.still *::before, body.still *::after { transition:none !impor
 <main class="wrap" id="main">
   <nav class="crumb" aria-label="지금 있는 곳"><a href="../">나눔터</a> › <a href="../국어.html">국어</a> › <span aria-current="page">언제 · 왜 · 하라는 말 — 문제를 읽고 답을 찾는 네 걸음 영상 (12분)</span></nav>
   <div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/mSSBAJkLCEo?rel=0&cc_lang_pref=ko" title="언제 · 왜 · 하라는 말 — 문제를 읽고 답을 찾는 네 걸음 영상 (12분)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe></div><details class="alt"><summary>유튜브가 안 열릴 때 보기</summary><video controls preload="metadata" poster="topic-qa-sped-kor-2-v1.jpg" src="https://github.com/kor-sped/materials-site/releases/download/videos-v2/topic-qa-sped-kor-2-v1-720p.mp4">브라우저가 영상을 재생하지 못하면 아래 다운로드를 눌러 주세요.</video></details>
+  
   <h1>언제 · 왜 · 하라는 말 — 문제를 읽고 답을 찾는 네 걸음 영상 (12분)</h1>
   <p class="tags">질문 이해하여 답 찾기 · 특수학급 아이들, 문제를 읽어도 무엇을 해야 할지 모르는 아이·소리 내어 읽기만 하는 아이 (글은 모두 읽어 줌) · 11분 38초 · 720p · 18.8MB · 자막 있음</p>
   <p class="easy"><b>쉬운 설명</b> — 언제는 때, 왜는 까닭! 문제의 하라는 말(동그라미 · 선 잇기 · 쓰기)도 찾아요. 12분 영상, 자막이 있어요.</p>

@@ -64,6 +64,8 @@ body.still *, body.still *::before, body.still *::after { transition:none !impor
   video { width:100%; max-height:70vh; background:#000; border-radius:12px; display:block; }
   .yt { position:relative; width:100%; aspect-ratio:16/9; background:#000; border-radius:12px; overflow:hidden; }
   .yt iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+  .chaps { display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin:10px 0 0; }
+  .chaps b { margin-right:4px; }
   .yt.tall, video.tall { aspect-ratio:9/16; width:min(100%, 360px); max-height:none; margin:0 auto; }
   h1 { font-size:1.4em; margin:18px 0 6px; }
   .tags { color:var(--muted); font-size:.92em; margin:0 0 12px; }
@@ -104,6 +106,7 @@ body.still *, body.still *::before, body.still *::after { transition:none !impor
 <main class="wrap" id="main">
   <nav class="crumb" aria-label="지금 있는 곳"><a href="../">나눔터</a> › <a href="../수학.html">수학</a> › <span aria-current="page">얼마예요? 몇 시예요? — 표지 · 가격표 · 일과표에서 답 찾기 (12분)</span></nav>
   <div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/J4oByBCgG90?rel=0&cc_lang_pref=ko" title="얼마예요? 몇 시예요? — 표지 · 가격표 · 일과표에서 답 찾기 (12분)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe></div><details class="alt"><summary>유튜브가 안 열릴 때 보기</summary><video controls preload="metadata" poster="topic-qa-sped-life-1-v1.jpg" src="https://github.com/kor-sped/materials-site/releases/download/videos-v2/topic-qa-sped-life-1-v1-720p.mp4">브라우저가 영상을 재생하지 못하면 아래 다운로드를 눌러 주세요.</video></details>
+  
   <h1>얼마예요? 몇 시예요? — 표지 · 가격표 · 일과표에서 답 찾기 (12분)</h1>
   <p class="tags">주제별 — 수학(문장제) · 특수학급 아이들, 표에서 옆 줄을 읽거나 단위를 빼먹는 아이·묻는 말과 다른 종류로 답하는 아이 (글은 모두 읽어 줌) · 12분 14초 · 720p · 19.4MB · 자막 있음</p>
   <p class="easy"><b>쉬운 설명</b> — 열쇠 낱말을 찾고 그 줄을 따라가면 답이 있어요! 얼마는 원, 몇 시는 시. 12분 영상, 자막이 있어요.</p>

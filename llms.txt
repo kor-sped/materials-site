@@ -647,6 +647,7 @@
 - [수 감각 27 — 가까운 몇십·몇백 영상 (3분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-sense-27-v2.html): 점을 찍어요 · 가운데를 찾아요 · 가까운 쪽 골라요. 약 3분, 자막이 있어요.
 - [수 감각 28 — 수의 범위 영상 (3분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-sense-28-v1.html): 이상·이하는 들어가요 · 초과·미만은 빠져요 · ● 들어감, ○ 빠짐. 약 3분, 자막이 있어요.
 - [수 감각 29 — 올림·버림·반올림 영상 (3분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-sense-29-v1.html): 어느 자리까지 밑줄 · 바로 아래 자리 · 5부터 올려요. 약 3분, 자막이 있어요.
+- [뺄셈 영상 — 받아내림 없는 뺄셈 · 받아내림 있는 뺄셈 8문제를 십 막대 그림으로 (9분 25초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-subtract-blocks-v1.html): 십 막대 그림으로 뺄셈 8문제를 같이 풀어요. 다 보면 블록으로 직접 해 봐요. 약 9분, 자막이 있어요.
 - [뺄셈 조작 연습 — 받아내림 없는 뺄셈 · 받아내림 있는 뺄셈(10에서 빼기)](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EC%A1%B0%EC%9E%91-%EC%88%98%ED%95%99/%EC%A1%B0%EC%9E%91-%EB%BA%84%EC%85%88-v2.html): 블록을 눌러 직접 빼 봐요. 받아내림은 막대 하나를 낱개 10개로 바꿔서 해요.
 
 ## 영어
