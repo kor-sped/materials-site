@@ -15,6 +15,7 @@
 - [영어 과목 쪽](https://kor-sped.github.io/materials-site/%EC%98%81%EC%96%B4.html): 특수교육·초등 영어 자료를 교과서 단원 · 기술(성취기준) · 생활로 찾기
 - [생활·행동 쪽](https://kor-sped.github.io/materials-site/%EC%83%9D%ED%99%9C.html): 감정 조절·안전·사회성·장애이해·IEP·행동 기록 자료를 「이럴 때」(쓰임)로 찾기
 - [쇼츠 쪽](https://kor-sped.github.io/materials-site/%EC%87%BC%EC%B8%A0.html): 1~2분 세로 영상(마음 낱말·낱말에서 문단까지 등)을 묶음별로 보기
+- [조작 연습 쪽](https://kor-sped.github.io/materials-site/%EC%A1%B0%EC%9E%91.html): 아이가 태블릿·크롬북 브라우저에서 직접 누르고 옮기며 하는 연습(과목별)
 
 ## 쇼츠
 
@@ -607,6 +608,7 @@
 - [수 감각 27 — 가까운 몇십·몇백 영상 (3분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-sense-27-v2.html): 점을 찍어요 · 가운데를 찾아요 · 가까운 쪽 골라요. 약 3분, 자막이 있어요.
 - [수 감각 28 — 수의 범위 영상 (3분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-sense-28-v1.html): 이상·이하는 들어가요 · 초과·미만은 빠져요 · ● 들어감, ○ 빠짐. 약 3분, 자막이 있어요.
 - [수 감각 29 — 올림·버림·반올림 영상 (3분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-sense-29-v1.html): 어느 자리까지 밑줄 · 바로 아래 자리 · 5부터 올려요. 약 3분, 자막이 있어요.
+- [뺄셈 조작 연습 — 받아내림 없는 뺄셈 · 받아내림 있는 뺄셈(10에서 빼기)](https://kor-sped.github.io/materials-site/%EC%9E%90%EB%A3%8C/%EC%A1%B0%EC%9E%91-%EC%88%98%ED%95%99/%EC%A1%B0%EC%9E%91-%EB%BA%84%EC%85%88-v1.html): 블록을 눌러 직접 빼 봐요. 받아내림은 막대 하나를 낱개 10개로 바꿔서 해요.
 
 ## 영어
 
