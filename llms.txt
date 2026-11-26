@@ -756,6 +756,8 @@
 
 ## 통합교과
 
+- [2학년 2학기 「기억」 — 단원 전체 영상 (16분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-2-2-memory-v1.html): 떠올려요, 돌아봐요, 내다봐요 — 세 길로 이 학년의 기억을 만나고 삼 학년을 준비해요. 자막이 있어요.
+- [2학년 2학기 「기억」 — 쉬운 영상 (1분 31초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-2-2-memory-easy-v1.html): 운동회 사진 한 장으로 기억을 떠올리고, 아쉬운 일을 돌아보고, 삼 학년을 내다봐요.
 - [2학년 2학기 「물건」 — 단원 전체 영상 (16분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-2-2-thing-v1.html): 바꿔 봐요, 모두를 도와요, 만들어 놀아요 — 세 길로 우리 곁의 물건을 만나요. 자막이 있어요.
 - [2학년 2학기 「물건」 — 쉬운 영상 (1분 31초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-2-2-thing-easy-v1.html): 연필에 지우개를 더하면 잃어버리지 않아요. 누구나 편한 물건을 생각하고, 종이컵 피리를 만들어요.
 - [2학년 2학기 「인물」 — 단원 전체 영상 (15분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-2-2-person-v1.html): 본받아요, 살펴봐요, 새롭게 해요 — 세 길로 옛날과 지금과 앞으로의 인물을 만나요. 자막이 있어요.
