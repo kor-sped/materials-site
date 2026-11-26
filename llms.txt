@@ -618,6 +618,27 @@
 - [덧셈과 뺄셈 32 — 더할까 뺄까 영상 (4분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-addsub-32-v1.html): 묻는 것에 밑줄 · 낱말로 기호 정해요 · 식과 답 둘 다. 약 4분, 자막이 있어요.
 - [덧셈과 뺄셈 33 — □로 놓는 문장제 영상 (5분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-addsub-33-v1.html): 모르는 수는 □ · 이야기 차례대로 식 · 식 가족으로 풀어요. 약 5분, 자막이 있어요.
 - [덧셈과 뺄셈 34 — 두 단계 문장제 영상 (4분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-addsub-34-v1.html): 일이 두 번 있어요 · 하나씩 차례로 · 중간 답을 적어요. 약 4분, 자막이 있어요.
+- [도형 1 — 위치 말 영상 (4분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-geo-1-v1.html): 위 ↔ 아래 · 안 ↔ 밖 · 왼쪽 ↔ 오른쪽. 약 4분, 자막이 있어요.
+- [도형 2 — 입체 모양 찾기 영상 (4분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-geo-2-v1.html): 상자: 평평, 잘 쌓여요 · 둥근기둥: 눕히면 굴러요 · 공: 어디로나 굴러요. 약 4분, 자막이 있어요.
+- [도형 3 — 평면 모양 찾기 영상 (4분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-geo-3-v1.html): 세모: 뾰족 3 · 네모: 뾰족 4 · 동그라미: 뾰족 0. 약 4분, 자막이 있어요.
+- [도형 4 — 모양으로 꾸미기 영상 (4분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-geo-4-v1.html): 센 것에 ✓ · 붙이면 새 모양 · 자르면 작은 모양. 약 4분, 자막이 있어요.
+- [도형 5 — 변과 꼭짓점 영상 (4분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-geo-5-v1.html): 변: 곧은 선 · 꼭짓점: 변이 만나는 점 · 센 점에 ●. 약 4분, 자막이 있어요.
+- [도형 6 — 도형 이름 알고 그리기 영상 (4분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-geo-6-v1.html): 삼각형 3, 사각형 4 · 오각형 5, 육각형 6 · 원: 변 없음. 약 4분, 자막이 있어요.
+- [도형 7 — 쌓기나무 쌓기 영상 (4분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-geo-7-v1.html): 아래층부터 세요 · 가려진 것도 세요 · 층 ≠ 개수. 약 4분, 자막이 있어요.
+- [도형 8 — 선분·직선·반직선 영상 (4분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-geo-8-v1.html): 선분: 끝 2개 · 반직선: 끝 1개 · 직선: 끝 0개. 약 4분, 자막이 있어요.
+- [도형 9 — 직각과 사각형 영상 (4분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-geo-9-v1.html): 직각: 직각 자에 꼭 맞음 · 직사각형: 네 각 직각 · 정사각형: 네 변도 같음. 약 4분, 자막이 있어요.
+- [도형 10 — 원 영상 (4분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-geo-10-v1.html): 중심: 가운데 점 · 반지름: 모두 같아요 · 지름 = 반지름 × 2. 약 4분, 자막이 있어요.
+- [도형 11 — 각도 재기 영상 (4분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-geo-11-v1.html): 중심은 꼭짓점에 · 0은 한 변에 · 90°와 견줘요. 약 4분, 자막이 있어요.
+- [도형 12 — 각의 합 영상 (5분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-geo-12-v1.html): 삼각형: 180° · 사각형: 360° · 아는 각 더하고 빼요. 약 5분, 자막이 있어요.
+- [도형 13 — 밀기·뒤집기·돌리기 영상 (4분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-geo-13-v1.html): 밀기: 그대로 · 뒤집기: 거울처럼 · 돌리기: 빙글. 약 4분, 자막이 있어요.
+- [도형 14 — 삼각형 나누기 영상 (3분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-geo-14-v1.html): 이등변: 두 변 같음 · 정: 세 변 같음 · 가장 큰 각을 봐요. 약 3분, 자막이 있어요.
+- [도형 15 — 수직·평행과 사각형 영상 (4분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-geo-15-v1.html): 수직: 직각으로 만남 · 평행: 안 만남 · 쌍은 둘씩 세요. 약 4분, 자막이 있어요.
+- [도형 16 — 다각형 영상 (5분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-geo-16-v1.html): 다각형: 곧은 선으로 닫힘 · 정다각형: 변·각 같음 · 대각선: 이웃 아닌 점. 약 5분, 자막이 있어요.
+- [도형 17 — 합동과 대칭 영상 (4분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-geo-17-v1.html): 합동: 포개서 겹침 · 대칭: 접어서 겹침 · 크기도 같아야 해요. 약 4분, 자막이 있어요.
+- [도형 18 — 직육면체와 전개도 영상 (4분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-geo-18-v1.html): 면 6 · 모서리 12 · 꼭짓점 8. 약 4분, 자막이 있어요.
+- [도형 19 — 각기둥·각뿔 영상 (4분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-geo-19-v1.html): 기둥: 밑면 2 · 뿔: 밑면 1 · 이름은 밑면 모양. 약 4분, 자막이 있어요.
+- [도형 20 — 원기둥·원뿔·구 영상 (4분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-geo-20-v1.html): 원기둥: 밑면 2 · 원뿔: 밑면 1, 꼭짓점 · 구: 어디서나 원. 약 4분, 자막이 있어요.
+- [도형 21 — 쌓기나무 개수 영상 (4분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-geo-21-v1.html): 층마다 세요 · 칸에 높이 숫자 · 가려진 것도 세요. 약 4분, 자막이 있어요.
 - [수 감각 1 — 구체물 세기 영상 (5분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-sense-1-v1.html): 하나에 수 하나 · 센 것은 옆으로 · 말한 수에서 멈춰요. 약 5분, 자막이 있어요.
 - [수 감각 2 — 마지막 수가 전체 영상 (4분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-sense-2-v1.html): 마지막 수가 모두 · 다시 안 세요 · 흩어도 같은 수. 약 4분, 자막이 있어요.
 - [수 감각 3 — 순간 보기 영상 (4분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-sense-3-v1.html): 세지 말고 봐요 · 윗줄 꽉 = 5 · 빈칸을 봐요. 약 4분, 자막이 있어요.
