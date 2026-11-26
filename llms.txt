@@ -735,6 +735,8 @@
 
 ## 통합교과
 
+- [2학년 2학기 「인물」 — 단원 전체 영상 (15분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-2-2-person-v1.html): 본받아요, 살펴봐요, 새롭게 해요 — 세 길로 옛날과 지금과 앞으로의 인물을 만나요. 자막이 있어요.
+- [2학년 2학기 「인물」 — 쉬운 영상 (1분 35초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-2-2-person-easy-v1.html): 세종대왕은 한글을 만들었어요. 옛날과 지금의 시계를 보고, 내 이름을 꾸며요.
 - [2학년 2학기 「계절」 — 단원 전체 영상 (14분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-2-2-season-v1.html): 알아봐요, 느껴요, 준비해요 — 세 길로 돌고 도는 사계절을 만나요. 자막이 있어요.
 - [2학년 2학기 「계절」 — 쉬운 영상 (1분 31초)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-2-2-season-easy-v1.html): 가을은 선선해요. 바스락 소리를 느끼고, 겨울을 준비해요.
 - [2학년 1학기 「세계」 — 단원 전체 영상 (15분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/gen-int-2-1-world-v1.html): 알아봐요, 즐겨요, 존중해요 — 세 길로 세계를 만나요. 다른 것은 틀린 것이 아니에요. 자막이 있어요.
