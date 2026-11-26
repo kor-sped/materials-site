@@ -144,7 +144,7 @@ const DATA = {"A": {"name": "에이", "upper": [{"n": 1, "d": "M110 0 L10 260", 
 // ==획계산 시작==
 // 설계 docs/ai/알파벳-설계-초안.md 5.3. 브라우저와 node(시험표) 모두에서 쓴다.
 // 데이터 단위: y=0 맨 윗선 · 130 가운데선 · 260 기준선 · 340 아래선. S = 130.
-const G = { S: 130, R: 45, FAR: 90, CP_GAP: 30, LINE_GAP: 5, MIN_LEN: 10, DX_MAX: 150 };
+const G = { S: 130, R: 45, FAR: 90, CP_GAP: 30, LINE_GAP: 5, MIN_LEN: 10, DX_MAX: 150, LOOP_W: 2, LOOP_END: 0.08, LOOP_RS: 25 };
 
 // SVG 경로(M L H V C 절대좌표)를 촘촘한 점 목록으로
 function pathPoints(d){
@@ -206,7 +206,9 @@ function prepStroke(s){
   const dot = len < 5;
   // 짧은 획은 시작 · 끝 허용을 줄인다(반만 그어도 맞음이 되지 않게)
   const rS = Math.min(G.R, Math.max(20, len * 0.4)), rE = Math.min(G.R, Math.max(15, len * 0.35));
-  return { n: s.n, color: s.color, d: s.d, poly, len, dot, rS, rE, cps: dot ? [poly[0]] : resample(poly, G.CP_GAP, 3) };
+  const gap = Math.hypot(poly[0][0] - poly[poly.length-1][0], poly[0][1] - poly[poly.length-1][1]);
+  const closed = !dot && len > 150 && gap < 20;
+  return { n: s.n, color: s.color, d: s.d, poly, len, dot, closed, rS, rE, cps: dot ? [poly[0]] : resample(poly, G.CP_GAP, 3) };
 }
 function shift(st, dx){
   return Object.assign({}, st, { poly: st.poly.map(p => [p[0] + dx, p[1]]), cps: st.cps.map(p => [p[0] + dx, p[1]]) });
@@ -222,15 +224,20 @@ function judgeLine(raw, strokes, from){
     return hit ? { ok: 1, fail: false } : { ok: 0, fail: true, reason: '시작' };
   }
   if (polyLen(raw) < G.MIN_LEN) return { ok: 0, fail: false, ignored: true };
-  let si = from, k = 0, ok = 0, started = false, finishAt = -1;
+  let si = from, k = 0, ok = 0, started = false, finishAt = -1, rot = null, rotSi = -1;
   for (let i = 0; i < line.length; i++) {
     const q = line[i];
-    let st = strokes[si];
+    let st = si === rotSi ? rot : strokes[si];
     if (!st) { // 마지막 획을 마친 뒤 남은 선: 마지막 획 가까이면 봐줌
       if (distToPoly(q, strokes[si - 1].poly) > G.FAR) return { ok, fail: false, extra: true };
       continue;
     }
     if (!started) {
+      if (st.closed && G.LOOP_W) { // 닫힌 동그라미: 시작점 앞뒤 확인점 LOOP_W개 안에서 시작해도 됨 → 확인점을 그 자리부터 돌려 세움
+        const n = st.cps.length; let bj = -1, bd = Infinity;
+        for (let j = -G.LOOP_W; j <= G.LOOP_W; j++) { const jj = (j + n - 1) % (n - 1); const dd = Math.hypot(q[0] - st.cps[jj][0], q[1] - st.cps[jj][1]); if (dd < bd) { bd = dd; bj = jj; } }
+        if (bd <= G.LOOP_RS && bj !== 0) { const c = st.cps; rot = Object.assign({}, st, { cps: c.slice(bj).concat(c.slice(1, bj + 1)) }); rotSi = si; st = rot; }
+      }
       if (Math.hypot(q[0] - st.cps[0][0], q[1] - st.cps[0][1]) > st.rS) return { ok, fail: true, reason: '시작' };
       started = true;
     }
@@ -245,7 +252,8 @@ function judgeLine(raw, strokes, from){
         if (!st) break;
         // 이어 쓰기: 다음 획 시작점이 지금 자리 가까이 있거나(M · V · a), 끝낸 획 위에 있으면(n · h · p 기둥 거슬러 오르기) 이어서 본다
         const prev = strokes[si - 1];
-        if (Math.hypot(q[0] - st.cps[0][0], q[1] - st.cps[0][1]) > G.FAR && distToPoly(st.cps[0], prev.poly) > 10) { st = null; }
+        const pe = prev.poly[prev.poly.length - 1];
+        if (Math.hypot(q[0] - st.cps[0][0], q[1] - st.cps[0][1]) > G.FAR && distToPoly(st.cps[0], prev.poly) > 10 && !(prev.closed && Math.hypot(st.cps[0][0] - pe[0], st.cps[0][1] - pe[1]) <= G.FAR)) { st = null; }
       }
     }
     if (!st) {
@@ -254,13 +262,22 @@ function judgeLine(raw, strokes, from){
       return { ok, fail: false };
     }
   }
+  // 닫힌 동그라미는 마지막 확인점 LOOP_END개를 못 채워도 맞음
+  { const st = si === rotSi ? rot : strokes[si]; if (st && st.closed && G.LOOP_END && k >= st.cps.length - 1 - Math.floor(G.LOOP_END * (st.cps.length - 1))) return { ok: ok + 1, fail: false }; }
   // 끝낸 획 뒤 다음 획 앞머리(확인점 2개 = 약 60단위 안)에서 멈춘 것은 하다 만 획으로 치지 않는다
   if (ok > 0 && k <= 2) return { ok, fail: false };
   // 끝낸 획을 끝까지 마저 그은 것뿐이면(남은 선이 모두 끝낸 획 위) 다음 획은 시작하지 않은 것으로 본다
   if (ok > 0 && line.slice(finishAt + 1).every(q => distToPoly(q, strokes[si - 1].poly) <= 15)) return { ok, fail: false };
   return { ok, fail: true, reason: '끝까지' };
 }
-// node 전용: if (typeof module !== 'undefined') module.exports = { G, pathPoints, polyLen, resample, distToPoly, prepStroke, shift, judgeLine };
+// 기억해 쓰기 첫 획의 가로 자리 dx. 닫힌 동그라미는 시작 자리가 여럿이라 첫 점 대신 가로 가운데끼리 맞춤(손을 뗀 뒤 구함)
+function recallDx(line, base){
+  const st = base[0]; let dx;
+  if (st.closed) { const xs = line.map(p => p[0]), ms = st.poly.map(p => p[0]); dx = (Math.min(...xs) + Math.max(...xs)) / 2 - (Math.min(...ms) + Math.max(...ms)) / 2; }
+  else dx = line[0][0] - st.cps[0][0];
+  return Math.max(-G.DX_MAX, Math.min(G.DX_MAX, dx));
+}
+// node 전용: if (typeof module !== 'undefined') module.exports = { recallDx, G, pathPoints, polyLen, resample, distToPoly, prepStroke, shift, judgeLine };
 
 
 const $ = id => document.getElementById(id);
@@ -510,11 +527,6 @@ pad.addEventListener('pointerdown', e => {
   try { pad.setPointerCapture(e.pointerId); } catch (err) {}
   S.pointer = { id: e.pointerId, type: e.pointerType };
   const p = toData(e);
-  // 기억해 쓰기: 첫 획을 쓸 때 아이가 쓴 가로 자리에 글자를 옮겨 둔다
-  if (S.view === 'recall' && S.cur === 0) {
-    const dx = Math.max(-G.DX_MAX, Math.min(G.DX_MAX, p[0] - S.base[0].cps[0][0]));
-    S.dx = dx; S.strokes = S.base.map(s => Object.assign(shift(s, dx), { i: s.i }));
-  }
   S.line = [p];
   S.lineEl = el('path', { class: 'kid', d: `M${p[0]} ${p[1]} L${p[0] + .1} ${p[1]}` }, $('kidg'));
 });
@@ -536,13 +548,18 @@ function endLine(silent){
 function finishLine(){
   const line = S.line, lineEl = S.lineEl;
   S.pointer = null; S.lineEl = null; S.line = [];
+  // 기억해 쓰기: 첫 획을 다 긋고 떼면 아이가 쓴 가로 자리에 글자를 옮겨 둔다(설계 5.3의 6번 · 5.3.1, 동그라미는 가로 가운데끼리)
+  if (S.view === 'recall' && S.cur === 0 && line.length) {
+    const dx = recallDx(line, S.base);
+    S.dx = dx; S.strokes = S.base.map(s => Object.assign(shift(s, dx), { i: s.i }));
+  }
   const r = judgeLine(line, S.strokes, S.cur);
   if (r.ok > 0) {
     if (lineEl) lineEl.remove();
     S.cur += r.ok; S.help = 0; S.wrongs = 0;
     return afterStroke();
   }
-  if (r.ignored) { if (lineEl) lineEl.remove(); return; }
+  if (r.ignored) { if (lineEl) lineEl.remove(); if (S.view === 'recall' && S.cur === 0) { S.strokes = S.base; S.dx = 0; } return; }
   // 틀림: 그 선만 부드럽게 지움
   if (lineEl) { lineEl.classList.add('fade'); setTimeout(() => lineEl.remove(), 450); }
   if (S.view === 'recall' && S.cur === 0) { S.strokes = S.base; S.dx = 0; }
