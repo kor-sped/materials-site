@@ -639,6 +639,10 @@
 - [도형 19 — 각기둥·각뿔 영상 (4분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-geo-19-v1.html): 기둥: 밑면 2 · 뿔: 밑면 1 · 이름은 밑면 모양. 약 4분, 자막이 있어요.
 - [도형 20 — 원기둥·원뿔·구 영상 (4분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-geo-20-v1.html): 원기둥: 밑면 2 · 원뿔: 밑면 1, 꼭짓점 · 구: 어디서나 원. 약 4분, 자막이 있어요.
 - [도형 21 — 쌓기나무 개수 영상 (4분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-geo-21-v1.html): 층마다 세요 · 칸에 높이 숫자 · 가려진 것도 세요. 약 4분, 자막이 있어요.
+- [돈 1 — 동전과 지폐 영상 (4분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-money-1-v1.html): 쓰인 수를 읽어요 · 0의 개수를 봐요 · 지폐가 더 커요. 약 4분, 자막이 있어요.
+- [돈 2 — 같은 동전 세기 영상 (4분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-money-2-v1.html): 동전 값만큼 뛰어요 · 마지막 수가 얼마 · 개수가 아니라 값. 약 4분, 자막이 있어요.
+- [돈 3 — 섞어 세기 영상 (4분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-money-3-v1.html): 큰 돈부터 세요 · 이어서 세요 · 같은 값, 다른 동전. 약 4분, 자막이 있어요.
+- [돈 4 — 물건 사기와 거스름돈 영상 (5분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-money-4-v1.html): 가진 돈 먼저 세요 · 값과 견줘요 · 거스름돈 = 낸 돈 − 값. 약 5분, 자막이 있어요.
 - [수 감각 1 — 구체물 세기 영상 (5분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-sense-1-v1.html): 하나에 수 하나 · 센 것은 옆으로 · 말한 수에서 멈춰요. 약 5분, 자막이 있어요.
 - [수 감각 2 — 마지막 수가 전체 영상 (4분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-sense-2-v1.html): 마지막 수가 모두 · 다시 안 세요 · 흩어도 같은 수. 약 4분, 자막이 있어요.
 - [수 감각 3 — 순간 보기 영상 (4분)](https://kor-sped.github.io/materials-site/%EC%98%81%EC%83%81/math-sense-3-v1.html): 세지 말고 봐요 · 윗줄 꽉 = 5 · 빈칸을 봐요. 약 4분, 자막이 있어요.
